@@ -1,0 +1,6 @@
+framework module Pods_provwallet_swift {
+  umbrella header "Pods-provwallet-swift-umbrella.h"
+
+  export *
+  module * { export * }
+}
