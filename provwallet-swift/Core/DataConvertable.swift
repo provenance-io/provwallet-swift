@@ -19,7 +19,12 @@ protocol DataConvertable {
 extension DataConvertable {
     static func +(lhs: Data, rhs: Self) -> Data {
         var value = rhs
-        let data = Data(buffer: UnsafeBufferPointer(start: &value, count: 1))
+        var data = Data()
+
+        withUnsafePointer(to:&value, { (ptr: UnsafePointer<Self>) -> Void in
+            data = Data( buffer: UnsafeBufferPointer(start: ptr, count: 1))
+        })
+        
         return lhs + data
     }
 
