@@ -1,7 +1,8 @@
-# Provenance Swift HD Wallet 
+# Provenance Swift Wallet 
 
-`provwallet-swift` is a Swift framework to create and utilize HD wallet ([Hierarchical Deterministic Wallets](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)) in apps using
-the [Provenance blockchain](https://github.com/provenance-io/provenance).
+`provwallet-swift` is a Swift framework for building [Provenance blockchain](https://github.com/provenance-io/provenance) Swift clients
+and transaction signing using Provenance Blockchain-compliant  
+([Hierarchical Deterministic Wallets](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki)) keys.
 
 ## Features
 - Provenance compliant HD Wallet
@@ -9,6 +10,7 @@ the [Provenance blockchain](https://github.com/provenance-io/provenance).
 - Mnemonic recovery phrase in [BIP39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki)
 - BIP32 import and export  
 - Sign Provenance transactions
+- gRPC client.
                               
 ## Roadmap
 - Develop CocoaPods dependency 
@@ -25,6 +27,58 @@ Then, in the project directory run:
 $ pod install
 ````
 Next, open `provwallet-swift.xcworkspace` and build as normal.
+
+### Proto Generation
+
+See https://github.com/apple/swift-protobuf
+
+Install via Homebrew:
+```bash
+brew install protobuf
+brew install swift-protobuf
+```
+The `swift-protobuf` formulae does not install the `protoc-gen-grpc-swift`
+plugin, only the `protoc-gen-swift` plugin.  Use CocoaPods to download the
+Swift `protoc-gen-grpc-swift` binary.  The binary is part of the `gRPC-Swift-Plugins`
+pod.
+
+CocoaPods will put the files in `../Pods/gRPC-Swift-Plugins/`.
+
+Copy `../Pods/gRPC-Swift-Plugins/bin/protoc-gen-grpc-swift`
+to `protoc-gen-swiftgrpc` at a location on your PATH.
+
+For example:
+```
+pod install
+mkdir -p ~/proto/bin
+cp ../Pods/gRPC-Swift-Plugins/bin/protoc-gen-grpc-swift ~/proto/bin/protoc-gen-swiftgrpc          
+export PATH=$PATH:~/proto/bin
+```
+
+Generate the protos:
+
+```bash
+cd Proto
+rm -rf ../ProtoGen/*
+mkdir ../ProtoGen
+protoc --swift_opt=FileNaming=PathToUnderscores --swift_out=../ProtoGen \
+  --swiftgrpc_opt=FileNaming=PathToUnderscores \
+  --swiftgrpc_out=Client=true,Server=false:../ProtoGen $(find . -iname "*.proto")  
+```
+    
+## Deploying CocoaPod
+
+The `ProvWallet.podspec` spec defines the CocoaPods pod specification for the
+`ProvWallet` CocoaPod. To build and deploy the `provwallet-swift` to the CocoaPods
+refer to the CocoaPods guide: https://guides.cocoapods.org/making/getting-setup-with-trunk.html
+
+For example (from the root project directory):
+
+```bash
+pod spec lint ProvWallet.podspec
+pod trunk register <your email address> '<your name>' --description='<your computer>'
+pod trunk push ProvWallet.podspec       
+```
 
 ## Usage
                                   
