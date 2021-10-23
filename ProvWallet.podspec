@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "ProvWallet"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "Provenance Wallet and Client Library for Swift"
 
   spec.swift_versions = "5"
@@ -32,8 +32,8 @@ Pod::Spec.new do |spec|
 
   spec.dependency "secp256k1.swift", "~> 0.1.4"
   spec.dependency "CryptoSwift", "~> 1.4.0"
-  spec.dependency "SwiftProtobuf", "~> 1.0"
-  spec.dependency "gRPC-Swift", "~> 1.0.0"
-  spec.dependency "gRPC-Swift-Plugins"
+  spec.dependency "SwiftProtobuf", "~> 1.18.0"
+  spec.dependency "gRPC-Swift", "~> 1.5.0"
+  spec.dependency "gRPC-Swift-Plugins", "~> 1.5.0"
 
 end

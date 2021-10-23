@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftNIO open source project
 //
-// Copyright (c) 2020 Apple Inc. and the SwiftNIO project authors
+// Copyright (c) 2020-2021 Apple Inc. and the SwiftNIO project authors
 // Licensed under Apache License v2.0
 //
 // See LICENSE.txt for license information
@@ -12,14 +12,14 @@
 //
 //===----------------------------------------------------------------------===//
 
-import NIO
+import NIOCore
 
 /// A TLS provider to bootstrap TLS-enabled connections with `NIOClientTCPBootstrap`.
 ///
 /// Example:
 ///
 ///     // TLS setup.
-///     let configuration = TLSConfiguration.forClient()
+///     let configuration = TLSConfiguration.makeClientConfiguration()
 ///     let sslContext = try NIOSSLContext(configuration: configuration)
 ///
 ///     // Creating the "universal bootstrap" with the `NIOSSLClientTLSProvider`.

@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftNIO open source project
 //
-// Copyright (c) 2017-2018 Apple Inc. and the SwiftNIO project authors
+// Copyright (c) 2017-2021 Apple Inc. and the SwiftNIO project authors
 // Licensed under Apache License v2.0
 //
 // See LICENSE.txt for license information
@@ -12,12 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if compiler(>=5.1)
 @_implementationOnly import CNIOBoringSSL
-#else
-import CNIOBoringSSL
-#endif
-import NIO
 
 
 /// A container of a single PKCS#12 bundle.
@@ -37,8 +32,10 @@ import NIO
 /// If you have a PKCS12 bundle, you configure a `TLSConfiguration` like this:
 ///
 ///     let p12Bundle = NIOSSLPKCS12Bundle(file: pathToMyP12)
-///     let config = TLSConfiguration.forServer(certificateChain: p12Bundle.certificateChain,
-///                                             privateKey: p12Bundle.privateKey)
+///     let config = TLSConfiguration.makeServerConfiguration(
+///         certificateChain: p12Bundle.certificateChain,
+///         privateKey: p12Bundle.privateKey
+///     )
 ///
 /// The created `TLSConfiguration` can then be safely used for your endpoint.
 public struct NIOSSLPKCS12Bundle {
@@ -47,7 +44,7 @@ public struct NIOSSLPKCS12Bundle {
 
     private init<Bytes: Collection>(ref: OpaquePointer, passphrase: Bytes?) throws where Bytes.Element == UInt8 {
         var pkey: UnsafeMutablePointer<EVP_PKEY>? = nil
-        var cert: UnsafeMutablePointer<X509>? = nil
+        var cert: OpaquePointer?/*<X509>*/ = nil
         var caCerts: OpaquePointer? = nil
 
         let rc = try passphrase.withSecureCString { passphrase in

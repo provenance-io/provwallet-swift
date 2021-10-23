@@ -60,7 +60,6 @@ Generate the protos:
 ```bash
 cd Proto
 rm -rf ../ProtoGen/*
-mkdir ../ProtoGen
 protoc --swift_opt=FileNaming=PathToUnderscores --swift_out=../ProtoGen \
   --swiftgrpc_opt=FileNaming=PathToUnderscores \
   --swiftgrpc_out=Client=true,Server=false:../ProtoGen $(find . -iname "*.proto")  

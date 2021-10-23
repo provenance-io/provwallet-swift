@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftNIO open source project
 //
-// Copyright (c) 2017-2018 Apple Inc. and the SwiftNIO project authors
+// Copyright (c) 2017-2021 Apple Inc. and the SwiftNIO project authors
 // Licensed under Apache License v2.0
 //
 // See LICENSE.txt for license information
@@ -12,13 +12,16 @@
 //
 //===----------------------------------------------------------------------===//
 
-import NIO
-#if compiler(>=5.1)
+import NIOCore
 @_implementationOnly import CNIOBoringSSL
 @_implementationOnly import CNIOBoringSSLShims
+
+#if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
+import Darwin.C
+#elseif os(Linux) || os(FreeBSD) || os(Android)
+import Glibc
 #else
-import CNIOBoringSSL
-import CNIOBoringSSLShims
+#error("unsupported os")
 #endif
 
 // This is a neat trick. Swift lazily initializes module-globals based on when they're first
@@ -111,8 +114,14 @@ private func alpnCallback(ssl: OpaquePointer?,
 
 /// A wrapper class that encapsulates BoringSSL's `SSL_CTX *` object.
 ///
-/// This class represents configuration for a collection of TLS connections, all of
-/// which are expected to be broadly the same.
+/// This object is thread-safe and can be shared across TLS connections in your application. Even if the connections
+/// are associated with `Channel`s from different `EventLoop`s.
+///
+/// - Note: Creating a `NIOSSLContext` is a very expensive operation because BoringSSL will usually need to load and
+///         parse large number of certificates from the system trust store. Therefore, creating a
+///         `NIOSSLContext` will likely allocate many thousand times and will also _perform blocking disk I/O_.
+///
+/// - Warning: Avoid creating `NIOSSLContext`s on any `EventLoop` because it does _blocking disk I/O_.
 public final class NIOSSLContext {
     private let sslContext: OpaquePointer
     private let callbackManager: CallbackManagerProtocol?
@@ -182,7 +191,8 @@ public final class NIOSSLContext {
             context: context,
             verification: configuration.certificateVerification,
             trustRoots: configuration.trustRoots,
-            additionalTrustRoots: configuration.additionalTrustRoots)
+            additionalTrustRoots: configuration.additionalTrustRoots,
+            sendCANames: configuration.sendCANameList)
         
         // Configure verification algorithms
         if let verifySignatureAlgorithms = configuration.verifySignatureAlgorithms {
@@ -266,6 +276,12 @@ public final class NIOSSLContext {
 
     /// Initialize a context that will create multiple connections, all with the same
     /// configuration.
+    ///
+    /// - Note: Creating a `NIOSSLContext` is a very expensive operation because BoringSSL will usually need to load and
+    ///         parse large number of certificates from the system trust store. Therefore, creating a
+    ///         `NIOSSLContext` will likely allocate many thousand times and will also _perform blocking disk I/O_.
+    ///
+    /// - Warning: Avoid creating `NIOSSLContext`s on any `EventLoop` because it does _blocking disk I/O_.
     public convenience init(configuration: TLSConfiguration) throws {
         try self.init(configuration: configuration, callbackManager: nil)
     }
@@ -273,6 +289,12 @@ public final class NIOSSLContext {
     /// Initialize a context that will create multiple connections, all with the same
     /// configuration, along with a callback that will be called when needed to decrypt any
     /// encrypted private keys.
+    ///
+    /// - Note: Creating a `NIOSSLContext` is a very expensive operation because BoringSSL will usually need to load and
+    ///         parse large number of certificates from the system trust store. Therefore, creating a
+    ///         `NIOSSLContext` will likely allocate many thousand times and will also _perform blocking disk I/O_.
+    ///
+    /// - Warning: Avoid creating `NIOSSLContext`s on any `EventLoop` because it does _blocking disk I/O_.
     ///
     /// - parameters:
     ///     - configuration: The `TLSConfiguration` to use for all the connections with this
@@ -338,14 +360,19 @@ extension NIOSSLContext {
     }
 
     private static func setLeafCertificate(_ cert: NIOSSLCertificate, context: OpaquePointer) throws {
-        let rc = CNIOBoringSSL_SSL_CTX_use_certificate(context, cert.ref)
+        let rc = cert.withUnsafeMutableX509Pointer { ref in
+            CNIOBoringSSL_SSL_CTX_use_certificate(context, ref)
+        }
         guard rc == 1 else {
             throw NIOSSLError.failedToLoadCertificate
         }
     }
     
     private static func addAdditionalChainCertificate(_ cert: NIOSSLCertificate, context: OpaquePointer) throws {
-        guard 1 == CNIOBoringSSL_SSL_CTX_add1_chain_cert(context, cert.ref) else {
+        let rc = cert.withUnsafeMutableX509Pointer { ref in
+            CNIOBoringSSL_SSL_CTX_add1_chain_cert(context, ref)
+        }
+        guard rc == 1 else {
             throw NIOSSLError.failedToLoadCertificate
         }
     }
@@ -379,7 +406,6 @@ extension NIOSSLContext {
         }
     }
     
-
     private static func setAlpnProtocols(_ protocols: [[UInt8]], context: OpaquePointer) throws {
         // This copy should be done infrequently, so we don't worry too much about it.
         let protoBuf = protocols.reduce([UInt8](), +)
@@ -405,7 +431,7 @@ extension NIOSSLContext {
 
 // Configuring certificate verification
 extension NIOSSLContext {
-    private static func configureCertificateValidation(context: OpaquePointer, verification: CertificateVerification, trustRoots: NIOSSLTrustRoots?, additionalTrustRoots: [NIOSSLAdditionalTrustRoots]) throws {
+    private static func configureCertificateValidation(context: OpaquePointer, verification: CertificateVerification, trustRoots: NIOSSLTrustRoots?, additionalTrustRoots: [NIOSSLAdditionalTrustRoots], sendCANames: Bool) throws {
         // If validation is turned on, set the trust roots and turn on cert validation.
         switch verification {
         case .fullVerification, .noHostnameVerification:
@@ -422,9 +448,15 @@ extension NIOSSLContext {
                 case .default:
                     try NIOSSLContext.platformDefaultConfiguration(context: context)
                 case .file(let path):
-                    try NIOSSLContext.loadVerifyLocations(path, context: context)
+                    try NIOSSLContext.loadVerifyLocations(path, context: context, sendCANames: sendCANames)
                 case .certificates(let certs):
-                    try certs.forEach { try NIOSSLContext.addRootCertificate($0, context: context) }
+                    for cert in certs {
+                        try NIOSSLContext.addRootCertificate(cert, context: context)
+                        // Add the CA name from the trust root
+                        if sendCANames {
+                            try NIOSSLContext.addCACertificateNameToList(context: context, certificate: cert)
+                        }
+                    }
                 }
             }
             try configureTrustRoots(trustRoots: trustRoots ?? .default)
@@ -433,8 +465,17 @@ extension NIOSSLContext {
             break
         }
     }
+    
+    private static func addCACertificateNameToList(context: OpaquePointer, certificate: NIOSSLCertificate) throws {
+        // Adds the CA name extracted from cert to the list of CAs sent to the client when requesting a client certificate.
+        try certificate.withUnsafeMutableX509Pointer { ref in
+            guard 1 == CNIOBoringSSL_SSL_CTX_add_client_CA(context, ref) else {
+                throw NIOSSLError.failedToLoadCertificate
+            }
+        }
+    }
 
-    private static func loadVerifyLocations(_ path: String, context: OpaquePointer) throws {
+    private static func loadVerifyLocations(_ path: String, context: OpaquePointer, sendCANames: Bool) throws {
         let isDirectory: Bool
         switch FileSystemObject.pathType(path: path) {
         case .some(.directory):
@@ -454,12 +495,32 @@ extension NIOSSLContext {
         if result == 0 {
             let errorStack = BoringSSLError.buildErrorStack()
             throw BoringSSLError.unknownError(errorStack)
+        } else if sendCANames, !isDirectory {
+            // For single CA file, add the CA name from the trust root.
+            // This could be from a location like /etc/ssl/cert.pem as an example.
+            CNIOBoringSSL_SSL_CTX_set_client_CA_list(context, CNIOBoringSSL_SSL_load_client_CA_file(path))
+        } else if sendCANames, isDirectory {
+            // If the path that is passed in is a directory, scan the directory and gather up the PEM or DER files.
+            let pemFilePaths = DirectoryContents(path: path).filter { $0.suffix(4) == ".pem" || $0.suffix(4) == ".cer" }
+            // Create the PEM files one by one and use `addCACertificateNameToList` to add the CA name to the STACK_OF(X509_NAME).
+            for path in pemFilePaths {
+                let cert: NIOSSLCertificate
+                if path.suffix(4) == ".pem" {
+                    cert = try NIOSSLCertificate(file: path, format: .pem)
+                } else {
+                    cert = try NIOSSLCertificate(file: path, format: .der)
+                }
+                try addCACertificateNameToList(context: context, certificate: cert)
+            }
         }
     }
 
     private static func addRootCertificate(_ cert: NIOSSLCertificate, context: OpaquePointer) throws {
         let store = CNIOBoringSSL_SSL_CTX_get_cert_store(context)!
-        if 0 == CNIOBoringSSL_X509_STORE_add_cert(store, cert.ref) {
+        let rc = cert.withUnsafeMutableX509Pointer { ref in
+            CNIOBoringSSL_X509_STORE_add_cert(store, ref)
+        }
+        if 0 == rc {
             throw NIOSSLError.failedToLoadCertificate
         }
     }
@@ -502,6 +563,100 @@ extension NIOSSLContext {
     }
 }
 
+extension NIOSSLContext {
+    /// Exposes the CA Name list count from BoringSSL's STACK_OF(X509_NAME)
+    func getX509NameListCount() -> Int {
+        guard let caNameList = CNIOBoringSSL_SSL_CTX_get_client_CA_list(self.sslContext) else {
+            return 0
+        }
+        return CNIOBoringSSL_sk_X509_NAME_num(caNameList)
+    }
+}
+
+// For accessing STACK_OF(SSL_CIPHER) from a SSLContext
+extension NIOSSLContext {
+    /// A collection of buffers representing a STACK_OF(SSL_CIPHER)
+    struct NIOTLSCipherBuffers {
+        private let basePointer: OpaquePointer
+
+        fileprivate init(basePointer: OpaquePointer) {
+            self.basePointer = basePointer
+        }
+    }
+
+    /// Invokes a block with a collection of pointers to STACK_OF(SSL_CIPHER).
+    ///
+    /// The pointers are only guaranteed to be valid for the duration of this call.  This method aligns with the RandomAccessCollection protocol
+    /// to access UInt16 pointers at a specific index.  This pointer is used to safely access id values of the cipher to create a new NIOTLSCipher.
+    fileprivate func withStackOfCipherSuiteBuffers<Result>(_ body: (NIOTLSCipherBuffers?) throws -> Result) rethrows -> Result {
+        guard let stackPointer = CNIOBoringSSL_SSL_CTX_get_ciphers(self.sslContext) else {
+            return try body(nil)
+        }
+        return try body(NIOTLSCipherBuffers(basePointer: stackPointer))
+    }
+
+    /// Access cipher suites applied to the context
+    internal var cipherSuites: [NIOTLSCipher] {
+        return self.withStackOfCipherSuiteBuffers { buffers in
+            guard let buffers = buffers else {
+                return []
+            }
+            return Array(buffers)
+        }
+    }
+}
+
+extension NIOSSLContext.NIOTLSCipherBuffers: RandomAccessCollection {
+    
+    struct Index: Hashable, Comparable, Strideable {
+        typealias Stride = Int
+
+        fileprivate var index: Int
+
+        fileprivate init(_ index: Int) {
+            self.index = index
+        }
+
+        static func < (lhs: Index, rhs: Index) -> Bool {
+            return lhs.index < rhs.index
+        }
+
+        func advanced(by n: NIOSSLContext.NIOTLSCipherBuffers.Index.Stride) -> NIOSSLContext.NIOTLSCipherBuffers.Index {
+            var result = self
+            result.index += n
+            return result
+        }
+
+        func distance(to other: NIOSSLContext.NIOTLSCipherBuffers.Index) -> NIOSSLContext.NIOTLSCipherBuffers.Index.Stride {
+            return other.index - self.index
+        }
+    }
+
+    typealias Element = NIOTLSCipher
+
+    var startIndex: Index {
+        return Index(0)
+    }
+
+    var endIndex: Index {
+        return Index(self.count)
+    }
+
+    var count: Int {
+        return CNIOBoringSSL_sk_SSL_CIPHER_num(self.basePointer)
+    }
+    
+    subscript(position: Index) -> NIOTLSCipher {
+        precondition(position < self.endIndex)
+        precondition(position >= self.startIndex)
+        guard let ptr = CNIOBoringSSL_sk_SSL_CIPHER_value(self.basePointer, position.index) else {
+            preconditionFailure("Unable to locate backing pointer.")
+        }
+        let cipherID = CNIOBoringSSL_SSL_CIPHER_get_protocol_id(ptr)
+        return NIOTLSCipher(cipherID)
+    }
+}
+
 extension Optional where Wrapped == String {
     internal func withCString<Result>(_ body: (UnsafePointer<CChar>?) throws -> Result) rethrows -> Result {
         switch self {
@@ -510,5 +665,40 @@ extension Optional where Wrapped == String {
         case .none:
             return try body(nil)
         }
+    }
+}
+
+internal class DirectoryContents: Sequence, IteratorProtocol {
+    
+    typealias Element = String
+    let path: String
+    // Used to account between the differences of DIR being defined on Darwin.
+    // Otherwise an OpaquePointer needs to be used to account for the non-defined type in glibc.
+    #if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
+    let dir: UnsafeMutablePointer<DIR>
+    #else
+    let dir: OpaquePointer
+    #endif
+    
+    init(path: String) {
+        self.path = path
+        self.dir = opendir(path)
+    }
+    
+    func next() -> String? {
+        if let dirent: UnsafeMutablePointer<dirent> = readdir(self.dir) {
+            let name = withUnsafePointer(to: &dirent.pointee.d_name) { (ptr) -> String in
+                // Pointers to homogeneous tuples in Swift are always bound to both the tuple type and the element type,
+                // so the assumption below is safe.
+                let elementPointer = UnsafeRawPointer(ptr).assumingMemoryBound(to: CChar.self)
+                return String(cString: elementPointer)
+            }
+            return self.path + name
+        }
+        return nil
+    }
+    
+    deinit {
+        closedir(dir)
     }
 }

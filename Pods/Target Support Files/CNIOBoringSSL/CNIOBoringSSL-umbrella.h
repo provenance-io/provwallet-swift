@@ -53,6 +53,7 @@
 #import "CNIOBoringSSL_e_os2.h"
 #import "CNIOBoringSSL_hkdf.h"
 #import "CNIOBoringSSL_hmac.h"
+#import "CNIOBoringSSL_hpke.h"
 #import "CNIOBoringSSL_hrss.h"
 #import "CNIOBoringSSL_is_boringssl.h"
 #import "CNIOBoringSSL_lhash.h"

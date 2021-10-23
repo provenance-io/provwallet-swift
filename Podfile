@@ -9,15 +9,18 @@ target 'provwallet-swift' do
 
   # Pods for provwallet-swift
   pod 'secp256k1.swift', '~> 0.1.4'
-  pod 'CryptoSwift', '~> 1.4.0'
-  pod 'SwiftProtobuf', '~> 1.0'
-  pod 'gRPC-Swift', '~> 1.0.0'
-  pod 'gRPC-Swift-Plugins'
+  pod 'CryptoSwift', '~> 1.4.2'
+  pod 'SwiftProtobuf', '~> 1.18.0'
+  pod 'gRPC-Swift', '~> 1.5.0'
+  pod 'gRPC-Swift-Plugins', '~> 1.5.0'
 
   target 'provwallet-swiftTests' do
     # Pods for testing
     pod 'CryptoSwift', '~> 1.4.0'
     pod 'secp256k1.swift', '~> 0.1.4'
+    pod 'SwiftProtobuf', '~> 1.18.0'
+    pod 'gRPC-Swift', '~> 1.5.0'
+    pod 'gRPC-Swift-Plugins', '~> 1.5.0'
   end
 
 end

@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftNIO open source project
 //
-// Copyright (c) 2017-2018 Apple Inc. and the SwiftNIO project authors
+// Copyright (c) 2017-2021 Apple Inc. and the SwiftNIO project authors
 // Licensed under Apache License v2.0
 //
 // See LICENSE.txt for license information
@@ -12,12 +12,16 @@
 //
 //===----------------------------------------------------------------------===//
 
-#if compiler(>=5.1)
 @_implementationOnly import CNIOBoringSSL
+import NIOCore
+
+#if os(macOS) || os(iOS) || os(watchOS) || os(tvOS)
+import Darwin.C
+#elseif os(Linux) || os(FreeBSD) || os(Android)
+import Glibc
 #else
-import CNIOBoringSSL
+#error("unsupported os")
 #endif
-import NIO
 
 /// The result of an attempt to verify an X.509 certificate.
 public enum NIOSSLVerificationResult {

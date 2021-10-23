@@ -102,7 +102,6 @@
 		9F1111D3DED6E94244013132 /* cosmos_slashing_v1beta1_query.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111FB09ED3F60FFE124FA3 /* cosmos_slashing_v1beta1_query.grpc.swift */; };
 		9F1111D62068B1263B9A5F3F /* genesis.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111DD3B26D656080492A68 /* genesis.proto */; };
 		9F1111D8F6E386C98DF9222D /* channel.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111AE75224A34A3A66C461 /* channel.proto */; };
-		9F1111DB19B27B0C0C010BD5 /* google_protobuf_descriptor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111EF2C83FCA2848376AC5 /* google_protobuf_descriptor.pb.swift */; };
 		9F1111F036191F15B4A09B45 /* cosmos_evidence_v1beta1_evidence.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1112B92AC35E1F0E1F314A /* cosmos_evidence_v1beta1_evidence.pb.swift */; };
 		9F1111F5D9180D35AE8C482B /* tx.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111EB02FF1027ABECF0CE9 /* tx.proto */; };
 		9F1111FB2C95ECE848020ECD /* cosmos_crypto_ed25519_keys.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1113CA50884D317C548142 /* cosmos_crypto_ed25519_keys.pb.swift */; };
@@ -268,7 +267,6 @@
 		9F1115B5BFFC5E8AA0052B92 /* types.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111C11D3F891C9C95D6AE9 /* types.proto */; };
 		9F1115C5BF151F36EB355C70 /* cosmwasm_wasm_v1_genesis.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1116A5BDD0DF91EB3F066D /* cosmwasm_wasm_v1_genesis.pb.swift */; };
 		9F1115D2638346F4BACA4012 /* cosmos_base_store_v1beta1_commit_info.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111CD516EAA25B18A6A200 /* cosmos_base_store_v1beta1_commit_info.pb.swift */; };
-		9F1115D3E0C6145F86E4CE42 /* any.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1110EF5E8F53F3EABAD7C6 /* any.proto */; };
 		9F1115D674FD8E9B8FE26A32 /* genesis.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1118C4FCABF353A846D7CF /* genesis.proto */; };
 		9F1115E3EB2F8211EA8EC87F /* proposal.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111BFAF13E972A40E7F76D /* proposal.proto */; };
 		9F1115EB2A957BEFCDF73440 /* types.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1119ECF7505A6388B39194 /* types.proto */; };
@@ -310,7 +308,6 @@
 		9F1116B80740B03A6A6C3427 /* provenance_attribute_v1_tx.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11179457372635CE0047AA /* provenance_attribute_v1_tx.pb.swift */; };
 		9F1116BF5115D7D699D01594 /* provenance_metadata_v1_tx.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11168A70D6480E316A3D88 /* provenance_metadata_v1_tx.pb.swift */; };
 		9F1116C09D3A432E67639CC9 /* cosmos_proto_cosmos.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111F1DCBC38AF51269DE45 /* cosmos_proto_cosmos.pb.swift */; };
-		9F1116C15691A5B7FFFF5D01 /* descriptor.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1112E16EB1CD401CDA8886 /* descriptor.proto */; };
 		9F1116C8361AF2BD4DC28061 /* cosmos_base_reflection_v1beta1_reflection.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111ADF6ECE071C63F873B0 /* cosmos_base_reflection_v1beta1_reflection.pb.swift */; };
 		9F1116D7F47C34AA1FF811E9 /* provenance_marker_v1_query.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1118DADBA6A17B19D71514 /* provenance_marker_v1_query.pb.swift */; };
 		9F1116DB7BFBE4114F99D91C /* ibc_applications_transfer_v1_transfer.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111D2739D11B222B7EF746 /* ibc_applications_transfer_v1_transfer.pb.swift */; };
@@ -338,7 +335,6 @@
 		9F11173465FE2582CE070605 /* cosmos_tx_v1beta1_tx.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1113AF37AE324F2845E895 /* cosmos_tx_v1beta1_tx.pb.swift */; };
 		9F111738DA818788EA7396B8 /* query.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F11127AC70449EEBAA8695F /* query.proto */; };
 		9F111749304A49FF5CE64E5F /* keys.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1116E298EC2A39379017FC /* keys.proto */; };
-		9F11174FAB3247CE0C58204E /* descriptor.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1112E16EB1CD401CDA8886 /* descriptor.proto */; };
 		9F11174FAD7C74C84DF5149D /* ProvenanceWalletError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111AC2FA961733E241379E /* ProvenanceWalletError.swift */; };
 		9F11174FE3082A5D32B23531 /* cosmos_staking_v1beta1_authz.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11125CB9E55F70746B138B /* cosmos_staking_v1beta1_authz.pb.swift */; };
 		9F111751DF9A779408D7D77E /* ibc_core_channel_v1_tx.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1116280A6DE43732D7F959 /* ibc_core_channel_v1_tx.grpc.swift */; };
@@ -409,7 +405,6 @@
 		9F1118F42B44A345C55BEE66 /* cosmos_tx_v1beta1_service.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11144E8E0F42B6A07EB8C1 /* cosmos_tx_v1beta1_service.grpc.swift */; };
 		9F1118FF0BFA131A16E0E27F /* genesis.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1111B8AD16B4179D774FDC /* genesis.proto */; };
 		9F111900BBEBDBEFE84D99CF /* commit_info.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111991CD1712E76DB2064F /* commit_info.proto */; };
-		9F111902B7B743591ED36066 /* ProvenanceBlockchainClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1111C467F562BE24FEE25D /* ProvenanceBlockchainClientTests.swift */; };
 		9F111903F1EDF59D812EEC1B /* query.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111DDAD0DB7FE4EAA5A74E /* query.proto */; };
 		9F111905963CB65256FFE7DF /* query.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F11127AC70449EEBAA8695F /* query.proto */; };
 		9F1119067157E1ABA2DDA3AD /* tx.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F11182C766B57FDC0E8D606 /* tx.proto */; };
@@ -507,7 +502,6 @@
 		9F111B0D91EEBFE73B75B218 /* provenance_attribute_v1_genesis.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111C94B834FFD62D78D056 /* provenance_attribute_v1_genesis.pb.swift */; };
 		9F111B131DF754C8E1128CD9 /* query.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1112490CE54056382B5F35 /* query.proto */; };
 		9F111B1CBF82F58D22B54C05 /* ibc_core_channel_v1_genesis.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1112B74F20EAAA5849BC6C /* ibc_core_channel_v1_genesis.pb.swift */; };
-		9F111B1F500E5ED3E767C198 /* google_protobuf_any.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1116C440D38BCA8ACD9DF3 /* google_protobuf_any.pb.swift */; };
 		9F111B245A8E56FBC4DF0CA2 /* provenance_name_v1_query.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111067FC15789E4EAC5FCA /* provenance_name_v1_query.grpc.swift */; };
 		9F111B25CA582E0014E61CE7 /* ibc_core_client_v1_tx.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111A5258AB906FD539AD35 /* ibc_core_client_v1_tx.pb.swift */; };
 		9F111B26C6844994E5EDAB18 /* provenance_attribute_v1_attribute.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111A1867ED8D4064D65071 /* provenance_attribute_v1_attribute.pb.swift */; };
@@ -601,7 +595,6 @@
 		9F111D3552F66271B39130B7 /* scope.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111ACC4C2C13DFEB1B4C38 /* scope.proto */; };
 		9F111D36E7F6A618E622C79D /* cosmos_staking_v1beta1_genesis.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111CEB1C7D970A0BB07EFB /* cosmos_staking_v1beta1_genesis.pb.swift */; };
 		9F111D3B786DB182A8E52CB0 /* genesis.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1113C9EDBE1C26EECF7276 /* genesis.proto */; };
-		9F111D427F5E1F50A5AA6FAC /* any.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1110EF5E8F53F3EABAD7C6 /* any.proto */; };
 		9F111D457C5E1A9A801D4A21 /* tendermint_libs_bits_types.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1116F0C4F4BF703E36C902 /* tendermint_libs_bits_types.pb.swift */; };
 		9F111D4884F36C9E51D44083 /* cosmos_authz_v1beta1_query.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1110B04988B40D7713C30C /* cosmos_authz_v1beta1_query.pb.swift */; };
 		9F111D495DD571F9B7DEA4C8 /* cosmos_distribution_v1beta1_query.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1113FBA5B92978EBBBCDC9 /* cosmos_distribution_v1beta1_query.pb.swift */; };
@@ -693,7 +686,6 @@
 		9F111F2B0764170A41B51C75 /* genesis.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1112A194D07EAC6D798043 /* genesis.proto */; };
 		9F111F352A8711F99C8A21DF /* block.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1116C73D88771D64E19349 /* block.proto */; };
 		9F111F372EA36F7A4E1D5505 /* cosmos_base_store_v1beta1_snapshot.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11128A2999802A46367737 /* cosmos_base_store_v1beta1_snapshot.pb.swift */; };
-		9F111F40FD9C172437883E23 /* google_protobuf_any.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1116C440D38BCA8ACD9DF3 /* google_protobuf_any.pb.swift */; };
 		9F111F4B0AFF17944DF426EB /* ibc_applications_transfer_v1_transfer.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111D2739D11B222B7EF746 /* ibc_applications_transfer_v1_transfer.pb.swift */; };
 		9F111F51CE4BD5EBA0D7EC0F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9F111CF064CB1E0B385BE55D /* README.md */; };
 		9F111F663D4710AAB28B14B4 /* localhost.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F11130AA6EB63E244AC0141 /* localhost.proto */; };
@@ -707,7 +699,6 @@
 		9F111F88AED8B86AB94C04C9 /* cosmos_bank_v1beta1_tx.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111C660BBDDDFD1D7F1C36 /* cosmos_bank_v1beta1_tx.grpc.swift */; };
 		9F111F8C84CBC38914C59C27 /* tx.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1117751A3D6BE4BE3DB9B4 /* tx.proto */; };
 		9F111F94D846D61E29CCE00C /* ibc_lightclients_solomachine_v1_solomachine.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111786715F007F203891CF /* ibc_lightclients_solomachine_v1_solomachine.pb.swift */; };
-		9F111F94F177185DAC9043E1 /* google_protobuf_descriptor.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111EF2C83FCA2848376AC5 /* google_protobuf_descriptor.pb.swift */; };
 		9F111F97B8E67CA7B196C047 /* distribution.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1118EB73BFD64244F46B0E /* distribution.proto */; };
 		9F111F9A064CD62C8B6287E2 /* ibc_applications_transfer_v1_query.grpc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11170ED2A3F8F01523FCA7 /* ibc_applications_transfer_v1_query.grpc.swift */; };
 		9F111FA2AE740040CBAB3E2F /* cosmos_feegrant_v1beta1_tx.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1116CB449A85ECF5300CCB /* cosmos_feegrant_v1beta1_tx.pb.swift */; };
@@ -773,7 +764,6 @@
 		9F1110C29EB430FEBBB5ED10 /* tx.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = tx.proto; sourceTree = "<group>"; };
 		9F1110CA907E17CB95B0DECE /* genesis.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = genesis.proto; sourceTree = "<group>"; };
 		9F1110EA0ABD15EBF52FAA34 /* cosmwasm_wasm_v1_ibc.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmwasm_wasm_v1_ibc.pb.swift; sourceTree = "<group>"; };
-		9F1110EF5E8F53F3EABAD7C6 /* any.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = any.proto; sourceTree = "<group>"; };
 		9F1110EF7A4297BF35E18693 /* cosmos_evidence_v1beta1_query.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmos_evidence_v1beta1_query.pb.swift; sourceTree = "<group>"; };
 		9F111100B9DCC2A05D8068DD /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
 		9F11110C2AA547ACCFECCF92 /* tendermint_crypto_proof.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tendermint_crypto_proof.pb.swift; sourceTree = "<group>"; };
@@ -823,7 +813,6 @@
 		9F1112D10273CA6DDD18C394 /* staking.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = staking.proto; sourceTree = "<group>"; };
 		9F1112D533139E1F736B1879 /* provenance_metadata_v1_events.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = provenance_metadata_v1_events.pb.swift; sourceTree = "<group>"; };
 		9F1112DE4E33C795E063D4B1 /* cosmos.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = cosmos.proto; sourceTree = "<group>"; };
-		9F1112E16EB1CD401CDA8886 /* descriptor.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = descriptor.proto; sourceTree = "<group>"; };
 		9F1112EEF9ED80C6C92AEF55 /* cosmos_distribution_v1beta1_query.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmos_distribution_v1beta1_query.grpc.swift; sourceTree = "<group>"; };
 		9F1112F166C7FFF9422BFFC7 /* tendermint.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = tendermint.proto; sourceTree = "<group>"; };
 		9F11130953C30D6D48B67178 /* cosmos_feegrant_v1beta1_tx.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmos_feegrant_v1beta1_tx.grpc.swift; sourceTree = "<group>"; };
@@ -911,7 +900,6 @@
 		9F1116A5BDD0DF91EB3F066D /* cosmwasm_wasm_v1_genesis.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmwasm_wasm_v1_genesis.pb.swift; sourceTree = "<group>"; };
 		9F1116BB6F261A1B5AD20EA2 /* query.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = query.proto; sourceTree = "<group>"; };
 		9F1116BDD22F215F29E388C4 /* cosmos_upgrade_v1beta1_query.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmos_upgrade_v1beta1_query.grpc.swift; sourceTree = "<group>"; };
-		9F1116C440D38BCA8ACD9DF3 /* google_protobuf_any.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = google_protobuf_any.pb.swift; sourceTree = "<group>"; };
 		9F1116C73D88771D64E19349 /* block.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = block.proto; sourceTree = "<group>"; };
 		9F1116CB449A85ECF5300CCB /* cosmos_feegrant_v1beta1_tx.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmos_feegrant_v1beta1_tx.pb.swift; sourceTree = "<group>"; };
 		9F1116CEF74AFF7B3C86890B /* provenance_metadata_v0_tx.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = provenance_metadata_v0_tx.pb.swift; sourceTree = "<group>"; };
@@ -1107,7 +1095,6 @@
 		9F111E96CFBDA5D0C9BFDD1F /* cosmwasm_wasm_v1_query.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmwasm_wasm_v1_query.pb.swift; sourceTree = "<group>"; };
 		9F111EB02FF1027ABECF0CE9 /* tx.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = tx.proto; sourceTree = "<group>"; };
 		9F111EDAAB7D35C945F13122 /* query.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = query.proto; sourceTree = "<group>"; };
-		9F111EF2C83FCA2848376AC5 /* google_protobuf_descriptor.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = google_protobuf_descriptor.pb.swift; sourceTree = "<group>"; };
 		9F111EF3F05D1EFC002F501B /* keys.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = keys.proto; sourceTree = "<group>"; };
 		9F111EF823FA8260E67CE817 /* cosmwasm_wasm_v1_types.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmwasm_wasm_v1_types.pb.swift; sourceTree = "<group>"; };
 		9F111F03CBE53D0EBFC664DD /* genesis.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = genesis.proto; sourceTree = "<group>"; };
@@ -1357,7 +1344,6 @@
 				9F111F1DCBC38AF51269DE45 /* cosmos_proto_cosmos.pb.swift */,
 				9F111F2C3AEF591EC5EE63CF /* cosmwasm_wasm_v1_tx.pb.swift */,
 				9F111AAF9936C1B752DDF4F9 /* google_api_httpbody.pb.swift */,
-				9F1116C440D38BCA8ACD9DF3 /* google_protobuf_any.pb.swift */,
 				9F1113AF37AE324F2845E895 /* cosmos_tx_v1beta1_tx.pb.swift */,
 				9F1110EA0ABD15EBF52FAA34 /* cosmwasm_wasm_v1_ibc.pb.swift */,
 				9F1117B117B48E7B1B0D0A50 /* tendermint_p2p_types.pb.swift */,
@@ -1426,7 +1412,6 @@
 				9F111C4E41353331B754024F /* cosmos_gov_v1beta1_genesis.pb.swift */,
 				9F1115012ADE072D00EDEBCD /* cosmos_gov_v1beta1_query.grpc.swift */,
 				9F1113CE8C6ABF78DD116691 /* cosmos_slashing_v1beta1_tx.pb.swift */,
-				9F111EF2C83FCA2848376AC5 /* google_protobuf_descriptor.pb.swift */,
 				9F1116605AEB1CF70D99C517 /* ibc_core_client_v1_genesis.pb.swift */,
 				9F11196FEFAE82EABEC7DF73 /* ibc_core_client_v1_query.grpc.swift */,
 				9F11179457372635CE0047AA /* provenance_attribute_v1_tx.pb.swift */,
@@ -2110,18 +2095,8 @@
 			isa = PBXGroup;
 			children = (
 				9F111DC7FB4086DC7AA1CBAA /* api */,
-				9F111A2F6E4D2131C1C7C1AF /* protobuf */,
 			);
 			path = google;
-			sourceTree = "<group>";
-		};
-		9F111A2F6E4D2131C1C7C1AF /* protobuf */ = {
-			isa = PBXGroup;
-			children = (
-				9F1110EF5E8F53F3EABAD7C6 /* any.proto */,
-				9F1112E16EB1CD401CDA8886 /* descriptor.proto */,
-			);
-			path = protobuf;
 			sourceTree = "<group>";
 		};
 		9F111A3959B841B0C1ED2D60 /* cosmwasm */ = {
@@ -2696,15 +2671,19 @@
 				"${BUILT_PRODUCTS_DIR}/Logging/Logging.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftNIO/NIO.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftNIOConcurrencyHelpers/NIOConcurrencyHelpers.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftNIOCore/NIOCore.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftNIOEmbedded/NIOEmbedded.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftNIOExtras/NIOExtras.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftNIOFoundationCompat/NIOFoundationCompat.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftNIOHPACK/NIOHPACK.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftNIOHTTP1/NIOHTTP1.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftNIOHTTP2/NIOHTTP2.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftNIOPosix/NIOPosix.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftNIOSSL/NIOSSL.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftNIOTLS/NIOTLS.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftNIOTransportServices/NIOTransportServices.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/_NIODataStructures/_NIODataStructures.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Swift/GRPC.framework",
 				"${BUILT_PRODUCTS_DIR}/secp256k1.swift/secp256k1.framework",
 			);
@@ -2722,15 +2701,19 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Logging.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIO.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOConcurrencyHelpers.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOEmbedded.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOExtras.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOFoundationCompat.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOHPACK.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOHTTP1.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOHTTP2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOPosix.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOSSL.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOTLS.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NIOTransportServices.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/_NIODataStructures.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/secp256k1.framework",
 			);
@@ -2959,17 +2942,13 @@
 				9F11150DC2B4393189460DBD /* http.proto in Sources */,
 				9F111937D4B346C5E990361B /* httpbody.proto in Sources */,
 				9F111EFE0516D8B3DC50F56E /* annotations.proto in Sources */,
-				9F111D427F5E1F50A5AA6FAC /* any.proto in Sources */,
-				9F11174FAB3247CE0C58204E /* descriptor.proto in Sources */,
 				9F111D8CB60B3825B6D72F72 /* proofs.proto in Sources */,
-				9F111902B7B743591ED36066 /* ProvenanceBlockchainClientTests.swift in Sources */,
 				9F1119B277554EB51ADF578A /* confio_proofs.pb.swift in Sources */,
 				9F111918C4180DC0E29E517E /* gogoproto_gogo.pb.swift in Sources */,
 				9F111E1193799B84C6C7B7C3 /* google_api_http.pb.swift in Sources */,
 				9F1116C09D3A432E67639CC9 /* cosmos_proto_cosmos.pb.swift in Sources */,
 				9F111714568511BCC2889ED0 /* cosmwasm_wasm_v1_tx.pb.swift in Sources */,
 				9F11152E31DC58A30910262B /* google_api_httpbody.pb.swift in Sources */,
-				9F111B1F500E5ED3E767C198 /* google_protobuf_any.pb.swift in Sources */,
 				9F11173465FE2582CE070605 /* cosmos_tx_v1beta1_tx.pb.swift in Sources */,
 				9F11115DD1693D0066484922 /* cosmwasm_wasm_v1_ibc.pb.swift in Sources */,
 				9F111B9F8D4E37AE113DDA43 /* tendermint_p2p_types.pb.swift in Sources */,
@@ -3038,7 +3017,6 @@
 				9F111CF1DF9ABAA699F3AD5F /* cosmos_gov_v1beta1_genesis.pb.swift in Sources */,
 				9F111FF5F817A8C442B786C1 /* cosmos_gov_v1beta1_query.grpc.swift in Sources */,
 				9F111D98E65569C68EE7E649 /* cosmos_slashing_v1beta1_tx.pb.swift in Sources */,
-				9F1111DB19B27B0C0C010BD5 /* google_protobuf_descriptor.pb.swift in Sources */,
 				9F11156A126E453FC0274F4D /* ibc_core_client_v1_genesis.pb.swift in Sources */,
 				9F111EE0C7E1AB4677C7DAF7 /* ibc_core_client_v1_query.grpc.swift in Sources */,
 				9F11103ACAE91646C237FE37 /* provenance_attribute_v1_tx.pb.swift in Sources */,
@@ -3318,8 +3296,6 @@
 				9F1112BA70B1A843FED38FE4 /* http.proto in Sources */,
 				9F111444C0D987F3931E5841 /* httpbody.proto in Sources */,
 				9F111E0A23F6C78C58D156B1 /* annotations.proto in Sources */,
-				9F1115D3E0C6145F86E4CE42 /* any.proto in Sources */,
-				9F1116C15691A5B7FFFF5D01 /* descriptor.proto in Sources */,
 				9F111A22E9C3F1015460A412 /* proofs.proto in Sources */,
 				9F111EEED65628524FF250D4 /* ProvenanceBlockchainClientTests.swift in Sources */,
 				9F111A1CDC2C0F1A5EC85C74 /* confio_proofs.pb.swift in Sources */,
@@ -3328,7 +3304,6 @@
 				9F111C816544B81D3F92FAC2 /* cosmos_proto_cosmos.pb.swift in Sources */,
 				9F111208401D36AA6B960F95 /* cosmwasm_wasm_v1_tx.pb.swift in Sources */,
 				9F111D654586C2B52CA6BA76 /* google_api_httpbody.pb.swift in Sources */,
-				9F111F40FD9C172437883E23 /* google_protobuf_any.pb.swift in Sources */,
 				9F11137332DB8307F1C614FF /* cosmos_tx_v1beta1_tx.pb.swift in Sources */,
 				9F111A7B815E4E8E1426C913 /* cosmwasm_wasm_v1_ibc.pb.swift in Sources */,
 				9F111FF8E36CBBFBEDE2544F /* tendermint_p2p_types.pb.swift in Sources */,
@@ -3397,7 +3372,6 @@
 				9F111A812B4498A2B7A6D6BB /* cosmos_gov_v1beta1_genesis.pb.swift in Sources */,
 				9F1119F3746935C62FC6285C /* cosmos_gov_v1beta1_query.grpc.swift in Sources */,
 				9F11164C3FA25293E7FC3AFA /* cosmos_slashing_v1beta1_tx.pb.swift in Sources */,
-				9F111F94F177185DAC9043E1 /* google_protobuf_descriptor.pb.swift in Sources */,
 				9F1115AABA9B3CB38B6391ED /* ibc_core_client_v1_genesis.pb.swift in Sources */,
 				9F1112501261D058DA40A81F /* ibc_core_client_v1_query.grpc.swift in Sources */,
 				9F1116B80740B03A6A6C3427 /* provenance_attribute_v1_tx.pb.swift in Sources */,
@@ -3539,6 +3513,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"*.proto",
+					ProvWallet.podspec,
+				);
 				INFOPLIST_FILE = "provwallet-swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -3554,6 +3532,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = D403573D1EAAF53B32A2DECA /* Pods-provwallet-swift-provwallet-swiftTests.debug.xcconfig */;
 			buildSettings = {
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"*.proto",
+					ProvWallet.podspec,
+				);
 				INFOPLIST_FILE = "provwallet-swiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.provenance.provwallet-swiftTests";
@@ -3639,6 +3621,10 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 011781FC95D9313DBEEF18C4 /* Pods-provwallet-swift-provwallet-swiftTests.release.xcconfig */;
 			buildSettings = {
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"*.proto",
+					ProvWallet.podspec,
+				);
 				INFOPLIST_FILE = "provwallet-swiftTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.provenance.provwallet-swiftTests";
@@ -3721,6 +3707,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				EXCLUDED_SOURCE_FILE_NAMES = (
+					"*.proto",
+					ProvWallet.podspec,
+				);
 				INFOPLIST_FILE = "provwallet-swift/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

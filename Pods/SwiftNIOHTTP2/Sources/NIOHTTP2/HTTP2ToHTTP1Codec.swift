@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftNIO open source project
 //
-// Copyright (c) 2017-2018 Apple Inc. and the SwiftNIO project authors
+// Copyright (c) 2017-2021 Apple Inc. and the SwiftNIO project authors
 // Licensed under Apache License v2.0
 //
 // See LICENSE.txt for license information
@@ -12,7 +12,7 @@
 //
 //===----------------------------------------------------------------------===//
 
-import NIO
+import NIOCore
 import NIOHTTP1
 import NIOHPACK
 
@@ -63,10 +63,14 @@ fileprivate struct BaseClientCodec {
                 preconditionFailure("Received DATA frame with non-bytebuffer IOData")
             }
 
-            let first = HTTPClientResponsePart.body(b)
+            var first = HTTPClientResponsePart.body(b)
             var second: HTTPClientResponsePart? = nil
             if content.endStream {
-                second = .end(nil)
+                if b.readableBytes == 0 {
+                    first = .end(nil)
+                } else {
+                    second = .end(nil)
+                }
             }
             return (first: first, second: second)
         case .alternativeService, .rstStream, .priority, .windowUpdate, .settings, .pushPromise, .ping, .goAway, .origin:
@@ -262,10 +266,14 @@ fileprivate struct BaseServerCodec {
             guard case .byteBuffer(let b) = dataContent.data else {
                 preconditionFailure("Received non-byteBuffer IOData from network")
             }
-            let first = HTTPServerRequestPart.body(b)
+            var first = HTTPServerRequestPart.body(b)
             var second: HTTPServerRequestPart? = nil
             if dataContent.endStream {
-                second = .end(nil)
+                if b.readableBytes == 0 {
+                    first = .end(nil)
+                } else {
+                    second = .end(nil)
+                }
             }
             return (first: first, second: second)
         default:

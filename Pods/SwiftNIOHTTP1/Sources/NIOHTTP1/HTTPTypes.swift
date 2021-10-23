@@ -2,7 +2,7 @@
 //
 // This source file is part of the SwiftNIO open source project
 //
-// Copyright (c) 2017-2018 Apple Inc. and the SwiftNIO project authors
+// Copyright (c) 2017-2021 Apple Inc. and the SwiftNIO project authors
 // Licensed under Apache License v2.0
 //
 // See LICENSE.txt for license information
@@ -11,8 +11,7 @@
 // SPDX-License-Identifier: Apache-2.0
 //
 //===----------------------------------------------------------------------===//
-
-import NIO
+import NIOCore
 
 let crlf: StaticString = "\r\n"
 let headerSeparator: StaticString = ": "
@@ -116,7 +115,7 @@ public struct HTTPRequestHead: Equatable {
     public static func ==(lhs: HTTPRequestHead, rhs: HTTPRequestHead) -> Bool {
         return lhs.method == rhs.method && lhs.uri == rhs.uri && lhs.version == rhs.version && lhs.headers == rhs.headers
     }
-    
+
     private mutating func copyStorageIfNotUniquelyReferenced () {
         if !isKnownUniquelyReferenced(&self._storage) {
             self._storage = self._storage.copy()
@@ -221,7 +220,7 @@ public struct HTTPResponseHead: Equatable {
     public static func ==(lhs: HTTPResponseHead, rhs: HTTPResponseHead) -> Bool {
         return lhs.status == rhs.status && lhs.version == rhs.version && lhs.headers == rhs.headers
     }
-    
+
     private mutating func copyStorageIfNotUniquelyReferenced () {
         if !isKnownUniquelyReferenced(&self._storage) {
             self._storage = self._storage.copy()
@@ -311,7 +310,7 @@ public struct HTTPHeaders: CustomStringConvertible, ExpressibleByDictionaryLiter
         // Otherwise we'd only have the one below with a default argument for `allocator`.
         self.init(headers, keepAliveState: .unknown)
     }
-    
+
     /// Construct a `HTTPHeaders` structure.
     ///
     /// - parameters
@@ -512,7 +511,7 @@ extension ByteBuffer {
 
 extension HTTPHeaders: RandomAccessCollection {
     public typealias Element = (name: String, value: String)
-    
+
     public struct Index: Comparable {
         fileprivate let base: Array<(String, String)>.Index
         public static func < (lhs: Index, rhs: Index) -> Bool {
@@ -541,28 +540,35 @@ extension HTTPHeaders: RandomAccessCollection {
     }
 }
 
-extension Character {
+extension UTF8.CodeUnit {
     var isASCIIWhitespace: Bool {
-        return self == " " || self == "\t" || self == "\r" || self == "\n" || self == "\r\n"
+        switch self {
+        case UInt8(ascii: " "),
+             UInt8(ascii: "\t"):
+          return true
+
+        default:
+          return false
+        }
     }
 }
 
 extension String {
     func trimASCIIWhitespace() -> Substring {
-        return self.dropFirst(0).trimWhitespace()
+        return Substring(self).trimWhitespace()
     }
 }
 
-private extension Substring {
-    func trimWhitespace() -> Substring {
-        var me = self
-        while me.first?.isASCIIWhitespace == .some(true) {
-            me = me.dropFirst()
+extension Substring {
+    fileprivate func trimWhitespace() -> Substring {
+        guard let firstNonWhitespace = self.utf8.firstIndex(where: { !$0.isASCIIWhitespace }) else {
+          // The whole substring is ASCII whitespace.
+          return Substring()
         }
-        while me.last?.isASCIIWhitespace == .some(true) {
-            me = me.dropLast()
-        }
-        return me
+
+        // There must be at least one non-ascii whitespace character, so banging here is safe.
+        let lastNonWhitespace = self.utf8.lastIndex(where: { !$0.isASCIIWhitespace })!
+        return Substring(self.utf8[firstNonWhitespace...lastNonWhitespace])
     }
 }
 
@@ -1373,7 +1379,7 @@ extension HTTPMethod: RawRepresentable {
                 return value
         }
     }
-        
+
     public init(rawValue: String) {
         switch rawValue {
             case "GET":

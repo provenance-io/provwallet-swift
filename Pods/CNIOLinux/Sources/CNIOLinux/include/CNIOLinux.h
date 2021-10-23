@@ -24,6 +24,7 @@
 #include <errno.h>
 #include <pthread.h>
 #include <netinet/ip.h>
+#include "liburing_nio.h"
 
 // Some explanation is required here.
 //
@@ -46,6 +47,11 @@ typedef struct {
     struct msghdr msg_hdr;
     unsigned int msg_len;
 } CNIOLinux_mmsghdr;
+
+typedef struct {
+    struct in6_addr ipi6_addr;
+    unsigned int ipi6_ifindex;
+} CNIOLinux_in6_pktinfo;
 
 int CNIOLinux_sendmmsg(int sockfd, CNIOLinux_mmsghdr *msgvec, unsigned int vlen, int flags);
 int CNIOLinux_recvmmsg(int sockfd, CNIOLinux_mmsghdr *msgvec, unsigned int vlen, int flags, struct timespec *timeout);
@@ -71,5 +77,9 @@ const void *CNIOLinux_CMSG_DATA(const struct cmsghdr *);
 void *CNIOLinux_CMSG_DATA_MUTABLE(struct cmsghdr *);
 size_t CNIOLinux_CMSG_LEN(size_t);
 size_t CNIOLinux_CMSG_SPACE(size_t);
+
+// awkward time_T pain
+extern const int CNIOLinux_SO_TIMESTAMP;
+extern const int CNIOLinux_SO_RCVTIMEO;
 #endif
 #endif
