@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-@usableFromInline
 internal protocol StreamLender {
   /// `count` streams are being returned to the given `pool`.
   func returnStreams(_ count: Int, to pool: ConnectionPool)

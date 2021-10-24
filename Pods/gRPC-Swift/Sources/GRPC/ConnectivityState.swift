@@ -144,10 +144,10 @@ public class ConnectivityStateMonitor {
 extension ConnectivityStateMonitor: ConnectionManagerConnectivityDelegate {
   internal func connectionStateDidChange(
     _ connectionManager: ConnectionManager,
-    from oldState: _ConnectivityState,
-    to newState: _ConnectivityState
+    from oldState: ConnectivityState,
+    to newState: ConnectivityState
   ) {
-    self.updateState(to: ConnectivityState(newState), logger: connectionManager.logger)
+    self.updateState(to: newState, logger: connectionManager.logger)
   }
 
   internal func connectionIsQuiescing(_ connectionManager: ConnectionManager) {

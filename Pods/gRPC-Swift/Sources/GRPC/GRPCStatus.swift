@@ -20,68 +20,11 @@ import NIOHTTP2
 
 /// Encapsulates the result of a gRPC call.
 public struct GRPCStatus: Error {
-  /// Storage for message/cause. In the happy case ('ok') there will not be a message or cause
-  /// and this will reference a static storage containing nil values. Making it optional makes the
-  /// setters for message and cause a little messy.
-  private var storage: Storage
+  /// The status message of the RPC.
+  public var message: String?
 
   /// The status code of the RPC.
   public var code: Code
-
-  /// The status message of the RPC.
-  public var message: String? {
-    get {
-      return self.storage.message
-    }
-    set {
-      if isKnownUniquelyReferenced(&self.storage) {
-        self.storage.message = newValue
-      } else {
-        self.storage = .makeStorage(message: newValue, cause: self.storage.cause)
-      }
-    }
-  }
-
-  /// The cause of an error (not 'ok') status. This value is never transmitted over the wire and is
-  /// **not** included in equality checks.
-  public var cause: Error? {
-    get {
-      return self.storage.cause
-    }
-    set {
-      if isKnownUniquelyReferenced(&self.storage) {
-        self.storage.cause = newValue
-      } else {
-        self.storage = .makeStorage(message: self.storage.message, cause: newValue)
-      }
-    }
-  }
-
-  // Backing storage for 'message' and 'cause'.
-  private final class Storage {
-    // On many happy paths there will be no message or cause, so we'll use this shared reference
-    // instead of allocating a new storage each time.
-    //
-    // Alternatively: `GRPCStatus` could hold a storage optionally however doing so made the code
-    // quite unreadable.
-    private static let none = Storage(message: nil, cause: nil)
-
-    private init(message: String?, cause: Error?) {
-      self.message = message
-      self.cause = cause
-    }
-
-    fileprivate var message: Optional<String>
-    fileprivate var cause: Optional<Error>
-
-    fileprivate static func makeStorage(message: String?, cause: Error?) -> Storage {
-      if message == nil, cause == nil {
-        return Storage.none
-      } else {
-        return Storage(message: message, cause: cause)
-      }
-    }
-  }
 
   /// Whether the status is '.ok'.
   public var isOk: Bool {
@@ -89,12 +32,8 @@ public struct GRPCStatus: Error {
   }
 
   public init(code: Code, message: String?) {
-    self.init(code: code, message: message, cause: nil)
-  }
-
-  public init(code: Code, message: String? = nil, cause: Error? = nil) {
     self.code = code
-    self.storage = .makeStorage(message: message, cause: cause)
+    self.message = message
   }
 
   // Frequently used "default" statuses.
@@ -124,12 +63,6 @@ extension GRPCStatus: CustomStringConvertible {
     } else {
       return "\(self.code)"
     }
-  }
-}
-
-extension GRPCStatus {
-  internal var testingOnly_storageObjectIdentifier: ObjectIdentifier {
-    return ObjectIdentifier(self.storage)
   }
 }
 
@@ -324,13 +257,13 @@ extension GRPCStatus: GRPCStatusTransformable {
 
 extension NIOHTTP2Errors.StreamClosed: GRPCStatusTransformable {
   public func makeGRPCStatus() -> GRPCStatus {
-    return .init(code: .unavailable, message: self.localizedDescription, cause: self)
+    return .init(code: .unavailable, message: self.localizedDescription)
   }
 }
 
 extension NIOHTTP2Errors.IOOnClosedConnection: GRPCStatusTransformable {
   public func makeGRPCStatus() -> GRPCStatus {
-    return .init(code: .unavailable, message: "The connection is closed", cause: self)
+    return .init(code: .unavailable, message: "The connection is closed")
   }
 }
 
@@ -338,12 +271,10 @@ extension ChannelError: GRPCStatusTransformable {
   public func makeGRPCStatus() -> GRPCStatus {
     switch self {
     case .inputClosed, .outputClosed, .ioOnClosedChannel:
-      return .init(code: .unavailable, message: "The connection is closed", cause: self)
+      return .init(code: .unavailable, message: "The connection is closed")
 
     default:
-      var processingError = GRPCStatus.processingError
-      processingError.cause = self
-      return processingError
+      return .processingError
     }
   }
 }

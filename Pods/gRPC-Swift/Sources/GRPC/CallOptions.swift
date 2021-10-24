@@ -175,26 +175,22 @@ extension CallOptions {
       return EventLoopPreference(.exact(eventLoop))
     }
 
-    @usableFromInline
-    internal enum Preference {
+    private enum Preference {
       case indifferent
       case exact(EventLoop)
     }
 
-    @usableFromInline
-    internal var _preference: Preference
+    private var preference: Preference
 
-    @inlinable
-    internal init(_ preference: Preference) {
-      self._preference = preference
+    private init(_ preference: Preference) {
+      self.preference = preference
     }
   }
 }
 
 extension CallOptions.EventLoopPreference {
-  @inlinable
   internal var exact: EventLoop? {
-    switch self._preference {
+    switch self.preference {
     case let .exact(eventLoop):
       return eventLoop
     case .indifferent:

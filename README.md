@@ -11,9 +11,15 @@ and transaction signing using Provenance Blockchain-compliant
 - BIP32 import and export  
 - Sign Provenance transactions
 - gRPC client.
-                              
+    
+## Installing via CocoaPods
+Add the `ProvWallet` dependency to your CocoaPod pod file:
+
+```
+pod 'ProvWallet', '~> 0.0.4'
+```
+
 ## Roadmap
-- Develop CocoaPods dependency 
 - Integrate with iOS/iCloud Keychain
 - Utilize Apple CryptoKit over CryptoSwift if secp256k1 is ever available
 
@@ -67,6 +73,9 @@ protoc --swift_opt=FileNaming=PathToUnderscores --swift_out=../ProtoGen \
 ```
     
 ## Deploying CocoaPod
+                       
+> NOTE: Xcode 12.5 and Swift 5.4 are required to build this project.  Until SwiftNIO is updated for Swift 5.5 and
+> Xcode 13.0, Xcode 12 and the related command line tools must be used.
 
 The `ProvWallet.podspec` spec defines the CocoaPods pod specification for the
 `ProvWallet` CocoaPod. To build and deploy the `provwallet-swift` to the CocoaPods
@@ -80,9 +89,9 @@ pod trunk register <your email address> '<your name>' --description='<your compu
 pod trunk push ProvWallet.podspec       
 ```
 
-## Usage
+## HD Wallet Usage
                                   
-Refer to `provwallet-swiftTests` for numerous test cases and examples.
+Refer to `provwallet-swiftTests` for numerous HD Wallet test cases and examples.
 
 ### Generate Mnemonic Phrase and Seed
 ```swift
@@ -186,3 +195,7 @@ let signature = try account.privateKey.sign(text: "HELLO")
 
 print(signature.provenanceSignature.toHexString())
 ```
+          
+## Provenance Blockchain Client
+
+Refer to the `ProvenanceBlockchainClientTests.swift` test file for examples.

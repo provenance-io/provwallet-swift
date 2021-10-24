@@ -21,14 +21,12 @@ import NIOCore
 /// See https://github.com/apple/swift-log/issues/145 for rationale.
 @usableFromInline
 internal struct GRPCLogger {
-  @usableFromInline
-  internal var logger: Logger
+  private var logger: Logger
 
   internal var unwrapped: Logger {
     return self.logger
   }
 
-  @inlinable
   internal init(wrapping logger: Logger) {
     self.logger = logger
   }
@@ -42,7 +40,6 @@ internal struct GRPCLogger {
     }
   }
 
-  @usableFromInline
   internal func trace(
     _ message: @autoclosure () -> Logger.Message,
     metadata: @autoclosure () -> Logger.Metadata? = nil,
@@ -60,7 +57,6 @@ internal struct GRPCLogger {
     )
   }
 
-  @usableFromInline
   internal func debug(
     _ message: @autoclosure () -> Logger.Message,
     metadata: @autoclosure () -> Logger.Metadata? = nil,
@@ -78,7 +74,6 @@ internal struct GRPCLogger {
     )
   }
 
-  @usableFromInline
   internal func notice(
     _ message: @autoclosure () -> Logger.Message,
     metadata: @autoclosure () -> Logger.Metadata? = nil,
@@ -96,7 +91,6 @@ internal struct GRPCLogger {
     )
   }
 
-  @usableFromInline
   internal func warning(
     _ message: @autoclosure () -> Logger.Message,
     metadata: @autoclosure () -> Logger.Metadata? = nil,
@@ -122,7 +116,6 @@ extension GRPCLogger {
 }
 
 extension Logger {
-  @inlinable
   internal var wrapped: GRPCLogger {
     return GRPCLogger(wrapping: self)
   }

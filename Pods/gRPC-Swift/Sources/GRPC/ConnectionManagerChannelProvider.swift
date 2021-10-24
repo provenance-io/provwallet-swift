@@ -19,7 +19,6 @@ import NIOPosix
 import NIOSSL
 import NIOTransportServices
 
-@usableFromInline
 internal protocol ConnectionManagerChannelProvider {
   /// Make an `EventLoopFuture<Channel>`.
   ///
@@ -36,38 +35,26 @@ internal protocol ConnectionManagerChannelProvider {
   ) -> EventLoopFuture<Channel>
 }
 
-@usableFromInline
 internal struct DefaultChannelProvider: ConnectionManagerChannelProvider {
-  @usableFromInline
   enum TLSMode {
     case configureWithNIOSSL(Result<NIOSSLContext, Error>)
     case configureWithNetworkFramework
     case disabled
   }
 
-  @usableFromInline
   internal var connectionTarget: ConnectionTarget
-  @usableFromInline
   internal var connectionKeepalive: ClientConnectionKeepalive
-  @usableFromInline
   internal var connectionIdleTimeout: TimeAmount
 
-  @usableFromInline
   internal var tlsMode: TLSMode
-  @usableFromInline
   internal var tlsConfiguration: GRPCTLSConfiguration?
 
-  @usableFromInline
   internal var httpTargetWindowSize: Int
-  @usableFromInline
   internal var httpMaxFrameSize: Int
 
-  @usableFromInline
   internal var errorDelegate: Optional<ClientErrorDelegate>
-  @usableFromInline
   internal var debugChannelInitializer: Optional<(Channel) -> EventLoopFuture<Void>>
 
-  @inlinable
   internal init(
     connectionTarget: ConnectionTarget,
     connectionKeepalive: ClientConnectionKeepalive,
@@ -137,7 +124,6 @@ internal struct DefaultChannelProvider: ConnectionManagerChannelProvider {
     return PlatformSupport.requiresZeroLengthWriteWorkaround(group: eventLoop, hasTLS: self.hasTLS)
   }
 
-  @usableFromInline
   internal func makeChannel(
     managedBy connectionManager: ConnectionManager,
     onEventLoop eventLoop: EventLoop,

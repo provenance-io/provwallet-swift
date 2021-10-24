@@ -19,7 +19,6 @@ import NIOConcurrencyHelpers
 import NIOCore
 import NIOHTTP2
 
-@usableFromInline
 internal final class ConnectionManager {
   internal enum Reconnect {
     case none
@@ -67,7 +66,7 @@ internal final class ConnectionManager {
     var backoffIterator: ConnectionBackoffIterator?
     var readyChannelMuxPromise: EventLoopPromise<HTTP2StreamMultiplexer>
     var scheduled: Scheduled<Void>
-    var reason: Error
+    var reason: Error?
 
     init(from state: ConnectingState, scheduled: Scheduled<Void>, reason: Error) {
       self.backoffIterator = state.backoffIterator
@@ -80,10 +79,7 @@ internal final class ConnectionManager {
       self.backoffIterator = state.backoffIterator
       self.readyChannelMuxPromise = state.readyChannelMuxPromise
       self.scheduled = scheduled
-      self.reason = state.error ?? GRPCStatus(
-        code: .unavailable,
-        message: "Unexpected connection drop"
-      )
+      self.reason = state.error
     }
 
     init(
@@ -94,10 +90,7 @@ internal final class ConnectionManager {
       self.backoffIterator = backoffIterator
       self.readyChannelMuxPromise = state.channel.eventLoop.makePromise()
       self.scheduled = scheduled
-      self.reason = state.error ?? GRPCStatus(
-        code: .unavailable,
-        message: "Unexpected connection drop"
-      )
+      self.reason = state.error
     }
   }
 
@@ -126,7 +119,7 @@ internal final class ConnectionManager {
     /// Valid next states:
     /// - `connecting`
     /// - `shutdown`
-    case idle(lastError: Error?)
+    case idle
 
     /// We're actively trying to establish a connection.
     ///
@@ -184,11 +177,11 @@ internal final class ConnectionManager {
   }
 
   /// The last 'external' state we are in, a subset of the internal state.
-  private var externalState: _ConnectivityState = .idle(nil)
+  private var externalState: ConnectivityState = .idle
 
   /// Update the external state, potentially notifying a delegate about the change.
-  private func updateExternalState(to nextState: _ConnectivityState) {
-    if !self.externalState.isSameState(as: nextState) {
+  private func updateExternalState(to nextState: ConnectivityState) {
+    if self.externalState != nextState {
       let oldState = self.externalState
       self.externalState = nextState
       self.connectivityDelegate?.connectionStateDidChange(self, from: oldState, to: nextState)
@@ -199,8 +192,8 @@ internal final class ConnectionManager {
   private var state: State {
     didSet {
       switch self.state {
-      case let .idle(error):
-        self.updateExternalState(to: .idle(error))
+      case .idle:
+        self.updateExternalState(to: .idle)
         self.updateConnectionID()
 
       case .connecting:
@@ -213,8 +206,8 @@ internal final class ConnectionManager {
       case .ready:
         self.updateExternalState(to: .ready)
 
-      case let .transientFailure(state):
-        self.updateExternalState(to: .transientFailure(state.reason))
+      case .transientFailure:
+        self.updateExternalState(to: .transientFailure)
         self.updateConnectionID()
 
       case .shutdown:
@@ -327,7 +320,7 @@ internal final class ConnectionManager {
     logger[metadataKey: MetadataKey.connectionID] = "\(connectionID)/\(channelNumber)"
 
     self.eventLoop = eventLoop
-    self.state = .idle(lastError: nil)
+    self.state = .idle
 
     self.channelProvider = channelProvider
     self.callStartBehavior = callStartBehavior
@@ -423,7 +416,12 @@ internal final class ConnectionManager {
       case let .ready(ready):
         return self.eventLoop.makeSucceededFuture(ready.multiplexer)
       case let .transientFailure(state):
-        return self.eventLoop.makeFailedFuture(state.reason)
+        // Provide the reason we failed transiently, if we can.
+        let error = state.reason ?? GRPCStatus(
+          code: .unavailable,
+          message: "Connection multiplexer requested while backing off"
+        )
+        return self.eventLoop.makeFailedFuture(error)
       case let .shutdown(state):
         return self.eventLoop.makeFailedFuture(state.reason)
       }
@@ -597,15 +595,14 @@ internal final class ConnectionManager {
     switch self.state {
     // The channel is `active` but not `ready`. Should we try again?
     case let .active(active):
+      let error = GRPCStatus(
+        code: .unavailable,
+        message: "The connection was dropped and connection re-establishment is disabled"
+      )
       switch active.reconnect {
       // No, shutdown instead.
       case .none:
         self.logger.debug("shutting down connection")
-
-        let error = GRPCStatus(
-          code: .unavailable,
-          message: "The connection was dropped and connection re-establishment is disabled"
-        )
 
         let shutdownState = ShutdownState(
           closeFuture: self.eventLoop.makeSucceededFuture(()),
@@ -716,12 +713,12 @@ internal final class ConnectionManager {
     switch self.state {
     case let .active(state):
       // This state is reachable if the keepalive timer fires before we reach the ready state.
-      self.state = .idle(lastError: state.error)
+      self.state = .idle
       state.readyChannelMuxPromise
         .fail(GRPCStatus(code: .unavailable, message: "Idled before reaching ready state"))
 
-    case let .ready(state):
-      self.state = .idle(lastError: state.error)
+    case .ready:
+      self.state = .idle
 
     case .shutdown:
       // This is expected when the connection is closed by the user: when the channel becomes

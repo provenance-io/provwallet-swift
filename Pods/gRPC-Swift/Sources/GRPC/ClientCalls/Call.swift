@@ -53,8 +53,7 @@ public class Call<Request, Response> {
   internal var _state: State
 
   /// User provided interceptors for the call.
-  @usableFromInline
-  internal let _interceptors: [ClientInterceptor<Request, Response>]
+  private let interceptors: [ClientInterceptor<Request, Response>]
 
   /// Whether compression is enabled on the call.
   private var isCompressionEnabled: Bool {
@@ -89,7 +88,6 @@ public class Call<Request, Response> {
   }
 
   // Calls can't be constructed directly: users must make them using a `GRPCChannel`.
-  @inlinable
   internal init(
     path: String,
     type: GRPCCallType,
@@ -103,7 +101,7 @@ public class Call<Request, Response> {
     self.options = options
     self._state = .idle(transportFactory)
     self.eventLoop = eventLoop
-    self._interceptors = interceptors
+    self.interceptors = interceptors
   }
 
   /// Starts the call and provides a callback which is invoked on every response part received from
@@ -274,7 +272,7 @@ extension Call {
         for: self.type,
         withOptions: self.options,
         onEventLoop: self.eventLoop,
-        interceptedBy: self._interceptors,
+        interceptedBy: self.interceptors,
         onError: onError,
         onResponsePart: onResponsePart
       )

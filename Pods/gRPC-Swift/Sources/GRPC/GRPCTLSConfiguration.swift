@@ -329,7 +329,6 @@ extension GRPCTLSConfiguration {
     return GRPCTLSConfiguration(backend: .nio(nioConfiguration))
   }
 
-  @usableFromInline
   internal func makeNIOSSLContext() throws -> NIOSSLContext? {
     switch self.backend {
     case let .nio(configuration):
@@ -562,9 +561,9 @@ extension GRPCTLSConfiguration {
     _ modify: (inout NetworkConfiguration) -> Void
   ) {
     switch self.backend {
-    case var .network(_configuration):
-      modify(&_configuration)
-      self.backend = .network(_configuration)
+    case var .network(configuration):
+      modify(&configuration)
+      self.backend = .network(configuration)
     case .nio:
       preconditionFailure()
     }
@@ -579,8 +578,8 @@ extension GRPCTLSConfiguration {
     to bootstrap: NIOTSConnectionBootstrap
   ) -> NIOTSConnectionBootstrap {
     switch self.backend {
-    case let .network(_configuration):
-      return bootstrap.tlsOptions(_configuration.options)
+    case let .network(configuration):
+      return bootstrap.tlsOptions(configuration.options)
 
     case .nio:
       // We're using NIOSSL with Network.framework; that's okay and permitted for backwards
@@ -594,8 +593,8 @@ extension GRPCTLSConfiguration {
     to bootstrap: NIOTSListenerBootstrap
   ) -> NIOTSListenerBootstrap {
     switch self.backend {
-    case let .network(_configuration):
-      return bootstrap.tlsOptions(_configuration.options)
+    case let .network(configuration):
+      return bootstrap.tlsOptions(configuration.options)
 
     case .nio:
       // We're using NIOSSL with Network.framework; that's okay and permitted for backwards
@@ -608,18 +607,18 @@ extension GRPCTLSConfiguration {
 @available(macOS 10.14, iOS 12.0, watchOS 6.0, tvOS 12.0, *)
 extension NIOTSConnectionBootstrap {
   internal func tlsOptions(
-    from _configuration: GRPCTLSConfiguration
+    from configuration: GRPCTLSConfiguration
   ) -> NIOTSConnectionBootstrap {
-    return _configuration.applyNetworkTLSOptions(to: self)
+    return configuration.applyNetworkTLSOptions(to: self)
   }
 }
 
 @available(macOS 10.14, iOS 12.0, watchOS 6.0, tvOS 12.0, *)
 extension NIOTSListenerBootstrap {
   internal func tlsOptions(
-    from _configuration: GRPCTLSConfiguration
+    from configuration: GRPCTLSConfiguration
   ) -> NIOTSListenerBootstrap {
-    return _configuration.applyNetworkTLSOptions(to: self)
+    return configuration.applyNetworkTLSOptions(to: self)
   }
 }
 #endif

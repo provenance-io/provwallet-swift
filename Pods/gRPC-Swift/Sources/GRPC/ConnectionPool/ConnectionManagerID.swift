@@ -14,24 +14,19 @@
  * limitations under the License.
  */
 
-@usableFromInline
 internal struct ConnectionManagerID: Hashable, CustomStringConvertible {
-  @usableFromInline
-  internal let _id: ObjectIdentifier
+  private let id: ObjectIdentifier
 
-  @usableFromInline
   internal init(_ manager: ConnectionManager) {
-    self._id = ObjectIdentifier(manager)
+    self.id = ObjectIdentifier(manager)
   }
 
-  @usableFromInline
   internal var description: String {
-    return String(describing: self._id)
+    return String(describing: self.id)
   }
 }
 
 extension ConnectionManager {
-  @usableFromInline
   internal var id: ConnectionManagerID {
     return ConnectionManagerID(self)
   }

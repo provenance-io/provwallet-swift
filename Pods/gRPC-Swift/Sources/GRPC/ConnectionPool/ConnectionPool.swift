@@ -18,37 +18,18 @@ import NIOConcurrencyHelpers
 import NIOCore
 import NIOHTTP2
 
-@usableFromInline
 internal final class ConnectionPool {
   /// The event loop all connections in this pool are running on.
-  @usableFromInline
   internal let eventLoop: EventLoop
 
-  @usableFromInline
-  internal enum State {
+  private enum State {
     case active
     case shuttingDown(EventLoopFuture<Void>)
     case shutdown
   }
 
   /// The state of the connection pool.
-  @usableFromInline
-  internal var _state: State = .active
-
-  /// The most recent connection error we have observed.
-  ///
-  /// This error is used to provide additional context to failed waiters. A waiter may, for example,
-  /// timeout because the pool is busy, or because no connection can be established because of an
-  /// underlying connection error. In the latter case it's useful for the caller to know why the
-  /// connection is failing at the RPC layer.
-  ///
-  /// This value is cleared when a connection becomes 'available'. That is, when we receive an
-  /// http/2 SETTINGS frame.
-  ///
-  /// This value is set whenever an underlying connection transitions to the transient failure state
-  /// or to the idle state and has an associated error.
-  @usableFromInline
-  internal var _mostRecentError: Error? = nil
+  private var state: State = .active
 
   /// Connection managers and their stream availability state keyed by the ID of the connection
   /// manager.
@@ -58,8 +39,7 @@ internal final class ConnectionPool {
   /// with (frequent) requires the connections to be ordered by their availability. A dictionary
   /// might not be the most efficient data structure (a queue prioritised by stream availability may
   /// be a better choice given the number of connections is likely to be very low in practice).
-  @usableFromInline
-  internal var _connections: [ConnectionManagerID: PerConnectionState]
+  private var connections: [ConnectionManagerID: PerConnectionState]
 
   /// The threshold which if exceeded when creating a stream determines whether the pool will
   /// start connecting an idle connection (if one exists).
@@ -68,83 +48,59 @@ internal final class ConnectionPool {
   /// and the number of reserved streams) and the total number of streams which non-idle connections
   /// could support (this includes the streams that a connection in the connecting state could
   /// support).
-  @usableFromInline
-  internal let reservationLoadThreshold: Double
+  private let reservationLoadThreshold: Double
 
   /// The assumed value for the maximum number of concurrent streams a connection can support. We
   /// assume a connection will support this many streams until we know better.
-  @usableFromInline
-  internal let assumedMaxConcurrentStreams: Int
+  private let assumedMaxConcurrentStreams: Int
 
   /// A queue of waiters which may or may not get a stream in the future.
-  @usableFromInline
-  internal var waiters: CircularBuffer<Waiter>
+  private var waiters: CircularBuffer<Waiter>
 
   /// The maximum number of waiters allowed, the size of `waiters` must not exceed this value. If
   /// there are this many waiters in the queue then the next waiter will be failed immediately.
-  @usableFromInline
-  internal let maxWaiters: Int
-
-  /// Configuration for backoff between subsequence connection attempts.
-  @usableFromInline
-  internal let connectionBackoff: ConnectionBackoff
+  private let maxWaiters: Int
 
   /// Provides a channel factory to the `ConnectionManager`.
-  @usableFromInline
-  internal let channelProvider: ConnectionManagerChannelProvider
+  private let channelProvider: ConnectionManagerChannelProvider
 
   /// The object to notify about changes to stream reservations; in practice this is usually
   /// the `PoolManager`.
-  @usableFromInline
-  internal let streamLender: StreamLender
+  private let streamLender: StreamLender
 
   /// A logger which always sets "GRPC" as its source.
-  @usableFromInline
-  internal let logger: GRPCLogger
+  private let logger: GRPCLogger
 
   /// Returns `NIODeadline` representing 'now'. This is useful for testing.
-  @usableFromInline
-  internal let now: () -> NIODeadline
+  private let now: () -> NIODeadline
 
   /// Logging metadata keys.
-  @usableFromInline
-  internal enum Metadata {
+  private enum Metadata {
     /// The ID of this pool.
-    @usableFromInline
     static let id = "pool.id"
     /// The number of stream reservations (i.e. number of open streams + number of waiters).
-    @usableFromInline
     static let reservationsCount = "pool.reservations.count"
     /// The number of streams this pool can support with non-idle connections at this time.
-    @usableFromInline
     static let reservationsCapacity = "pool.reservations.capacity"
     /// The current reservation load (i.e. reservation count / reservation capacity)
-    @usableFromInline
     static let reservationsLoad = "pool.reservations.load"
     /// The reservation load threshold, above which a new connection will be created (if possible).
-    @usableFromInline
     static let reservationsLoadThreshold = "pool.reservations.loadThreshold"
     /// The current number of waiters in the pool.
-    @usableFromInline
     static let waitersCount = "pool.waiters.count"
     /// The maximum number of waiters the pool is configured to allow.
-    @usableFromInline
     static let waitersMax = "pool.waiters.max"
     /// The number of waiters which were successfully serviced.
-    @usableFromInline
     static let waitersServiced = "pool.waiters.serviced"
     /// The ID of waiter.
-    @usableFromInline
     static let waiterID = "pool.waiter.id"
   }
 
-  @usableFromInline
   init(
     eventLoop: EventLoop,
     maxWaiters: Int,
     reservationLoadThreshold: Double,
     assumedMaxConcurrentStreams: Int,
-    connectionBackoff: ConnectionBackoff,
     channelProvider: ConnectionManagerChannelProvider,
     streamLender: StreamLender,
     logger: GRPCLogger,
@@ -157,12 +113,11 @@ internal final class ConnectionPool {
     self.reservationLoadThreshold = reservationLoadThreshold
     self.assumedMaxConcurrentStreams = assumedMaxConcurrentStreams
 
-    self._connections = [:]
+    self.connections = [:]
     self.maxWaiters = maxWaiters
     self.waiters = CircularBuffer(initialCapacity: 16)
 
     self.eventLoop = eventLoop
-    self.connectionBackoff = connectionBackoff
     self.channelProvider = channelProvider
     self.streamLender = streamLender
     self.logger = logger
@@ -173,9 +128,9 @@ internal final class ConnectionPool {
   ///
   /// - Parameter connections: The number of connections to add to the pool.
   internal func initialize(connections: Int) {
-    assert(self._connections.isEmpty)
-    self._connections.reserveCapacity(connections)
-    while self._connections.count < connections {
+    assert(self.connections.isEmpty)
+    self.connections.reserveCapacity(connections)
+    while self.connections.count < connections {
       self.addConnectionToPool()
     }
   }
@@ -186,12 +141,12 @@ internal final class ConnectionPool {
       eventLoop: self.eventLoop,
       channelProvider: self.channelProvider,
       callStartBehavior: .waitsForConnectivity,
-      connectionBackoff: self.connectionBackoff,
+      connectionBackoff: ConnectionBackoff(),
       connectivityDelegate: self,
       http2Delegate: self,
       logger: self.logger.unwrapped
     )
-    self._connections[manager.id] = PerConnectionState(manager: manager)
+    self.connections[manager.id] = PerConnectionState(manager: manager)
   }
 
   // MARK: - Called from the pool manager
@@ -203,7 +158,6 @@ internal final class ConnectionPool {
   ///   - promise: A promise for a `Channel`.
   ///   - logger: A request logger.
   ///   - initializer: A closure to initialize the `Channel` with.
-  @inlinable
   internal func makeStream(
     deadline: NIODeadline,
     promise: EventLoopPromise<Channel>,
@@ -230,7 +184,6 @@ internal final class ConnectionPool {
   }
 
   /// See `makeStream(deadline:promise:logger:initializer:)`.
-  @inlinable
   internal func makeStream(
     deadline: NIODeadline,
     logger: GRPCLogger,
@@ -262,8 +215,7 @@ internal final class ConnectionPool {
   /// See `makeStream(deadline:promise:logger:initializer:)`.
   ///
   /// - Important: Must be called on the pool's `EventLoop`.
-  @inlinable
-  internal func _makeStream(
+  private func _makeStream(
     deadline: NIODeadline,
     promise: EventLoopPromise<Channel>,
     logger: GRPCLogger,
@@ -271,18 +223,18 @@ internal final class ConnectionPool {
   ) {
     self.eventLoop.assertInEventLoop()
 
-    guard case .active = self._state else {
+    guard case .active = self.state else {
       // Fail the promise right away if we're shutting down or already shut down.
       promise.fail(ConnectionPoolError.shutdown)
       return
     }
 
     // Try to make a stream on an existing connection.
-    let streamCreated = self._tryMakeStream(promise: promise, initializer: initializer)
+    let streamCreated = self.tryMakeStream(promise: promise, initializer: initializer)
 
     if !streamCreated {
       // No stream was created, wait for one.
-      self._enqueueWaiter(
+      self.enqueueWaiter(
         deadline: deadline,
         promise: promise,
         logger: logger,
@@ -297,8 +249,7 @@ internal final class ConnectionPool {
   ///   - promise: A promise to succeed if we can make a stream.
   ///   - initializer: A closure to initialize the stream with.
   /// - Returns: A boolean value indicating whether the stream was created or not.
-  @inlinable
-  internal func _tryMakeStream(
+  private func tryMakeStream(
     promise: EventLoopPromise<Channel>,
     initializer: @escaping (Channel) -> EventLoopFuture<Void>
   ) -> Bool {
@@ -308,15 +259,15 @@ internal final class ConnectionPool {
     }
 
     // Reserve a stream, if we can.
-    guard let multiplexer = self._reserveStreamFromMostAvailableConnection() else {
+    guard let multiplexer = self.reserveStreamFromMostAvailableConnection() else {
       return false
     }
 
     multiplexer.createStreamChannel(promise: promise, initializer)
 
     // Has reserving another stream tipped us over the limit for needing another connection?
-    if self._shouldBringUpAnotherConnection() {
-      self._startConnectingIdleConnection()
+    if self.shouldBringUpAnotherConnection() {
+      self.startConnectingIdleConnection()
     }
 
     return true
@@ -329,8 +280,7 @@ internal final class ConnectionPool {
   ///   - promise: The promise to complete with the `Channel`.
   ///   - logger: A logger.
   ///   - initializer: A closure to initialize the `Channel` with.
-  @inlinable
-  internal func _enqueueWaiter(
+  private func enqueueWaiter(
     deadline: NIODeadline,
     promise: EventLoopPromise<Channel>,
     logger: GRPCLogger,
@@ -341,7 +291,7 @@ internal final class ConnectionPool {
       logger.trace("connection pool has too many waiters", metadata: [
         Metadata.waitersMax: "\(self.maxWaiters)",
       ])
-      promise.fail(ConnectionPoolError.tooManyWaiters(connectionError: self._mostRecentError))
+      promise.fail(ConnectionPoolError.tooManyWaiters)
       return
     }
 
@@ -351,8 +301,7 @@ internal final class ConnectionPool {
     // timeout before appending it to the waiters, it wont run until the next event loop tick at the
     // earliest (even if the deadline has already passed).
     waiter.scheduleTimeout(on: self.eventLoop) {
-      waiter.fail(ConnectionPoolError.deadlineExceeded(connectionError: self._mostRecentError))
-
+      waiter.fail(ConnectionPoolError.deadlineExceeded)
       if let index = self.waiters.firstIndex(where: { $0.id == waiter.id }) {
         self.waiters.remove(at: index)
 
@@ -376,8 +325,8 @@ internal final class ConnectionPool {
       Metadata.waitersCount: "\(self.waiters.count)",
     ])
 
-    if self._shouldBringUpAnotherConnection() {
-      self._startConnectingIdleConnection()
+    if self.shouldBringUpAnotherConnection() {
+      self.startConnectingIdleConnection()
     }
   }
 
@@ -388,12 +337,11 @@ internal final class ConnectionPool {
   /// connections.
   ///
   /// - Returns: A tuple of the demand and capacity for streams.
-  @usableFromInline
-  internal func _computeStreamDemandAndCapacity() -> (demand: Int, capacity: Int) {
+  private func computeStreamDemandAndCapacity() -> (demand: Int, capacity: Int) {
     let demand = self.sync.reservedStreams + self.sync.waiters
 
     // TODO: make this cheaper by storing and incrementally updating the number of idle connections
-    let capacity = self._connections.values.reduce(0) { sum, state in
+    let capacity = self.connections.values.reduce(0) { sum, state in
       if state.manager.sync.isIdle {
         // Idle connection, no capacity.
         return sum
@@ -410,9 +358,8 @@ internal final class ConnectionPool {
   }
 
   /// Returns whether the pool should start connecting an idle connection (if one exists).
-  @usableFromInline
-  internal func _shouldBringUpAnotherConnection() -> Bool {
-    let (demand, capacity) = self._computeStreamDemandAndCapacity()
+  private func shouldBringUpAnotherConnection() -> Bool {
+    let (demand, capacity) = self.computeStreamDemandAndCapacity()
 
     // Infinite -- i.e. all connections are idle or no connections exist -- is okay here as it
     // will always be greater than the threshold and a new connection will be spun up.
@@ -435,10 +382,9 @@ internal final class ConnectionPool {
   }
 
   /// Starts connecting an idle connection, if one exists.
-  @usableFromInline
-  internal func _startConnectingIdleConnection() {
-    if let index = self._connections.values.firstIndex(where: { $0.manager.sync.isIdle }) {
-      self._connections.values[index].manager.sync.startConnecting()
+  private func startConnectingIdleConnection() {
+    if let index = self.connections.values.firstIndex(where: { $0.manager.sync.isIdle }) {
+      self.connections.values[index].manager.sync.startConnecting()
     }
   }
 
@@ -447,21 +393,20 @@ internal final class ConnectionPool {
   /// available.
   ///
   /// - Note: this is linear in the number of connections.
-  @usableFromInline
-  internal func _mostAvailableConnectionIndex(
+  private func mostAvailableConnectionIndex(
   ) -> Dictionary<ConnectionManagerID, PerConnectionState>.Index {
-    var index = self._connections.values.startIndex
-    var selectedIndex = self._connections.values.endIndex
+    var index = self.connections.values.startIndex
+    var selectedIndex = self.connections.values.endIndex
     var mostAvailableStreams = 0
 
-    while index != self._connections.values.endIndex {
-      let availableStreams = self._connections.values[index].availableStreams
+    while index != self.connections.values.endIndex {
+      let availableStreams = self.connections.values[index].availableStreams
       if availableStreams > mostAvailableStreams {
         mostAvailableStreams = availableStreams
         selectedIndex = index
       }
 
-      self._connections.values.formIndex(after: &index)
+      self.connections.values.formIndex(after: &index)
     }
 
     return selectedIndex
@@ -471,14 +416,13 @@ internal final class ConnectionPool {
   ///
   /// - Returns: The `HTTP2StreamMultiplexer` from the connection the stream was reserved from,
   ///     or `nil` if no stream could be reserved.
-  @usableFromInline
-  internal func _reserveStreamFromMostAvailableConnection() -> HTTP2StreamMultiplexer? {
-    let index = self._mostAvailableConnectionIndex()
+  private func reserveStreamFromMostAvailableConnection() -> HTTP2StreamMultiplexer? {
+    let index = self.mostAvailableConnectionIndex()
 
-    if index != self._connections.endIndex {
+    if index != self.connections.endIndex {
       // '!' is okay here; the most available connection must have at least one stream available
       // to reserve.
-      return self._connections.values[index].reserveStream()!
+      return self.connections.values[index].reserveStream()!
     } else {
       return nil
     }
@@ -487,26 +431,25 @@ internal final class ConnectionPool {
   /// See `shutdown()`.
   ///
   /// - Parameter promise: A `promise` to complete when the pool has been shutdown.
-  @usableFromInline
-  internal func _shutdown(promise: EventLoopPromise<Void>) {
+  private func _shutdown(promise: EventLoopPromise<Void>) {
     self.eventLoop.assertInEventLoop()
 
-    switch self._state {
+    switch self.state {
     case .active:
       self.logger.debug("shutting down connection pool")
 
       // We're shutting down now and when that's done we'll be fully shutdown.
-      self._state = .shuttingDown(promise.futureResult)
+      self.state = .shuttingDown(promise.futureResult)
       promise.futureResult.whenComplete { _ in
-        self._state = .shutdown
+        self.state = .shutdown
         self.logger.trace("finished shutting down connection pool")
       }
 
       // Shutdown all the connections and remove them from the pool.
-      let allShutdown: [EventLoopFuture<Void>] = self._connections.values.map {
+      let allShutdown: [EventLoopFuture<Void>] = self.connections.values.map {
         return $0.manager.shutdown()
       }
-      self._connections.removeAll()
+      self.connections.removeAll()
 
       // Fail the outstanding waiters.
       while let waiter = self.waiters.popFirst() {
@@ -528,42 +471,27 @@ internal final class ConnectionPool {
 }
 
 extension ConnectionPool: ConnectionManagerConnectivityDelegate {
-  // We're interested in a few different situations here:
-  //
-  // 1. The connection was usable ('ready') and is no longer usable (either it became idle or
-  //    encountered an error. If this happens we need to notify any connections of the change as
-  //    they may no longer be used for new RPCs.
-  // 2. The connection was not usable but moved to a different unusable state. If this happens and
-  //    we know the cause of the state transition (i.e. the error) then we need to update our most
-  //    recent error with the error. This information is used when failing waiters to provide some
-  //    context as to why they may be failing.
   func connectionStateDidChange(
     _ manager: ConnectionManager,
-    from oldState: _ConnectivityState,
-    to newState: _ConnectivityState
+    from oldState: ConnectivityState,
+    to newState: ConnectivityState
   ) {
     switch (oldState, newState) {
-    case let (.ready, .transientFailure(error)),
-         let (.ready, .idle(.some(error))):
-      self.updateMostRecentError(error)
-      self.connectionUnavailable(manager.id)
-
-    case (.ready, .idle(.none)),
+    case (.ready, .transientFailure),
+         (.ready, .idle),
          (.ready, .shutdown):
+      // The connection is no longer available.
       self.connectionUnavailable(manager.id)
-
-    case let (_, .transientFailure(error)),
-         let (_, .idle(.some(error))):
-      self.updateMostRecentError(error)
 
     default:
+      // We're only interested in connection drops.
       ()
     }
   }
 
   func connectionIsQuiescing(_ manager: ConnectionManager) {
     self.eventLoop.assertInEventLoop()
-    guard let removed = self._connections.removeValue(forKey: manager.id) else {
+    guard let removed = self.connections.removeValue(forKey: manager.id) else {
       return
     }
 
@@ -582,19 +510,12 @@ extension ConnectionPool: ConnectionManagerConnectivityDelegate {
     self.streamLender.returnStreams(removed.reservedStreams, to: self)
   }
 
-  private func updateMostRecentError(_ error: Error) {
-    self.eventLoop.assertInEventLoop()
-    // Update the last known error if there is one. We will use it to provide some context to
-    // waiters which may fail.
-    self._mostRecentError = error
-  }
-
   /// A connection has become unavailable.
   private func connectionUnavailable(_ id: ConnectionManagerID) {
     self.eventLoop.assertInEventLoop()
     // The connection is no longer available: any streams which haven't been closed will be counted
     // as a dropped reservation, we need to tell the pool manager about them.
-    if let droppedReservations = self._connections[id]?.unavailable(), droppedReservations > 0 {
+    if let droppedReservations = self.connections[id]?.unavailable(), droppedReservations > 0 {
       self.streamLender.returnStreams(droppedReservations, to: self)
     }
   }
@@ -605,7 +526,7 @@ extension ConnectionPool: ConnectionManagerHTTP2Delegate {
     self.eventLoop.assertInEventLoop()
 
     // Return the stream the connection and to the pool manager.
-    self._connections[manager.id]?.returnStream()
+    self.connections[manager.id]?.returnStream()
     self.streamLender.returnStreams(1, to: self)
 
     // A stream was returned: we may be able to service a waiter now.
@@ -618,10 +539,7 @@ extension ConnectionPool: ConnectionManagerHTTP2Delegate {
   ) {
     self.eventLoop.assertInEventLoop()
 
-    // If we received a SETTINGS update then a connection is okay: drop the last known error.
-    self._mostRecentError = nil
-
-    let previous = self._connections[manager.id]?.updateMaxConcurrentStreams(maxConcurrentStreams)
+    let previous = self.connections[manager.id]?.updateMaxConcurrentStreams(maxConcurrentStreams)
     let delta: Int
 
     if let previousValue = previous {
@@ -662,7 +580,7 @@ extension ConnectionPool {
 
     while !self.waiters.isEmpty {
       if self.waiters.first!.deadlineIsAfter(now) {
-        if let multiplexer = self._reserveStreamFromMostAvailableConnection() {
+        if let multiplexer = self.reserveStreamFromMostAvailableConnection() {
           // The waiter's deadline is in the future, and we have a suitable connection. Remove and
           // succeed the waiter.
           let waiter = self.waiters.removeFirst()
@@ -704,25 +622,25 @@ extension ConnectionPool {
     /// The number of connection currently in the pool (in any state).
     internal var connections: Int {
       self.pool.eventLoop.assertInEventLoop()
-      return self.pool._connections.count
+      return self.pool.connections.count
     }
 
     /// The number of idle connections in the pool.
     internal var idleConnections: Int {
       self.pool.eventLoop.assertInEventLoop()
-      return self.pool._connections.values.reduce(0) { $0 &+ ($1.manager.sync.isIdle ? 1 : 0) }
+      return self.pool.connections.values.reduce(0) { $0 &+ ($1.manager.sync.isIdle ? 1 : 0) }
     }
 
     /// The number of streams currently available to reserve across all connections in the pool.
     internal var availableStreams: Int {
       self.pool.eventLoop.assertInEventLoop()
-      return self.pool._connections.values.reduce(0) { $0 + $1.availableStreams }
+      return self.pool.connections.values.reduce(0) { $0 + $1.availableStreams }
     }
 
     /// The number of streams which have been reserved across all connections in the pool.
     internal var reservedStreams: Int {
       self.pool.eventLoop.assertInEventLoop()
-      return self.pool._connections.values.reduce(0) { $0 + $1.reservedStreams }
+      return self.pool.connections.values.reduce(0) { $0 + $1.reservedStreams }
     }
   }
 
@@ -731,41 +649,13 @@ extension ConnectionPool {
   }
 }
 
-@usableFromInline
 internal enum ConnectionPoolError: Error {
   /// The pool is shutdown or shutting down.
   case shutdown
 
   /// There are too many waiters in the pool.
-  case tooManyWaiters(connectionError: Error?)
+  case tooManyWaiters
 
   /// The deadline for creating a stream has passed.
-  case deadlineExceeded(connectionError: Error?)
-}
-
-extension ConnectionPoolError: GRPCStatusTransformable {
-  @usableFromInline
-  internal func makeGRPCStatus() -> GRPCStatus {
-    switch self {
-    case .shutdown:
-      return GRPCStatus(
-        code: .unavailable,
-        message: "The connection pool is shutdown"
-      )
-
-    case let .tooManyWaiters(error):
-      return GRPCStatus(
-        code: .resourceExhausted,
-        message: "The connection pool has no capacity for new RPCs or RPC waiters",
-        cause: error
-      )
-
-    case let .deadlineExceeded(error):
-      return GRPCStatus(
-        code: .deadlineExceeded,
-        message: "Timed out waiting for an HTTP/2 stream from the connection pool",
-        cause: error
-      )
-    }
-  }
+  case deadlineExceeded
 }

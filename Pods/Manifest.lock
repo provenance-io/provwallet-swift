@@ -1,6 +1,6 @@
 PODS:
   - _NIODataStructures (2.32.3)
-  - CGRPCZlib (1.5.0)
+  - CGRPCZlib (1.4.2)
   - CNIOAtomics (2.32.3)
   - CNIOBoringSSL (2.15.1)
   - CNIOBoringSSLShims (2.15.1):
@@ -10,8 +10,8 @@ PODS:
   - CNIOLinux (2.32.3)
   - CNIOWindows (2.32.3)
   - CryptoSwift (1.4.2)
-  - gRPC-Swift (1.5.0):
-    - CGRPCZlib (= 1.5.0)
+  - gRPC-Swift (1.4.2):
+    - CGRPCZlib (= 1.4.2)
     - Logging (< 2.0.0, >= 1.4.0)
     - SwiftNIO (< 3.0.0, >= 2.32.0)
     - SwiftNIOExtras (< 2.0.0, >= 1.4.0)
@@ -19,8 +19,8 @@ PODS:
     - SwiftNIOSSL (< 3.0.0, >= 2.14.0)
     - SwiftNIOTransportServices (< 2.0.0, >= 1.11.1)
     - SwiftProtobuf (< 2.0.0, >= 1.9.0)
-  - gRPC-Swift-Plugins (1.5.0):
-    - gRPC-Swift (= 1.5.0)
+  - gRPC-Swift-Plugins (1.4.2):
+    - gRPC-Swift (= 1.4.2)
   - Logging (1.4.0)
   - secp256k1.swift (0.1.4)
   - SwiftNIO (2.32.3):
@@ -83,9 +83,8 @@ PODS:
 
 DEPENDENCIES:
   - CryptoSwift (~> 1.4.0)
-  - CryptoSwift (~> 1.4.2)
-  - gRPC-Swift (~> 1.5.0)
-  - gRPC-Swift-Plugins (~> 1.5.0)
+  - gRPC-Swift (~> 1.4.0)
+  - gRPC-Swift-Plugins (~> 1.4.0)
   - secp256k1.swift (~> 0.1.4)
   - SwiftProtobuf (~> 1.18.0)
 
@@ -122,7 +121,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   _NIODataStructures: e2077c7dc7c1d6c93e698c85fe04d663a17f53a4
-  CGRPCZlib: db324e4e4e71262d48faceb86b52dd7d4f71ff62
+  CGRPCZlib: e563581ed595e2a9d85fce8b833606040bb63742
   CNIOAtomics: 4dde57e1838a29a9b23ef91617505f34751cdbe5
   CNIOBoringSSL: c99129423da079a9eb74bcfc7cfec41a6775cf94
   CNIOBoringSSLShims: 902ae35fea0b6be5eefb4fdce906751886cfa46f
@@ -131,8 +130,8 @@ SPEC CHECKSUMS:
   CNIOLinux: 5921dfefbc4bbe017380b34c510855622147ea41
   CNIOWindows: f5aa9dfb401b440a7b4c9cd911e53e981a787193
   CryptoSwift: a532e74ed010f8c95f611d00b8bbae42e9fe7c17
-  gRPC-Swift: 8942047451bf81413077e6b94bf4213e47b181cc
-  gRPC-Swift-Plugins: 6646fb217cdd25636a5f2ebc39555283db72ec47
+  gRPC-Swift: 3e11bcfbb92f345b7ee8e1fb9ee4b6ae408c3774
+  gRPC-Swift-Plugins: 6c2a4d17afd229a4c4d1b5fcff46869dd250492d
   Logging: beeb016c9c80cf77042d62e83495816847ef108b
   secp256k1.swift: a7e7a214f6db6ce5db32cc6b2b45e5c4dd633634
   SwiftNIO: bb336ceef32850e9671d3fa0e0cc2b9add3b5948
@@ -150,6 +149,6 @@ SPEC CHECKSUMS:
   SwiftNIOTransportServices: 1fbbdb58510af3c53a838a1dbea98f18132dc952
   SwiftProtobuf: c3c12645230d9b09c72267e0de89468c5543bd86
 
-PODFILE CHECKSUM: f29a3466ac6073fa42882864c1ec3ad5965811a8
+PODFILE CHECKSUM: 9faceb3a96c1eed75dd198869813f52434ee709a
 
 COCOAPODS: 1.11.2

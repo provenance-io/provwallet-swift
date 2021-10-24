@@ -23,7 +23,9 @@ public class Tx {
 		client = Cosmos_Tx_V1beta1_ServiceClient(channel: channel)
 	}
 
-	public func buildFee(gas: UInt64) -> Cosmos_Tx_V1beta1_Fee {
+	//MARK: - Builders
+
+	private func buildFee(gas: UInt64) -> Cosmos_Tx_V1beta1_Fee {
 		Cosmos_Tx_V1beta1_Fee.with { fee in
 			fee.amount = [Cosmos_Base_V1beta1_Coin.with { coin in
 				coin.denom = Tx.baseDenom
@@ -51,7 +53,7 @@ public class Tx {
 		}
 	}
 
-	public func buildTx(
+	private func buildTx(
 			gas: UInt64,
 			messages: Array<Google_Protobuf_Any>) throws -> Cosmos_Tx_V1beta1_TxRaw {
 		try Cosmos_Tx_V1beta1_TxRaw.with { raw in
@@ -81,6 +83,8 @@ public class Tx {
 			raw.signatures = [signature]
 		}
 	}
+
+	//MARK: - Estimate and Broadcast
 
 	public func estimateTx(messages: Array<Google_Protobuf_Any>) throws -> EventLoopFuture<Cosmos_Base_Abci_V1beta1_GasInfo> {
 
