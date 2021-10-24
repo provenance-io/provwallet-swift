@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// DefinitionType indicates the required definition type for this value
-enum Provenance_Metadata_V1_DefinitionType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Metadata_V1_DefinitionType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// DEFINITION_TYPE_UNSPECIFIED indicates an unknown/invalid value
   case unspecified // = 0
@@ -38,11 +38,11 @@ enum Provenance_Metadata_V1_DefinitionType: SwiftProtobuf.Enum {
   case recordList // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .proposed
@@ -52,7 +52,7 @@ enum Provenance_Metadata_V1_DefinitionType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .proposed: return 1
@@ -68,7 +68,7 @@ enum Provenance_Metadata_V1_DefinitionType: SwiftProtobuf.Enum {
 
 extension Provenance_Metadata_V1_DefinitionType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Metadata_V1_DefinitionType] = [
+  public static var allCases: [Provenance_Metadata_V1_DefinitionType] = [
     .unspecified,
     .proposed,
     .record,
@@ -79,8 +79,8 @@ extension Provenance_Metadata_V1_DefinitionType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// PartyType are the different roles parties on a contract may use
-enum Provenance_Metadata_V1_PartyType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Metadata_V1_PartyType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// PARTY_TYPE_UNSPECIFIED is an error condition
   case unspecified // = 0
@@ -110,11 +110,11 @@ enum Provenance_Metadata_V1_PartyType: SwiftProtobuf.Enum {
   case provenance // = 8
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .originator
@@ -129,7 +129,7 @@ enum Provenance_Metadata_V1_PartyType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .originator: return 1
@@ -150,7 +150,7 @@ enum Provenance_Metadata_V1_PartyType: SwiftProtobuf.Enum {
 
 extension Provenance_Metadata_V1_PartyType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Metadata_V1_PartyType] = [
+  public static var allCases: [Provenance_Metadata_V1_PartyType] = [
     .unspecified,
     .originator,
     .servicer,
@@ -166,71 +166,71 @@ extension Provenance_Metadata_V1_PartyType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// ScopeSpecification defines the required parties, resources, conditions, and consideration outputs for a contract
-struct Provenance_Metadata_V1_ScopeSpecification {
+public struct Provenance_Metadata_V1_ScopeSpecification {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// unique identifier for this specification on chain
-  var specificationID: Data = Data()
+  public var specificationID: Data = Data()
 
   /// General information about this scope specification.
-  var description_p: Provenance_Metadata_V1_Description {
+  public var description_p: Provenance_Metadata_V1_Description {
     get {return _description_p ?? Provenance_Metadata_V1_Description()}
     set {_description_p = newValue}
   }
   /// Returns true if `description_p` has been explicitly set.
-  var hasDescription_p: Bool {return self._description_p != nil}
+  public var hasDescription_p: Bool {return self._description_p != nil}
   /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
-  mutating func clearDescription_p() {self._description_p = nil}
+  public mutating func clearDescription_p() {self._description_p = nil}
 
   /// Addresses of the owners of this scope specification.
-  var ownerAddresses: [String] = []
+  public var ownerAddresses: [String] = []
 
   /// A list of parties that must be present on a scope (and their associated roles)
-  var partiesInvolved: [Provenance_Metadata_V1_PartyType] = []
+  public var partiesInvolved: [Provenance_Metadata_V1_PartyType] = []
 
   /// A list of contract specification ids allowed for a scope based on this specification.
-  var contractSpecIds: [Data] = []
+  public var contractSpecIds: [Data] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _description_p: Provenance_Metadata_V1_Description? = nil
 }
 
 /// ContractSpecification defines the required parties, resources, conditions, and consideration outputs for a contract
-struct Provenance_Metadata_V1_ContractSpecification {
+public struct Provenance_Metadata_V1_ContractSpecification {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// unique identifier for this specification on chain
-  var specificationID: Data = Data()
+  public var specificationID: Data = Data()
 
   /// Description information for this contract specification
-  var description_p: Provenance_Metadata_V1_Description {
+  public var description_p: Provenance_Metadata_V1_Description {
     get {return _description_p ?? Provenance_Metadata_V1_Description()}
     set {_description_p = newValue}
   }
   /// Returns true if `description_p` has been explicitly set.
-  var hasDescription_p: Bool {return self._description_p != nil}
+  public var hasDescription_p: Bool {return self._description_p != nil}
   /// Clears the value of `description_p`. Subsequent reads from it will return its default value.
-  mutating func clearDescription_p() {self._description_p = nil}
+  public mutating func clearDescription_p() {self._description_p = nil}
 
   /// Address of the account that owns this specificaiton
-  var ownerAddresses: [String] = []
+  public var ownerAddresses: [String] = []
 
   /// a list of party roles that must be fullfilled when signing a transaction for this contract specification
-  var partiesInvolved: [Provenance_Metadata_V1_PartyType] = []
+  public var partiesInvolved: [Provenance_Metadata_V1_PartyType] = []
 
   /// Reference to a metadata record with a hash and type information for the instance of code that will process this
   /// contract
-  var source: Provenance_Metadata_V1_ContractSpecification.OneOf_Source? = nil
+  public var source: Provenance_Metadata_V1_ContractSpecification.OneOf_Source? = nil
 
   /// the address of a record on chain that represents this contract
-  var resourceID: Data {
+  public var resourceID: Data {
     get {
       if case .resourceID(let v)? = source {return v}
       return Data()
@@ -239,7 +239,7 @@ struct Provenance_Metadata_V1_ContractSpecification {
   }
 
   /// the hash of contract binary (off-chain instance)
-  var hash: String {
+  public var hash: String {
     get {
       if case .hash(let v)? = source {return v}
       return String()
@@ -248,20 +248,20 @@ struct Provenance_Metadata_V1_ContractSpecification {
   }
 
   /// name of the class/type of this contract executable
-  var className: String = String()
+  public var className: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Reference to a metadata record with a hash and type information for the instance of code that will process this
   /// contract
-  enum OneOf_Source: Equatable {
+  public enum OneOf_Source: Equatable {
     /// the address of a record on chain that represents this contract
     case resourceID(Data)
     /// the hash of contract binary (off-chain instance)
     case hash(String)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Provenance_Metadata_V1_ContractSpecification.OneOf_Source, rhs: Provenance_Metadata_V1_ContractSpecification.OneOf_Source) -> Bool {
+    public static func ==(lhs: Provenance_Metadata_V1_ContractSpecification.OneOf_Source, rhs: Provenance_Metadata_V1_ContractSpecification.OneOf_Source) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -280,58 +280,58 @@ struct Provenance_Metadata_V1_ContractSpecification {
   #endif
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _description_p: Provenance_Metadata_V1_Description? = nil
 }
 
 /// RecordSpecification defines the specification for a Record including allowed/required inputs/outputs
-struct Provenance_Metadata_V1_RecordSpecification {
+public struct Provenance_Metadata_V1_RecordSpecification {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// unique identifier for this specification on chain
-  var specificationID: Data = Data()
+  public var specificationID: Data = Data()
 
   /// Name of Record that will be created when this specification is used
-  var name: String = String()
+  public var name: String = String()
 
   /// A set of inputs that must be satisified to apply this RecordSpecification and create a Record
-  var inputs: [Provenance_Metadata_V1_InputSpecification] = []
+  public var inputs: [Provenance_Metadata_V1_InputSpecification] = []
 
   /// A type name for data associated with this record (typically a class or proto name)
-  var typeName: String = String()
+  public var typeName: String = String()
 
   /// Type of result for this record specification (must be RECORD or RECORD_LIST)
-  var resultType: Provenance_Metadata_V1_DefinitionType = .unspecified
+  public var resultType: Provenance_Metadata_V1_DefinitionType = .unspecified
 
   /// Type of party responsible for this record
-  var responsibleParties: [Provenance_Metadata_V1_PartyType] = []
+  public var responsibleParties: [Provenance_Metadata_V1_PartyType] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// InputSpecification defines a name, type_name, and source reference (either on or off chain) to define an input
 /// parameter
-struct Provenance_Metadata_V1_InputSpecification {
+public struct Provenance_Metadata_V1_InputSpecification {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// name for this input
-  var name: String = String()
+  public var name: String = String()
 
   /// a type_name (typically a proto name or class_name)
-  var typeName: String = String()
+  public var typeName: String = String()
 
   /// source is either on chain (record_id) or off-chain (hash)
-  var source: Provenance_Metadata_V1_InputSpecification.OneOf_Source? = nil
+  public var source: Provenance_Metadata_V1_InputSpecification.OneOf_Source? = nil
 
   /// the address of a record on chain (For Established Records)
-  var recordID: Data {
+  public var recordID: Data {
     get {
       if case .recordID(let v)? = source {return v}
       return Data()
@@ -340,7 +340,7 @@ struct Provenance_Metadata_V1_InputSpecification {
   }
 
   /// the hash of an off-chain piece of information (For Proposed Records)
-  var hash: String {
+  public var hash: String {
     get {
       if case .hash(let v)? = source {return v}
       return String()
@@ -348,17 +348,17 @@ struct Provenance_Metadata_V1_InputSpecification {
     set {source = .hash(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// source is either on chain (record_id) or off-chain (hash)
-  enum OneOf_Source: Equatable {
+  public enum OneOf_Source: Equatable {
     /// the address of a record on chain (For Established Records)
     case recordID(Data)
     /// the hash of an off-chain piece of information (For Proposed Records)
     case hash(String)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Provenance_Metadata_V1_InputSpecification.OneOf_Source, rhs: Provenance_Metadata_V1_InputSpecification.OneOf_Source) -> Bool {
+    public static func ==(lhs: Provenance_Metadata_V1_InputSpecification.OneOf_Source, rhs: Provenance_Metadata_V1_InputSpecification.OneOf_Source) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -377,30 +377,30 @@ struct Provenance_Metadata_V1_InputSpecification {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 /// Description holds general information that is handy to associate with a structure.
-struct Provenance_Metadata_V1_Description {
+public struct Provenance_Metadata_V1_Description {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// A Name for this thing.
-  var name: String = String()
+  public var name: String = String()
 
   /// A description of this thing.
-  var description_p: String = String()
+  public var description_p: String = String()
 
   /// URL to find even more info.
-  var websiteURL: String = String()
+  public var websiteURL: String = String()
 
   /// URL of an icon.
-  var iconURL: String = String()
+  public var iconURL: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -408,7 +408,7 @@ struct Provenance_Metadata_V1_Description {
 fileprivate let _protobuf_package = "provenance.metadata.v1"
 
 extension Provenance_Metadata_V1_DefinitionType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "DEFINITION_TYPE_UNSPECIFIED"),
     1: .same(proto: "DEFINITION_TYPE_PROPOSED"),
     2: .same(proto: "DEFINITION_TYPE_RECORD"),
@@ -417,7 +417,7 @@ extension Provenance_Metadata_V1_DefinitionType: SwiftProtobuf._ProtoNameProvidi
 }
 
 extension Provenance_Metadata_V1_PartyType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "PARTY_TYPE_UNSPECIFIED"),
     1: .same(proto: "PARTY_TYPE_ORIGINATOR"),
     2: .same(proto: "PARTY_TYPE_SERVICER"),
@@ -431,8 +431,8 @@ extension Provenance_Metadata_V1_PartyType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Provenance_Metadata_V1_ScopeSpecification: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeSpecification"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeSpecification"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "specification_id"),
     2: .same(proto: "description"),
     3: .standard(proto: "owner_addresses"),
@@ -440,7 +440,7 @@ extension Provenance_Metadata_V1_ScopeSpecification: SwiftProtobuf.Message, Swif
     5: .standard(proto: "contract_spec_ids"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -456,7 +456,7 @@ extension Provenance_Metadata_V1_ScopeSpecification: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.specificationID.isEmpty {
       try visitor.visitSingularBytesField(value: self.specificationID, fieldNumber: 1)
     }
@@ -475,7 +475,7 @@ extension Provenance_Metadata_V1_ScopeSpecification: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeSpecification, rhs: Provenance_Metadata_V1_ScopeSpecification) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeSpecification, rhs: Provenance_Metadata_V1_ScopeSpecification) -> Bool {
     if lhs.specificationID != rhs.specificationID {return false}
     if lhs._description_p != rhs._description_p {return false}
     if lhs.ownerAddresses != rhs.ownerAddresses {return false}
@@ -487,8 +487,8 @@ extension Provenance_Metadata_V1_ScopeSpecification: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Metadata_V1_ContractSpecification: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractSpecification"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractSpecification"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "specification_id"),
     2: .same(proto: "description"),
     3: .standard(proto: "owner_addresses"),
@@ -498,7 +498,7 @@ extension Provenance_Metadata_V1_ContractSpecification: SwiftProtobuf.Message, S
     7: .standard(proto: "class_name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -526,7 +526,7 @@ extension Provenance_Metadata_V1_ContractSpecification: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.specificationID.isEmpty {
       try visitor.visitSingularBytesField(value: self.specificationID, fieldNumber: 1)
     }
@@ -559,7 +559,7 @@ extension Provenance_Metadata_V1_ContractSpecification: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ContractSpecification, rhs: Provenance_Metadata_V1_ContractSpecification) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ContractSpecification, rhs: Provenance_Metadata_V1_ContractSpecification) -> Bool {
     if lhs.specificationID != rhs.specificationID {return false}
     if lhs._description_p != rhs._description_p {return false}
     if lhs.ownerAddresses != rhs.ownerAddresses {return false}
@@ -572,8 +572,8 @@ extension Provenance_Metadata_V1_ContractSpecification: SwiftProtobuf.Message, S
 }
 
 extension Provenance_Metadata_V1_RecordSpecification: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordSpecification"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordSpecification"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "specification_id"),
     2: .same(proto: "name"),
     3: .same(proto: "inputs"),
@@ -582,7 +582,7 @@ extension Provenance_Metadata_V1_RecordSpecification: SwiftProtobuf.Message, Swi
     6: .standard(proto: "responsible_parties"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -599,7 +599,7 @@ extension Provenance_Metadata_V1_RecordSpecification: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.specificationID.isEmpty {
       try visitor.visitSingularBytesField(value: self.specificationID, fieldNumber: 1)
     }
@@ -621,7 +621,7 @@ extension Provenance_Metadata_V1_RecordSpecification: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordSpecification, rhs: Provenance_Metadata_V1_RecordSpecification) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordSpecification, rhs: Provenance_Metadata_V1_RecordSpecification) -> Bool {
     if lhs.specificationID != rhs.specificationID {return false}
     if lhs.name != rhs.name {return false}
     if lhs.inputs != rhs.inputs {return false}
@@ -634,15 +634,15 @@ extension Provenance_Metadata_V1_RecordSpecification: SwiftProtobuf.Message, Swi
 }
 
 extension Provenance_Metadata_V1_InputSpecification: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".InputSpecification"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".InputSpecification"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "type_name"),
     3: .standard(proto: "record_id"),
     4: .same(proto: "hash"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -667,7 +667,7 @@ extension Provenance_Metadata_V1_InputSpecification: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -691,7 +691,7 @@ extension Provenance_Metadata_V1_InputSpecification: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_InputSpecification, rhs: Provenance_Metadata_V1_InputSpecification) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_InputSpecification, rhs: Provenance_Metadata_V1_InputSpecification) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.typeName != rhs.typeName {return false}
     if lhs.source != rhs.source {return false}
@@ -701,15 +701,15 @@ extension Provenance_Metadata_V1_InputSpecification: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Metadata_V1_Description: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Description"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Description"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     3: .same(proto: "description"),
     4: .standard(proto: "website_url"),
     5: .standard(proto: "icon_url"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -724,7 +724,7 @@ extension Provenance_Metadata_V1_Description: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -740,7 +740,7 @@ extension Provenance_Metadata_V1_Description: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_Description, rhs: Provenance_Metadata_V1_Description) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_Description, rhs: Provenance_Metadata_V1_Description) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.websiteURL != rhs.websiteURL {return false}

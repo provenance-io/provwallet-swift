@@ -21,191 +21,191 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// MsgCreateClient defines a message to create an IBC client
-struct Ibc_Core_Client_V1_MsgCreateClient {
+public struct Ibc_Core_Client_V1_MsgCreateClient {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// light client state
-  var clientState: SwiftProtobuf.Google_Protobuf_Any {
+  public var clientState: SwiftProtobuf.Google_Protobuf_Any {
     get {return _clientState ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_clientState = newValue}
   }
   /// Returns true if `clientState` has been explicitly set.
-  var hasClientState: Bool {return self._clientState != nil}
+  public var hasClientState: Bool {return self._clientState != nil}
   /// Clears the value of `clientState`. Subsequent reads from it will return its default value.
-  mutating func clearClientState() {self._clientState = nil}
+  public mutating func clearClientState() {self._clientState = nil}
 
   /// consensus state associated with the client that corresponds to a given
   /// height.
-  var consensusState: SwiftProtobuf.Google_Protobuf_Any {
+  public var consensusState: SwiftProtobuf.Google_Protobuf_Any {
     get {return _consensusState ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_consensusState = newValue}
   }
   /// Returns true if `consensusState` has been explicitly set.
-  var hasConsensusState: Bool {return self._consensusState != nil}
+  public var hasConsensusState: Bool {return self._consensusState != nil}
   /// Clears the value of `consensusState`. Subsequent reads from it will return its default value.
-  mutating func clearConsensusState() {self._consensusState = nil}
+  public mutating func clearConsensusState() {self._consensusState = nil}
 
   /// signer address
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _clientState: SwiftProtobuf.Google_Protobuf_Any? = nil
   fileprivate var _consensusState: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// MsgCreateClientResponse defines the Msg/CreateClient response type.
-struct Ibc_Core_Client_V1_MsgCreateClientResponse {
+public struct Ibc_Core_Client_V1_MsgCreateClientResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgUpdateClient defines an sdk.Msg to update a IBC client state using
 /// the given header.
-struct Ibc_Core_Client_V1_MsgUpdateClient {
+public struct Ibc_Core_Client_V1_MsgUpdateClient {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// client unique identifier
-  var clientID: String = String()
+  public var clientID: String = String()
 
   /// header to update the light client
-  var header: SwiftProtobuf.Google_Protobuf_Any {
+  public var header: SwiftProtobuf.Google_Protobuf_Any {
     get {return _header ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_header = newValue}
   }
   /// Returns true if `header` has been explicitly set.
-  var hasHeader: Bool {return self._header != nil}
+  public var hasHeader: Bool {return self._header != nil}
   /// Clears the value of `header`. Subsequent reads from it will return its default value.
-  mutating func clearHeader() {self._header = nil}
+  public mutating func clearHeader() {self._header = nil}
 
   /// signer address
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _header: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// MsgUpdateClientResponse defines the Msg/UpdateClient response type.
-struct Ibc_Core_Client_V1_MsgUpdateClientResponse {
+public struct Ibc_Core_Client_V1_MsgUpdateClientResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgUpgradeClient defines an sdk.Msg to upgrade an IBC client to a new client state
-struct Ibc_Core_Client_V1_MsgUpgradeClient {
+public struct Ibc_Core_Client_V1_MsgUpgradeClient {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// client unique identifier
-  var clientID: String = String()
+  public var clientID: String = String()
 
   /// upgraded client state
-  var clientState: SwiftProtobuf.Google_Protobuf_Any {
+  public var clientState: SwiftProtobuf.Google_Protobuf_Any {
     get {return _clientState ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_clientState = newValue}
   }
   /// Returns true if `clientState` has been explicitly set.
-  var hasClientState: Bool {return self._clientState != nil}
+  public var hasClientState: Bool {return self._clientState != nil}
   /// Clears the value of `clientState`. Subsequent reads from it will return its default value.
-  mutating func clearClientState() {self._clientState = nil}
+  public mutating func clearClientState() {self._clientState = nil}
 
   /// upgraded consensus state, only contains enough information to serve as a basis of trust in update logic
-  var consensusState: SwiftProtobuf.Google_Protobuf_Any {
+  public var consensusState: SwiftProtobuf.Google_Protobuf_Any {
     get {return _consensusState ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_consensusState = newValue}
   }
   /// Returns true if `consensusState` has been explicitly set.
-  var hasConsensusState: Bool {return self._consensusState != nil}
+  public var hasConsensusState: Bool {return self._consensusState != nil}
   /// Clears the value of `consensusState`. Subsequent reads from it will return its default value.
-  mutating func clearConsensusState() {self._consensusState = nil}
+  public mutating func clearConsensusState() {self._consensusState = nil}
 
   /// proof that old chain committed to new client
-  var proofUpgradeClient: Data = Data()
+  public var proofUpgradeClient: Data = Data()
 
   /// proof that old chain committed to new consensus state
-  var proofUpgradeConsensusState: Data = Data()
+  public var proofUpgradeConsensusState: Data = Data()
 
   /// signer address
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _clientState: SwiftProtobuf.Google_Protobuf_Any? = nil
   fileprivate var _consensusState: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// MsgUpgradeClientResponse defines the Msg/UpgradeClient response type.
-struct Ibc_Core_Client_V1_MsgUpgradeClientResponse {
+public struct Ibc_Core_Client_V1_MsgUpgradeClientResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgSubmitMisbehaviour defines an sdk.Msg type that submits Evidence for
 /// light client misbehaviour.
-struct Ibc_Core_Client_V1_MsgSubmitMisbehaviour {
+public struct Ibc_Core_Client_V1_MsgSubmitMisbehaviour {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// client unique identifier
-  var clientID: String = String()
+  public var clientID: String = String()
 
   /// misbehaviour used for freezing the light client
-  var misbehaviour: SwiftProtobuf.Google_Protobuf_Any {
+  public var misbehaviour: SwiftProtobuf.Google_Protobuf_Any {
     get {return _misbehaviour ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_misbehaviour = newValue}
   }
   /// Returns true if `misbehaviour` has been explicitly set.
-  var hasMisbehaviour: Bool {return self._misbehaviour != nil}
+  public var hasMisbehaviour: Bool {return self._misbehaviour != nil}
   /// Clears the value of `misbehaviour`. Subsequent reads from it will return its default value.
-  mutating func clearMisbehaviour() {self._misbehaviour = nil}
+  public mutating func clearMisbehaviour() {self._misbehaviour = nil}
 
   /// signer address
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _misbehaviour: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// MsgSubmitMisbehaviourResponse defines the Msg/SubmitMisbehaviour response type.
-struct Ibc_Core_Client_V1_MsgSubmitMisbehaviourResponse {
+public struct Ibc_Core_Client_V1_MsgSubmitMisbehaviourResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -213,14 +213,14 @@ struct Ibc_Core_Client_V1_MsgSubmitMisbehaviourResponse {
 fileprivate let _protobuf_package = "ibc.core.client.v1"
 
 extension Ibc_Core_Client_V1_MsgCreateClient: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgCreateClient"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgCreateClient"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_state"),
     2: .standard(proto: "consensus_state"),
     3: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -234,7 +234,7 @@ extension Ibc_Core_Client_V1_MsgCreateClient: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._clientState {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -247,7 +247,7 @@ extension Ibc_Core_Client_V1_MsgCreateClient: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_MsgCreateClient, rhs: Ibc_Core_Client_V1_MsgCreateClient) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_MsgCreateClient, rhs: Ibc_Core_Client_V1_MsgCreateClient) -> Bool {
     if lhs._clientState != rhs._clientState {return false}
     if lhs._consensusState != rhs._consensusState {return false}
     if lhs.signer != rhs.signer {return false}
@@ -257,33 +257,33 @@ extension Ibc_Core_Client_V1_MsgCreateClient: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Ibc_Core_Client_V1_MsgCreateClientResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgCreateClientResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgCreateClientResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_MsgCreateClientResponse, rhs: Ibc_Core_Client_V1_MsgCreateClientResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_MsgCreateClientResponse, rhs: Ibc_Core_Client_V1_MsgCreateClientResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Client_V1_MsgUpdateClient: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgUpdateClient"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgUpdateClient"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
     2: .same(proto: "header"),
     3: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -297,7 +297,7 @@ extension Ibc_Core_Client_V1_MsgUpdateClient: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clientID.isEmpty {
       try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
     }
@@ -310,7 +310,7 @@ extension Ibc_Core_Client_V1_MsgUpdateClient: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_MsgUpdateClient, rhs: Ibc_Core_Client_V1_MsgUpdateClient) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_MsgUpdateClient, rhs: Ibc_Core_Client_V1_MsgUpdateClient) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs._header != rhs._header {return false}
     if lhs.signer != rhs.signer {return false}
@@ -320,27 +320,27 @@ extension Ibc_Core_Client_V1_MsgUpdateClient: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Ibc_Core_Client_V1_MsgUpdateClientResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgUpdateClientResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgUpdateClientResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_MsgUpdateClientResponse, rhs: Ibc_Core_Client_V1_MsgUpdateClientResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_MsgUpdateClientResponse, rhs: Ibc_Core_Client_V1_MsgUpdateClientResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Client_V1_MsgUpgradeClient: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgUpgradeClient"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgUpgradeClient"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
     2: .standard(proto: "client_state"),
     3: .standard(proto: "consensus_state"),
@@ -349,7 +349,7 @@ extension Ibc_Core_Client_V1_MsgUpgradeClient: SwiftProtobuf.Message, SwiftProto
     6: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -366,7 +366,7 @@ extension Ibc_Core_Client_V1_MsgUpgradeClient: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clientID.isEmpty {
       try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
     }
@@ -388,7 +388,7 @@ extension Ibc_Core_Client_V1_MsgUpgradeClient: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_MsgUpgradeClient, rhs: Ibc_Core_Client_V1_MsgUpgradeClient) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_MsgUpgradeClient, rhs: Ibc_Core_Client_V1_MsgUpgradeClient) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs._clientState != rhs._clientState {return false}
     if lhs._consensusState != rhs._consensusState {return false}
@@ -401,33 +401,33 @@ extension Ibc_Core_Client_V1_MsgUpgradeClient: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Ibc_Core_Client_V1_MsgUpgradeClientResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgUpgradeClientResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgUpgradeClientResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_MsgUpgradeClientResponse, rhs: Ibc_Core_Client_V1_MsgUpgradeClientResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_MsgUpgradeClientResponse, rhs: Ibc_Core_Client_V1_MsgUpgradeClientResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Client_V1_MsgSubmitMisbehaviour: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgSubmitMisbehaviour"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgSubmitMisbehaviour"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
     2: .same(proto: "misbehaviour"),
     3: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -441,7 +441,7 @@ extension Ibc_Core_Client_V1_MsgSubmitMisbehaviour: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clientID.isEmpty {
       try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
     }
@@ -454,7 +454,7 @@ extension Ibc_Core_Client_V1_MsgSubmitMisbehaviour: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_MsgSubmitMisbehaviour, rhs: Ibc_Core_Client_V1_MsgSubmitMisbehaviour) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_MsgSubmitMisbehaviour, rhs: Ibc_Core_Client_V1_MsgSubmitMisbehaviour) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs._misbehaviour != rhs._misbehaviour {return false}
     if lhs.signer != rhs.signer {return false}
@@ -464,19 +464,19 @@ extension Ibc_Core_Client_V1_MsgSubmitMisbehaviour: SwiftProtobuf.Message, Swift
 }
 
 extension Ibc_Core_Client_V1_MsgSubmitMisbehaviourResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgSubmitMisbehaviourResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgSubmitMisbehaviourResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_MsgSubmitMisbehaviourResponse, rhs: Ibc_Core_Client_V1_MsgSubmitMisbehaviourResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_MsgSubmitMisbehaviourResponse, rhs: Ibc_Core_Client_V1_MsgSubmitMisbehaviourResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

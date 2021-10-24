@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// MarkerType defines the types of marker
-enum Provenance_Marker_V1_MarkerType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Marker_V1_MarkerType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// MARKER_TYPE_UNSPECIFIED is an invalid/unknown marker type.
   case unspecified // = 0
@@ -34,11 +34,11 @@ enum Provenance_Marker_V1_MarkerType: SwiftProtobuf.Enum {
   case restricted // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .coin
@@ -47,7 +47,7 @@ enum Provenance_Marker_V1_MarkerType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .coin: return 1
@@ -62,7 +62,7 @@ enum Provenance_Marker_V1_MarkerType: SwiftProtobuf.Enum {
 
 extension Provenance_Marker_V1_MarkerType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Marker_V1_MarkerType] = [
+  public static var allCases: [Provenance_Marker_V1_MarkerType] = [
     .unspecified,
     .coin,
     .restricted,
@@ -72,8 +72,8 @@ extension Provenance_Marker_V1_MarkerType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// MarkerStatus defines the various states a marker account can be in.
-enum Provenance_Marker_V1_MarkerStatus: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Marker_V1_MarkerStatus: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// MARKER_STATUS_UNSPECIFIED - Unknown/Invalid Marker Status
   case unspecified // = 0
@@ -95,11 +95,11 @@ enum Provenance_Marker_V1_MarkerStatus: SwiftProtobuf.Enum {
   case destroyed // = 5
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .proposed
@@ -111,7 +111,7 @@ enum Provenance_Marker_V1_MarkerStatus: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .proposed: return 1
@@ -129,7 +129,7 @@ enum Provenance_Marker_V1_MarkerStatus: SwiftProtobuf.Enum {
 
 extension Provenance_Marker_V1_MarkerStatus: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Marker_V1_MarkerStatus] = [
+  public static var allCases: [Provenance_Marker_V1_MarkerStatus] = [
     .unspecified,
     .proposed,
     .finalized,
@@ -142,328 +142,328 @@ extension Provenance_Marker_V1_MarkerStatus: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// Params defines the set of params for the account module.
-struct Provenance_Marker_V1_Params {
+public struct Provenance_Marker_V1_Params {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// maximum amount of supply to allow a marker to be created with
-  var maxTotalSupply: UInt64 = 0
+  public var maxTotalSupply: UInt64 = 0
 
   /// indicates if governance based controls of markers is allowed.
-  var enableGovernance: Bool = false
+  public var enableGovernance: Bool = false
 
   /// a regular expression used to validate marker denom values from normal create requests (governance
   /// requests are only subject to platform coin validation denom expression)
-  var unrestrictedDenomRegex: String = String()
+  public var unrestrictedDenomRegex: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MarkerAccount holds the marker configuration information in addition to a base account structure.
-struct Provenance_Marker_V1_MarkerAccount {
+public struct Provenance_Marker_V1_MarkerAccount {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// base cosmos account information including address and coin holdings.
-  var baseAccount: Cosmos_Auth_V1beta1_BaseAccount {
+  public var baseAccount: Cosmos_Auth_V1beta1_BaseAccount {
     get {return _baseAccount ?? Cosmos_Auth_V1beta1_BaseAccount()}
     set {_baseAccount = newValue}
   }
   /// Returns true if `baseAccount` has been explicitly set.
-  var hasBaseAccount: Bool {return self._baseAccount != nil}
+  public var hasBaseAccount: Bool {return self._baseAccount != nil}
   /// Clears the value of `baseAccount`. Subsequent reads from it will return its default value.
-  mutating func clearBaseAccount() {self._baseAccount = nil}
+  public mutating func clearBaseAccount() {self._baseAccount = nil}
 
   /// Address that owns the marker configuration.  This account must sign any requests
   /// to change marker config (only valid for statuses prior to finalization)
-  var manager: String = String()
+  public var manager: String = String()
 
   /// Access control lists
-  var accessControl: [Provenance_Marker_V1_AccessGrant] = []
+  public var accessControl: [Provenance_Marker_V1_AccessGrant] = []
 
   /// Indicates the current status of this marker record.
-  var status: Provenance_Marker_V1_MarkerStatus = .unspecified
+  public var status: Provenance_Marker_V1_MarkerStatus = .unspecified
 
   /// value denomination and total supply for the token.
-  var denom: String = String()
+  public var denom: String = String()
 
   /// the total supply expected for a marker.  This is the amount that is minted when a marker is created.
-  var supply: String = String()
+  public var supply: String = String()
 
   /// Marker type information
-  var markerType: Provenance_Marker_V1_MarkerType = .unspecified
+  public var markerType: Provenance_Marker_V1_MarkerType = .unspecified
 
   /// A fixed supply will mint additional coin automatically if the total supply decreases below a set value.  This
   /// may occur if the coin is burned or an account holding the coin is slashed. (default: true)
-  var supplyFixed: Bool = false
+  public var supplyFixed: Bool = false
 
   /// indicates that governance based control is allowed for this marker
-  var allowGovernanceControl: Bool = false
+  public var allowGovernanceControl: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _baseAccount: Cosmos_Auth_V1beta1_BaseAccount? = nil
 }
 
 /// EventMarkerAdd event emitted when marker is added
-struct Provenance_Marker_V1_EventMarkerAdd {
+public struct Provenance_Marker_V1_EventMarkerAdd {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var amount: String = String()
+  public var amount: String = String()
 
-  var status: String = String()
+  public var status: String = String()
 
-  var manager: String = String()
+  public var manager: String = String()
 
-  var markerType: String = String()
+  public var markerType: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerAddAccess event emitted when marker access is added
-struct Provenance_Marker_V1_EventMarkerAddAccess {
+public struct Provenance_Marker_V1_EventMarkerAddAccess {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var access: Provenance_Marker_V1_EventMarkerAccess {
+  public var access: Provenance_Marker_V1_EventMarkerAccess {
     get {return _access ?? Provenance_Marker_V1_EventMarkerAccess()}
     set {_access = newValue}
   }
   /// Returns true if `access` has been explicitly set.
-  var hasAccess: Bool {return self._access != nil}
+  public var hasAccess: Bool {return self._access != nil}
   /// Clears the value of `access`. Subsequent reads from it will return its default value.
-  mutating func clearAccess() {self._access = nil}
+  public mutating func clearAccess() {self._access = nil}
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _access: Provenance_Marker_V1_EventMarkerAccess? = nil
 }
 
 /// EventMarkerAccess event access permissions for address
-struct Provenance_Marker_V1_EventMarkerAccess {
+public struct Provenance_Marker_V1_EventMarkerAccess {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var address: String = String()
+  public var address: String = String()
 
-  var permissions: [String] = []
+  public var permissions: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerDeleteAccess event emitted when marker access is revoked
-struct Provenance_Marker_V1_EventMarkerDeleteAccess {
+public struct Provenance_Marker_V1_EventMarkerDeleteAccess {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var removeAddress: String = String()
+  public var removeAddress: String = String()
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerFinalize event emitted when marker is finalized
-struct Provenance_Marker_V1_EventMarkerFinalize {
+public struct Provenance_Marker_V1_EventMarkerFinalize {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerActivate event emitted when marker is activated
-struct Provenance_Marker_V1_EventMarkerActivate {
+public struct Provenance_Marker_V1_EventMarkerActivate {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerCancel event emitted when marker is cancelled
-struct Provenance_Marker_V1_EventMarkerCancel {
+public struct Provenance_Marker_V1_EventMarkerCancel {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerDelete event emitted when marker is deleted
-struct Provenance_Marker_V1_EventMarkerDelete {
+public struct Provenance_Marker_V1_EventMarkerDelete {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerMint event emitted when additional marker supply is minted
-struct Provenance_Marker_V1_EventMarkerMint {
+public struct Provenance_Marker_V1_EventMarkerMint {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var amount: String = String()
+  public var amount: String = String()
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerBurn event emitted when coin is burned from marker
-struct Provenance_Marker_V1_EventMarkerBurn {
+public struct Provenance_Marker_V1_EventMarkerBurn {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var amount: String = String()
+  public var amount: String = String()
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerWithdraw event emitted when coins are withdrew from marker
-struct Provenance_Marker_V1_EventMarkerWithdraw {
+public struct Provenance_Marker_V1_EventMarkerWithdraw {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var coins: String = String()
+  public var coins: String = String()
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var toAddress: String = String()
+  public var toAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerTransfer event emitted when coins are transfered to from account to another
-struct Provenance_Marker_V1_EventMarkerTransfer {
+public struct Provenance_Marker_V1_EventMarkerTransfer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var amount: String = String()
+  public var amount: String = String()
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var toAddress: String = String()
+  public var toAddress: String = String()
 
-  var fromAddress: String = String()
+  public var fromAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventMarkerSetDenomMetadata event emitted when metadata is set on marker with denom
-struct Provenance_Marker_V1_EventMarkerSetDenomMetadata {
+public struct Provenance_Marker_V1_EventMarkerSetDenomMetadata {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var metadataBase: String = String()
+  public var metadataBase: String = String()
 
-  var metadataDescription: String = String()
+  public var metadataDescription: String = String()
 
-  var metadataDisplay: String = String()
+  public var metadataDisplay: String = String()
 
-  var metadataDenomUnits: [Provenance_Marker_V1_EventDenomUnit] = []
+  public var metadataDenomUnits: [Provenance_Marker_V1_EventDenomUnit] = []
 
-  var administrator: String = String()
+  public var administrator: String = String()
 
-  var metadataName: String = String()
+  public var metadataName: String = String()
 
-  var metadataSymbol: String = String()
+  public var metadataSymbol: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventDenomUnit denom units for set denom metadata event
-struct Provenance_Marker_V1_EventDenomUnit {
+public struct Provenance_Marker_V1_EventDenomUnit {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var exponent: String = String()
+  public var exponent: String = String()
 
-  var aliases: [String] = []
+  public var aliases: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -471,7 +471,7 @@ struct Provenance_Marker_V1_EventDenomUnit {
 fileprivate let _protobuf_package = "provenance.marker.v1"
 
 extension Provenance_Marker_V1_MarkerType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MARKER_TYPE_UNSPECIFIED"),
     1: .same(proto: "MARKER_TYPE_COIN"),
     2: .same(proto: "MARKER_TYPE_RESTRICTED"),
@@ -479,7 +479,7 @@ extension Provenance_Marker_V1_MarkerType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Provenance_Marker_V1_MarkerStatus: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "MARKER_STATUS_UNSPECIFIED"),
     1: .same(proto: "MARKER_STATUS_PROPOSED"),
     2: .same(proto: "MARKER_STATUS_FINALIZED"),
@@ -490,14 +490,14 @@ extension Provenance_Marker_V1_MarkerStatus: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Provenance_Marker_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Params"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Params"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "max_total_supply"),
     2: .standard(proto: "enable_governance"),
     3: .standard(proto: "unrestricted_denom_regex"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -511,7 +511,7 @@ extension Provenance_Marker_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.maxTotalSupply != 0 {
       try visitor.visitSingularUInt64Field(value: self.maxTotalSupply, fieldNumber: 1)
     }
@@ -524,7 +524,7 @@ extension Provenance_Marker_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_Params, rhs: Provenance_Marker_V1_Params) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_Params, rhs: Provenance_Marker_V1_Params) -> Bool {
     if lhs.maxTotalSupply != rhs.maxTotalSupply {return false}
     if lhs.enableGovernance != rhs.enableGovernance {return false}
     if lhs.unrestrictedDenomRegex != rhs.unrestrictedDenomRegex {return false}
@@ -534,8 +534,8 @@ extension Provenance_Marker_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension Provenance_Marker_V1_MarkerAccount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MarkerAccount"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MarkerAccount"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "base_account"),
     2: .same(proto: "manager"),
     3: .standard(proto: "access_control"),
@@ -547,7 +547,7 @@ extension Provenance_Marker_V1_MarkerAccount: SwiftProtobuf.Message, SwiftProtob
     9: .standard(proto: "allow_governance_control"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -567,7 +567,7 @@ extension Provenance_Marker_V1_MarkerAccount: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._baseAccount {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -598,7 +598,7 @@ extension Provenance_Marker_V1_MarkerAccount: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_MarkerAccount, rhs: Provenance_Marker_V1_MarkerAccount) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_MarkerAccount, rhs: Provenance_Marker_V1_MarkerAccount) -> Bool {
     if lhs._baseAccount != rhs._baseAccount {return false}
     if lhs.manager != rhs.manager {return false}
     if lhs.accessControl != rhs.accessControl {return false}
@@ -614,8 +614,8 @@ extension Provenance_Marker_V1_MarkerAccount: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Provenance_Marker_V1_EventMarkerAdd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerAdd"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerAdd"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "denom"),
     2: .same(proto: "amount"),
     3: .same(proto: "status"),
@@ -623,7 +623,7 @@ extension Provenance_Marker_V1_EventMarkerAdd: SwiftProtobuf.Message, SwiftProto
     5: .standard(proto: "marker_type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -639,7 +639,7 @@ extension Provenance_Marker_V1_EventMarkerAdd: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.denom.isEmpty {
       try visitor.visitSingularStringField(value: self.denom, fieldNumber: 1)
     }
@@ -658,7 +658,7 @@ extension Provenance_Marker_V1_EventMarkerAdd: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerAdd, rhs: Provenance_Marker_V1_EventMarkerAdd) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerAdd, rhs: Provenance_Marker_V1_EventMarkerAdd) -> Bool {
     if lhs.denom != rhs.denom {return false}
     if lhs.amount != rhs.amount {return false}
     if lhs.status != rhs.status {return false}
@@ -670,14 +670,14 @@ extension Provenance_Marker_V1_EventMarkerAdd: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Provenance_Marker_V1_EventMarkerAddAccess: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerAddAccess"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerAddAccess"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "access"),
     2: .same(proto: "denom"),
     3: .same(proto: "administrator"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -691,7 +691,7 @@ extension Provenance_Marker_V1_EventMarkerAddAccess: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._access {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -704,7 +704,7 @@ extension Provenance_Marker_V1_EventMarkerAddAccess: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerAddAccess, rhs: Provenance_Marker_V1_EventMarkerAddAccess) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerAddAccess, rhs: Provenance_Marker_V1_EventMarkerAddAccess) -> Bool {
     if lhs._access != rhs._access {return false}
     if lhs.denom != rhs.denom {return false}
     if lhs.administrator != rhs.administrator {return false}
@@ -714,13 +714,13 @@ extension Provenance_Marker_V1_EventMarkerAddAccess: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Marker_V1_EventMarkerAccess: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerAccess"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerAccess"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .same(proto: "permissions"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -733,7 +733,7 @@ extension Provenance_Marker_V1_EventMarkerAccess: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -743,7 +743,7 @@ extension Provenance_Marker_V1_EventMarkerAccess: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerAccess, rhs: Provenance_Marker_V1_EventMarkerAccess) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerAccess, rhs: Provenance_Marker_V1_EventMarkerAccess) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.permissions != rhs.permissions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -752,14 +752,14 @@ extension Provenance_Marker_V1_EventMarkerAccess: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Provenance_Marker_V1_EventMarkerDeleteAccess: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerDeleteAccess"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerDeleteAccess"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "remove_address"),
     2: .same(proto: "denom"),
     3: .same(proto: "administrator"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -773,7 +773,7 @@ extension Provenance_Marker_V1_EventMarkerDeleteAccess: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.removeAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.removeAddress, fieldNumber: 1)
     }
@@ -786,7 +786,7 @@ extension Provenance_Marker_V1_EventMarkerDeleteAccess: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerDeleteAccess, rhs: Provenance_Marker_V1_EventMarkerDeleteAccess) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerDeleteAccess, rhs: Provenance_Marker_V1_EventMarkerDeleteAccess) -> Bool {
     if lhs.removeAddress != rhs.removeAddress {return false}
     if lhs.denom != rhs.denom {return false}
     if lhs.administrator != rhs.administrator {return false}
@@ -796,13 +796,13 @@ extension Provenance_Marker_V1_EventMarkerDeleteAccess: SwiftProtobuf.Message, S
 }
 
 extension Provenance_Marker_V1_EventMarkerFinalize: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerFinalize"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerFinalize"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "denom"),
     2: .same(proto: "administrator"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -815,7 +815,7 @@ extension Provenance_Marker_V1_EventMarkerFinalize: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.denom.isEmpty {
       try visitor.visitSingularStringField(value: self.denom, fieldNumber: 1)
     }
@@ -825,7 +825,7 @@ extension Provenance_Marker_V1_EventMarkerFinalize: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerFinalize, rhs: Provenance_Marker_V1_EventMarkerFinalize) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerFinalize, rhs: Provenance_Marker_V1_EventMarkerFinalize) -> Bool {
     if lhs.denom != rhs.denom {return false}
     if lhs.administrator != rhs.administrator {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -834,13 +834,13 @@ extension Provenance_Marker_V1_EventMarkerFinalize: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Marker_V1_EventMarkerActivate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerActivate"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerActivate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "denom"),
     2: .same(proto: "administrator"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -853,7 +853,7 @@ extension Provenance_Marker_V1_EventMarkerActivate: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.denom.isEmpty {
       try visitor.visitSingularStringField(value: self.denom, fieldNumber: 1)
     }
@@ -863,7 +863,7 @@ extension Provenance_Marker_V1_EventMarkerActivate: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerActivate, rhs: Provenance_Marker_V1_EventMarkerActivate) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerActivate, rhs: Provenance_Marker_V1_EventMarkerActivate) -> Bool {
     if lhs.denom != rhs.denom {return false}
     if lhs.administrator != rhs.administrator {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -872,13 +872,13 @@ extension Provenance_Marker_V1_EventMarkerActivate: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Marker_V1_EventMarkerCancel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerCancel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerCancel"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "denom"),
     2: .same(proto: "administrator"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -891,7 +891,7 @@ extension Provenance_Marker_V1_EventMarkerCancel: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.denom.isEmpty {
       try visitor.visitSingularStringField(value: self.denom, fieldNumber: 1)
     }
@@ -901,7 +901,7 @@ extension Provenance_Marker_V1_EventMarkerCancel: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerCancel, rhs: Provenance_Marker_V1_EventMarkerCancel) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerCancel, rhs: Provenance_Marker_V1_EventMarkerCancel) -> Bool {
     if lhs.denom != rhs.denom {return false}
     if lhs.administrator != rhs.administrator {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -910,13 +910,13 @@ extension Provenance_Marker_V1_EventMarkerCancel: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Provenance_Marker_V1_EventMarkerDelete: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerDelete"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerDelete"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "denom"),
     2: .same(proto: "administrator"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -929,7 +929,7 @@ extension Provenance_Marker_V1_EventMarkerDelete: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.denom.isEmpty {
       try visitor.visitSingularStringField(value: self.denom, fieldNumber: 1)
     }
@@ -939,7 +939,7 @@ extension Provenance_Marker_V1_EventMarkerDelete: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerDelete, rhs: Provenance_Marker_V1_EventMarkerDelete) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerDelete, rhs: Provenance_Marker_V1_EventMarkerDelete) -> Bool {
     if lhs.denom != rhs.denom {return false}
     if lhs.administrator != rhs.administrator {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -948,14 +948,14 @@ extension Provenance_Marker_V1_EventMarkerDelete: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Provenance_Marker_V1_EventMarkerMint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerMint"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerMint"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "amount"),
     2: .same(proto: "denom"),
     3: .same(proto: "administrator"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -969,7 +969,7 @@ extension Provenance_Marker_V1_EventMarkerMint: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.amount.isEmpty {
       try visitor.visitSingularStringField(value: self.amount, fieldNumber: 1)
     }
@@ -982,7 +982,7 @@ extension Provenance_Marker_V1_EventMarkerMint: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerMint, rhs: Provenance_Marker_V1_EventMarkerMint) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerMint, rhs: Provenance_Marker_V1_EventMarkerMint) -> Bool {
     if lhs.amount != rhs.amount {return false}
     if lhs.denom != rhs.denom {return false}
     if lhs.administrator != rhs.administrator {return false}
@@ -992,14 +992,14 @@ extension Provenance_Marker_V1_EventMarkerMint: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Provenance_Marker_V1_EventMarkerBurn: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerBurn"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerBurn"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "amount"),
     2: .same(proto: "denom"),
     3: .same(proto: "administrator"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1013,7 +1013,7 @@ extension Provenance_Marker_V1_EventMarkerBurn: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.amount.isEmpty {
       try visitor.visitSingularStringField(value: self.amount, fieldNumber: 1)
     }
@@ -1026,7 +1026,7 @@ extension Provenance_Marker_V1_EventMarkerBurn: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerBurn, rhs: Provenance_Marker_V1_EventMarkerBurn) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerBurn, rhs: Provenance_Marker_V1_EventMarkerBurn) -> Bool {
     if lhs.amount != rhs.amount {return false}
     if lhs.denom != rhs.denom {return false}
     if lhs.administrator != rhs.administrator {return false}
@@ -1036,15 +1036,15 @@ extension Provenance_Marker_V1_EventMarkerBurn: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Provenance_Marker_V1_EventMarkerWithdraw: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerWithdraw"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerWithdraw"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "coins"),
     2: .same(proto: "denom"),
     3: .same(proto: "administrator"),
     4: .standard(proto: "to_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1059,7 +1059,7 @@ extension Provenance_Marker_V1_EventMarkerWithdraw: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.coins.isEmpty {
       try visitor.visitSingularStringField(value: self.coins, fieldNumber: 1)
     }
@@ -1075,7 +1075,7 @@ extension Provenance_Marker_V1_EventMarkerWithdraw: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerWithdraw, rhs: Provenance_Marker_V1_EventMarkerWithdraw) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerWithdraw, rhs: Provenance_Marker_V1_EventMarkerWithdraw) -> Bool {
     if lhs.coins != rhs.coins {return false}
     if lhs.denom != rhs.denom {return false}
     if lhs.administrator != rhs.administrator {return false}
@@ -1086,8 +1086,8 @@ extension Provenance_Marker_V1_EventMarkerWithdraw: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Marker_V1_EventMarkerTransfer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerTransfer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerTransfer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "amount"),
     2: .same(proto: "denom"),
     3: .same(proto: "administrator"),
@@ -1095,7 +1095,7 @@ extension Provenance_Marker_V1_EventMarkerTransfer: SwiftProtobuf.Message, Swift
     5: .standard(proto: "from_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1111,7 +1111,7 @@ extension Provenance_Marker_V1_EventMarkerTransfer: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.amount.isEmpty {
       try visitor.visitSingularStringField(value: self.amount, fieldNumber: 1)
     }
@@ -1130,7 +1130,7 @@ extension Provenance_Marker_V1_EventMarkerTransfer: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerTransfer, rhs: Provenance_Marker_V1_EventMarkerTransfer) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerTransfer, rhs: Provenance_Marker_V1_EventMarkerTransfer) -> Bool {
     if lhs.amount != rhs.amount {return false}
     if lhs.denom != rhs.denom {return false}
     if lhs.administrator != rhs.administrator {return false}
@@ -1142,8 +1142,8 @@ extension Provenance_Marker_V1_EventMarkerTransfer: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Marker_V1_EventMarkerSetDenomMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventMarkerSetDenomMetadata"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventMarkerSetDenomMetadata"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "metadata_base"),
     2: .standard(proto: "metadata_description"),
     3: .standard(proto: "metadata_display"),
@@ -1153,7 +1153,7 @@ extension Provenance_Marker_V1_EventMarkerSetDenomMetadata: SwiftProtobuf.Messag
     7: .standard(proto: "metadata_symbol"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1171,7 +1171,7 @@ extension Provenance_Marker_V1_EventMarkerSetDenomMetadata: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.metadataBase.isEmpty {
       try visitor.visitSingularStringField(value: self.metadataBase, fieldNumber: 1)
     }
@@ -1196,7 +1196,7 @@ extension Provenance_Marker_V1_EventMarkerSetDenomMetadata: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventMarkerSetDenomMetadata, rhs: Provenance_Marker_V1_EventMarkerSetDenomMetadata) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventMarkerSetDenomMetadata, rhs: Provenance_Marker_V1_EventMarkerSetDenomMetadata) -> Bool {
     if lhs.metadataBase != rhs.metadataBase {return false}
     if lhs.metadataDescription != rhs.metadataDescription {return false}
     if lhs.metadataDisplay != rhs.metadataDisplay {return false}
@@ -1210,14 +1210,14 @@ extension Provenance_Marker_V1_EventMarkerSetDenomMetadata: SwiftProtobuf.Messag
 }
 
 extension Provenance_Marker_V1_EventDenomUnit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventDenomUnit"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventDenomUnit"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "denom"),
     2: .same(proto: "exponent"),
     3: .same(proto: "aliases"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1231,7 +1231,7 @@ extension Provenance_Marker_V1_EventDenomUnit: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.denom.isEmpty {
       try visitor.visitSingularStringField(value: self.denom, fieldNumber: 1)
     }
@@ -1244,7 +1244,7 @@ extension Provenance_Marker_V1_EventDenomUnit: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_EventDenomUnit, rhs: Provenance_Marker_V1_EventDenomUnit) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_EventDenomUnit, rhs: Provenance_Marker_V1_EventDenomUnit) -> Bool {
     if lhs.denom != rhs.denom {return false}
     if lhs.exponent != rhs.exponent {return false}
     if lhs.aliases != rhs.aliases {return false}

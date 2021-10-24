@@ -21,162 +21,162 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// QueryParamsRequest is the request type for the Query/Params RPC method.
-struct Provenance_Metadata_V1_QueryParamsRequest {
+public struct Provenance_Metadata_V1_QueryParamsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryParamsResponse is the response type for the Query/Params RPC method.
-struct Provenance_Metadata_V1_QueryParamsResponse {
+public struct Provenance_Metadata_V1_QueryParamsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// params defines the parameters of the module.
-  var params: Provenance_Metadata_V1_Params {
+  public var params: Provenance_Metadata_V1_Params {
     get {return _params ?? Provenance_Metadata_V1_Params()}
     set {_params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  var hasParams: Bool {return self._params != nil}
+  public var hasParams: Bool {return self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {self._params = nil}
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_QueryParamsRequest {
+  public var request: Provenance_Metadata_V1_QueryParamsRequest {
     get {return _request ?? Provenance_Metadata_V1_QueryParamsRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _params: Provenance_Metadata_V1_Params? = nil
   fileprivate var _request: Provenance_Metadata_V1_QueryParamsRequest? = nil
 }
 
 /// ScopeRequest is the request type for the Query/Scope RPC method.
-struct Provenance_Metadata_V1_ScopeRequest {
+public struct Provenance_Metadata_V1_ScopeRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_id can either be a uuid, e.g. 91978ba2-5f35-459a-86a7-feca1b0512e0 or a bech32 scope address, e.g.
   /// scope1qzge0zaztu65tx5x5llv5xc9ztsqxlkwel.
-  var scopeID: String = String()
+  public var scopeID: String = String()
 
   /// session_addr is a bech32 session address, e.g.
   /// session1qxge0zaztu65tx5x5llv5xc9zts9sqlch3sxwn44j50jzgt8rshvqyfrjcr.
-  var sessionAddr: String = String()
+  public var sessionAddr: String = String()
 
   /// record_addr is a bech32 record address, e.g. record1q2ge0zaztu65tx5x5llv5xc9ztsw42dq2jdvmdazuwzcaddhh8gmu3mcze3.
-  var recordAddr: String = String()
+  public var recordAddr: String = String()
 
   /// include_sessions is a flag for whether or not the sessions in the scope should be included.
-  var includeSessions: Bool = false
+  public var includeSessions: Bool = false
 
   /// include_records is a flag for whether or not the records in the scope should be included.
-  var includeRecords: Bool = false
+  public var includeRecords: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// ScopeResponse is the response type for the Query/Scope RPC method.
-struct Provenance_Metadata_V1_ScopeResponse {
+public struct Provenance_Metadata_V1_ScopeResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope is the wrapped scope result.
-  var scope: Provenance_Metadata_V1_ScopeWrapper {
+  public var scope: Provenance_Metadata_V1_ScopeWrapper {
     get {return _storage._scope ?? Provenance_Metadata_V1_ScopeWrapper()}
     set {_uniqueStorage()._scope = newValue}
   }
   /// Returns true if `scope` has been explicitly set.
-  var hasScope: Bool {return _storage._scope != nil}
+  public var hasScope: Bool {return _storage._scope != nil}
   /// Clears the value of `scope`. Subsequent reads from it will return its default value.
-  mutating func clearScope() {_uniqueStorage()._scope = nil}
+  public mutating func clearScope() {_uniqueStorage()._scope = nil}
 
   /// sessions is any number of wrapped sessions in this scope (if requested).
-  var sessions: [Provenance_Metadata_V1_SessionWrapper] {
+  public var sessions: [Provenance_Metadata_V1_SessionWrapper] {
     get {return _storage._sessions}
     set {_uniqueStorage()._sessions = newValue}
   }
 
   /// records is any number of wrapped records in this scope (if requested).
-  var records: [Provenance_Metadata_V1_RecordWrapper] {
+  public var records: [Provenance_Metadata_V1_RecordWrapper] {
     get {return _storage._records}
     set {_uniqueStorage()._records = newValue}
   }
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_ScopeRequest {
+  public var request: Provenance_Metadata_V1_ScopeRequest {
     get {return _storage._request ?? Provenance_Metadata_V1_ScopeRequest()}
     set {_uniqueStorage()._request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return _storage._request != nil}
+  public var hasRequest: Bool {return _storage._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {_uniqueStorage()._request = nil}
+  public mutating func clearRequest() {_uniqueStorage()._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// SessionWrapper contains a single scope and its uuid.
-struct Provenance_Metadata_V1_ScopeWrapper {
+public struct Provenance_Metadata_V1_ScopeWrapper {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope is the on-chain scope message.
-  var scope: Provenance_Metadata_V1_Scope {
+  public var scope: Provenance_Metadata_V1_Scope {
     get {return _scope ?? Provenance_Metadata_V1_Scope()}
     set {_scope = newValue}
   }
   /// Returns true if `scope` has been explicitly set.
-  var hasScope: Bool {return self._scope != nil}
+  public var hasScope: Bool {return self._scope != nil}
   /// Clears the value of `scope`. Subsequent reads from it will return its default value.
-  mutating func clearScope() {self._scope = nil}
+  public mutating func clearScope() {self._scope = nil}
 
   /// scope_id_info contains information about the id/address of the scope.
-  var scopeIDInfo: Provenance_Metadata_V1_ScopeIdInfo {
+  public var scopeIDInfo: Provenance_Metadata_V1_ScopeIdInfo {
     get {return _scopeIDInfo ?? Provenance_Metadata_V1_ScopeIdInfo()}
     set {_scopeIDInfo = newValue}
   }
   /// Returns true if `scopeIDInfo` has been explicitly set.
-  var hasScopeIDInfo: Bool {return self._scopeIDInfo != nil}
+  public var hasScopeIDInfo: Bool {return self._scopeIDInfo != nil}
   /// Clears the value of `scopeIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearScopeIDInfo() {self._scopeIDInfo = nil}
+  public mutating func clearScopeIDInfo() {self._scopeIDInfo = nil}
 
   /// scope_spec_id_info contains information about the id/address of the scope specification.
-  var scopeSpecIDInfo: Provenance_Metadata_V1_ScopeSpecIdInfo {
+  public var scopeSpecIDInfo: Provenance_Metadata_V1_ScopeSpecIdInfo {
     get {return _scopeSpecIDInfo ?? Provenance_Metadata_V1_ScopeSpecIdInfo()}
     set {_scopeSpecIDInfo = newValue}
   }
   /// Returns true if `scopeSpecIDInfo` has been explicitly set.
-  var hasScopeSpecIDInfo: Bool {return self._scopeSpecIDInfo != nil}
+  public var hasScopeSpecIDInfo: Bool {return self._scopeSpecIDInfo != nil}
   /// Clears the value of `scopeSpecIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearScopeSpecIDInfo() {self._scopeSpecIDInfo = nil}
+  public mutating func clearScopeSpecIDInfo() {self._scopeSpecIDInfo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _scope: Provenance_Metadata_V1_Scope? = nil
   fileprivate var _scopeIDInfo: Provenance_Metadata_V1_ScopeIdInfo? = nil
@@ -184,694 +184,694 @@ struct Provenance_Metadata_V1_ScopeWrapper {
 }
 
 /// ScopesAllRequest is the request type for the Query/ScopesAll RPC method.
-struct Provenance_Metadata_V1_ScopesAllRequest {
+public struct Provenance_Metadata_V1_ScopesAllRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// pagination defines optional pagination parameters for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// ScopesAllResponse is the response type for the Query/ScopesAll RPC method.
-struct Provenance_Metadata_V1_ScopesAllResponse {
+public struct Provenance_Metadata_V1_ScopesAllResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scopes are the wrapped scopes.
-  var scopes: [Provenance_Metadata_V1_ScopeWrapper] = []
+  public var scopes: [Provenance_Metadata_V1_ScopeWrapper] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_ScopesAllRequest {
+  public var request: Provenance_Metadata_V1_ScopesAllRequest {
     get {return _request ?? Provenance_Metadata_V1_ScopesAllRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
   /// pagination provides the pagination information of this response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_ScopesAllRequest? = nil
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// SessionsRequest is the request type for the Query/Sessions RPC method.
-struct Provenance_Metadata_V1_SessionsRequest {
+public struct Provenance_Metadata_V1_SessionsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_id can either be a uuid, e.g. 91978ba2-5f35-459a-86a7-feca1b0512e0 or a bech32 scope address, e.g.
   /// scope1qzge0zaztu65tx5x5llv5xc9ztsqxlkwel.
-  var scopeID: String = String()
+  public var scopeID: String = String()
 
   /// session_id can either be a uuid, e.g. 5803f8bc-6067-4eb5-951f-2121671c2ec0 or a bech32 session address, e.g.
   /// session1qxge0zaztu65tx5x5llv5xc9zts9sqlch3sxwn44j50jzgt8rshvqyfrjcr. This can only be a uuid if a scope_id is also
   /// provided.
-  var sessionID: String = String()
+  public var sessionID: String = String()
 
   /// record_addr is a bech32 record address, e.g. record1q2ge0zaztu65tx5x5llv5xc9ztsw42dq2jdvmdazuwzcaddhh8gmu3mcze3.
-  var recordAddr: String = String()
+  public var recordAddr: String = String()
 
   /// record_name is the name of the record to find the session for in the provided scope.
-  var recordName: String = String()
+  public var recordName: String = String()
 
   /// include_scope is a flag for whether or not the scope containing these sessions should be included.
-  var includeScope: Bool = false
+  public var includeScope: Bool = false
 
   /// include_records is a flag for whether or not the records in these sessions should be included.
-  var includeRecords: Bool = false
+  public var includeRecords: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// SessionsResponse is the response type for the Query/Sessions RPC method.
-struct Provenance_Metadata_V1_SessionsResponse {
+public struct Provenance_Metadata_V1_SessionsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope is the wrapped scope that holds these sessions (if requested).
-  var scope: Provenance_Metadata_V1_ScopeWrapper {
+  public var scope: Provenance_Metadata_V1_ScopeWrapper {
     get {return _storage._scope ?? Provenance_Metadata_V1_ScopeWrapper()}
     set {_uniqueStorage()._scope = newValue}
   }
   /// Returns true if `scope` has been explicitly set.
-  var hasScope: Bool {return _storage._scope != nil}
+  public var hasScope: Bool {return _storage._scope != nil}
   /// Clears the value of `scope`. Subsequent reads from it will return its default value.
-  mutating func clearScope() {_uniqueStorage()._scope = nil}
+  public mutating func clearScope() {_uniqueStorage()._scope = nil}
 
   /// sessions is any number of wrapped session results.
-  var sessions: [Provenance_Metadata_V1_SessionWrapper] {
+  public var sessions: [Provenance_Metadata_V1_SessionWrapper] {
     get {return _storage._sessions}
     set {_uniqueStorage()._sessions = newValue}
   }
 
   /// records is any number of wrapped records contained in these sessions (if requested).
-  var records: [Provenance_Metadata_V1_RecordWrapper] {
+  public var records: [Provenance_Metadata_V1_RecordWrapper] {
     get {return _storage._records}
     set {_uniqueStorage()._records = newValue}
   }
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_SessionsRequest {
+  public var request: Provenance_Metadata_V1_SessionsRequest {
     get {return _storage._request ?? Provenance_Metadata_V1_SessionsRequest()}
     set {_uniqueStorage()._request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return _storage._request != nil}
+  public var hasRequest: Bool {return _storage._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {_uniqueStorage()._request = nil}
+  public mutating func clearRequest() {_uniqueStorage()._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// SessionWrapper contains a single session and some extra identifiers for it.
-struct Provenance_Metadata_V1_SessionWrapper {
+public struct Provenance_Metadata_V1_SessionWrapper {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// session is the on-chain session message.
-  var session: Provenance_Metadata_V1_Session {
+  public var session: Provenance_Metadata_V1_Session {
     get {return _storage._session ?? Provenance_Metadata_V1_Session()}
     set {_uniqueStorage()._session = newValue}
   }
   /// Returns true if `session` has been explicitly set.
-  var hasSession: Bool {return _storage._session != nil}
+  public var hasSession: Bool {return _storage._session != nil}
   /// Clears the value of `session`. Subsequent reads from it will return its default value.
-  mutating func clearSession() {_uniqueStorage()._session = nil}
+  public mutating func clearSession() {_uniqueStorage()._session = nil}
 
   /// session_id_info contains information about the id/address of the session.
-  var sessionIDInfo: Provenance_Metadata_V1_SessionIdInfo {
+  public var sessionIDInfo: Provenance_Metadata_V1_SessionIdInfo {
     get {return _storage._sessionIDInfo ?? Provenance_Metadata_V1_SessionIdInfo()}
     set {_uniqueStorage()._sessionIDInfo = newValue}
   }
   /// Returns true if `sessionIDInfo` has been explicitly set.
-  var hasSessionIDInfo: Bool {return _storage._sessionIDInfo != nil}
+  public var hasSessionIDInfo: Bool {return _storage._sessionIDInfo != nil}
   /// Clears the value of `sessionIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearSessionIDInfo() {_uniqueStorage()._sessionIDInfo = nil}
+  public mutating func clearSessionIDInfo() {_uniqueStorage()._sessionIDInfo = nil}
 
   /// contract_spec_id_info contains information about the id/address of the contract specification.
-  var contractSpecIDInfo: Provenance_Metadata_V1_ContractSpecIdInfo {
+  public var contractSpecIDInfo: Provenance_Metadata_V1_ContractSpecIdInfo {
     get {return _storage._contractSpecIDInfo ?? Provenance_Metadata_V1_ContractSpecIdInfo()}
     set {_uniqueStorage()._contractSpecIDInfo = newValue}
   }
   /// Returns true if `contractSpecIDInfo` has been explicitly set.
-  var hasContractSpecIDInfo: Bool {return _storage._contractSpecIDInfo != nil}
+  public var hasContractSpecIDInfo: Bool {return _storage._contractSpecIDInfo != nil}
   /// Clears the value of `contractSpecIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearContractSpecIDInfo() {_uniqueStorage()._contractSpecIDInfo = nil}
+  public mutating func clearContractSpecIDInfo() {_uniqueStorage()._contractSpecIDInfo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// SessionsAllRequest is the request type for the Query/SessionsAll RPC method.
-struct Provenance_Metadata_V1_SessionsAllRequest {
+public struct Provenance_Metadata_V1_SessionsAllRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// pagination defines optional pagination parameters for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// SessionsAllResponse is the response type for the Query/SessionsAll RPC method.
-struct Provenance_Metadata_V1_SessionsAllResponse {
+public struct Provenance_Metadata_V1_SessionsAllResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// sessions are the wrapped sessions.
-  var sessions: [Provenance_Metadata_V1_SessionWrapper] = []
+  public var sessions: [Provenance_Metadata_V1_SessionWrapper] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_SessionsAllRequest {
+  public var request: Provenance_Metadata_V1_SessionsAllRequest {
     get {return _request ?? Provenance_Metadata_V1_SessionsAllRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
   /// pagination provides the pagination information of this response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_SessionsAllRequest? = nil
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// RecordsRequest is the request type for the Query/Records RPC method.
-struct Provenance_Metadata_V1_RecordsRequest {
+public struct Provenance_Metadata_V1_RecordsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_addr is a bech32 record address, e.g. record1q2ge0zaztu65tx5x5llv5xc9ztsw42dq2jdvmdazuwzcaddhh8gmu3mcze3.
-  var recordAddr: String = String()
+  public var recordAddr: String = String()
 
   /// scope_id can either be a uuid, e.g. 91978ba2-5f35-459a-86a7-feca1b0512e0 or a bech32 scope address, e.g.
   /// scope1qzge0zaztu65tx5x5llv5xc9ztsqxlkwel.
-  var scopeID: String = String()
+  public var scopeID: String = String()
 
   /// session_id can either be a uuid, e.g. 5803f8bc-6067-4eb5-951f-2121671c2ec0 or a bech32 session address, e.g.
   /// session1qxge0zaztu65tx5x5llv5xc9zts9sqlch3sxwn44j50jzgt8rshvqyfrjcr. This can only be a uuid if a scope_id is also
   /// provided.
-  var sessionID: String = String()
+  public var sessionID: String = String()
 
   /// name is the name of the record to look for
-  var name: String = String()
+  public var name: String = String()
 
   /// include_scope is a flag for whether or not the scope containing these records should be included.
-  var includeScope: Bool = false
+  public var includeScope: Bool = false
 
   /// include_sessions is a flag for whether or not the sessions containing these records should be included.
-  var includeSessions: Bool = false
+  public var includeSessions: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// RecordsResponse is the response type for the Query/Records RPC method.
-struct Provenance_Metadata_V1_RecordsResponse {
+public struct Provenance_Metadata_V1_RecordsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope is the wrapped scope that holds these records (if requested).
-  var scope: Provenance_Metadata_V1_ScopeWrapper {
+  public var scope: Provenance_Metadata_V1_ScopeWrapper {
     get {return _storage._scope ?? Provenance_Metadata_V1_ScopeWrapper()}
     set {_uniqueStorage()._scope = newValue}
   }
   /// Returns true if `scope` has been explicitly set.
-  var hasScope: Bool {return _storage._scope != nil}
+  public var hasScope: Bool {return _storage._scope != nil}
   /// Clears the value of `scope`. Subsequent reads from it will return its default value.
-  mutating func clearScope() {_uniqueStorage()._scope = nil}
+  public mutating func clearScope() {_uniqueStorage()._scope = nil}
 
   /// sessions is any number of wrapped sessions that hold these records (if requested).
-  var sessions: [Provenance_Metadata_V1_SessionWrapper] {
+  public var sessions: [Provenance_Metadata_V1_SessionWrapper] {
     get {return _storage._sessions}
     set {_uniqueStorage()._sessions = newValue}
   }
 
   /// records is any number of wrapped record results.
-  var records: [Provenance_Metadata_V1_RecordWrapper] {
+  public var records: [Provenance_Metadata_V1_RecordWrapper] {
     get {return _storage._records}
     set {_uniqueStorage()._records = newValue}
   }
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_RecordsRequest {
+  public var request: Provenance_Metadata_V1_RecordsRequest {
     get {return _storage._request ?? Provenance_Metadata_V1_RecordsRequest()}
     set {_uniqueStorage()._request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return _storage._request != nil}
+  public var hasRequest: Bool {return _storage._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {_uniqueStorage()._request = nil}
+  public mutating func clearRequest() {_uniqueStorage()._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// RecordWrapper contains a single record and some extra identifiers for it.
-struct Provenance_Metadata_V1_RecordWrapper {
+public struct Provenance_Metadata_V1_RecordWrapper {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record is the on-chain record message.
-  var record: Provenance_Metadata_V1_Record {
+  public var record: Provenance_Metadata_V1_Record {
     get {return _storage._record ?? Provenance_Metadata_V1_Record()}
     set {_uniqueStorage()._record = newValue}
   }
   /// Returns true if `record` has been explicitly set.
-  var hasRecord: Bool {return _storage._record != nil}
+  public var hasRecord: Bool {return _storage._record != nil}
   /// Clears the value of `record`. Subsequent reads from it will return its default value.
-  mutating func clearRecord() {_uniqueStorage()._record = nil}
+  public mutating func clearRecord() {_uniqueStorage()._record = nil}
 
   /// record_id_info contains information about the id/address of the record.
-  var recordIDInfo: Provenance_Metadata_V1_RecordIdInfo {
+  public var recordIDInfo: Provenance_Metadata_V1_RecordIdInfo {
     get {return _storage._recordIDInfo ?? Provenance_Metadata_V1_RecordIdInfo()}
     set {_uniqueStorage()._recordIDInfo = newValue}
   }
   /// Returns true if `recordIDInfo` has been explicitly set.
-  var hasRecordIDInfo: Bool {return _storage._recordIDInfo != nil}
+  public var hasRecordIDInfo: Bool {return _storage._recordIDInfo != nil}
   /// Clears the value of `recordIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearRecordIDInfo() {_uniqueStorage()._recordIDInfo = nil}
+  public mutating func clearRecordIDInfo() {_uniqueStorage()._recordIDInfo = nil}
 
   /// record_spec_id_info contains information about the id/address of the record specification.
-  var recordSpecIDInfo: Provenance_Metadata_V1_RecordSpecIdInfo {
+  public var recordSpecIDInfo: Provenance_Metadata_V1_RecordSpecIdInfo {
     get {return _storage._recordSpecIDInfo ?? Provenance_Metadata_V1_RecordSpecIdInfo()}
     set {_uniqueStorage()._recordSpecIDInfo = newValue}
   }
   /// Returns true if `recordSpecIDInfo` has been explicitly set.
-  var hasRecordSpecIDInfo: Bool {return _storage._recordSpecIDInfo != nil}
+  public var hasRecordSpecIDInfo: Bool {return _storage._recordSpecIDInfo != nil}
   /// Clears the value of `recordSpecIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearRecordSpecIDInfo() {_uniqueStorage()._recordSpecIDInfo = nil}
+  public mutating func clearRecordSpecIDInfo() {_uniqueStorage()._recordSpecIDInfo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// RecordsAllRequest is the request type for the Query/RecordsAll RPC method.
-struct Provenance_Metadata_V1_RecordsAllRequest {
+public struct Provenance_Metadata_V1_RecordsAllRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// pagination defines optional pagination parameters for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// RecordsAllResponse is the response type for the Query/RecordsAll RPC method.
-struct Provenance_Metadata_V1_RecordsAllResponse {
+public struct Provenance_Metadata_V1_RecordsAllResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// records are the wrapped records.
-  var records: [Provenance_Metadata_V1_RecordWrapper] = []
+  public var records: [Provenance_Metadata_V1_RecordWrapper] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_RecordsAllRequest {
+  public var request: Provenance_Metadata_V1_RecordsAllRequest {
     get {return _request ?? Provenance_Metadata_V1_RecordsAllRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
   /// pagination provides the pagination information of this response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_RecordsAllRequest? = nil
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// OwnershipRequest is the request type for the Query/Ownership RPC method.
-struct Provenance_Metadata_V1_OwnershipRequest {
+public struct Provenance_Metadata_V1_OwnershipRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var address: String = String()
+  public var address: String = String()
 
   /// pagination defines optional pagination parameters for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// OwnershipResponse is the response type for the Query/Ownership RPC method.
-struct Provenance_Metadata_V1_OwnershipResponse {
+public struct Provenance_Metadata_V1_OwnershipResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// A list of scope ids (uuid) associated with the given address.
-  var scopeUuids: [String] = []
+  public var scopeUuids: [String] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_OwnershipRequest {
+  public var request: Provenance_Metadata_V1_OwnershipRequest {
     get {return _request ?? Provenance_Metadata_V1_OwnershipRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
   /// pagination provides the pagination information of this response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_OwnershipRequest? = nil
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// ValueOwnershipRequest is the request type for the Query/ValueOwnership RPC method.
-struct Provenance_Metadata_V1_ValueOwnershipRequest {
+public struct Provenance_Metadata_V1_ValueOwnershipRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var address: String = String()
+  public var address: String = String()
 
   /// pagination defines optional pagination parameters for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// ValueOwnershipResponse is the response type for the Query/ValueOwnership RPC method.
-struct Provenance_Metadata_V1_ValueOwnershipResponse {
+public struct Provenance_Metadata_V1_ValueOwnershipResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// A list of scope ids (uuid) associated with the given address.
-  var scopeUuids: [String] = []
+  public var scopeUuids: [String] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_ValueOwnershipRequest {
+  public var request: Provenance_Metadata_V1_ValueOwnershipRequest {
     get {return _request ?? Provenance_Metadata_V1_ValueOwnershipRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
   /// pagination provides the pagination information of this response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_ValueOwnershipRequest? = nil
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// ScopeSpecificationRequest is the request type for the Query/ScopeSpecification RPC method.
-struct Provenance_Metadata_V1_ScopeSpecificationRequest {
+public struct Provenance_Metadata_V1_ScopeSpecificationRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// specification_id can either be a uuid, e.g. dc83ea70-eacd-40fe-9adf-1cf6148bf8a2 or a bech32 scope specification
   /// address, e.g. scopespec1qnwg86nsatx5pl56muw0v9ytlz3qu3jx6m.
-  var specificationID: String = String()
+  public var specificationID: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// ScopeSpecificationResponse is the response type for the Query/ScopeSpecification RPC method.
-struct Provenance_Metadata_V1_ScopeSpecificationResponse {
+public struct Provenance_Metadata_V1_ScopeSpecificationResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_specification is the wrapped scope specification.
-  var scopeSpecification: Provenance_Metadata_V1_ScopeSpecificationWrapper {
+  public var scopeSpecification: Provenance_Metadata_V1_ScopeSpecificationWrapper {
     get {return _scopeSpecification ?? Provenance_Metadata_V1_ScopeSpecificationWrapper()}
     set {_scopeSpecification = newValue}
   }
   /// Returns true if `scopeSpecification` has been explicitly set.
-  var hasScopeSpecification: Bool {return self._scopeSpecification != nil}
+  public var hasScopeSpecification: Bool {return self._scopeSpecification != nil}
   /// Clears the value of `scopeSpecification`. Subsequent reads from it will return its default value.
-  mutating func clearScopeSpecification() {self._scopeSpecification = nil}
+  public mutating func clearScopeSpecification() {self._scopeSpecification = nil}
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_ScopeSpecificationRequest {
+  public var request: Provenance_Metadata_V1_ScopeSpecificationRequest {
     get {return _request ?? Provenance_Metadata_V1_ScopeSpecificationRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _scopeSpecification: Provenance_Metadata_V1_ScopeSpecificationWrapper? = nil
   fileprivate var _request: Provenance_Metadata_V1_ScopeSpecificationRequest? = nil
 }
 
 /// ScopeSpecificationWrapper contains a single scope specification and some extra identifiers for it.
-struct Provenance_Metadata_V1_ScopeSpecificationWrapper {
+public struct Provenance_Metadata_V1_ScopeSpecificationWrapper {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// specification is the on-chain scope specification message.
-  var specification: Provenance_Metadata_V1_ScopeSpecification {
+  public var specification: Provenance_Metadata_V1_ScopeSpecification {
     get {return _specification ?? Provenance_Metadata_V1_ScopeSpecification()}
     set {_specification = newValue}
   }
   /// Returns true if `specification` has been explicitly set.
-  var hasSpecification: Bool {return self._specification != nil}
+  public var hasSpecification: Bool {return self._specification != nil}
   /// Clears the value of `specification`. Subsequent reads from it will return its default value.
-  mutating func clearSpecification() {self._specification = nil}
+  public mutating func clearSpecification() {self._specification = nil}
 
   /// scope_spec_id_info contains information about the id/address of the scope specification.
-  var scopeSpecIDInfo: Provenance_Metadata_V1_ScopeSpecIdInfo {
+  public var scopeSpecIDInfo: Provenance_Metadata_V1_ScopeSpecIdInfo {
     get {return _scopeSpecIDInfo ?? Provenance_Metadata_V1_ScopeSpecIdInfo()}
     set {_scopeSpecIDInfo = newValue}
   }
   /// Returns true if `scopeSpecIDInfo` has been explicitly set.
-  var hasScopeSpecIDInfo: Bool {return self._scopeSpecIDInfo != nil}
+  public var hasScopeSpecIDInfo: Bool {return self._scopeSpecIDInfo != nil}
   /// Clears the value of `scopeSpecIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearScopeSpecIDInfo() {self._scopeSpecIDInfo = nil}
+  public mutating func clearScopeSpecIDInfo() {self._scopeSpecIDInfo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _specification: Provenance_Metadata_V1_ScopeSpecification? = nil
   fileprivate var _scopeSpecIDInfo: Provenance_Metadata_V1_ScopeSpecIdInfo? = nil
 }
 
 /// ScopeSpecificationsAllRequest is the request type for the Query/ScopeSpecificationsAll RPC method.
-struct Provenance_Metadata_V1_ScopeSpecificationsAllRequest {
+public struct Provenance_Metadata_V1_ScopeSpecificationsAllRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// pagination defines optional pagination parameters for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// ScopeSpecificationsAllResponse is the response type for the Query/ScopeSpecificationsAll RPC method.
-struct Provenance_Metadata_V1_ScopeSpecificationsAllResponse {
+public struct Provenance_Metadata_V1_ScopeSpecificationsAllResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_specifications are the wrapped scope specifications.
-  var scopeSpecifications: [Provenance_Metadata_V1_ScopeSpecificationWrapper] = []
+  public var scopeSpecifications: [Provenance_Metadata_V1_ScopeSpecificationWrapper] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_ScopeSpecificationsAllRequest {
+  public var request: Provenance_Metadata_V1_ScopeSpecificationsAllRequest {
     get {return _request ?? Provenance_Metadata_V1_ScopeSpecificationsAllRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
   /// pagination provides the pagination information of this response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_ScopeSpecificationsAllRequest? = nil
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// ContractSpecificationRequest is the request type for the Query/ContractSpecification RPC method.
-struct Provenance_Metadata_V1_ContractSpecificationRequest {
+public struct Provenance_Metadata_V1_ContractSpecificationRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -880,146 +880,146 @@ struct Provenance_Metadata_V1_ContractSpecificationRequest {
   /// address, e.g. contractspec1q000d0q2e8w5say53afqdesxp2zqzkr4fn.
   /// It can also be a record specification address, e.g.
   /// recspec1qh00d0q2e8w5say53afqdesxp2zw42dq2jdvmdazuwzcaddhh8gmuqhez44.
-  var specificationID: String = String()
+  public var specificationID: String = String()
 
   /// include_record_specs is a flag for whether or not the record specifications in this contract specification should
   /// be included in the result.
-  var includeRecordSpecs: Bool = false
+  public var includeRecordSpecs: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// ContractSpecificationResponse is the response type for the Query/ContractSpecification RPC method.
-struct Provenance_Metadata_V1_ContractSpecificationResponse {
+public struct Provenance_Metadata_V1_ContractSpecificationResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// contract_specification is the wrapped contract specification.
-  var contractSpecification: Provenance_Metadata_V1_ContractSpecificationWrapper {
+  public var contractSpecification: Provenance_Metadata_V1_ContractSpecificationWrapper {
     get {return _storage._contractSpecification ?? Provenance_Metadata_V1_ContractSpecificationWrapper()}
     set {_uniqueStorage()._contractSpecification = newValue}
   }
   /// Returns true if `contractSpecification` has been explicitly set.
-  var hasContractSpecification: Bool {return _storage._contractSpecification != nil}
+  public var hasContractSpecification: Bool {return _storage._contractSpecification != nil}
   /// Clears the value of `contractSpecification`. Subsequent reads from it will return its default value.
-  mutating func clearContractSpecification() {_uniqueStorage()._contractSpecification = nil}
+  public mutating func clearContractSpecification() {_uniqueStorage()._contractSpecification = nil}
 
   /// record_specifications is any number or wrapped record specifications associated with this contract_specification
   /// (if requested).
-  var recordSpecifications: [Provenance_Metadata_V1_RecordSpecificationWrapper] {
+  public var recordSpecifications: [Provenance_Metadata_V1_RecordSpecificationWrapper] {
     get {return _storage._recordSpecifications}
     set {_uniqueStorage()._recordSpecifications = newValue}
   }
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_ContractSpecificationRequest {
+  public var request: Provenance_Metadata_V1_ContractSpecificationRequest {
     get {return _storage._request ?? Provenance_Metadata_V1_ContractSpecificationRequest()}
     set {_uniqueStorage()._request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return _storage._request != nil}
+  public var hasRequest: Bool {return _storage._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {_uniqueStorage()._request = nil}
+  public mutating func clearRequest() {_uniqueStorage()._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// ContractSpecificationWrapper contains a single contract specification and some extra identifiers for it.
-struct Provenance_Metadata_V1_ContractSpecificationWrapper {
+public struct Provenance_Metadata_V1_ContractSpecificationWrapper {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// specification is the on-chain contract specification message.
-  var specification: Provenance_Metadata_V1_ContractSpecification {
+  public var specification: Provenance_Metadata_V1_ContractSpecification {
     get {return _specification ?? Provenance_Metadata_V1_ContractSpecification()}
     set {_specification = newValue}
   }
   /// Returns true if `specification` has been explicitly set.
-  var hasSpecification: Bool {return self._specification != nil}
+  public var hasSpecification: Bool {return self._specification != nil}
   /// Clears the value of `specification`. Subsequent reads from it will return its default value.
-  mutating func clearSpecification() {self._specification = nil}
+  public mutating func clearSpecification() {self._specification = nil}
 
   /// contract_spec_id_info contains information about the id/address of the contract specification.
-  var contractSpecIDInfo: Provenance_Metadata_V1_ContractSpecIdInfo {
+  public var contractSpecIDInfo: Provenance_Metadata_V1_ContractSpecIdInfo {
     get {return _contractSpecIDInfo ?? Provenance_Metadata_V1_ContractSpecIdInfo()}
     set {_contractSpecIDInfo = newValue}
   }
   /// Returns true if `contractSpecIDInfo` has been explicitly set.
-  var hasContractSpecIDInfo: Bool {return self._contractSpecIDInfo != nil}
+  public var hasContractSpecIDInfo: Bool {return self._contractSpecIDInfo != nil}
   /// Clears the value of `contractSpecIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearContractSpecIDInfo() {self._contractSpecIDInfo = nil}
+  public mutating func clearContractSpecIDInfo() {self._contractSpecIDInfo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _specification: Provenance_Metadata_V1_ContractSpecification? = nil
   fileprivate var _contractSpecIDInfo: Provenance_Metadata_V1_ContractSpecIdInfo? = nil
 }
 
 /// ContractSpecificationsAllRequest is the request type for the Query/ContractSpecificationsAll RPC method.
-struct Provenance_Metadata_V1_ContractSpecificationsAllRequest {
+public struct Provenance_Metadata_V1_ContractSpecificationsAllRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// pagination defines optional pagination parameters for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// ContractSpecificationsAllResponse is the response type for the Query/ContractSpecificationsAll RPC method.
-struct Provenance_Metadata_V1_ContractSpecificationsAllResponse {
+public struct Provenance_Metadata_V1_ContractSpecificationsAllResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// contract_specifications are the wrapped contract specifications.
-  var contractSpecifications: [Provenance_Metadata_V1_ContractSpecificationWrapper] = []
+  public var contractSpecifications: [Provenance_Metadata_V1_ContractSpecificationWrapper] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_ContractSpecificationsAllRequest {
+  public var request: Provenance_Metadata_V1_ContractSpecificationsAllRequest {
     get {return _request ?? Provenance_Metadata_V1_ContractSpecificationsAllRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
   /// pagination provides the pagination information of this response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_ContractSpecificationsAllRequest? = nil
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
@@ -1027,7 +1027,7 @@ struct Provenance_Metadata_V1_ContractSpecificationsAllResponse {
 
 /// RecordSpecificationsForContractSpecificationRequest is the request type for the
 /// Query/RecordSpecificationsForContractSpecification RPC method.
-struct Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest {
+public struct Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1036,48 +1036,48 @@ struct Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationReques
   /// address, e.g. contractspec1q000d0q2e8w5say53afqdesxp2zqzkr4fn.
   /// It can also be a record specification address, e.g.
   /// recspec1qh00d0q2e8w5say53afqdesxp2zw42dq2jdvmdazuwzcaddhh8gmuqhez44.
-  var specificationID: String = String()
+  public var specificationID: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// RecordSpecificationsForContractSpecificationResponse is the response type for the
 /// Query/RecordSpecificationsForContractSpecification RPC method.
-struct Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationResponse {
+public struct Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_specifications is any number of wrapped record specifications associated with this contract_specification.
-  var recordSpecifications: [Provenance_Metadata_V1_RecordSpecificationWrapper] = []
+  public var recordSpecifications: [Provenance_Metadata_V1_RecordSpecificationWrapper] = []
 
   /// contract_specification_uuid is the uuid of this contract specification.
-  var contractSpecificationUuid: String = String()
+  public var contractSpecificationUuid: String = String()
 
   /// contract_specification_addr is the contract specification address as a bech32 encoded string.
-  var contractSpecificationAddr: String = String()
+  public var contractSpecificationAddr: String = String()
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest {
+  public var request: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest {
     get {return _request ?? Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest? = nil
 }
 
 /// RecordSpecificationRequest is the request type for the Query/RecordSpecification RPC method.
-struct Provenance_Metadata_V1_RecordSpecificationRequest {
+public struct Provenance_Metadata_V1_RecordSpecificationRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -1086,389 +1086,389 @@ struct Provenance_Metadata_V1_RecordSpecificationRequest {
   /// address, e.g. contractspec1q000d0q2e8w5say53afqdesxp2zqzkr4fn.
   /// It can also be a record specification address, e.g.
   /// recspec1qh00d0q2e8w5say53afqdesxp2zw42dq2jdvmdazuwzcaddhh8gmuqhez44.
-  var specificationID: String = String()
+  public var specificationID: String = String()
 
   /// name is the name of the record to look up.
   /// It is required if the specification_id is a uuid or contract specification address.
   /// It is ignored if the specification_id is a record specification address.
-  var name: String = String()
+  public var name: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// RecordSpecificationResponse is the response type for the Query/RecordSpecification RPC method.
-struct Provenance_Metadata_V1_RecordSpecificationResponse {
+public struct Provenance_Metadata_V1_RecordSpecificationResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_specification is the wrapped record specification.
-  var recordSpecification: Provenance_Metadata_V1_RecordSpecificationWrapper {
+  public var recordSpecification: Provenance_Metadata_V1_RecordSpecificationWrapper {
     get {return _storage._recordSpecification ?? Provenance_Metadata_V1_RecordSpecificationWrapper()}
     set {_uniqueStorage()._recordSpecification = newValue}
   }
   /// Returns true if `recordSpecification` has been explicitly set.
-  var hasRecordSpecification: Bool {return _storage._recordSpecification != nil}
+  public var hasRecordSpecification: Bool {return _storage._recordSpecification != nil}
   /// Clears the value of `recordSpecification`. Subsequent reads from it will return its default value.
-  mutating func clearRecordSpecification() {_uniqueStorage()._recordSpecification = nil}
+  public mutating func clearRecordSpecification() {_uniqueStorage()._recordSpecification = nil}
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_RecordSpecificationRequest {
+  public var request: Provenance_Metadata_V1_RecordSpecificationRequest {
     get {return _storage._request ?? Provenance_Metadata_V1_RecordSpecificationRequest()}
     set {_uniqueStorage()._request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return _storage._request != nil}
+  public var hasRequest: Bool {return _storage._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {_uniqueStorage()._request = nil}
+  public mutating func clearRequest() {_uniqueStorage()._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// RecordSpecificationWrapper contains a single record specification and some extra identifiers for it.
-struct Provenance_Metadata_V1_RecordSpecificationWrapper {
+public struct Provenance_Metadata_V1_RecordSpecificationWrapper {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// specification is the on-chain record specification message.
-  var specification: Provenance_Metadata_V1_RecordSpecification {
+  public var specification: Provenance_Metadata_V1_RecordSpecification {
     get {return _specification ?? Provenance_Metadata_V1_RecordSpecification()}
     set {_specification = newValue}
   }
   /// Returns true if `specification` has been explicitly set.
-  var hasSpecification: Bool {return self._specification != nil}
+  public var hasSpecification: Bool {return self._specification != nil}
   /// Clears the value of `specification`. Subsequent reads from it will return its default value.
-  mutating func clearSpecification() {self._specification = nil}
+  public mutating func clearSpecification() {self._specification = nil}
 
   /// record_spec_id_info contains information about the id/address of the record specification.
-  var recordSpecIDInfo: Provenance_Metadata_V1_RecordSpecIdInfo {
+  public var recordSpecIDInfo: Provenance_Metadata_V1_RecordSpecIdInfo {
     get {return _recordSpecIDInfo ?? Provenance_Metadata_V1_RecordSpecIdInfo()}
     set {_recordSpecIDInfo = newValue}
   }
   /// Returns true if `recordSpecIDInfo` has been explicitly set.
-  var hasRecordSpecIDInfo: Bool {return self._recordSpecIDInfo != nil}
+  public var hasRecordSpecIDInfo: Bool {return self._recordSpecIDInfo != nil}
   /// Clears the value of `recordSpecIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearRecordSpecIDInfo() {self._recordSpecIDInfo = nil}
+  public mutating func clearRecordSpecIDInfo() {self._recordSpecIDInfo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _specification: Provenance_Metadata_V1_RecordSpecification? = nil
   fileprivate var _recordSpecIDInfo: Provenance_Metadata_V1_RecordSpecIdInfo? = nil
 }
 
 /// RecordSpecificationsAllRequest is the request type for the Query/RecordSpecificationsAll RPC method.
-struct Provenance_Metadata_V1_RecordSpecificationsAllRequest {
+public struct Provenance_Metadata_V1_RecordSpecificationsAllRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// pagination defines optional pagination parameters for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// RecordSpecificationsAllResponse is the response type for the Query/RecordSpecificationsAll RPC method.
-struct Provenance_Metadata_V1_RecordSpecificationsAllResponse {
+public struct Provenance_Metadata_V1_RecordSpecificationsAllResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_specifications are the wrapped record specifications.
-  var recordSpecifications: [Provenance_Metadata_V1_RecordSpecificationWrapper] = []
+  public var recordSpecifications: [Provenance_Metadata_V1_RecordSpecificationWrapper] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_RecordSpecificationsAllRequest {
+  public var request: Provenance_Metadata_V1_RecordSpecificationsAllRequest {
     get {return _request ?? Provenance_Metadata_V1_RecordSpecificationsAllRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
   /// pagination provides the pagination information of this response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_RecordSpecificationsAllRequest? = nil
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// OSLocatorParamsRequest is the request type for the Query/OSLocatorParams RPC method.
-struct Provenance_Metadata_V1_OSLocatorParamsRequest {
+public struct Provenance_Metadata_V1_OSLocatorParamsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// OSLocatorParamsResponse is the response type for the Query/OSLocatorParams RPC method.
-struct Provenance_Metadata_V1_OSLocatorParamsResponse {
+public struct Provenance_Metadata_V1_OSLocatorParamsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// params defines the parameters of the module.
-  var params: Provenance_Metadata_V1_OSLocatorParams {
+  public var params: Provenance_Metadata_V1_OSLocatorParams {
     get {return _params ?? Provenance_Metadata_V1_OSLocatorParams()}
     set {_params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  var hasParams: Bool {return self._params != nil}
+  public var hasParams: Bool {return self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {self._params = nil}
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_OSLocatorParamsRequest {
+  public var request: Provenance_Metadata_V1_OSLocatorParamsRequest {
     get {return _request ?? Provenance_Metadata_V1_OSLocatorParamsRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _params: Provenance_Metadata_V1_OSLocatorParams? = nil
   fileprivate var _request: Provenance_Metadata_V1_OSLocatorParamsRequest? = nil
 }
 
 /// OSLocatorRequest is the request type for the Query/OSLocator RPC method.
-struct Provenance_Metadata_V1_OSLocatorRequest {
+public struct Provenance_Metadata_V1_OSLocatorRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var owner: String = String()
+  public var owner: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// OSLocatorResponse is the response type for the Query/OSLocator RPC method.
-struct Provenance_Metadata_V1_OSLocatorResponse {
+public struct Provenance_Metadata_V1_OSLocatorResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var locator: Provenance_Metadata_V1_ObjectStoreLocator {
+  public var locator: Provenance_Metadata_V1_ObjectStoreLocator {
     get {return _locator ?? Provenance_Metadata_V1_ObjectStoreLocator()}
     set {_locator = newValue}
   }
   /// Returns true if `locator` has been explicitly set.
-  var hasLocator: Bool {return self._locator != nil}
+  public var hasLocator: Bool {return self._locator != nil}
   /// Clears the value of `locator`. Subsequent reads from it will return its default value.
-  mutating func clearLocator() {self._locator = nil}
+  public mutating func clearLocator() {self._locator = nil}
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_OSLocatorRequest {
+  public var request: Provenance_Metadata_V1_OSLocatorRequest {
     get {return _request ?? Provenance_Metadata_V1_OSLocatorRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _locator: Provenance_Metadata_V1_ObjectStoreLocator? = nil
   fileprivate var _request: Provenance_Metadata_V1_OSLocatorRequest? = nil
 }
 
 /// OSLocatorsByURIRequest is the request type for the Query/OSLocatorsByURI RPC method.
-struct Provenance_Metadata_V1_OSLocatorsByURIRequest {
+public struct Provenance_Metadata_V1_OSLocatorsByURIRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var uri: String = String()
+  public var uri: String = String()
 
   /// pagination defines optional pagination parameters for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// OSLocatorsByURIResponse is the response type for the Query/OSLocatorsByURI RPC method.
-struct Provenance_Metadata_V1_OSLocatorsByURIResponse {
+public struct Provenance_Metadata_V1_OSLocatorsByURIResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var locators: [Provenance_Metadata_V1_ObjectStoreLocator] = []
+  public var locators: [Provenance_Metadata_V1_ObjectStoreLocator] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_OSLocatorsByURIRequest {
+  public var request: Provenance_Metadata_V1_OSLocatorsByURIRequest {
     get {return _request ?? Provenance_Metadata_V1_OSLocatorsByURIRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
   /// pagination provides the pagination information of this response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_OSLocatorsByURIRequest? = nil
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// OSLocatorsByScopeRequest is the request type for the Query/OSLocatorsByScope RPC method.
-struct Provenance_Metadata_V1_OSLocatorsByScopeRequest {
+public struct Provenance_Metadata_V1_OSLocatorsByScopeRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var scopeID: String = String()
+  public var scopeID: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// OSLocatorsByScopeResponse is the response type for the Query/OSLocatorsByScope RPC method.
-struct Provenance_Metadata_V1_OSLocatorsByScopeResponse {
+public struct Provenance_Metadata_V1_OSLocatorsByScopeResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var locators: [Provenance_Metadata_V1_ObjectStoreLocator] = []
+  public var locators: [Provenance_Metadata_V1_ObjectStoreLocator] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_OSLocatorsByScopeRequest {
+  public var request: Provenance_Metadata_V1_OSLocatorsByScopeRequest {
     get {return _request ?? Provenance_Metadata_V1_OSLocatorsByScopeRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_OSLocatorsByScopeRequest? = nil
 }
 
 /// OSAllLocatorsRequest is the request type for the Query/OSAllLocators RPC method.
-struct Provenance_Metadata_V1_OSAllLocatorsRequest {
+public struct Provenance_Metadata_V1_OSAllLocatorsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// pagination defines optional pagination parameters for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// OSAllLocatorsResponse is the response type for the Query/OSAllLocators RPC method.
-struct Provenance_Metadata_V1_OSAllLocatorsResponse {
+public struct Provenance_Metadata_V1_OSAllLocatorsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var locators: [Provenance_Metadata_V1_ObjectStoreLocator] = []
+  public var locators: [Provenance_Metadata_V1_ObjectStoreLocator] = []
 
   /// request is a copy of the request that generated these results.
-  var request: Provenance_Metadata_V1_OSAllLocatorsRequest {
+  public var request: Provenance_Metadata_V1_OSAllLocatorsRequest {
     get {return _request ?? Provenance_Metadata_V1_OSAllLocatorsRequest()}
     set {_request = newValue}
   }
   /// Returns true if `request` has been explicitly set.
-  var hasRequest: Bool {return self._request != nil}
+  public var hasRequest: Bool {return self._request != nil}
   /// Clears the value of `request`. Subsequent reads from it will return its default value.
-  mutating func clearRequest() {self._request = nil}
+  public mutating func clearRequest() {self._request = nil}
 
   /// pagination provides the pagination information of this response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _request: Provenance_Metadata_V1_OSAllLocatorsRequest? = nil
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
@@ -1479,32 +1479,32 @@ struct Provenance_Metadata_V1_OSAllLocatorsResponse {
 fileprivate let _protobuf_package = "provenance.metadata.v1"
 
 extension Provenance_Metadata_V1_QueryParamsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_QueryParamsRequest, rhs: Provenance_Metadata_V1_QueryParamsRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_QueryParamsRequest, rhs: Provenance_Metadata_V1_QueryParamsRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Provenance_Metadata_V1_QueryParamsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "params"),
     98: .same(proto: "request"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1517,7 +1517,7 @@ extension Provenance_Metadata_V1_QueryParamsResponse: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._params {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -1527,7 +1527,7 @@ extension Provenance_Metadata_V1_QueryParamsResponse: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_QueryParamsResponse, rhs: Provenance_Metadata_V1_QueryParamsResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_QueryParamsResponse, rhs: Provenance_Metadata_V1_QueryParamsResponse) -> Bool {
     if lhs._params != rhs._params {return false}
     if lhs._request != rhs._request {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1536,8 +1536,8 @@ extension Provenance_Metadata_V1_QueryParamsResponse: SwiftProtobuf.Message, Swi
 }
 
 extension Provenance_Metadata_V1_ScopeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_id"),
     2: .standard(proto: "session_addr"),
     3: .standard(proto: "record_addr"),
@@ -1545,7 +1545,7 @@ extension Provenance_Metadata_V1_ScopeRequest: SwiftProtobuf.Message, SwiftProto
     11: .standard(proto: "include_records"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1561,7 +1561,7 @@ extension Provenance_Metadata_V1_ScopeRequest: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeID.isEmpty {
       try visitor.visitSingularStringField(value: self.scopeID, fieldNumber: 1)
     }
@@ -1580,7 +1580,7 @@ extension Provenance_Metadata_V1_ScopeRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeRequest, rhs: Provenance_Metadata_V1_ScopeRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeRequest, rhs: Provenance_Metadata_V1_ScopeRequest) -> Bool {
     if lhs.scopeID != rhs.scopeID {return false}
     if lhs.sessionAddr != rhs.sessionAddr {return false}
     if lhs.recordAddr != rhs.recordAddr {return false}
@@ -1592,8 +1592,8 @@ extension Provenance_Metadata_V1_ScopeRequest: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Provenance_Metadata_V1_ScopeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "scope"),
     2: .same(proto: "sessions"),
     3: .same(proto: "records"),
@@ -1625,7 +1625,7 @@ extension Provenance_Metadata_V1_ScopeResponse: SwiftProtobuf.Message, SwiftProt
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1643,7 +1643,7 @@ extension Provenance_Metadata_V1_ScopeResponse: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._scope {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -1661,7 +1661,7 @@ extension Provenance_Metadata_V1_ScopeResponse: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeResponse, rhs: Provenance_Metadata_V1_ScopeResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeResponse, rhs: Provenance_Metadata_V1_ScopeResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1680,14 +1680,14 @@ extension Provenance_Metadata_V1_ScopeResponse: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Provenance_Metadata_V1_ScopeWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeWrapper"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeWrapper"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "scope"),
     2: .standard(proto: "scope_id_info"),
     3: .standard(proto: "scope_spec_id_info"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1701,7 +1701,7 @@ extension Provenance_Metadata_V1_ScopeWrapper: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._scope {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -1714,7 +1714,7 @@ extension Provenance_Metadata_V1_ScopeWrapper: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeWrapper, rhs: Provenance_Metadata_V1_ScopeWrapper) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeWrapper, rhs: Provenance_Metadata_V1_ScopeWrapper) -> Bool {
     if lhs._scope != rhs._scope {return false}
     if lhs._scopeIDInfo != rhs._scopeIDInfo {return false}
     if lhs._scopeSpecIDInfo != rhs._scopeSpecIDInfo {return false}
@@ -1724,12 +1724,12 @@ extension Provenance_Metadata_V1_ScopeWrapper: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Provenance_Metadata_V1_ScopesAllRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopesAllRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopesAllRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1741,14 +1741,14 @@ extension Provenance_Metadata_V1_ScopesAllRequest: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 99)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopesAllRequest, rhs: Provenance_Metadata_V1_ScopesAllRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopesAllRequest, rhs: Provenance_Metadata_V1_ScopesAllRequest) -> Bool {
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1756,14 +1756,14 @@ extension Provenance_Metadata_V1_ScopesAllRequest: SwiftProtobuf.Message, SwiftP
 }
 
 extension Provenance_Metadata_V1_ScopesAllResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopesAllResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopesAllResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "scopes"),
     98: .same(proto: "request"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1777,7 +1777,7 @@ extension Provenance_Metadata_V1_ScopesAllResponse: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopes.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.scopes, fieldNumber: 1)
     }
@@ -1790,7 +1790,7 @@ extension Provenance_Metadata_V1_ScopesAllResponse: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopesAllResponse, rhs: Provenance_Metadata_V1_ScopesAllResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopesAllResponse, rhs: Provenance_Metadata_V1_ScopesAllResponse) -> Bool {
     if lhs.scopes != rhs.scopes {return false}
     if lhs._request != rhs._request {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -1800,8 +1800,8 @@ extension Provenance_Metadata_V1_ScopesAllResponse: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Metadata_V1_SessionsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SessionsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SessionsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_id"),
     2: .standard(proto: "session_id"),
     3: .standard(proto: "record_addr"),
@@ -1810,7 +1810,7 @@ extension Provenance_Metadata_V1_SessionsRequest: SwiftProtobuf.Message, SwiftPr
     11: .standard(proto: "include_records"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1827,7 +1827,7 @@ extension Provenance_Metadata_V1_SessionsRequest: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeID.isEmpty {
       try visitor.visitSingularStringField(value: self.scopeID, fieldNumber: 1)
     }
@@ -1849,7 +1849,7 @@ extension Provenance_Metadata_V1_SessionsRequest: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_SessionsRequest, rhs: Provenance_Metadata_V1_SessionsRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_SessionsRequest, rhs: Provenance_Metadata_V1_SessionsRequest) -> Bool {
     if lhs.scopeID != rhs.scopeID {return false}
     if lhs.sessionID != rhs.sessionID {return false}
     if lhs.recordAddr != rhs.recordAddr {return false}
@@ -1862,8 +1862,8 @@ extension Provenance_Metadata_V1_SessionsRequest: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Provenance_Metadata_V1_SessionsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SessionsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SessionsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "scope"),
     2: .same(proto: "sessions"),
     3: .same(proto: "records"),
@@ -1895,7 +1895,7 @@ extension Provenance_Metadata_V1_SessionsResponse: SwiftProtobuf.Message, SwiftP
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1913,7 +1913,7 @@ extension Provenance_Metadata_V1_SessionsResponse: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._scope {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -1931,7 +1931,7 @@ extension Provenance_Metadata_V1_SessionsResponse: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_SessionsResponse, rhs: Provenance_Metadata_V1_SessionsResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_SessionsResponse, rhs: Provenance_Metadata_V1_SessionsResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1950,8 +1950,8 @@ extension Provenance_Metadata_V1_SessionsResponse: SwiftProtobuf.Message, SwiftP
 }
 
 extension Provenance_Metadata_V1_SessionWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SessionWrapper"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SessionWrapper"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "session"),
     2: .standard(proto: "session_id_info"),
     3: .standard(proto: "contract_spec_id_info"),
@@ -1980,7 +1980,7 @@ extension Provenance_Metadata_V1_SessionWrapper: SwiftProtobuf.Message, SwiftPro
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1997,7 +1997,7 @@ extension Provenance_Metadata_V1_SessionWrapper: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._session {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -2012,7 +2012,7 @@ extension Provenance_Metadata_V1_SessionWrapper: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_SessionWrapper, rhs: Provenance_Metadata_V1_SessionWrapper) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_SessionWrapper, rhs: Provenance_Metadata_V1_SessionWrapper) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2030,12 +2030,12 @@ extension Provenance_Metadata_V1_SessionWrapper: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Provenance_Metadata_V1_SessionsAllRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SessionsAllRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SessionsAllRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2047,14 +2047,14 @@ extension Provenance_Metadata_V1_SessionsAllRequest: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 99)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_SessionsAllRequest, rhs: Provenance_Metadata_V1_SessionsAllRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_SessionsAllRequest, rhs: Provenance_Metadata_V1_SessionsAllRequest) -> Bool {
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2062,14 +2062,14 @@ extension Provenance_Metadata_V1_SessionsAllRequest: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Metadata_V1_SessionsAllResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SessionsAllResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SessionsAllResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sessions"),
     98: .same(proto: "request"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2083,7 +2083,7 @@ extension Provenance_Metadata_V1_SessionsAllResponse: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.sessions.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.sessions, fieldNumber: 1)
     }
@@ -2096,7 +2096,7 @@ extension Provenance_Metadata_V1_SessionsAllResponse: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_SessionsAllResponse, rhs: Provenance_Metadata_V1_SessionsAllResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_SessionsAllResponse, rhs: Provenance_Metadata_V1_SessionsAllResponse) -> Bool {
     if lhs.sessions != rhs.sessions {return false}
     if lhs._request != rhs._request {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -2106,8 +2106,8 @@ extension Provenance_Metadata_V1_SessionsAllResponse: SwiftProtobuf.Message, Swi
 }
 
 extension Provenance_Metadata_V1_RecordsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_addr"),
     2: .standard(proto: "scope_id"),
     3: .standard(proto: "session_id"),
@@ -2116,7 +2116,7 @@ extension Provenance_Metadata_V1_RecordsRequest: SwiftProtobuf.Message, SwiftPro
     11: .standard(proto: "include_sessions"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2133,7 +2133,7 @@ extension Provenance_Metadata_V1_RecordsRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.recordAddr, fieldNumber: 1)
     }
@@ -2155,7 +2155,7 @@ extension Provenance_Metadata_V1_RecordsRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordsRequest, rhs: Provenance_Metadata_V1_RecordsRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordsRequest, rhs: Provenance_Metadata_V1_RecordsRequest) -> Bool {
     if lhs.recordAddr != rhs.recordAddr {return false}
     if lhs.scopeID != rhs.scopeID {return false}
     if lhs.sessionID != rhs.sessionID {return false}
@@ -2168,8 +2168,8 @@ extension Provenance_Metadata_V1_RecordsRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Provenance_Metadata_V1_RecordsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "scope"),
     2: .same(proto: "sessions"),
     3: .same(proto: "records"),
@@ -2201,7 +2201,7 @@ extension Provenance_Metadata_V1_RecordsResponse: SwiftProtobuf.Message, SwiftPr
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2219,7 +2219,7 @@ extension Provenance_Metadata_V1_RecordsResponse: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._scope {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -2237,7 +2237,7 @@ extension Provenance_Metadata_V1_RecordsResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordsResponse, rhs: Provenance_Metadata_V1_RecordsResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordsResponse, rhs: Provenance_Metadata_V1_RecordsResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2256,8 +2256,8 @@ extension Provenance_Metadata_V1_RecordsResponse: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Provenance_Metadata_V1_RecordWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordWrapper"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordWrapper"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "record"),
     2: .standard(proto: "record_id_info"),
     3: .standard(proto: "record_spec_id_info"),
@@ -2286,7 +2286,7 @@ extension Provenance_Metadata_V1_RecordWrapper: SwiftProtobuf.Message, SwiftProt
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2303,7 +2303,7 @@ extension Provenance_Metadata_V1_RecordWrapper: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._record {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -2318,7 +2318,7 @@ extension Provenance_Metadata_V1_RecordWrapper: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordWrapper, rhs: Provenance_Metadata_V1_RecordWrapper) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordWrapper, rhs: Provenance_Metadata_V1_RecordWrapper) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2336,12 +2336,12 @@ extension Provenance_Metadata_V1_RecordWrapper: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Provenance_Metadata_V1_RecordsAllRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordsAllRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordsAllRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2353,14 +2353,14 @@ extension Provenance_Metadata_V1_RecordsAllRequest: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 99)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordsAllRequest, rhs: Provenance_Metadata_V1_RecordsAllRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordsAllRequest, rhs: Provenance_Metadata_V1_RecordsAllRequest) -> Bool {
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2368,14 +2368,14 @@ extension Provenance_Metadata_V1_RecordsAllRequest: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Metadata_V1_RecordsAllResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordsAllResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordsAllResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "records"),
     98: .same(proto: "request"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2389,7 +2389,7 @@ extension Provenance_Metadata_V1_RecordsAllResponse: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.records.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.records, fieldNumber: 1)
     }
@@ -2402,7 +2402,7 @@ extension Provenance_Metadata_V1_RecordsAllResponse: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordsAllResponse, rhs: Provenance_Metadata_V1_RecordsAllResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordsAllResponse, rhs: Provenance_Metadata_V1_RecordsAllResponse) -> Bool {
     if lhs.records != rhs.records {return false}
     if lhs._request != rhs._request {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -2412,13 +2412,13 @@ extension Provenance_Metadata_V1_RecordsAllResponse: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Metadata_V1_OwnershipRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OwnershipRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OwnershipRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2431,7 +2431,7 @@ extension Provenance_Metadata_V1_OwnershipRequest: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -2441,7 +2441,7 @@ extension Provenance_Metadata_V1_OwnershipRequest: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OwnershipRequest, rhs: Provenance_Metadata_V1_OwnershipRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OwnershipRequest, rhs: Provenance_Metadata_V1_OwnershipRequest) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2450,14 +2450,14 @@ extension Provenance_Metadata_V1_OwnershipRequest: SwiftProtobuf.Message, SwiftP
 }
 
 extension Provenance_Metadata_V1_OwnershipResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OwnershipResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OwnershipResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_uuids"),
     98: .same(proto: "request"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2471,7 +2471,7 @@ extension Provenance_Metadata_V1_OwnershipResponse: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeUuids.isEmpty {
       try visitor.visitRepeatedStringField(value: self.scopeUuids, fieldNumber: 1)
     }
@@ -2484,7 +2484,7 @@ extension Provenance_Metadata_V1_OwnershipResponse: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OwnershipResponse, rhs: Provenance_Metadata_V1_OwnershipResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OwnershipResponse, rhs: Provenance_Metadata_V1_OwnershipResponse) -> Bool {
     if lhs.scopeUuids != rhs.scopeUuids {return false}
     if lhs._request != rhs._request {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -2494,13 +2494,13 @@ extension Provenance_Metadata_V1_OwnershipResponse: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Metadata_V1_ValueOwnershipRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ValueOwnershipRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ValueOwnershipRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2513,7 +2513,7 @@ extension Provenance_Metadata_V1_ValueOwnershipRequest: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -2523,7 +2523,7 @@ extension Provenance_Metadata_V1_ValueOwnershipRequest: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ValueOwnershipRequest, rhs: Provenance_Metadata_V1_ValueOwnershipRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ValueOwnershipRequest, rhs: Provenance_Metadata_V1_ValueOwnershipRequest) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2532,14 +2532,14 @@ extension Provenance_Metadata_V1_ValueOwnershipRequest: SwiftProtobuf.Message, S
 }
 
 extension Provenance_Metadata_V1_ValueOwnershipResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ValueOwnershipResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ValueOwnershipResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_uuids"),
     98: .same(proto: "request"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2553,7 +2553,7 @@ extension Provenance_Metadata_V1_ValueOwnershipResponse: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeUuids.isEmpty {
       try visitor.visitRepeatedStringField(value: self.scopeUuids, fieldNumber: 1)
     }
@@ -2566,7 +2566,7 @@ extension Provenance_Metadata_V1_ValueOwnershipResponse: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ValueOwnershipResponse, rhs: Provenance_Metadata_V1_ValueOwnershipResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ValueOwnershipResponse, rhs: Provenance_Metadata_V1_ValueOwnershipResponse) -> Bool {
     if lhs.scopeUuids != rhs.scopeUuids {return false}
     if lhs._request != rhs._request {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -2576,12 +2576,12 @@ extension Provenance_Metadata_V1_ValueOwnershipResponse: SwiftProtobuf.Message, 
 }
 
 extension Provenance_Metadata_V1_ScopeSpecificationRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeSpecificationRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeSpecificationRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "specification_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2593,14 +2593,14 @@ extension Provenance_Metadata_V1_ScopeSpecificationRequest: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.specificationID.isEmpty {
       try visitor.visitSingularStringField(value: self.specificationID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeSpecificationRequest, rhs: Provenance_Metadata_V1_ScopeSpecificationRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeSpecificationRequest, rhs: Provenance_Metadata_V1_ScopeSpecificationRequest) -> Bool {
     if lhs.specificationID != rhs.specificationID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2608,13 +2608,13 @@ extension Provenance_Metadata_V1_ScopeSpecificationRequest: SwiftProtobuf.Messag
 }
 
 extension Provenance_Metadata_V1_ScopeSpecificationResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeSpecificationResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeSpecificationResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_specification"),
     98: .same(proto: "request"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2627,7 +2627,7 @@ extension Provenance_Metadata_V1_ScopeSpecificationResponse: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._scopeSpecification {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -2637,7 +2637,7 @@ extension Provenance_Metadata_V1_ScopeSpecificationResponse: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeSpecificationResponse, rhs: Provenance_Metadata_V1_ScopeSpecificationResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeSpecificationResponse, rhs: Provenance_Metadata_V1_ScopeSpecificationResponse) -> Bool {
     if lhs._scopeSpecification != rhs._scopeSpecification {return false}
     if lhs._request != rhs._request {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2646,13 +2646,13 @@ extension Provenance_Metadata_V1_ScopeSpecificationResponse: SwiftProtobuf.Messa
 }
 
 extension Provenance_Metadata_V1_ScopeSpecificationWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeSpecificationWrapper"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeSpecificationWrapper"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "specification"),
     2: .standard(proto: "scope_spec_id_info"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2665,7 +2665,7 @@ extension Provenance_Metadata_V1_ScopeSpecificationWrapper: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._specification {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -2675,7 +2675,7 @@ extension Provenance_Metadata_V1_ScopeSpecificationWrapper: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeSpecificationWrapper, rhs: Provenance_Metadata_V1_ScopeSpecificationWrapper) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeSpecificationWrapper, rhs: Provenance_Metadata_V1_ScopeSpecificationWrapper) -> Bool {
     if lhs._specification != rhs._specification {return false}
     if lhs._scopeSpecIDInfo != rhs._scopeSpecIDInfo {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2684,12 +2684,12 @@ extension Provenance_Metadata_V1_ScopeSpecificationWrapper: SwiftProtobuf.Messag
 }
 
 extension Provenance_Metadata_V1_ScopeSpecificationsAllRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeSpecificationsAllRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeSpecificationsAllRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2701,14 +2701,14 @@ extension Provenance_Metadata_V1_ScopeSpecificationsAllRequest: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 99)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeSpecificationsAllRequest, rhs: Provenance_Metadata_V1_ScopeSpecificationsAllRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeSpecificationsAllRequest, rhs: Provenance_Metadata_V1_ScopeSpecificationsAllRequest) -> Bool {
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2716,14 +2716,14 @@ extension Provenance_Metadata_V1_ScopeSpecificationsAllRequest: SwiftProtobuf.Me
 }
 
 extension Provenance_Metadata_V1_ScopeSpecificationsAllResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeSpecificationsAllResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeSpecificationsAllResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_specifications"),
     98: .same(proto: "request"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2737,7 +2737,7 @@ extension Provenance_Metadata_V1_ScopeSpecificationsAllResponse: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeSpecifications.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.scopeSpecifications, fieldNumber: 1)
     }
@@ -2750,7 +2750,7 @@ extension Provenance_Metadata_V1_ScopeSpecificationsAllResponse: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeSpecificationsAllResponse, rhs: Provenance_Metadata_V1_ScopeSpecificationsAllResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeSpecificationsAllResponse, rhs: Provenance_Metadata_V1_ScopeSpecificationsAllResponse) -> Bool {
     if lhs.scopeSpecifications != rhs.scopeSpecifications {return false}
     if lhs._request != rhs._request {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -2760,13 +2760,13 @@ extension Provenance_Metadata_V1_ScopeSpecificationsAllResponse: SwiftProtobuf.M
 }
 
 extension Provenance_Metadata_V1_ContractSpecificationRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractSpecificationRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractSpecificationRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "specification_id"),
     10: .standard(proto: "include_record_specs"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2779,7 +2779,7 @@ extension Provenance_Metadata_V1_ContractSpecificationRequest: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.specificationID.isEmpty {
       try visitor.visitSingularStringField(value: self.specificationID, fieldNumber: 1)
     }
@@ -2789,7 +2789,7 @@ extension Provenance_Metadata_V1_ContractSpecificationRequest: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ContractSpecificationRequest, rhs: Provenance_Metadata_V1_ContractSpecificationRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ContractSpecificationRequest, rhs: Provenance_Metadata_V1_ContractSpecificationRequest) -> Bool {
     if lhs.specificationID != rhs.specificationID {return false}
     if lhs.includeRecordSpecs != rhs.includeRecordSpecs {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2798,8 +2798,8 @@ extension Provenance_Metadata_V1_ContractSpecificationRequest: SwiftProtobuf.Mes
 }
 
 extension Provenance_Metadata_V1_ContractSpecificationResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractSpecificationResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractSpecificationResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "contract_specification"),
     3: .standard(proto: "record_specifications"),
     98: .same(proto: "request"),
@@ -2828,7 +2828,7 @@ extension Provenance_Metadata_V1_ContractSpecificationResponse: SwiftProtobuf.Me
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -2845,7 +2845,7 @@ extension Provenance_Metadata_V1_ContractSpecificationResponse: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._contractSpecification {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -2860,7 +2860,7 @@ extension Provenance_Metadata_V1_ContractSpecificationResponse: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ContractSpecificationResponse, rhs: Provenance_Metadata_V1_ContractSpecificationResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ContractSpecificationResponse, rhs: Provenance_Metadata_V1_ContractSpecificationResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -2878,13 +2878,13 @@ extension Provenance_Metadata_V1_ContractSpecificationResponse: SwiftProtobuf.Me
 }
 
 extension Provenance_Metadata_V1_ContractSpecificationWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractSpecificationWrapper"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractSpecificationWrapper"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "specification"),
     2: .standard(proto: "contract_spec_id_info"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2897,7 +2897,7 @@ extension Provenance_Metadata_V1_ContractSpecificationWrapper: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._specification {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -2907,7 +2907,7 @@ extension Provenance_Metadata_V1_ContractSpecificationWrapper: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ContractSpecificationWrapper, rhs: Provenance_Metadata_V1_ContractSpecificationWrapper) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ContractSpecificationWrapper, rhs: Provenance_Metadata_V1_ContractSpecificationWrapper) -> Bool {
     if lhs._specification != rhs._specification {return false}
     if lhs._contractSpecIDInfo != rhs._contractSpecIDInfo {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -2916,12 +2916,12 @@ extension Provenance_Metadata_V1_ContractSpecificationWrapper: SwiftProtobuf.Mes
 }
 
 extension Provenance_Metadata_V1_ContractSpecificationsAllRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractSpecificationsAllRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractSpecificationsAllRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2933,14 +2933,14 @@ extension Provenance_Metadata_V1_ContractSpecificationsAllRequest: SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 99)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ContractSpecificationsAllRequest, rhs: Provenance_Metadata_V1_ContractSpecificationsAllRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ContractSpecificationsAllRequest, rhs: Provenance_Metadata_V1_ContractSpecificationsAllRequest) -> Bool {
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -2948,14 +2948,14 @@ extension Provenance_Metadata_V1_ContractSpecificationsAllRequest: SwiftProtobuf
 }
 
 extension Provenance_Metadata_V1_ContractSpecificationsAllResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractSpecificationsAllResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractSpecificationsAllResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "contract_specifications"),
     98: .same(proto: "request"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2969,7 +2969,7 @@ extension Provenance_Metadata_V1_ContractSpecificationsAllResponse: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.contractSpecifications.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.contractSpecifications, fieldNumber: 1)
     }
@@ -2982,7 +2982,7 @@ extension Provenance_Metadata_V1_ContractSpecificationsAllResponse: SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ContractSpecificationsAllResponse, rhs: Provenance_Metadata_V1_ContractSpecificationsAllResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ContractSpecificationsAllResponse, rhs: Provenance_Metadata_V1_ContractSpecificationsAllResponse) -> Bool {
     if lhs.contractSpecifications != rhs.contractSpecifications {return false}
     if lhs._request != rhs._request {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -2992,12 +2992,12 @@ extension Provenance_Metadata_V1_ContractSpecificationsAllResponse: SwiftProtobu
 }
 
 extension Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordSpecificationsForContractSpecificationRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordSpecificationsForContractSpecificationRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "specification_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3009,14 +3009,14 @@ extension Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationReq
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.specificationID.isEmpty {
       try visitor.visitSingularStringField(value: self.specificationID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest, rhs: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest, rhs: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRequest) -> Bool {
     if lhs.specificationID != rhs.specificationID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3024,15 +3024,15 @@ extension Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationReq
 }
 
 extension Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordSpecificationsForContractSpecificationResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordSpecificationsForContractSpecificationResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_specifications"),
     2: .standard(proto: "contract_specification_uuid"),
     3: .standard(proto: "contract_specification_addr"),
     98: .same(proto: "request"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3047,7 +3047,7 @@ extension Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordSpecifications.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.recordSpecifications, fieldNumber: 1)
     }
@@ -3063,7 +3063,7 @@ extension Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationResponse, rhs: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationResponse, rhs: Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationResponse) -> Bool {
     if lhs.recordSpecifications != rhs.recordSpecifications {return false}
     if lhs.contractSpecificationUuid != rhs.contractSpecificationUuid {return false}
     if lhs.contractSpecificationAddr != rhs.contractSpecificationAddr {return false}
@@ -3074,13 +3074,13 @@ extension Provenance_Metadata_V1_RecordSpecificationsForContractSpecificationRes
 }
 
 extension Provenance_Metadata_V1_RecordSpecificationRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordSpecificationRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordSpecificationRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "specification_id"),
     2: .same(proto: "name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3093,7 +3093,7 @@ extension Provenance_Metadata_V1_RecordSpecificationRequest: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.specificationID.isEmpty {
       try visitor.visitSingularStringField(value: self.specificationID, fieldNumber: 1)
     }
@@ -3103,7 +3103,7 @@ extension Provenance_Metadata_V1_RecordSpecificationRequest: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationRequest, rhs: Provenance_Metadata_V1_RecordSpecificationRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationRequest, rhs: Provenance_Metadata_V1_RecordSpecificationRequest) -> Bool {
     if lhs.specificationID != rhs.specificationID {return false}
     if lhs.name != rhs.name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3112,8 +3112,8 @@ extension Provenance_Metadata_V1_RecordSpecificationRequest: SwiftProtobuf.Messa
 }
 
 extension Provenance_Metadata_V1_RecordSpecificationResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordSpecificationResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordSpecificationResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_specification"),
     98: .same(proto: "request"),
   ]
@@ -3139,7 +3139,7 @@ extension Provenance_Metadata_V1_RecordSpecificationResponse: SwiftProtobuf.Mess
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -3155,7 +3155,7 @@ extension Provenance_Metadata_V1_RecordSpecificationResponse: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._recordSpecification {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -3167,7 +3167,7 @@ extension Provenance_Metadata_V1_RecordSpecificationResponse: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationResponse, rhs: Provenance_Metadata_V1_RecordSpecificationResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationResponse, rhs: Provenance_Metadata_V1_RecordSpecificationResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -3184,13 +3184,13 @@ extension Provenance_Metadata_V1_RecordSpecificationResponse: SwiftProtobuf.Mess
 }
 
 extension Provenance_Metadata_V1_RecordSpecificationWrapper: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordSpecificationWrapper"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordSpecificationWrapper"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "specification"),
     2: .standard(proto: "record_spec_id_info"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3203,7 +3203,7 @@ extension Provenance_Metadata_V1_RecordSpecificationWrapper: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._specification {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -3213,7 +3213,7 @@ extension Provenance_Metadata_V1_RecordSpecificationWrapper: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationWrapper, rhs: Provenance_Metadata_V1_RecordSpecificationWrapper) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationWrapper, rhs: Provenance_Metadata_V1_RecordSpecificationWrapper) -> Bool {
     if lhs._specification != rhs._specification {return false}
     if lhs._recordSpecIDInfo != rhs._recordSpecIDInfo {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3222,12 +3222,12 @@ extension Provenance_Metadata_V1_RecordSpecificationWrapper: SwiftProtobuf.Messa
 }
 
 extension Provenance_Metadata_V1_RecordSpecificationsAllRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordSpecificationsAllRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordSpecificationsAllRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3239,14 +3239,14 @@ extension Provenance_Metadata_V1_RecordSpecificationsAllRequest: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 99)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationsAllRequest, rhs: Provenance_Metadata_V1_RecordSpecificationsAllRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationsAllRequest, rhs: Provenance_Metadata_V1_RecordSpecificationsAllRequest) -> Bool {
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3254,14 +3254,14 @@ extension Provenance_Metadata_V1_RecordSpecificationsAllRequest: SwiftProtobuf.M
 }
 
 extension Provenance_Metadata_V1_RecordSpecificationsAllResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordSpecificationsAllResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordSpecificationsAllResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_specifications"),
     98: .same(proto: "request"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3275,7 +3275,7 @@ extension Provenance_Metadata_V1_RecordSpecificationsAllResponse: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordSpecifications.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.recordSpecifications, fieldNumber: 1)
     }
@@ -3288,7 +3288,7 @@ extension Provenance_Metadata_V1_RecordSpecificationsAllResponse: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationsAllResponse, rhs: Provenance_Metadata_V1_RecordSpecificationsAllResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordSpecificationsAllResponse, rhs: Provenance_Metadata_V1_RecordSpecificationsAllResponse) -> Bool {
     if lhs.recordSpecifications != rhs.recordSpecifications {return false}
     if lhs._request != rhs._request {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -3298,32 +3298,32 @@ extension Provenance_Metadata_V1_RecordSpecificationsAllResponse: SwiftProtobuf.
 }
 
 extension Provenance_Metadata_V1_OSLocatorParamsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSLocatorParamsRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".OSLocatorParamsRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSLocatorParamsRequest, rhs: Provenance_Metadata_V1_OSLocatorParamsRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSLocatorParamsRequest, rhs: Provenance_Metadata_V1_OSLocatorParamsRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Provenance_Metadata_V1_OSLocatorParamsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSLocatorParamsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OSLocatorParamsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "params"),
     98: .same(proto: "request"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3336,7 +3336,7 @@ extension Provenance_Metadata_V1_OSLocatorParamsResponse: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._params {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -3346,7 +3346,7 @@ extension Provenance_Metadata_V1_OSLocatorParamsResponse: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSLocatorParamsResponse, rhs: Provenance_Metadata_V1_OSLocatorParamsResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSLocatorParamsResponse, rhs: Provenance_Metadata_V1_OSLocatorParamsResponse) -> Bool {
     if lhs._params != rhs._params {return false}
     if lhs._request != rhs._request {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3355,12 +3355,12 @@ extension Provenance_Metadata_V1_OSLocatorParamsResponse: SwiftProtobuf.Message,
 }
 
 extension Provenance_Metadata_V1_OSLocatorRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSLocatorRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OSLocatorRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "owner"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3372,14 +3372,14 @@ extension Provenance_Metadata_V1_OSLocatorRequest: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.owner.isEmpty {
       try visitor.visitSingularStringField(value: self.owner, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSLocatorRequest, rhs: Provenance_Metadata_V1_OSLocatorRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSLocatorRequest, rhs: Provenance_Metadata_V1_OSLocatorRequest) -> Bool {
     if lhs.owner != rhs.owner {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3387,13 +3387,13 @@ extension Provenance_Metadata_V1_OSLocatorRequest: SwiftProtobuf.Message, SwiftP
 }
 
 extension Provenance_Metadata_V1_OSLocatorResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSLocatorResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OSLocatorResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "locator"),
     98: .same(proto: "request"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3406,7 +3406,7 @@ extension Provenance_Metadata_V1_OSLocatorResponse: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._locator {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -3416,7 +3416,7 @@ extension Provenance_Metadata_V1_OSLocatorResponse: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSLocatorResponse, rhs: Provenance_Metadata_V1_OSLocatorResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSLocatorResponse, rhs: Provenance_Metadata_V1_OSLocatorResponse) -> Bool {
     if lhs._locator != rhs._locator {return false}
     if lhs._request != rhs._request {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3425,13 +3425,13 @@ extension Provenance_Metadata_V1_OSLocatorResponse: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Metadata_V1_OSLocatorsByURIRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSLocatorsByURIRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OSLocatorsByURIRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "uri"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3444,7 +3444,7 @@ extension Provenance_Metadata_V1_OSLocatorsByURIRequest: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.uri.isEmpty {
       try visitor.visitSingularStringField(value: self.uri, fieldNumber: 1)
     }
@@ -3454,7 +3454,7 @@ extension Provenance_Metadata_V1_OSLocatorsByURIRequest: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSLocatorsByURIRequest, rhs: Provenance_Metadata_V1_OSLocatorsByURIRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSLocatorsByURIRequest, rhs: Provenance_Metadata_V1_OSLocatorsByURIRequest) -> Bool {
     if lhs.uri != rhs.uri {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3463,14 +3463,14 @@ extension Provenance_Metadata_V1_OSLocatorsByURIRequest: SwiftProtobuf.Message, 
 }
 
 extension Provenance_Metadata_V1_OSLocatorsByURIResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSLocatorsByURIResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OSLocatorsByURIResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "locators"),
     98: .same(proto: "request"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3484,7 +3484,7 @@ extension Provenance_Metadata_V1_OSLocatorsByURIResponse: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.locators.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.locators, fieldNumber: 1)
     }
@@ -3497,7 +3497,7 @@ extension Provenance_Metadata_V1_OSLocatorsByURIResponse: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSLocatorsByURIResponse, rhs: Provenance_Metadata_V1_OSLocatorsByURIResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSLocatorsByURIResponse, rhs: Provenance_Metadata_V1_OSLocatorsByURIResponse) -> Bool {
     if lhs.locators != rhs.locators {return false}
     if lhs._request != rhs._request {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -3507,12 +3507,12 @@ extension Provenance_Metadata_V1_OSLocatorsByURIResponse: SwiftProtobuf.Message,
 }
 
 extension Provenance_Metadata_V1_OSLocatorsByScopeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSLocatorsByScopeRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OSLocatorsByScopeRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3524,14 +3524,14 @@ extension Provenance_Metadata_V1_OSLocatorsByScopeRequest: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeID.isEmpty {
       try visitor.visitSingularStringField(value: self.scopeID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSLocatorsByScopeRequest, rhs: Provenance_Metadata_V1_OSLocatorsByScopeRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSLocatorsByScopeRequest, rhs: Provenance_Metadata_V1_OSLocatorsByScopeRequest) -> Bool {
     if lhs.scopeID != rhs.scopeID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3539,13 +3539,13 @@ extension Provenance_Metadata_V1_OSLocatorsByScopeRequest: SwiftProtobuf.Message
 }
 
 extension Provenance_Metadata_V1_OSLocatorsByScopeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSLocatorsByScopeResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OSLocatorsByScopeResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "locators"),
     98: .same(proto: "request"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3558,7 +3558,7 @@ extension Provenance_Metadata_V1_OSLocatorsByScopeResponse: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.locators.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.locators, fieldNumber: 1)
     }
@@ -3568,7 +3568,7 @@ extension Provenance_Metadata_V1_OSLocatorsByScopeResponse: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSLocatorsByScopeResponse, rhs: Provenance_Metadata_V1_OSLocatorsByScopeResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSLocatorsByScopeResponse, rhs: Provenance_Metadata_V1_OSLocatorsByScopeResponse) -> Bool {
     if lhs.locators != rhs.locators {return false}
     if lhs._request != rhs._request {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -3577,12 +3577,12 @@ extension Provenance_Metadata_V1_OSLocatorsByScopeResponse: SwiftProtobuf.Messag
 }
 
 extension Provenance_Metadata_V1_OSAllLocatorsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSAllLocatorsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OSAllLocatorsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3594,14 +3594,14 @@ extension Provenance_Metadata_V1_OSAllLocatorsRequest: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 99)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSAllLocatorsRequest, rhs: Provenance_Metadata_V1_OSAllLocatorsRequest) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSAllLocatorsRequest, rhs: Provenance_Metadata_V1_OSAllLocatorsRequest) -> Bool {
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -3609,14 +3609,14 @@ extension Provenance_Metadata_V1_OSAllLocatorsRequest: SwiftProtobuf.Message, Sw
 }
 
 extension Provenance_Metadata_V1_OSAllLocatorsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSAllLocatorsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OSAllLocatorsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "locators"),
     98: .same(proto: "request"),
     99: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -3630,7 +3630,7 @@ extension Provenance_Metadata_V1_OSAllLocatorsResponse: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.locators.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.locators, fieldNumber: 1)
     }
@@ -3643,7 +3643,7 @@ extension Provenance_Metadata_V1_OSAllLocatorsResponse: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSAllLocatorsResponse, rhs: Provenance_Metadata_V1_OSAllLocatorsResponse) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSAllLocatorsResponse, rhs: Provenance_Metadata_V1_OSAllLocatorsResponse) -> Bool {
     if lhs.locators != rhs.locators {return false}
     if lhs._request != rhs._request {return false}
     if lhs._pagination != rhs._pagination {return false}

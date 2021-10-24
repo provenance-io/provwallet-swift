@@ -20,23 +20,23 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Types_PublicKeyType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Types_PublicKeyType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case elliptic // = 0
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .elliptic
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .elliptic
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .elliptic: return 0
     case .UNRECOGNIZED(let i): return i
@@ -49,24 +49,24 @@ enum Types_PublicKeyType: SwiftProtobuf.Enum {
 
 extension Types_PublicKeyType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Types_PublicKeyType] = [
+  public static var allCases: [Types_PublicKeyType] = [
     .elliptic,
   ]
 }
 
 #endif  // swift(>=4.2)
 
-enum Types_PublicKeyCurve: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Types_PublicKeyCurve: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case secp256K1 // = 0
   case p256 // = 1
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .secp256K1
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .secp256K1
     case 1: self = .p256
@@ -74,7 +74,7 @@ enum Types_PublicKeyCurve: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .secp256K1: return 0
     case .p256: return 1
@@ -88,7 +88,7 @@ enum Types_PublicKeyCurve: SwiftProtobuf.Enum {
 
 extension Types_PublicKeyCurve: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Types_PublicKeyCurve] = [
+  public static var allCases: [Types_PublicKeyCurve] = [
     .secp256K1,
     .p256,
   ]
@@ -96,8 +96,8 @@ extension Types_PublicKeyCurve: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Types_PartyType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Types_PartyType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
   case originator // = 1
   case servicer // = 2
@@ -110,11 +110,11 @@ enum Types_PartyType: SwiftProtobuf.Enum {
   case marker // = 9
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .originator
@@ -130,7 +130,7 @@ enum Types_PartyType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .originator: return 1
@@ -152,7 +152,7 @@ enum Types_PartyType: SwiftProtobuf.Enum {
 
 extension Types_PartyType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Types_PartyType] = [
+  public static var allCases: [Types_PartyType] = [
     .unknown,
     .originator,
     .servicer,
@@ -169,278 +169,278 @@ extension Types_PartyType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// Wrapper for an ISO8601 date string. EX: "2020-05-22"
-struct Types_Date {
+public struct Types_Date {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var value: String = String()
+  public var value: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Wrapper type for a standard uuid.
-struct Types_UUID {
+public struct Types_UUID {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var value: String = String()
+  public var value: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Wrap a boolean result type.
-struct Types_BooleanResult {
+public struct Types_BooleanResult {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var value: Bool = false
+  public var value: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Wrap a location.
-struct Types_Location {
+public struct Types_Location {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var ref: Types_ProvenanceReference {
+  public var ref: Types_ProvenanceReference {
     get {return _ref ?? Types_ProvenanceReference()}
     set {_ref = newValue}
   }
   /// Returns true if `ref` has been explicitly set.
-  var hasRef: Bool {return self._ref != nil}
+  public var hasRef: Bool {return self._ref != nil}
   /// Clears the value of `ref`. Subsequent reads from it will return its default value.
-  mutating func clearRef() {self._ref = nil}
+  public mutating func clearRef() {self._ref = nil}
 
-  var classname: String = String()
+  public var classname: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _ref: Types_ProvenanceReference? = nil
 }
 
 /// Wrap a factual data element.
-struct Types_Fact {
+public struct Types_Fact {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var dataLocation: Types_Location {
+  public var dataLocation: Types_Location {
     get {return _dataLocation ?? Types_Location()}
     set {_dataLocation = newValue}
   }
   /// Returns true if `dataLocation` has been explicitly set.
-  var hasDataLocation: Bool {return self._dataLocation != nil}
+  public var hasDataLocation: Bool {return self._dataLocation != nil}
   /// Clears the value of `dataLocation`. Subsequent reads from it will return its default value.
-  mutating func clearDataLocation() {self._dataLocation = nil}
+  public mutating func clearDataLocation() {self._dataLocation = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _dataLocation: Types_Location? = nil
 }
 
-struct Types_ProvenanceReference {
+public struct Types_ProvenanceReference {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// [Req] [Scope.uuid]
   /// Scope ID
-  var scopeUuid: Types_UUID {
+  public var scopeUuid: Types_UUID {
     get {return _scopeUuid ?? Types_UUID()}
     set {_scopeUuid = newValue}
   }
   /// Returns true if `scopeUuid` has been explicitly set.
-  var hasScopeUuid: Bool {return self._scopeUuid != nil}
+  public var hasScopeUuid: Bool {return self._scopeUuid != nil}
   /// Clears the value of `scopeUuid`. Subsequent reads from it will return its default value.
-  mutating func clearScopeUuid() {self._scopeUuid = nil}
+  public mutating func clearScopeUuid() {self._scopeUuid = nil}
 
   /// [Opt] [RecordGroup.group_uuid]
   /// require record to be within a specific group
-  var groupUuid: Types_UUID {
+  public var groupUuid: Types_UUID {
     get {return _groupUuid ?? Types_UUID()}
     set {_groupUuid = newValue}
   }
   /// Returns true if `groupUuid` has been explicitly set.
-  var hasGroupUuid: Bool {return self._groupUuid != nil}
+  public var hasGroupUuid: Bool {return self._groupUuid != nil}
   /// Clears the value of `groupUuid`. Subsequent reads from it will return its default value.
-  mutating func clearGroupUuid() {self._groupUuid = nil}
+  public mutating func clearGroupUuid() {self._groupUuid = nil}
 
   /// [Opt] [Record.result_hash]
   /// specify a specific record inside a scope (and group) by result-hash
-  var hash: String = String()
+  public var hash: String = String()
 
   /// [Opt] [Record.result_name]
   /// specify a result-name of a record within a scope
-  var name: String = String()
+  public var name: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _scopeUuid: Types_UUID? = nil
   fileprivate var _groupUuid: Types_UUID? = nil
 }
 
 /// Wrapper around a standard signature.
-struct Types_Signature {
+public struct Types_Signature {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Signature Detail
-  var algo: String = String()
+  public var algo: String = String()
 
-  var provider: String = String()
+  public var provider: String = String()
 
-  var signature: String = String()
+  public var signature: String = String()
 
   /// Identity of signer
-  var signer: Types_SigningAndEncryptionPublicKeys {
+  public var signer: Types_SigningAndEncryptionPublicKeys {
     get {return _signer ?? Types_SigningAndEncryptionPublicKeys()}
     set {_signer = newValue}
   }
   /// Returns true if `signer` has been explicitly set.
-  var hasSigner: Bool {return self._signer != nil}
+  public var hasSigner: Bool {return self._signer != nil}
   /// Clears the value of `signer`. Subsequent reads from it will return its default value.
-  mutating func clearSigner() {self._signer = nil}
+  public mutating func clearSigner() {self._signer = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _signer: Types_SigningAndEncryptionPublicKeys? = nil
 }
 
 /// A collection of signatures
-struct Types_SignatureSet {
+public struct Types_SignatureSet {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var signatures: [Types_Signature] = []
+  public var signatures: [Types_Signature] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Types_PublicKey {
+public struct Types_PublicKey {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var publicKeyBytes: Data = Data()
+  public var publicKeyBytes: Data = Data()
 
-  var type: Types_PublicKeyType = .elliptic
+  public var type: Types_PublicKeyType = .elliptic
 
-  var curve: Types_PublicKeyCurve = .secp256K1
+  public var curve: Types_PublicKeyCurve = .secp256K1
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Types_SigningAndEncryptionPublicKeys {
+public struct Types_SigningAndEncryptionPublicKeys {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var signingPublicKey: Types_PublicKey {
+  public var signingPublicKey: Types_PublicKey {
     get {return _signingPublicKey ?? Types_PublicKey()}
     set {_signingPublicKey = newValue}
   }
   /// Returns true if `signingPublicKey` has been explicitly set.
-  var hasSigningPublicKey: Bool {return self._signingPublicKey != nil}
+  public var hasSigningPublicKey: Bool {return self._signingPublicKey != nil}
   /// Clears the value of `signingPublicKey`. Subsequent reads from it will return its default value.
-  mutating func clearSigningPublicKey() {self._signingPublicKey = nil}
+  public mutating func clearSigningPublicKey() {self._signingPublicKey = nil}
 
-  var encryptionPublicKey: Types_PublicKey {
+  public var encryptionPublicKey: Types_PublicKey {
     get {return _encryptionPublicKey ?? Types_PublicKey()}
     set {_encryptionPublicKey = newValue}
   }
   /// Returns true if `encryptionPublicKey` has been explicitly set.
-  var hasEncryptionPublicKey: Bool {return self._encryptionPublicKey != nil}
+  public var hasEncryptionPublicKey: Bool {return self._encryptionPublicKey != nil}
   /// Clears the value of `encryptionPublicKey`. Subsequent reads from it will return its default value.
-  mutating func clearEncryptionPublicKey() {self._encryptionPublicKey = nil}
+  public mutating func clearEncryptionPublicKey() {self._encryptionPublicKey = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _signingPublicKey: Types_PublicKey? = nil
   fileprivate var _encryptionPublicKey: Types_PublicKey? = nil
 }
 
 /// Audit
-struct Types_AuditFields {
+public struct Types_AuditFields {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var createdDate: Types_GogoTimeHack {
+  public var createdDate: Types_GogoTimeHack {
     get {return _createdDate ?? Types_GogoTimeHack()}
     set {_createdDate = newValue}
   }
   /// Returns true if `createdDate` has been explicitly set.
-  var hasCreatedDate: Bool {return self._createdDate != nil}
+  public var hasCreatedDate: Bool {return self._createdDate != nil}
   /// Clears the value of `createdDate`. Subsequent reads from it will return its default value.
-  mutating func clearCreatedDate() {self._createdDate = nil}
+  public mutating func clearCreatedDate() {self._createdDate = nil}
 
-  var createdBy: String = String()
+  public var createdBy: String = String()
 
-  var updatedDate: Types_GogoTimeHack {
+  public var updatedDate: Types_GogoTimeHack {
     get {return _updatedDate ?? Types_GogoTimeHack()}
     set {_updatedDate = newValue}
   }
   /// Returns true if `updatedDate` has been explicitly set.
-  var hasUpdatedDate: Bool {return self._updatedDate != nil}
+  public var hasUpdatedDate: Bool {return self._updatedDate != nil}
   /// Clears the value of `updatedDate`. Subsequent reads from it will return its default value.
-  mutating func clearUpdatedDate() {self._updatedDate = nil}
+  public mutating func clearUpdatedDate() {self._updatedDate = nil}
 
-  var updatedBy: String = String()
+  public var updatedBy: String = String()
 
-  var version: Int32 = 0
+  public var version: Int32 = 0
 
-  var message: String = String()
+  public var message: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _createdDate: Types_GogoTimeHack? = nil
   fileprivate var _updatedDate: Types_GogoTimeHack? = nil
 }
 
 /// proto 3 timestamp structure (hack to get around gogo issues with invalid dates)
-struct Types_GogoTimeHack {
+public struct Types_GogoTimeHack {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var seconds: Int64 = 0
+  public var seconds: Int64 = 0
 
-  var nanos: Int32 = 0
+  public var nanos: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -448,20 +448,20 @@ struct Types_GogoTimeHack {
 fileprivate let _protobuf_package = "types"
 
 extension Types_PublicKeyType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ELLIPTIC"),
   ]
 }
 
 extension Types_PublicKeyCurve: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SECP256K1"),
     1: .same(proto: "P256"),
   ]
 }
 
 extension Types_PartyType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "PARTY_TYPE_UNKNOWN"),
     1: .same(proto: "PARTY_TYPE_ORIGINATOR"),
     2: .same(proto: "PARTY_TYPE_SERVICER"),
@@ -476,12 +476,12 @@ extension Types_PartyType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Types_Date: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Date"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Date"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -493,14 +493,14 @@ extension Types_Date: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.value.isEmpty {
       try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_Date, rhs: Types_Date) -> Bool {
+  public static func ==(lhs: Types_Date, rhs: Types_Date) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -508,12 +508,12 @@ extension Types_Date: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
 }
 
 extension Types_UUID: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UUID"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".UUID"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -525,14 +525,14 @@ extension Types_UUID: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.value.isEmpty {
       try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_UUID, rhs: Types_UUID) -> Bool {
+  public static func ==(lhs: Types_UUID, rhs: Types_UUID) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -540,12 +540,12 @@ extension Types_UUID: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
 }
 
 extension Types_BooleanResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BooleanResult"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BooleanResult"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -557,14 +557,14 @@ extension Types_BooleanResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != false {
       try visitor.visitSingularBoolField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_BooleanResult, rhs: Types_BooleanResult) -> Bool {
+  public static func ==(lhs: Types_BooleanResult, rhs: Types_BooleanResult) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -572,13 +572,13 @@ extension Types_BooleanResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 }
 
 extension Types_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Location"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Location"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ref"),
     2: .same(proto: "classname"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -591,7 +591,7 @@ extension Types_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._ref {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -601,7 +601,7 @@ extension Types_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_Location, rhs: Types_Location) -> Bool {
+  public static func ==(lhs: Types_Location, rhs: Types_Location) -> Bool {
     if lhs._ref != rhs._ref {return false}
     if lhs.classname != rhs.classname {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -610,13 +610,13 @@ extension Types_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplement
 }
 
 extension Types_Fact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Fact"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Fact"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "data_location"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -629,7 +629,7 @@ extension Types_Fact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -639,7 +639,7 @@ extension Types_Fact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_Fact, rhs: Types_Fact) -> Bool {
+  public static func ==(lhs: Types_Fact, rhs: Types_Fact) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs._dataLocation != rhs._dataLocation {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -648,15 +648,15 @@ extension Types_Fact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementatio
 }
 
 extension Types_ProvenanceReference: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ProvenanceReference"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ProvenanceReference"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_uuid"),
     2: .standard(proto: "group_uuid"),
     3: .same(proto: "hash"),
     4: .same(proto: "name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -671,7 +671,7 @@ extension Types_ProvenanceReference: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._scopeUuid {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -687,7 +687,7 @@ extension Types_ProvenanceReference: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_ProvenanceReference, rhs: Types_ProvenanceReference) -> Bool {
+  public static func ==(lhs: Types_ProvenanceReference, rhs: Types_ProvenanceReference) -> Bool {
     if lhs._scopeUuid != rhs._scopeUuid {return false}
     if lhs._groupUuid != rhs._groupUuid {return false}
     if lhs.hash != rhs.hash {return false}
@@ -698,15 +698,15 @@ extension Types_ProvenanceReference: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension Types_Signature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Signature"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Signature"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "algo"),
     2: .same(proto: "provider"),
     3: .same(proto: "signature"),
     4: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -721,7 +721,7 @@ extension Types_Signature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.algo.isEmpty {
       try visitor.visitSingularStringField(value: self.algo, fieldNumber: 1)
     }
@@ -737,7 +737,7 @@ extension Types_Signature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_Signature, rhs: Types_Signature) -> Bool {
+  public static func ==(lhs: Types_Signature, rhs: Types_Signature) -> Bool {
     if lhs.algo != rhs.algo {return false}
     if lhs.provider != rhs.provider {return false}
     if lhs.signature != rhs.signature {return false}
@@ -748,12 +748,12 @@ extension Types_Signature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension Types_SignatureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SignatureSet"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SignatureSet"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "signatures"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -765,14 +765,14 @@ extension Types_SignatureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.signatures.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.signatures, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_SignatureSet, rhs: Types_SignatureSet) -> Bool {
+  public static func ==(lhs: Types_SignatureSet, rhs: Types_SignatureSet) -> Bool {
     if lhs.signatures != rhs.signatures {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -780,14 +780,14 @@ extension Types_SignatureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension Types_PublicKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PublicKey"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PublicKey"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "public_key_bytes"),
     2: .same(proto: "type"),
     3: .same(proto: "curve"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -801,7 +801,7 @@ extension Types_PublicKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.publicKeyBytes.isEmpty {
       try visitor.visitSingularBytesField(value: self.publicKeyBytes, fieldNumber: 1)
     }
@@ -814,7 +814,7 @@ extension Types_PublicKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_PublicKey, rhs: Types_PublicKey) -> Bool {
+  public static func ==(lhs: Types_PublicKey, rhs: Types_PublicKey) -> Bool {
     if lhs.publicKeyBytes != rhs.publicKeyBytes {return false}
     if lhs.type != rhs.type {return false}
     if lhs.curve != rhs.curve {return false}
@@ -824,13 +824,13 @@ extension Types_PublicKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension Types_SigningAndEncryptionPublicKeys: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SigningAndEncryptionPublicKeys"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SigningAndEncryptionPublicKeys"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "signing_public_key"),
     2: .standard(proto: "encryption_public_key"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -843,7 +843,7 @@ extension Types_SigningAndEncryptionPublicKeys: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._signingPublicKey {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -853,7 +853,7 @@ extension Types_SigningAndEncryptionPublicKeys: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_SigningAndEncryptionPublicKeys, rhs: Types_SigningAndEncryptionPublicKeys) -> Bool {
+  public static func ==(lhs: Types_SigningAndEncryptionPublicKeys, rhs: Types_SigningAndEncryptionPublicKeys) -> Bool {
     if lhs._signingPublicKey != rhs._signingPublicKey {return false}
     if lhs._encryptionPublicKey != rhs._encryptionPublicKey {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -862,8 +862,8 @@ extension Types_SigningAndEncryptionPublicKeys: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Types_AuditFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AuditFields"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AuditFields"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "created_date"),
     2: .standard(proto: "created_by"),
     3: .standard(proto: "updated_date"),
@@ -872,7 +872,7 @@ extension Types_AuditFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     6: .same(proto: "message"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -889,7 +889,7 @@ extension Types_AuditFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._createdDate {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -911,7 +911,7 @@ extension Types_AuditFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_AuditFields, rhs: Types_AuditFields) -> Bool {
+  public static func ==(lhs: Types_AuditFields, rhs: Types_AuditFields) -> Bool {
     if lhs._createdDate != rhs._createdDate {return false}
     if lhs.createdBy != rhs.createdBy {return false}
     if lhs._updatedDate != rhs._updatedDate {return false}
@@ -924,13 +924,13 @@ extension Types_AuditFields: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Types_GogoTimeHack: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GogoTimeHack"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GogoTimeHack"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seconds"),
     2: .same(proto: "nanos"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -943,7 +943,7 @@ extension Types_GogoTimeHack: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seconds != 0 {
       try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
     }
@@ -953,7 +953,7 @@ extension Types_GogoTimeHack: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Types_GogoTimeHack, rhs: Types_GogoTimeHack) -> Bool {
+  public static func ==(lhs: Types_GogoTimeHack, rhs: Types_GogoTimeHack) -> Bool {
     if lhs.seconds != rhs.seconds {return false}
     if lhs.nanos != rhs.nanos {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

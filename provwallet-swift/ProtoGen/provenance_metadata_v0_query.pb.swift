@@ -21,36 +21,36 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// ScopeRequest is used for requesting a scope by id
-struct Query_ScopeRequest {
+public struct Query_ScopeRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var scopeID: String = String()
+  public var scopeID: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// ScopeResponse is the response to a scope request.
-struct Query_ScopeResponse {
+public struct Query_ScopeResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var scope: Scope_Scope {
+  public var scope: Scope_Scope {
     get {return _scope ?? Scope_Scope()}
     set {_scope = newValue}
   }
   /// Returns true if `scope` has been explicitly set.
-  var hasScope: Bool {return self._scope != nil}
+  public var hasScope: Bool {return self._scope != nil}
   /// Clears the value of `scope`. Subsequent reads from it will return its default value.
-  mutating func clearScope() {self._scope = nil}
+  public mutating func clearScope() {self._scope = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _scope: Scope_Scope? = nil
 }
@@ -60,12 +60,12 @@ struct Query_ScopeResponse {
 fileprivate let _protobuf_package = "query"
 
 extension Query_ScopeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -77,14 +77,14 @@ extension Query_ScopeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeID.isEmpty {
       try visitor.visitSingularStringField(value: self.scopeID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Query_ScopeRequest, rhs: Query_ScopeRequest) -> Bool {
+  public static func ==(lhs: Query_ScopeRequest, rhs: Query_ScopeRequest) -> Bool {
     if lhs.scopeID != rhs.scopeID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -92,12 +92,12 @@ extension Query_ScopeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension Query_ScopeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "scope"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -109,14 +109,14 @@ extension Query_ScopeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._scope {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Query_ScopeResponse, rhs: Query_ScopeResponse) -> Bool {
+  public static func ==(lhs: Query_ScopeResponse, rhs: Query_ScopeResponse) -> Bool {
     if lhs._scope != rhs._scope {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

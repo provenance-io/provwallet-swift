@@ -23,65 +23,65 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// MsgTransfer defines a msg to transfer fungible tokens (i.e Coins) between
 /// ICS20 enabled chains. See ICS Spec here:
 /// https://github.com/cosmos/ics/tree/master/spec/ics-020-fungible-token-transfer#data-structures
-struct Ibc_Applications_Transfer_V1_MsgTransfer {
+public struct Ibc_Applications_Transfer_V1_MsgTransfer {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// the port on which the packet will be sent
-  var sourcePort: String = String()
+  public var sourcePort: String = String()
 
   /// the channel by which the packet will be sent
-  var sourceChannel: String = String()
+  public var sourceChannel: String = String()
 
   /// the tokens to be transferred
-  var token: Cosmos_Base_V1beta1_Coin {
+  public var token: Cosmos_Base_V1beta1_Coin {
     get {return _token ?? Cosmos_Base_V1beta1_Coin()}
     set {_token = newValue}
   }
   /// Returns true if `token` has been explicitly set.
-  var hasToken: Bool {return self._token != nil}
+  public var hasToken: Bool {return self._token != nil}
   /// Clears the value of `token`. Subsequent reads from it will return its default value.
-  mutating func clearToken() {self._token = nil}
+  public mutating func clearToken() {self._token = nil}
 
   /// the sender address
-  var sender: String = String()
+  public var sender: String = String()
 
   /// the recipient address on the destination chain
-  var receiver: String = String()
+  public var receiver: String = String()
 
   /// Timeout height relative to the current block height.
   /// The timeout is disabled when set to 0.
-  var timeoutHeight: Ibc_Core_Client_V1_Height {
+  public var timeoutHeight: Ibc_Core_Client_V1_Height {
     get {return _timeoutHeight ?? Ibc_Core_Client_V1_Height()}
     set {_timeoutHeight = newValue}
   }
   /// Returns true if `timeoutHeight` has been explicitly set.
-  var hasTimeoutHeight: Bool {return self._timeoutHeight != nil}
+  public var hasTimeoutHeight: Bool {return self._timeoutHeight != nil}
   /// Clears the value of `timeoutHeight`. Subsequent reads from it will return its default value.
-  mutating func clearTimeoutHeight() {self._timeoutHeight = nil}
+  public mutating func clearTimeoutHeight() {self._timeoutHeight = nil}
 
   /// Timeout timestamp (in nanoseconds) relative to the current block timestamp.
   /// The timeout is disabled when set to 0.
-  var timeoutTimestamp: UInt64 = 0
+  public var timeoutTimestamp: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _token: Cosmos_Base_V1beta1_Coin? = nil
   fileprivate var _timeoutHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
 /// MsgTransferResponse defines the Msg/Transfer response type.
-struct Ibc_Applications_Transfer_V1_MsgTransferResponse {
+public struct Ibc_Applications_Transfer_V1_MsgTransferResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -89,8 +89,8 @@ struct Ibc_Applications_Transfer_V1_MsgTransferResponse {
 fileprivate let _protobuf_package = "ibc.applications.transfer.v1"
 
 extension Ibc_Applications_Transfer_V1_MsgTransfer: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgTransfer"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgTransfer"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "source_port"),
     2: .standard(proto: "source_channel"),
     3: .same(proto: "token"),
@@ -100,7 +100,7 @@ extension Ibc_Applications_Transfer_V1_MsgTransfer: SwiftProtobuf.Message, Swift
     7: .standard(proto: "timeout_timestamp"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -118,7 +118,7 @@ extension Ibc_Applications_Transfer_V1_MsgTransfer: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.sourcePort.isEmpty {
       try visitor.visitSingularStringField(value: self.sourcePort, fieldNumber: 1)
     }
@@ -143,7 +143,7 @@ extension Ibc_Applications_Transfer_V1_MsgTransfer: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Applications_Transfer_V1_MsgTransfer, rhs: Ibc_Applications_Transfer_V1_MsgTransfer) -> Bool {
+  public static func ==(lhs: Ibc_Applications_Transfer_V1_MsgTransfer, rhs: Ibc_Applications_Transfer_V1_MsgTransfer) -> Bool {
     if lhs.sourcePort != rhs.sourcePort {return false}
     if lhs.sourceChannel != rhs.sourceChannel {return false}
     if lhs._token != rhs._token {return false}
@@ -157,19 +157,19 @@ extension Ibc_Applications_Transfer_V1_MsgTransfer: SwiftProtobuf.Message, Swift
 }
 
 extension Ibc_Applications_Transfer_V1_MsgTransferResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgTransferResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgTransferResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Applications_Transfer_V1_MsgTransferResponse, rhs: Ibc_Applications_Transfer_V1_MsgTransferResponse) -> Bool {
+  public static func ==(lhs: Ibc_Applications_Transfer_V1_MsgTransferResponse, rhs: Ibc_Applications_Transfer_V1_MsgTransferResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

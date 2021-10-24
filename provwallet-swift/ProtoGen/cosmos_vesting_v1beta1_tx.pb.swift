@@ -22,35 +22,35 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// MsgCreateVestingAccount defines a message that enables creating a vesting
 /// account.
-struct Cosmos_Vesting_V1beta1_MsgCreateVestingAccount {
+public struct Cosmos_Vesting_V1beta1_MsgCreateVestingAccount {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var fromAddress: String = String()
+  public var fromAddress: String = String()
 
-  var toAddress: String = String()
+  public var toAddress: String = String()
 
-  var amount: [Cosmos_Base_V1beta1_Coin] = []
+  public var amount: [Cosmos_Base_V1beta1_Coin] = []
 
-  var endTime: Int64 = 0
+  public var endTime: Int64 = 0
 
-  var delayed: Bool = false
+  public var delayed: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgCreateVestingAccountResponse defines the Msg/CreateVestingAccount response type.
-struct Cosmos_Vesting_V1beta1_MsgCreateVestingAccountResponse {
+public struct Cosmos_Vesting_V1beta1_MsgCreateVestingAccountResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -58,8 +58,8 @@ struct Cosmos_Vesting_V1beta1_MsgCreateVestingAccountResponse {
 fileprivate let _protobuf_package = "cosmos.vesting.v1beta1"
 
 extension Cosmos_Vesting_V1beta1_MsgCreateVestingAccount: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgCreateVestingAccount"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgCreateVestingAccount"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "from_address"),
     2: .standard(proto: "to_address"),
     3: .same(proto: "amount"),
@@ -67,7 +67,7 @@ extension Cosmos_Vesting_V1beta1_MsgCreateVestingAccount: SwiftProtobuf.Message,
     5: .same(proto: "delayed"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -83,7 +83,7 @@ extension Cosmos_Vesting_V1beta1_MsgCreateVestingAccount: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.fromAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.fromAddress, fieldNumber: 1)
     }
@@ -102,7 +102,7 @@ extension Cosmos_Vesting_V1beta1_MsgCreateVestingAccount: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Vesting_V1beta1_MsgCreateVestingAccount, rhs: Cosmos_Vesting_V1beta1_MsgCreateVestingAccount) -> Bool {
+  public static func ==(lhs: Cosmos_Vesting_V1beta1_MsgCreateVestingAccount, rhs: Cosmos_Vesting_V1beta1_MsgCreateVestingAccount) -> Bool {
     if lhs.fromAddress != rhs.fromAddress {return false}
     if lhs.toAddress != rhs.toAddress {return false}
     if lhs.amount != rhs.amount {return false}
@@ -114,19 +114,19 @@ extension Cosmos_Vesting_V1beta1_MsgCreateVestingAccount: SwiftProtobuf.Message,
 }
 
 extension Cosmos_Vesting_V1beta1_MsgCreateVestingAccountResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgCreateVestingAccountResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgCreateVestingAccountResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Vesting_V1beta1_MsgCreateVestingAccountResponse, rhs: Cosmos_Vesting_V1beta1_MsgCreateVestingAccountResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Vesting_V1beta1_MsgCreateVestingAccountResponse, rhs: Cosmos_Vesting_V1beta1_MsgCreateVestingAccountResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

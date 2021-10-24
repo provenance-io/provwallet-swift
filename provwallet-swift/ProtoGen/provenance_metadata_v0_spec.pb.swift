@@ -20,19 +20,19 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Spec_DefinitionSpecType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Spec_DefinitionSpecType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
   case proposed // = 1
   case fact // = 2
   case factList // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .proposed
@@ -42,7 +42,7 @@ enum Spec_DefinitionSpecType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .proposed: return 1
@@ -58,7 +58,7 @@ enum Spec_DefinitionSpecType: SwiftProtobuf.Enum {
 
 extension Spec_DefinitionSpecType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Spec_DefinitionSpecType] = [
+  public static var allCases: [Spec_DefinitionSpecType] = [
     .unknown,
     .proposed,
     .fact,
@@ -68,167 +68,167 @@ extension Spec_DefinitionSpecType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct Spec_DefinitionSpec {
+public struct Spec_DefinitionSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var resourceLocation: Types_Location {
+  public var resourceLocation: Types_Location {
     get {return _resourceLocation ?? Types_Location()}
     set {_resourceLocation = newValue}
   }
   /// Returns true if `resourceLocation` has been explicitly set.
-  var hasResourceLocation: Bool {return self._resourceLocation != nil}
+  public var hasResourceLocation: Bool {return self._resourceLocation != nil}
   /// Clears the value of `resourceLocation`. Subsequent reads from it will return its default value.
-  mutating func clearResourceLocation() {self._resourceLocation = nil}
+  public mutating func clearResourceLocation() {self._resourceLocation = nil}
 
-  var signature: Types_Signature {
+  public var signature: Types_Signature {
     get {return _signature ?? Types_Signature()}
     set {_signature = newValue}
   }
   /// Returns true if `signature` has been explicitly set.
-  var hasSignature: Bool {return self._signature != nil}
+  public var hasSignature: Bool {return self._signature != nil}
   /// Clears the value of `signature`. Subsequent reads from it will return its default value.
-  mutating func clearSignature() {self._signature = nil}
+  public mutating func clearSignature() {self._signature = nil}
 
-  var type: Spec_DefinitionSpecType = .unknown
+  public var type: Spec_DefinitionSpecType = .unknown
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _resourceLocation: Types_Location? = nil
   fileprivate var _signature: Types_Signature? = nil
 }
 
-struct Spec_ContractSpec {
+public struct Spec_ContractSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var definition: Spec_DefinitionSpec {
+  public var definition: Spec_DefinitionSpec {
     get {return _storage._definition ?? Spec_DefinitionSpec()}
     set {_uniqueStorage()._definition = newValue}
   }
   /// Returns true if `definition` has been explicitly set.
-  var hasDefinition: Bool {return _storage._definition != nil}
+  public var hasDefinition: Bool {return _storage._definition != nil}
   /// Clears the value of `definition`. Subsequent reads from it will return its default value.
-  mutating func clearDefinition() {_uniqueStorage()._definition = nil}
+  public mutating func clearDefinition() {_uniqueStorage()._definition = nil}
 
-  var inputSpecs: [Spec_DefinitionSpec] {
+  public var inputSpecs: [Spec_DefinitionSpec] {
     get {return _storage._inputSpecs}
     set {_uniqueStorage()._inputSpecs = newValue}
   }
 
-  var partiesInvolved: [Types_PartyType] {
+  public var partiesInvolved: [Types_PartyType] {
     get {return _storage._partiesInvolved}
     set {_uniqueStorage()._partiesInvolved = newValue}
   }
 
-  var conditionSpecs: [Spec_ConditionSpec] {
+  public var conditionSpecs: [Spec_ConditionSpec] {
     get {return _storage._conditionSpecs}
     set {_uniqueStorage()._conditionSpecs = newValue}
   }
 
-  var considerationSpecs: [Spec_ConsiderationSpec] {
+  public var considerationSpecs: [Spec_ConsiderationSpec] {
     get {return _storage._considerationSpecs}
     set {_uniqueStorage()._considerationSpecs = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Spec_ConditionSpec {
+public struct Spec_ConditionSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var funcName: String {
+  public var funcName: String {
     get {return _storage._funcName}
     set {_uniqueStorage()._funcName = newValue}
   }
 
-  var inputSpecs: [Spec_DefinitionSpec] {
+  public var inputSpecs: [Spec_DefinitionSpec] {
     get {return _storage._inputSpecs}
     set {_uniqueStorage()._inputSpecs = newValue}
   }
 
-  var outputSpec: Spec_OutputSpec {
+  public var outputSpec: Spec_OutputSpec {
     get {return _storage._outputSpec ?? Spec_OutputSpec()}
     set {_uniqueStorage()._outputSpec = newValue}
   }
   /// Returns true if `outputSpec` has been explicitly set.
-  var hasOutputSpec: Bool {return _storage._outputSpec != nil}
+  public var hasOutputSpec: Bool {return _storage._outputSpec != nil}
   /// Clears the value of `outputSpec`. Subsequent reads from it will return its default value.
-  mutating func clearOutputSpec() {_uniqueStorage()._outputSpec = nil}
+  public mutating func clearOutputSpec() {_uniqueStorage()._outputSpec = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Spec_ConsiderationSpec {
+public struct Spec_ConsiderationSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var funcName: String {
+  public var funcName: String {
     get {return _storage._funcName}
     set {_uniqueStorage()._funcName = newValue}
   }
 
   /// Invoking party
-  var responsibleParty: Types_PartyType {
+  public var responsibleParty: Types_PartyType {
     get {return _storage._responsibleParty}
     set {_uniqueStorage()._responsibleParty = newValue}
   }
 
-  var inputSpecs: [Spec_DefinitionSpec] {
+  public var inputSpecs: [Spec_DefinitionSpec] {
     get {return _storage._inputSpecs}
     set {_uniqueStorage()._inputSpecs = newValue}
   }
 
-  var outputSpec: Spec_OutputSpec {
+  public var outputSpec: Spec_OutputSpec {
     get {return _storage._outputSpec ?? Spec_OutputSpec()}
     set {_uniqueStorage()._outputSpec = newValue}
   }
   /// Returns true if `outputSpec` has been explicitly set.
-  var hasOutputSpec: Bool {return _storage._outputSpec != nil}
+  public var hasOutputSpec: Bool {return _storage._outputSpec != nil}
   /// Clears the value of `outputSpec`. Subsequent reads from it will return its default value.
-  mutating func clearOutputSpec() {_uniqueStorage()._outputSpec = nil}
+  public mutating func clearOutputSpec() {_uniqueStorage()._outputSpec = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Spec_OutputSpec {
+public struct Spec_OutputSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var spec: Spec_DefinitionSpec {
+  public var spec: Spec_DefinitionSpec {
     get {return _spec ?? Spec_DefinitionSpec()}
     set {_spec = newValue}
   }
   /// Returns true if `spec` has been explicitly set.
-  var hasSpec: Bool {return self._spec != nil}
+  public var hasSpec: Bool {return self._spec != nil}
   /// Clears the value of `spec`. Subsequent reads from it will return its default value.
-  mutating func clearSpec() {self._spec = nil}
+  public mutating func clearSpec() {self._spec = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _spec: Spec_DefinitionSpec? = nil
 }
@@ -238,7 +238,7 @@ struct Spec_OutputSpec {
 fileprivate let _protobuf_package = "spec"
 
 extension Spec_DefinitionSpecType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "DEFINITION_SPEC_TYPE_UNKNOWN"),
     1: .same(proto: "DEFINITION_SPEC_TYPE_PROPOSED"),
     2: .same(proto: "DEFINITION_SPEC_TYPE_FACT"),
@@ -247,15 +247,15 @@ extension Spec_DefinitionSpecType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Spec_DefinitionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DefinitionSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DefinitionSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "resource_location"),
     3: .same(proto: "signature"),
     4: .same(proto: "type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -270,7 +270,7 @@ extension Spec_DefinitionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -286,7 +286,7 @@ extension Spec_DefinitionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Spec_DefinitionSpec, rhs: Spec_DefinitionSpec) -> Bool {
+  public static func ==(lhs: Spec_DefinitionSpec, rhs: Spec_DefinitionSpec) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs._resourceLocation != rhs._resourceLocation {return false}
     if lhs._signature != rhs._signature {return false}
@@ -297,8 +297,8 @@ extension Spec_DefinitionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
 }
 
 extension Spec_ContractSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "definition"),
     2: .standard(proto: "input_specs"),
     3: .standard(proto: "parties_involved"),
@@ -333,7 +333,7 @@ extension Spec_ContractSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -352,7 +352,7 @@ extension Spec_ContractSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._definition {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -373,7 +373,7 @@ extension Spec_ContractSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Spec_ContractSpec, rhs: Spec_ContractSpec) -> Bool {
+  public static func ==(lhs: Spec_ContractSpec, rhs: Spec_ContractSpec) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -393,8 +393,8 @@ extension Spec_ContractSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Spec_ConditionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConditionSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConditionSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "func_name"),
     2: .standard(proto: "input_specs"),
     3: .standard(proto: "output_spec"),
@@ -423,7 +423,7 @@ extension Spec_ConditionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -440,7 +440,7 @@ extension Spec_ConditionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._funcName.isEmpty {
         try visitor.visitSingularStringField(value: _storage._funcName, fieldNumber: 1)
@@ -455,7 +455,7 @@ extension Spec_ConditionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Spec_ConditionSpec, rhs: Spec_ConditionSpec) -> Bool {
+  public static func ==(lhs: Spec_ConditionSpec, rhs: Spec_ConditionSpec) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -473,8 +473,8 @@ extension Spec_ConditionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension Spec_ConsiderationSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConsiderationSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConsiderationSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "func_name"),
     2: .standard(proto: "responsible_party"),
     3: .standard(proto: "input_specs"),
@@ -506,7 +506,7 @@ extension Spec_ConsiderationSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -524,7 +524,7 @@ extension Spec_ConsiderationSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._funcName.isEmpty {
         try visitor.visitSingularStringField(value: _storage._funcName, fieldNumber: 1)
@@ -542,7 +542,7 @@ extension Spec_ConsiderationSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Spec_ConsiderationSpec, rhs: Spec_ConsiderationSpec) -> Bool {
+  public static func ==(lhs: Spec_ConsiderationSpec, rhs: Spec_ConsiderationSpec) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -561,12 +561,12 @@ extension Spec_ConsiderationSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension Spec_OutputSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OutputSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OutputSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "spec"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -578,14 +578,14 @@ extension Spec_OutputSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._spec {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Spec_OutputSpec, rhs: Spec_OutputSpec) -> Bool {
+  public static func ==(lhs: Spec_OutputSpec, rhs: Spec_OutputSpec) -> Bool {
     if lhs._spec != rhs._spec {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

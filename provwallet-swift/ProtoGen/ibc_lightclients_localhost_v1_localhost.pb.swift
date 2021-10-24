@@ -22,27 +22,27 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// ClientState defines a loopback (localhost) client. It requires (read-only)
 /// access to keys outside the client prefix.
-struct Ibc_Lightclients_Localhost_V1_ClientState {
+public struct Ibc_Lightclients_Localhost_V1_ClientState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// self chain ID
-  var chainID: String = String()
+  public var chainID: String = String()
 
   /// self latest block height
-  var height: Ibc_Core_Client_V1_Height {
+  public var height: Ibc_Core_Client_V1_Height {
     get {return _height ?? Ibc_Core_Client_V1_Height()}
     set {_height = newValue}
   }
   /// Returns true if `height` has been explicitly set.
-  var hasHeight: Bool {return self._height != nil}
+  public var hasHeight: Bool {return self._height != nil}
   /// Clears the value of `height`. Subsequent reads from it will return its default value.
-  mutating func clearHeight() {self._height = nil}
+  public mutating func clearHeight() {self._height = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _height: Ibc_Core_Client_V1_Height? = nil
 }
@@ -52,13 +52,13 @@ struct Ibc_Lightclients_Localhost_V1_ClientState {
 fileprivate let _protobuf_package = "ibc.lightclients.localhost.v1"
 
 extension Ibc_Lightclients_Localhost_V1_ClientState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ClientState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ClientState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chain_id"),
     2: .same(proto: "height"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -71,7 +71,7 @@ extension Ibc_Lightclients_Localhost_V1_ClientState: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.chainID.isEmpty {
       try visitor.visitSingularStringField(value: self.chainID, fieldNumber: 1)
     }
@@ -81,7 +81,7 @@ extension Ibc_Lightclients_Localhost_V1_ClientState: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Localhost_V1_ClientState, rhs: Ibc_Lightclients_Localhost_V1_ClientState) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Localhost_V1_ClientState, rhs: Ibc_Lightclients_Localhost_V1_ClientState) -> Bool {
     if lhs.chainID != rhs.chainID {return false}
     if lhs._height != rhs._height {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

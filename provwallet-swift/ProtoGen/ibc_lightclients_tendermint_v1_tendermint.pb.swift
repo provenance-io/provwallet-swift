@@ -22,78 +22,78 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// ClientState from Tendermint tracks the current validator set, latest height,
 /// and a possible frozen height.
-struct Ibc_Lightclients_Tendermint_V1_ClientState {
+public struct Ibc_Lightclients_Tendermint_V1_ClientState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var chainID: String {
+  public var chainID: String {
     get {return _storage._chainID}
     set {_uniqueStorage()._chainID = newValue}
   }
 
-  var trustLevel: Ibc_Lightclients_Tendermint_V1_Fraction {
+  public var trustLevel: Ibc_Lightclients_Tendermint_V1_Fraction {
     get {return _storage._trustLevel ?? Ibc_Lightclients_Tendermint_V1_Fraction()}
     set {_uniqueStorage()._trustLevel = newValue}
   }
   /// Returns true if `trustLevel` has been explicitly set.
-  var hasTrustLevel: Bool {return _storage._trustLevel != nil}
+  public var hasTrustLevel: Bool {return _storage._trustLevel != nil}
   /// Clears the value of `trustLevel`. Subsequent reads from it will return its default value.
-  mutating func clearTrustLevel() {_uniqueStorage()._trustLevel = nil}
+  public mutating func clearTrustLevel() {_uniqueStorage()._trustLevel = nil}
 
   /// duration of the period since the LastestTimestamp during which the
   /// submitted headers are valid for upgrade
-  var trustingPeriod: SwiftProtobuf.Google_Protobuf_Duration {
+  public var trustingPeriod: SwiftProtobuf.Google_Protobuf_Duration {
     get {return _storage._trustingPeriod ?? SwiftProtobuf.Google_Protobuf_Duration()}
     set {_uniqueStorage()._trustingPeriod = newValue}
   }
   /// Returns true if `trustingPeriod` has been explicitly set.
-  var hasTrustingPeriod: Bool {return _storage._trustingPeriod != nil}
+  public var hasTrustingPeriod: Bool {return _storage._trustingPeriod != nil}
   /// Clears the value of `trustingPeriod`. Subsequent reads from it will return its default value.
-  mutating func clearTrustingPeriod() {_uniqueStorage()._trustingPeriod = nil}
+  public mutating func clearTrustingPeriod() {_uniqueStorage()._trustingPeriod = nil}
 
   /// duration of the staking unbonding period
-  var unbondingPeriod: SwiftProtobuf.Google_Protobuf_Duration {
+  public var unbondingPeriod: SwiftProtobuf.Google_Protobuf_Duration {
     get {return _storage._unbondingPeriod ?? SwiftProtobuf.Google_Protobuf_Duration()}
     set {_uniqueStorage()._unbondingPeriod = newValue}
   }
   /// Returns true if `unbondingPeriod` has been explicitly set.
-  var hasUnbondingPeriod: Bool {return _storage._unbondingPeriod != nil}
+  public var hasUnbondingPeriod: Bool {return _storage._unbondingPeriod != nil}
   /// Clears the value of `unbondingPeriod`. Subsequent reads from it will return its default value.
-  mutating func clearUnbondingPeriod() {_uniqueStorage()._unbondingPeriod = nil}
+  public mutating func clearUnbondingPeriod() {_uniqueStorage()._unbondingPeriod = nil}
 
   /// defines how much new (untrusted) header's Time can drift into the future.
-  var maxClockDrift: SwiftProtobuf.Google_Protobuf_Duration {
+  public var maxClockDrift: SwiftProtobuf.Google_Protobuf_Duration {
     get {return _storage._maxClockDrift ?? SwiftProtobuf.Google_Protobuf_Duration()}
     set {_uniqueStorage()._maxClockDrift = newValue}
   }
   /// Returns true if `maxClockDrift` has been explicitly set.
-  var hasMaxClockDrift: Bool {return _storage._maxClockDrift != nil}
+  public var hasMaxClockDrift: Bool {return _storage._maxClockDrift != nil}
   /// Clears the value of `maxClockDrift`. Subsequent reads from it will return its default value.
-  mutating func clearMaxClockDrift() {_uniqueStorage()._maxClockDrift = nil}
+  public mutating func clearMaxClockDrift() {_uniqueStorage()._maxClockDrift = nil}
 
   /// Block height when the client was frozen due to a misbehaviour
-  var frozenHeight: Ibc_Core_Client_V1_Height {
+  public var frozenHeight: Ibc_Core_Client_V1_Height {
     get {return _storage._frozenHeight ?? Ibc_Core_Client_V1_Height()}
     set {_uniqueStorage()._frozenHeight = newValue}
   }
   /// Returns true if `frozenHeight` has been explicitly set.
-  var hasFrozenHeight: Bool {return _storage._frozenHeight != nil}
+  public var hasFrozenHeight: Bool {return _storage._frozenHeight != nil}
   /// Clears the value of `frozenHeight`. Subsequent reads from it will return its default value.
-  mutating func clearFrozenHeight() {_uniqueStorage()._frozenHeight = nil}
+  public mutating func clearFrozenHeight() {_uniqueStorage()._frozenHeight = nil}
 
   /// Latest height the client was updated to
-  var latestHeight: Ibc_Core_Client_V1_Height {
+  public var latestHeight: Ibc_Core_Client_V1_Height {
     get {return _storage._latestHeight ?? Ibc_Core_Client_V1_Height()}
     set {_uniqueStorage()._latestHeight = newValue}
   }
   /// Returns true if `latestHeight` has been explicitly set.
-  var hasLatestHeight: Bool {return _storage._latestHeight != nil}
+  public var hasLatestHeight: Bool {return _storage._latestHeight != nil}
   /// Clears the value of `latestHeight`. Subsequent reads from it will return its default value.
-  mutating func clearLatestHeight() {_uniqueStorage()._latestHeight = nil}
+  public mutating func clearLatestHeight() {_uniqueStorage()._latestHeight = nil}
 
   /// Proof specifications used in verifying counterparty state
-  var proofSpecs: [Ics23_ProofSpec] {
+  public var proofSpecs: [Ics23_ProofSpec] {
     get {return _storage._proofSpecs}
     set {_uniqueStorage()._proofSpecs = newValue}
   }
@@ -103,64 +103,64 @@ struct Ibc_Lightclients_Tendermint_V1_ClientState {
   /// NOTE: ClientState must stored under `{upgradePath}/{upgradeHeight}/clientState`
   /// ConsensusState must be stored under `{upgradepath}/{upgradeHeight}/consensusState`
   /// For SDK chains using the default upgrade module, upgrade_path should be []string{"upgrade", "upgradedIBCState"}`
-  var upgradePath: [String] {
+  public var upgradePath: [String] {
     get {return _storage._upgradePath}
     set {_uniqueStorage()._upgradePath = newValue}
   }
 
   /// This flag, when set to true, will allow governance to recover a client
   /// which has expired
-  var allowUpdateAfterExpiry: Bool {
+  public var allowUpdateAfterExpiry: Bool {
     get {return _storage._allowUpdateAfterExpiry}
     set {_uniqueStorage()._allowUpdateAfterExpiry = newValue}
   }
 
   /// This flag, when set to true, will allow governance to unfreeze a client
   /// whose chain has experienced a misbehaviour event
-  var allowUpdateAfterMisbehaviour: Bool {
+  public var allowUpdateAfterMisbehaviour: Bool {
     get {return _storage._allowUpdateAfterMisbehaviour}
     set {_uniqueStorage()._allowUpdateAfterMisbehaviour = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// ConsensusState defines the consensus state from Tendermint.
-struct Ibc_Lightclients_Tendermint_V1_ConsensusState {
+public struct Ibc_Lightclients_Tendermint_V1_ConsensusState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// timestamp that corresponds to the block height in which the ConsensusState
   /// was stored.
-  var timestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var timestamp: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _timestamp ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_timestamp = newValue}
   }
   /// Returns true if `timestamp` has been explicitly set.
-  var hasTimestamp: Bool {return self._timestamp != nil}
+  public var hasTimestamp: Bool {return self._timestamp != nil}
   /// Clears the value of `timestamp`. Subsequent reads from it will return its default value.
-  mutating func clearTimestamp() {self._timestamp = nil}
+  public mutating func clearTimestamp() {self._timestamp = nil}
 
   /// commitment root (i.e app hash)
-  var root: Ibc_Core_Commitment_V1_MerkleRoot {
+  public var root: Ibc_Core_Commitment_V1_MerkleRoot {
     get {return _root ?? Ibc_Core_Commitment_V1_MerkleRoot()}
     set {_root = newValue}
   }
   /// Returns true if `root` has been explicitly set.
-  var hasRoot: Bool {return self._root != nil}
+  public var hasRoot: Bool {return self._root != nil}
   /// Clears the value of `root`. Subsequent reads from it will return its default value.
-  mutating func clearRoot() {self._root = nil}
+  public mutating func clearRoot() {self._root = nil}
 
-  var nextValidatorsHash: Data = Data()
+  public var nextValidatorsHash: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _timestamp: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
   fileprivate var _root: Ibc_Core_Commitment_V1_MerkleRoot? = nil
@@ -168,34 +168,34 @@ struct Ibc_Lightclients_Tendermint_V1_ConsensusState {
 
 /// Misbehaviour is a wrapper over two conflicting Headers
 /// that implements Misbehaviour interface expected by ICS-02
-struct Ibc_Lightclients_Tendermint_V1_Misbehaviour {
+public struct Ibc_Lightclients_Tendermint_V1_Misbehaviour {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var clientID: String = String()
+  public var clientID: String = String()
 
-  var header1: Ibc_Lightclients_Tendermint_V1_Header {
+  public var header1: Ibc_Lightclients_Tendermint_V1_Header {
     get {return _header1 ?? Ibc_Lightclients_Tendermint_V1_Header()}
     set {_header1 = newValue}
   }
   /// Returns true if `header1` has been explicitly set.
-  var hasHeader1: Bool {return self._header1 != nil}
+  public var hasHeader1: Bool {return self._header1 != nil}
   /// Clears the value of `header1`. Subsequent reads from it will return its default value.
-  mutating func clearHeader1() {self._header1 = nil}
+  public mutating func clearHeader1() {self._header1 = nil}
 
-  var header2: Ibc_Lightclients_Tendermint_V1_Header {
+  public var header2: Ibc_Lightclients_Tendermint_V1_Header {
     get {return _header2 ?? Ibc_Lightclients_Tendermint_V1_Header()}
     set {_header2 = newValue}
   }
   /// Returns true if `header2` has been explicitly set.
-  var hasHeader2: Bool {return self._header2 != nil}
+  public var hasHeader2: Bool {return self._header2 != nil}
   /// Clears the value of `header2`. Subsequent reads from it will return its default value.
-  mutating func clearHeader2() {self._header2 = nil}
+  public mutating func clearHeader2() {self._header2 = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _header1: Ibc_Lightclients_Tendermint_V1_Header? = nil
   fileprivate var _header2: Ibc_Lightclients_Tendermint_V1_Header? = nil
@@ -213,67 +213,67 @@ struct Ibc_Lightclients_Tendermint_V1_Misbehaviour {
 /// current time in order to correctly verify, and the TrustedValidators must
 /// hash to TrustedConsensusState.NextValidatorsHash since that is the last
 /// trusted validator set at the TrustedHeight.
-struct Ibc_Lightclients_Tendermint_V1_Header {
+public struct Ibc_Lightclients_Tendermint_V1_Header {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var signedHeader: Tendermint_Types_SignedHeader {
+  public var signedHeader: Tendermint_Types_SignedHeader {
     get {return _storage._signedHeader ?? Tendermint_Types_SignedHeader()}
     set {_uniqueStorage()._signedHeader = newValue}
   }
   /// Returns true if `signedHeader` has been explicitly set.
-  var hasSignedHeader: Bool {return _storage._signedHeader != nil}
+  public var hasSignedHeader: Bool {return _storage._signedHeader != nil}
   /// Clears the value of `signedHeader`. Subsequent reads from it will return its default value.
-  mutating func clearSignedHeader() {_uniqueStorage()._signedHeader = nil}
+  public mutating func clearSignedHeader() {_uniqueStorage()._signedHeader = nil}
 
-  var validatorSet: Tendermint_Types_ValidatorSet {
+  public var validatorSet: Tendermint_Types_ValidatorSet {
     get {return _storage._validatorSet ?? Tendermint_Types_ValidatorSet()}
     set {_uniqueStorage()._validatorSet = newValue}
   }
   /// Returns true if `validatorSet` has been explicitly set.
-  var hasValidatorSet: Bool {return _storage._validatorSet != nil}
+  public var hasValidatorSet: Bool {return _storage._validatorSet != nil}
   /// Clears the value of `validatorSet`. Subsequent reads from it will return its default value.
-  mutating func clearValidatorSet() {_uniqueStorage()._validatorSet = nil}
+  public mutating func clearValidatorSet() {_uniqueStorage()._validatorSet = nil}
 
-  var trustedHeight: Ibc_Core_Client_V1_Height {
+  public var trustedHeight: Ibc_Core_Client_V1_Height {
     get {return _storage._trustedHeight ?? Ibc_Core_Client_V1_Height()}
     set {_uniqueStorage()._trustedHeight = newValue}
   }
   /// Returns true if `trustedHeight` has been explicitly set.
-  var hasTrustedHeight: Bool {return _storage._trustedHeight != nil}
+  public var hasTrustedHeight: Bool {return _storage._trustedHeight != nil}
   /// Clears the value of `trustedHeight`. Subsequent reads from it will return its default value.
-  mutating func clearTrustedHeight() {_uniqueStorage()._trustedHeight = nil}
+  public mutating func clearTrustedHeight() {_uniqueStorage()._trustedHeight = nil}
 
-  var trustedValidators: Tendermint_Types_ValidatorSet {
+  public var trustedValidators: Tendermint_Types_ValidatorSet {
     get {return _storage._trustedValidators ?? Tendermint_Types_ValidatorSet()}
     set {_uniqueStorage()._trustedValidators = newValue}
   }
   /// Returns true if `trustedValidators` has been explicitly set.
-  var hasTrustedValidators: Bool {return _storage._trustedValidators != nil}
+  public var hasTrustedValidators: Bool {return _storage._trustedValidators != nil}
   /// Clears the value of `trustedValidators`. Subsequent reads from it will return its default value.
-  mutating func clearTrustedValidators() {_uniqueStorage()._trustedValidators = nil}
+  public mutating func clearTrustedValidators() {_uniqueStorage()._trustedValidators = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// Fraction defines the protobuf message type for tmmath.Fraction that only supports positive values.
-struct Ibc_Lightclients_Tendermint_V1_Fraction {
+public struct Ibc_Lightclients_Tendermint_V1_Fraction {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var numerator: UInt64 = 0
+  public var numerator: UInt64 = 0
 
-  var denominator: UInt64 = 0
+  public var denominator: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -281,8 +281,8 @@ struct Ibc_Lightclients_Tendermint_V1_Fraction {
 fileprivate let _protobuf_package = "ibc.lightclients.tendermint.v1"
 
 extension Ibc_Lightclients_Tendermint_V1_ClientState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ClientState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ClientState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chain_id"),
     2: .standard(proto: "trust_level"),
     3: .standard(proto: "trusting_period"),
@@ -335,7 +335,7 @@ extension Ibc_Lightclients_Tendermint_V1_ClientState: SwiftProtobuf.Message, Swi
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -360,7 +360,7 @@ extension Ibc_Lightclients_Tendermint_V1_ClientState: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._chainID.isEmpty {
         try visitor.visitSingularStringField(value: _storage._chainID, fieldNumber: 1)
@@ -399,7 +399,7 @@ extension Ibc_Lightclients_Tendermint_V1_ClientState: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Tendermint_V1_ClientState, rhs: Ibc_Lightclients_Tendermint_V1_ClientState) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Tendermint_V1_ClientState, rhs: Ibc_Lightclients_Tendermint_V1_ClientState) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -425,14 +425,14 @@ extension Ibc_Lightclients_Tendermint_V1_ClientState: SwiftProtobuf.Message, Swi
 }
 
 extension Ibc_Lightclients_Tendermint_V1_ConsensusState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConsensusState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConsensusState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "timestamp"),
     2: .same(proto: "root"),
     3: .standard(proto: "next_validators_hash"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -446,7 +446,7 @@ extension Ibc_Lightclients_Tendermint_V1_ConsensusState: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._timestamp {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -459,7 +459,7 @@ extension Ibc_Lightclients_Tendermint_V1_ConsensusState: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Tendermint_V1_ConsensusState, rhs: Ibc_Lightclients_Tendermint_V1_ConsensusState) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Tendermint_V1_ConsensusState, rhs: Ibc_Lightclients_Tendermint_V1_ConsensusState) -> Bool {
     if lhs._timestamp != rhs._timestamp {return false}
     if lhs._root != rhs._root {return false}
     if lhs.nextValidatorsHash != rhs.nextValidatorsHash {return false}
@@ -469,14 +469,14 @@ extension Ibc_Lightclients_Tendermint_V1_ConsensusState: SwiftProtobuf.Message, 
 }
 
 extension Ibc_Lightclients_Tendermint_V1_Misbehaviour: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Misbehaviour"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Misbehaviour"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
     2: .standard(proto: "header_1"),
     3: .standard(proto: "header_2"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -490,7 +490,7 @@ extension Ibc_Lightclients_Tendermint_V1_Misbehaviour: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clientID.isEmpty {
       try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
     }
@@ -503,7 +503,7 @@ extension Ibc_Lightclients_Tendermint_V1_Misbehaviour: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Tendermint_V1_Misbehaviour, rhs: Ibc_Lightclients_Tendermint_V1_Misbehaviour) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Tendermint_V1_Misbehaviour, rhs: Ibc_Lightclients_Tendermint_V1_Misbehaviour) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs._header1 != rhs._header1 {return false}
     if lhs._header2 != rhs._header2 {return false}
@@ -513,8 +513,8 @@ extension Ibc_Lightclients_Tendermint_V1_Misbehaviour: SwiftProtobuf.Message, Sw
 }
 
 extension Ibc_Lightclients_Tendermint_V1_Header: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Header"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Header"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "signed_header"),
     2: .standard(proto: "validator_set"),
     3: .standard(proto: "trusted_height"),
@@ -546,7 +546,7 @@ extension Ibc_Lightclients_Tendermint_V1_Header: SwiftProtobuf.Message, SwiftPro
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -564,7 +564,7 @@ extension Ibc_Lightclients_Tendermint_V1_Header: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._signedHeader {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -582,7 +582,7 @@ extension Ibc_Lightclients_Tendermint_V1_Header: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Tendermint_V1_Header, rhs: Ibc_Lightclients_Tendermint_V1_Header) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Tendermint_V1_Header, rhs: Ibc_Lightclients_Tendermint_V1_Header) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -601,13 +601,13 @@ extension Ibc_Lightclients_Tendermint_V1_Header: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Ibc_Lightclients_Tendermint_V1_Fraction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Fraction"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Fraction"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "numerator"),
     2: .same(proto: "denominator"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -620,7 +620,7 @@ extension Ibc_Lightclients_Tendermint_V1_Fraction: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.numerator != 0 {
       try visitor.visitSingularUInt64Field(value: self.numerator, fieldNumber: 1)
     }
@@ -630,7 +630,7 @@ extension Ibc_Lightclients_Tendermint_V1_Fraction: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Tendermint_V1_Fraction, rhs: Ibc_Lightclients_Tendermint_V1_Fraction) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Tendermint_V1_Fraction, rhs: Ibc_Lightclients_Tendermint_V1_Fraction) -> Bool {
     if lhs.numerator != rhs.numerator {return false}
     if lhs.denominator != rhs.denominator {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

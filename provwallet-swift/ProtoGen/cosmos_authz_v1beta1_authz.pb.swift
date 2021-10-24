@@ -22,47 +22,47 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// GenericAuthorization gives the grantee unrestricted permissions to execute
 /// the provided method on behalf of the granter's account.
-struct Cosmos_Authz_V1beta1_GenericAuthorization {
+public struct Cosmos_Authz_V1beta1_GenericAuthorization {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Msg, identified by it's type URL, to grant unrestricted permissions to execute
-  var msg: String = String()
+  public var msg: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Grant gives permissions to execute
 /// the provide method with expiration time.
-struct Cosmos_Authz_V1beta1_Grant {
+public struct Cosmos_Authz_V1beta1_Grant {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var authorization: SwiftProtobuf.Google_Protobuf_Any {
+  public var authorization: SwiftProtobuf.Google_Protobuf_Any {
     get {return _authorization ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_authorization = newValue}
   }
   /// Returns true if `authorization` has been explicitly set.
-  var hasAuthorization: Bool {return self._authorization != nil}
+  public var hasAuthorization: Bool {return self._authorization != nil}
   /// Clears the value of `authorization`. Subsequent reads from it will return its default value.
-  mutating func clearAuthorization() {self._authorization = nil}
+  public mutating func clearAuthorization() {self._authorization = nil}
 
-  var expiration: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var expiration: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _expiration ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_expiration = newValue}
   }
   /// Returns true if `expiration` has been explicitly set.
-  var hasExpiration: Bool {return self._expiration != nil}
+  public var hasExpiration: Bool {return self._expiration != nil}
   /// Clears the value of `expiration`. Subsequent reads from it will return its default value.
-  mutating func clearExpiration() {self._expiration = nil}
+  public mutating func clearExpiration() {self._expiration = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _authorization: SwiftProtobuf.Google_Protobuf_Any? = nil
   fileprivate var _expiration: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
@@ -73,12 +73,12 @@ struct Cosmos_Authz_V1beta1_Grant {
 fileprivate let _protobuf_package = "cosmos.authz.v1beta1"
 
 extension Cosmos_Authz_V1beta1_GenericAuthorization: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GenericAuthorization"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GenericAuthorization"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "msg"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -90,14 +90,14 @@ extension Cosmos_Authz_V1beta1_GenericAuthorization: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.msg.isEmpty {
       try visitor.visitSingularStringField(value: self.msg, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Authz_V1beta1_GenericAuthorization, rhs: Cosmos_Authz_V1beta1_GenericAuthorization) -> Bool {
+  public static func ==(lhs: Cosmos_Authz_V1beta1_GenericAuthorization, rhs: Cosmos_Authz_V1beta1_GenericAuthorization) -> Bool {
     if lhs.msg != rhs.msg {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -105,13 +105,13 @@ extension Cosmos_Authz_V1beta1_GenericAuthorization: SwiftProtobuf.Message, Swif
 }
 
 extension Cosmos_Authz_V1beta1_Grant: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Grant"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Grant"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "authorization"),
     2: .same(proto: "expiration"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -124,7 +124,7 @@ extension Cosmos_Authz_V1beta1_Grant: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._authorization {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -134,7 +134,7 @@ extension Cosmos_Authz_V1beta1_Grant: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Authz_V1beta1_Grant, rhs: Cosmos_Authz_V1beta1_Grant) -> Bool {
+  public static func ==(lhs: Cosmos_Authz_V1beta1_Grant, rhs: Cosmos_Authz_V1beta1_Grant) -> Bool {
     if lhs._authorization != rhs._authorization {return false}
     if lhs._expiration != rhs._expiration {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

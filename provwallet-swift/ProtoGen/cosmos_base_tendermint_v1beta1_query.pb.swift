@@ -21,334 +21,334 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// GetValidatorSetByHeightRequest is the request type for the Query/GetValidatorSetByHeight RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest {
+public struct Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var height: Int64 = 0
+  public var height: Int64 = 0
 
   /// pagination defines an pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// GetValidatorSetByHeightResponse is the response type for the Query/GetValidatorSetByHeight RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse {
+public struct Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var blockHeight: Int64 = 0
+  public var blockHeight: Int64 = 0
 
-  var validators: [Cosmos_Base_Tendermint_V1beta1_Validator] = []
+  public var validators: [Cosmos_Base_Tendermint_V1beta1_Validator] = []
 
   /// pagination defines an pagination for the response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// GetLatestValidatorSetRequest is the request type for the Query/GetValidatorSetByHeight RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetRequest {
+public struct Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// pagination defines an pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// GetLatestValidatorSetResponse is the response type for the Query/GetValidatorSetByHeight RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetResponse {
+public struct Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var blockHeight: Int64 = 0
+  public var blockHeight: Int64 = 0
 
-  var validators: [Cosmos_Base_Tendermint_V1beta1_Validator] = []
+  public var validators: [Cosmos_Base_Tendermint_V1beta1_Validator] = []
 
   /// pagination defines an pagination for the response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// Validator is the type for the validator-set.
-struct Cosmos_Base_Tendermint_V1beta1_Validator {
+public struct Cosmos_Base_Tendermint_V1beta1_Validator {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var address: String = String()
+  public var address: String = String()
 
-  var pubKey: SwiftProtobuf.Google_Protobuf_Any {
+  public var pubKey: SwiftProtobuf.Google_Protobuf_Any {
     get {return _pubKey ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_pubKey = newValue}
   }
   /// Returns true if `pubKey` has been explicitly set.
-  var hasPubKey: Bool {return self._pubKey != nil}
+  public var hasPubKey: Bool {return self._pubKey != nil}
   /// Clears the value of `pubKey`. Subsequent reads from it will return its default value.
-  mutating func clearPubKey() {self._pubKey = nil}
+  public mutating func clearPubKey() {self._pubKey = nil}
 
-  var votingPower: Int64 = 0
+  public var votingPower: Int64 = 0
 
-  var proposerPriority: Int64 = 0
+  public var proposerPriority: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pubKey: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// GetBlockByHeightRequest is the request type for the Query/GetBlockByHeight RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightRequest {
+public struct Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var height: Int64 = 0
+  public var height: Int64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// GetBlockByHeightResponse is the response type for the Query/GetBlockByHeight RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightResponse {
+public struct Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var blockID: Tendermint_Types_BlockID {
+  public var blockID: Tendermint_Types_BlockID {
     get {return _blockID ?? Tendermint_Types_BlockID()}
     set {_blockID = newValue}
   }
   /// Returns true if `blockID` has been explicitly set.
-  var hasBlockID: Bool {return self._blockID != nil}
+  public var hasBlockID: Bool {return self._blockID != nil}
   /// Clears the value of `blockID`. Subsequent reads from it will return its default value.
-  mutating func clearBlockID() {self._blockID = nil}
+  public mutating func clearBlockID() {self._blockID = nil}
 
-  var block: Tendermint_Types_Block {
+  public var block: Tendermint_Types_Block {
     get {return _block ?? Tendermint_Types_Block()}
     set {_block = newValue}
   }
   /// Returns true if `block` has been explicitly set.
-  var hasBlock: Bool {return self._block != nil}
+  public var hasBlock: Bool {return self._block != nil}
   /// Clears the value of `block`. Subsequent reads from it will return its default value.
-  mutating func clearBlock() {self._block = nil}
+  public mutating func clearBlock() {self._block = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _blockID: Tendermint_Types_BlockID? = nil
   fileprivate var _block: Tendermint_Types_Block? = nil
 }
 
 /// GetLatestBlockRequest is the request type for the Query/GetLatestBlock RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetLatestBlockRequest {
+public struct Cosmos_Base_Tendermint_V1beta1_GetLatestBlockRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// GetLatestBlockResponse is the response type for the Query/GetLatestBlock RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse {
+public struct Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var blockID: Tendermint_Types_BlockID {
+  public var blockID: Tendermint_Types_BlockID {
     get {return _blockID ?? Tendermint_Types_BlockID()}
     set {_blockID = newValue}
   }
   /// Returns true if `blockID` has been explicitly set.
-  var hasBlockID: Bool {return self._blockID != nil}
+  public var hasBlockID: Bool {return self._blockID != nil}
   /// Clears the value of `blockID`. Subsequent reads from it will return its default value.
-  mutating func clearBlockID() {self._blockID = nil}
+  public mutating func clearBlockID() {self._blockID = nil}
 
-  var block: Tendermint_Types_Block {
+  public var block: Tendermint_Types_Block {
     get {return _block ?? Tendermint_Types_Block()}
     set {_block = newValue}
   }
   /// Returns true if `block` has been explicitly set.
-  var hasBlock: Bool {return self._block != nil}
+  public var hasBlock: Bool {return self._block != nil}
   /// Clears the value of `block`. Subsequent reads from it will return its default value.
-  mutating func clearBlock() {self._block = nil}
+  public mutating func clearBlock() {self._block = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _blockID: Tendermint_Types_BlockID? = nil
   fileprivate var _block: Tendermint_Types_Block? = nil
 }
 
 /// GetSyncingRequest is the request type for the Query/GetSyncing RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetSyncingRequest {
+public struct Cosmos_Base_Tendermint_V1beta1_GetSyncingRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// GetSyncingResponse is the response type for the Query/GetSyncing RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetSyncingResponse {
+public struct Cosmos_Base_Tendermint_V1beta1_GetSyncingResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var syncing: Bool = false
+  public var syncing: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// GetNodeInfoRequest is the request type for the Query/GetNodeInfo RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetNodeInfoRequest {
+public struct Cosmos_Base_Tendermint_V1beta1_GetNodeInfoRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// GetNodeInfoResponse is the request type for the Query/GetNodeInfo RPC method.
-struct Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse {
+public struct Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var defaultNodeInfo: Tendermint_P2p_DefaultNodeInfo {
+  public var defaultNodeInfo: Tendermint_P2p_DefaultNodeInfo {
     get {return _storage._defaultNodeInfo ?? Tendermint_P2p_DefaultNodeInfo()}
     set {_uniqueStorage()._defaultNodeInfo = newValue}
   }
   /// Returns true if `defaultNodeInfo` has been explicitly set.
-  var hasDefaultNodeInfo: Bool {return _storage._defaultNodeInfo != nil}
+  public var hasDefaultNodeInfo: Bool {return _storage._defaultNodeInfo != nil}
   /// Clears the value of `defaultNodeInfo`. Subsequent reads from it will return its default value.
-  mutating func clearDefaultNodeInfo() {_uniqueStorage()._defaultNodeInfo = nil}
+  public mutating func clearDefaultNodeInfo() {_uniqueStorage()._defaultNodeInfo = nil}
 
-  var applicationVersion: Cosmos_Base_Tendermint_V1beta1_VersionInfo {
+  public var applicationVersion: Cosmos_Base_Tendermint_V1beta1_VersionInfo {
     get {return _storage._applicationVersion ?? Cosmos_Base_Tendermint_V1beta1_VersionInfo()}
     set {_uniqueStorage()._applicationVersion = newValue}
   }
   /// Returns true if `applicationVersion` has been explicitly set.
-  var hasApplicationVersion: Bool {return _storage._applicationVersion != nil}
+  public var hasApplicationVersion: Bool {return _storage._applicationVersion != nil}
   /// Clears the value of `applicationVersion`. Subsequent reads from it will return its default value.
-  mutating func clearApplicationVersion() {_uniqueStorage()._applicationVersion = nil}
+  public mutating func clearApplicationVersion() {_uniqueStorage()._applicationVersion = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// VersionInfo is the type for the GetNodeInfoResponse message.
-struct Cosmos_Base_Tendermint_V1beta1_VersionInfo {
+public struct Cosmos_Base_Tendermint_V1beta1_VersionInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var appName: String = String()
+  public var appName: String = String()
 
-  var version: String = String()
+  public var version: String = String()
 
-  var gitCommit: String = String()
+  public var gitCommit: String = String()
 
-  var buildTags: String = String()
+  public var buildTags: String = String()
 
-  var goVersion: String = String()
+  public var goVersion: String = String()
 
-  var buildDeps: [Cosmos_Base_Tendermint_V1beta1_Module] = []
+  public var buildDeps: [Cosmos_Base_Tendermint_V1beta1_Module] = []
 
-  var cosmosSdkVersion: String = String()
+  public var cosmosSdkVersion: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Module is the type for VersionInfo
-struct Cosmos_Base_Tendermint_V1beta1_Module {
+public struct Cosmos_Base_Tendermint_V1beta1_Module {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// module path
-  var path: String = String()
+  public var path: String = String()
 
   /// module version
-  var version: String = String()
+  public var version: String = String()
 
   /// checksum
-  var sum: String = String()
+  public var sum: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -356,13 +356,13 @@ struct Cosmos_Base_Tendermint_V1beta1_Module {
 fileprivate let _protobuf_package = "cosmos.base.tendermint.v1beta1"
 
 extension Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetValidatorSetByHeightRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GetValidatorSetByHeightRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "height"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -375,7 +375,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest: SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.height != 0 {
       try visitor.visitSingularInt64Field(value: self.height, fieldNumber: 1)
     }
@@ -385,7 +385,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest: SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest) -> Bool {
     if lhs.height != rhs.height {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -394,14 +394,14 @@ extension Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest: SwiftPr
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetValidatorSetByHeightResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GetValidatorSetByHeightResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "block_height"),
     2: .same(proto: "validators"),
     3: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -415,7 +415,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse: SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.blockHeight != 0 {
       try visitor.visitSingularInt64Field(value: self.blockHeight, fieldNumber: 1)
     }
@@ -428,7 +428,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse: SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse) -> Bool {
     if lhs.blockHeight != rhs.blockHeight {return false}
     if lhs.validators != rhs.validators {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -438,12 +438,12 @@ extension Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse: SwiftP
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetLatestValidatorSetRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GetLatestValidatorSetRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -455,14 +455,14 @@ extension Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetRequest: SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetRequest) -> Bool {
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -470,14 +470,14 @@ extension Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetRequest: SwiftProt
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetLatestValidatorSetResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GetLatestValidatorSetResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "block_height"),
     2: .same(proto: "validators"),
     3: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -491,7 +491,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetResponse: SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.blockHeight != 0 {
       try visitor.visitSingularInt64Field(value: self.blockHeight, fieldNumber: 1)
     }
@@ -504,7 +504,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetResponse: SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetResponse) -> Bool {
     if lhs.blockHeight != rhs.blockHeight {return false}
     if lhs.validators != rhs.validators {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -514,15 +514,15 @@ extension Cosmos_Base_Tendermint_V1beta1_GetLatestValidatorSetResponse: SwiftPro
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_Validator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Validator"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Validator"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .standard(proto: "pub_key"),
     3: .standard(proto: "voting_power"),
     4: .standard(proto: "proposer_priority"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -537,7 +537,7 @@ extension Cosmos_Base_Tendermint_V1beta1_Validator: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -553,7 +553,7 @@ extension Cosmos_Base_Tendermint_V1beta1_Validator: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_Validator, rhs: Cosmos_Base_Tendermint_V1beta1_Validator) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_Validator, rhs: Cosmos_Base_Tendermint_V1beta1_Validator) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs._pubKey != rhs._pubKey {return false}
     if lhs.votingPower != rhs.votingPower {return false}
@@ -564,12 +564,12 @@ extension Cosmos_Base_Tendermint_V1beta1_Validator: SwiftProtobuf.Message, Swift
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetBlockByHeightRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GetBlockByHeightRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "height"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -581,14 +581,14 @@ extension Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightRequest: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.height != 0 {
       try visitor.visitSingularInt64Field(value: self.height, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightRequest) -> Bool {
     if lhs.height != rhs.height {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -596,13 +596,13 @@ extension Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightRequest: SwiftProtobuf.
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetBlockByHeightResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GetBlockByHeightResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "block_id"),
     2: .same(proto: "block"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -615,7 +615,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightResponse: SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._blockID {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -625,7 +625,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightResponse: SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightResponse) -> Bool {
     if lhs._blockID != rhs._blockID {return false}
     if lhs._block != rhs._block {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -634,32 +634,32 @@ extension Cosmos_Base_Tendermint_V1beta1_GetBlockByHeightResponse: SwiftProtobuf
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetLatestBlockRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetLatestBlockRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".GetLatestBlockRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetLatestBlockRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetLatestBlockRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetLatestBlockRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetLatestBlockRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetLatestBlockResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GetLatestBlockResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "block_id"),
     2: .same(proto: "block"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -672,7 +672,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._blockID {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -682,7 +682,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse) -> Bool {
     if lhs._blockID != rhs._blockID {return false}
     if lhs._block != rhs._block {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -691,31 +691,31 @@ extension Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse: SwiftProtobuf.M
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetSyncingRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetSyncingRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".GetSyncingRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetSyncingRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetSyncingRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetSyncingRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetSyncingRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetSyncingResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetSyncingResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GetSyncingResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "syncing"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -727,14 +727,14 @@ extension Cosmos_Base_Tendermint_V1beta1_GetSyncingResponse: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.syncing != false {
       try visitor.visitSingularBoolField(value: self.syncing, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetSyncingResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetSyncingResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetSyncingResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetSyncingResponse) -> Bool {
     if lhs.syncing != rhs.syncing {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -742,27 +742,27 @@ extension Cosmos_Base_Tendermint_V1beta1_GetSyncingResponse: SwiftProtobuf.Messa
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetNodeInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetNodeInfoRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".GetNodeInfoRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetNodeInfoRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetNodeInfoRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetNodeInfoRequest, rhs: Cosmos_Base_Tendermint_V1beta1_GetNodeInfoRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GetNodeInfoResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GetNodeInfoResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "default_node_info"),
     2: .standard(proto: "application_version"),
   ]
@@ -788,7 +788,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse: SwiftProtobuf.Mess
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -804,7 +804,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._defaultNodeInfo {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -816,7 +816,7 @@ extension Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse, rhs: Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -833,8 +833,8 @@ extension Cosmos_Base_Tendermint_V1beta1_GetNodeInfoResponse: SwiftProtobuf.Mess
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_VersionInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".VersionInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".VersionInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "app_name"),
     3: .same(proto: "version"),
@@ -845,7 +845,7 @@ extension Cosmos_Base_Tendermint_V1beta1_VersionInfo: SwiftProtobuf.Message, Swi
     8: .standard(proto: "cosmos_sdk_version"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -864,7 +864,7 @@ extension Cosmos_Base_Tendermint_V1beta1_VersionInfo: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -892,7 +892,7 @@ extension Cosmos_Base_Tendermint_V1beta1_VersionInfo: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_VersionInfo, rhs: Cosmos_Base_Tendermint_V1beta1_VersionInfo) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_VersionInfo, rhs: Cosmos_Base_Tendermint_V1beta1_VersionInfo) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.appName != rhs.appName {return false}
     if lhs.version != rhs.version {return false}
@@ -907,14 +907,14 @@ extension Cosmos_Base_Tendermint_V1beta1_VersionInfo: SwiftProtobuf.Message, Swi
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_Module: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Module"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Module"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
     2: .same(proto: "version"),
     3: .same(proto: "sum"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -928,7 +928,7 @@ extension Cosmos_Base_Tendermint_V1beta1_Module: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.path.isEmpty {
       try visitor.visitSingularStringField(value: self.path, fieldNumber: 1)
     }
@@ -941,7 +941,7 @@ extension Cosmos_Base_Tendermint_V1beta1_Module: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_Module, rhs: Cosmos_Base_Tendermint_V1beta1_Module) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Tendermint_V1beta1_Module, rhs: Cosmos_Base_Tendermint_V1beta1_Module) -> Bool {
     if lhs.path != rhs.path {return false}
     if lhs.version != rhs.version {return false}
     if lhs.sum != rhs.sum {return false}

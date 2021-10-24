@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// SignMode represents a signing mode with its own security guarantees.
-enum Cosmos_Tx_Signing_V1beta1_SignMode: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Cosmos_Tx_Signing_V1beta1_SignMode: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// SIGN_MODE_UNSPECIFIED specifies an unknown signing mode and will be
   /// rejected
@@ -42,11 +42,11 @@ enum Cosmos_Tx_Signing_V1beta1_SignMode: SwiftProtobuf.Enum {
   case legacyAminoJson // = 127
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .direct
@@ -56,7 +56,7 @@ enum Cosmos_Tx_Signing_V1beta1_SignMode: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .direct: return 1
@@ -72,7 +72,7 @@ enum Cosmos_Tx_Signing_V1beta1_SignMode: SwiftProtobuf.Enum {
 
 extension Cosmos_Tx_Signing_V1beta1_SignMode: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Cosmos_Tx_Signing_V1beta1_SignMode] = [
+  public static var allCases: [Cosmos_Tx_Signing_V1beta1_SignMode] = [
     .unspecified,
     .direct,
     .textual,
@@ -83,65 +83,65 @@ extension Cosmos_Tx_Signing_V1beta1_SignMode: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// SignatureDescriptors wraps multiple SignatureDescriptor's.
-struct Cosmos_Tx_Signing_V1beta1_SignatureDescriptors {
+public struct Cosmos_Tx_Signing_V1beta1_SignatureDescriptors {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// signatures are the signature descriptors
-  var signatures: [Cosmos_Tx_Signing_V1beta1_SignatureDescriptor] = []
+  public var signatures: [Cosmos_Tx_Signing_V1beta1_SignatureDescriptor] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// SignatureDescriptor is a convenience type which represents the full data for
 /// a signature including the public key of the signer, signing modes and the
 /// signature itself. It is primarily used for coordinating signatures between
 /// clients.
-struct Cosmos_Tx_Signing_V1beta1_SignatureDescriptor {
+public struct Cosmos_Tx_Signing_V1beta1_SignatureDescriptor {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// public_key is the public key of the signer
-  var publicKey: SwiftProtobuf.Google_Protobuf_Any {
+  public var publicKey: SwiftProtobuf.Google_Protobuf_Any {
     get {return _publicKey ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_publicKey = newValue}
   }
   /// Returns true if `publicKey` has been explicitly set.
-  var hasPublicKey: Bool {return self._publicKey != nil}
+  public var hasPublicKey: Bool {return self._publicKey != nil}
   /// Clears the value of `publicKey`. Subsequent reads from it will return its default value.
-  mutating func clearPublicKey() {self._publicKey = nil}
+  public mutating func clearPublicKey() {self._publicKey = nil}
 
-  var data: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage {
+  public var data: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage {
     get {return _data ?? Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage()}
     set {_data = newValue}
   }
   /// Returns true if `data` has been explicitly set.
-  var hasData: Bool {return self._data != nil}
+  public var hasData: Bool {return self._data != nil}
   /// Clears the value of `data`. Subsequent reads from it will return its default value.
-  mutating func clearData() {self._data = nil}
+  public mutating func clearData() {self._data = nil}
 
   /// sequence is the sequence of the account, which describes the
   /// number of committed transactions signed by a given address. It is used to prevent
   /// replay attacks.
-  var sequence: UInt64 = 0
+  public var sequence: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// Data represents signature data
-  struct DataMessage {
+  public struct DataMessage {
     // SwiftProtobuf.Message conformance is added in an extension below. See the
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
     /// sum is the oneof that specifies whether this represents single or multi-signature data
-    var sum: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.OneOf_Sum? = nil
+    public var sum: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.OneOf_Sum? = nil
 
     /// single represents a single signer
-    var single: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single {
+    public var single: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single {
       get {
         if case .single(let v)? = sum {return v}
         return Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single()
@@ -150,7 +150,7 @@ struct Cosmos_Tx_Signing_V1beta1_SignatureDescriptor {
     }
 
     /// multi represents a multisig signer
-    var multi: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi {
+    public var multi: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi {
       get {
         if case .multi(let v)? = sum {return v}
         return Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi()
@@ -158,17 +158,17 @@ struct Cosmos_Tx_Signing_V1beta1_SignatureDescriptor {
       set {sum = .multi(newValue)}
     }
 
-    var unknownFields = SwiftProtobuf.UnknownStorage()
+    public var unknownFields = SwiftProtobuf.UnknownStorage()
 
     /// sum is the oneof that specifies whether this represents single or multi-signature data
-    enum OneOf_Sum: Equatable {
+    public enum OneOf_Sum: Equatable {
       /// single represents a single signer
       case single(Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single)
       /// multi represents a multisig signer
       case multi(Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi)
 
     #if !swift(>=4.1)
-      static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.OneOf_Sum, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.OneOf_Sum) -> Bool {
+      public static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.OneOf_Sum, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.OneOf_Sum) -> Bool {
         // The use of inline closures is to circumvent an issue where the compiler
         // allocates stack space for every case branch when no optimizations are
         // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -188,52 +188,52 @@ struct Cosmos_Tx_Signing_V1beta1_SignatureDescriptor {
     }
 
     /// Single is the signature data for a single signer
-    struct Single {
+    public struct Single {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
 
       /// mode is the signing mode of the single signer
-      var mode: Cosmos_Tx_Signing_V1beta1_SignMode = .unspecified
+      public var mode: Cosmos_Tx_Signing_V1beta1_SignMode = .unspecified
 
       /// signature is the raw signature bytes
-      var signature: Data = Data()
+      public var signature: Data = Data()
 
-      var unknownFields = SwiftProtobuf.UnknownStorage()
+      public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-      init() {}
+      public init() {}
     }
 
     /// Multi is the signature data for a multisig public key
-    struct Multi {
+    public struct Multi {
       // SwiftProtobuf.Message conformance is added in an extension below. See the
       // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
       // methods supported on all messages.
 
       /// bitarray specifies which keys within the multisig are signing
-      var bitarray: Cosmos_Crypto_Multisig_V1beta1_CompactBitArray {
+      public var bitarray: Cosmos_Crypto_Multisig_V1beta1_CompactBitArray {
         get {return _bitarray ?? Cosmos_Crypto_Multisig_V1beta1_CompactBitArray()}
         set {_bitarray = newValue}
       }
       /// Returns true if `bitarray` has been explicitly set.
-      var hasBitarray: Bool {return self._bitarray != nil}
+      public var hasBitarray: Bool {return self._bitarray != nil}
       /// Clears the value of `bitarray`. Subsequent reads from it will return its default value.
-      mutating func clearBitarray() {self._bitarray = nil}
+      public mutating func clearBitarray() {self._bitarray = nil}
 
       /// signatures is the signatures of the multi-signature
-      var signatures: [Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage] = []
+      public var signatures: [Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage] = []
 
-      var unknownFields = SwiftProtobuf.UnknownStorage()
+      public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-      init() {}
+      public init() {}
 
       fileprivate var _bitarray: Cosmos_Crypto_Multisig_V1beta1_CompactBitArray? = nil
     }
 
-    init() {}
+    public init() {}
   }
 
-  init() {}
+  public init() {}
 
   fileprivate var _publicKey: SwiftProtobuf.Google_Protobuf_Any? = nil
   fileprivate var _data: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage? = nil
@@ -244,7 +244,7 @@ struct Cosmos_Tx_Signing_V1beta1_SignatureDescriptor {
 fileprivate let _protobuf_package = "cosmos.tx.signing.v1beta1"
 
 extension Cosmos_Tx_Signing_V1beta1_SignMode: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SIGN_MODE_UNSPECIFIED"),
     1: .same(proto: "SIGN_MODE_DIRECT"),
     2: .same(proto: "SIGN_MODE_TEXTUAL"),
@@ -253,12 +253,12 @@ extension Cosmos_Tx_Signing_V1beta1_SignMode: SwiftProtobuf._ProtoNameProviding 
 }
 
 extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptors: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SignatureDescriptors"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SignatureDescriptors"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "signatures"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -270,14 +270,14 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptors: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.signatures.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.signatures, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptors, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptors) -> Bool {
+  public static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptors, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptors) -> Bool {
     if lhs.signatures != rhs.signatures {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -285,14 +285,14 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptors: SwiftProtobuf.Message,
 }
 
 extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SignatureDescriptor"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SignatureDescriptor"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "public_key"),
     2: .same(proto: "data"),
     3: .same(proto: "sequence"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -306,7 +306,7 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._publicKey {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -319,7 +319,7 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor) -> Bool {
+  public static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor) -> Bool {
     if lhs._publicKey != rhs._publicKey {return false}
     if lhs._data != rhs._data {return false}
     if lhs.sequence != rhs.sequence {return false}
@@ -329,13 +329,13 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor: SwiftProtobuf.Message, 
 }
 
 extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.protoMessageName + ".Data"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.protoMessageName + ".Data"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "single"),
     2: .same(proto: "multi"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -364,7 +364,7 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every case branch when no optimizations are
     // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -382,7 +382,7 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage: SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage) -> Bool {
+  public static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage) -> Bool {
     if lhs.sum != rhs.sum {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -390,13 +390,13 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage: SwiftProtob
 }
 
 extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.protoMessageName + ".Single"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.protoMessageName + ".Single"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "mode"),
     2: .same(proto: "signature"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -409,7 +409,7 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single: Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.mode != .unspecified {
       try visitor.visitSingularEnumField(value: self.mode, fieldNumber: 1)
     }
@@ -419,7 +419,7 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single: Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single) -> Bool {
+  public static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single) -> Bool {
     if lhs.mode != rhs.mode {return false}
     if lhs.signature != rhs.signature {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -428,13 +428,13 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Single: Swif
 }
 
 extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.protoMessageName + ".Multi"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.protoMessageName + ".Multi"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "bitarray"),
     2: .same(proto: "signatures"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -447,7 +447,7 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi: Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._bitarray {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -457,7 +457,7 @@ extension Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi: Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi) -> Bool {
+  public static func ==(lhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi, rhs: Cosmos_Tx_Signing_V1beta1_SignatureDescriptor.DataMessage.Multi) -> Bool {
     if lhs._bitarray != rhs._bitarray {return false}
     if lhs.signatures != rhs.signatures {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

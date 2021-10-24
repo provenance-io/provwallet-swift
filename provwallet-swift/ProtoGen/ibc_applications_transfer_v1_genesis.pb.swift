@@ -21,27 +21,27 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// GenesisState defines the ibc-transfer genesis state
-struct Ibc_Applications_Transfer_V1_GenesisState {
+public struct Ibc_Applications_Transfer_V1_GenesisState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var portID: String = String()
+  public var portID: String = String()
 
-  var denomTraces: [Ibc_Applications_Transfer_V1_DenomTrace] = []
+  public var denomTraces: [Ibc_Applications_Transfer_V1_DenomTrace] = []
 
-  var params: Ibc_Applications_Transfer_V1_Params {
+  public var params: Ibc_Applications_Transfer_V1_Params {
     get {return _params ?? Ibc_Applications_Transfer_V1_Params()}
     set {_params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  var hasParams: Bool {return self._params != nil}
+  public var hasParams: Bool {return self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {self._params = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _params: Ibc_Applications_Transfer_V1_Params? = nil
 }
@@ -51,14 +51,14 @@ struct Ibc_Applications_Transfer_V1_GenesisState {
 fileprivate let _protobuf_package = "ibc.applications.transfer.v1"
 
 extension Ibc_Applications_Transfer_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GenesisState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GenesisState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "port_id"),
     2: .standard(proto: "denom_traces"),
     3: .same(proto: "params"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -72,7 +72,7 @@ extension Ibc_Applications_Transfer_V1_GenesisState: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.portID.isEmpty {
       try visitor.visitSingularStringField(value: self.portID, fieldNumber: 1)
     }
@@ -85,7 +85,7 @@ extension Ibc_Applications_Transfer_V1_GenesisState: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Applications_Transfer_V1_GenesisState, rhs: Ibc_Applications_Transfer_V1_GenesisState) -> Bool {
+  public static func ==(lhs: Ibc_Applications_Transfer_V1_GenesisState, rhs: Ibc_Applications_Transfer_V1_GenesisState) -> Bool {
     if lhs.portID != rhs.portID {return false}
     if lhs.denomTraces != rhs.denomTraces {return false}
     if lhs._params != rhs._params {return false}

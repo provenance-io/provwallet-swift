@@ -21,245 +21,245 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// QueryProposalRequest is the request type for the Query/Proposal RPC method.
-struct Cosmos_Gov_V1beta1_QueryProposalRequest {
+public struct Cosmos_Gov_V1beta1_QueryProposalRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// proposal_id defines the unique id of the proposal.
-  var proposalID: UInt64 = 0
+  public var proposalID: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryProposalResponse is the response type for the Query/Proposal RPC method.
-struct Cosmos_Gov_V1beta1_QueryProposalResponse {
+public struct Cosmos_Gov_V1beta1_QueryProposalResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var proposal: Cosmos_Gov_V1beta1_Proposal {
+  public var proposal: Cosmos_Gov_V1beta1_Proposal {
     get {return _proposal ?? Cosmos_Gov_V1beta1_Proposal()}
     set {_proposal = newValue}
   }
   /// Returns true if `proposal` has been explicitly set.
-  var hasProposal: Bool {return self._proposal != nil}
+  public var hasProposal: Bool {return self._proposal != nil}
   /// Clears the value of `proposal`. Subsequent reads from it will return its default value.
-  mutating func clearProposal() {self._proposal = nil}
+  public mutating func clearProposal() {self._proposal = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _proposal: Cosmos_Gov_V1beta1_Proposal? = nil
 }
 
 /// QueryProposalsRequest is the request type for the Query/Proposals RPC method.
-struct Cosmos_Gov_V1beta1_QueryProposalsRequest {
+public struct Cosmos_Gov_V1beta1_QueryProposalsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// proposal_status defines the status of the proposals.
-  var proposalStatus: Cosmos_Gov_V1beta1_ProposalStatus = .unspecified
+  public var proposalStatus: Cosmos_Gov_V1beta1_ProposalStatus = .unspecified
 
   /// voter defines the voter address for the proposals.
-  var voter: String = String()
+  public var voter: String = String()
 
   /// depositor defines the deposit addresses from the proposals.
-  var depositor: String = String()
+  public var depositor: String = String()
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryProposalsResponse is the response type for the Query/Proposals RPC
 /// method.
-struct Cosmos_Gov_V1beta1_QueryProposalsResponse {
+public struct Cosmos_Gov_V1beta1_QueryProposalsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var proposals: [Cosmos_Gov_V1beta1_Proposal] = []
+  public var proposals: [Cosmos_Gov_V1beta1_Proposal] = []
 
   /// pagination defines the pagination in the response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// QueryVoteRequest is the request type for the Query/Vote RPC method.
-struct Cosmos_Gov_V1beta1_QueryVoteRequest {
+public struct Cosmos_Gov_V1beta1_QueryVoteRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// proposal_id defines the unique id of the proposal.
-  var proposalID: UInt64 = 0
+  public var proposalID: UInt64 = 0
 
   /// voter defines the oter address for the proposals.
-  var voter: String = String()
+  public var voter: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryVoteResponse is the response type for the Query/Vote RPC method.
-struct Cosmos_Gov_V1beta1_QueryVoteResponse {
+public struct Cosmos_Gov_V1beta1_QueryVoteResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// vote defined the queried vote.
-  var vote: Cosmos_Gov_V1beta1_Vote {
+  public var vote: Cosmos_Gov_V1beta1_Vote {
     get {return _vote ?? Cosmos_Gov_V1beta1_Vote()}
     set {_vote = newValue}
   }
   /// Returns true if `vote` has been explicitly set.
-  var hasVote: Bool {return self._vote != nil}
+  public var hasVote: Bool {return self._vote != nil}
   /// Clears the value of `vote`. Subsequent reads from it will return its default value.
-  mutating func clearVote() {self._vote = nil}
+  public mutating func clearVote() {self._vote = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _vote: Cosmos_Gov_V1beta1_Vote? = nil
 }
 
 /// QueryVotesRequest is the request type for the Query/Votes RPC method.
-struct Cosmos_Gov_V1beta1_QueryVotesRequest {
+public struct Cosmos_Gov_V1beta1_QueryVotesRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// proposal_id defines the unique id of the proposal.
-  var proposalID: UInt64 = 0
+  public var proposalID: UInt64 = 0
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryVotesResponse is the response type for the Query/Votes RPC method.
-struct Cosmos_Gov_V1beta1_QueryVotesResponse {
+public struct Cosmos_Gov_V1beta1_QueryVotesResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// votes defined the queried votes.
-  var votes: [Cosmos_Gov_V1beta1_Vote] = []
+  public var votes: [Cosmos_Gov_V1beta1_Vote] = []
 
   /// pagination defines the pagination in the response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// QueryParamsRequest is the request type for the Query/Params RPC method.
-struct Cosmos_Gov_V1beta1_QueryParamsRequest {
+public struct Cosmos_Gov_V1beta1_QueryParamsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// params_type defines which parameters to query for, can be one of "voting",
   /// "tallying" or "deposit".
-  var paramsType: String = String()
+  public var paramsType: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryParamsResponse is the response type for the Query/Params RPC method.
-struct Cosmos_Gov_V1beta1_QueryParamsResponse {
+public struct Cosmos_Gov_V1beta1_QueryParamsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// voting_params defines the parameters related to voting.
-  var votingParams: Cosmos_Gov_V1beta1_VotingParams {
+  public var votingParams: Cosmos_Gov_V1beta1_VotingParams {
     get {return _votingParams ?? Cosmos_Gov_V1beta1_VotingParams()}
     set {_votingParams = newValue}
   }
   /// Returns true if `votingParams` has been explicitly set.
-  var hasVotingParams: Bool {return self._votingParams != nil}
+  public var hasVotingParams: Bool {return self._votingParams != nil}
   /// Clears the value of `votingParams`. Subsequent reads from it will return its default value.
-  mutating func clearVotingParams() {self._votingParams = nil}
+  public mutating func clearVotingParams() {self._votingParams = nil}
 
   /// deposit_params defines the parameters related to deposit.
-  var depositParams: Cosmos_Gov_V1beta1_DepositParams {
+  public var depositParams: Cosmos_Gov_V1beta1_DepositParams {
     get {return _depositParams ?? Cosmos_Gov_V1beta1_DepositParams()}
     set {_depositParams = newValue}
   }
   /// Returns true if `depositParams` has been explicitly set.
-  var hasDepositParams: Bool {return self._depositParams != nil}
+  public var hasDepositParams: Bool {return self._depositParams != nil}
   /// Clears the value of `depositParams`. Subsequent reads from it will return its default value.
-  mutating func clearDepositParams() {self._depositParams = nil}
+  public mutating func clearDepositParams() {self._depositParams = nil}
 
   /// tally_params defines the parameters related to tally.
-  var tallyParams: Cosmos_Gov_V1beta1_TallyParams {
+  public var tallyParams: Cosmos_Gov_V1beta1_TallyParams {
     get {return _tallyParams ?? Cosmos_Gov_V1beta1_TallyParams()}
     set {_tallyParams = newValue}
   }
   /// Returns true if `tallyParams` has been explicitly set.
-  var hasTallyParams: Bool {return self._tallyParams != nil}
+  public var hasTallyParams: Bool {return self._tallyParams != nil}
   /// Clears the value of `tallyParams`. Subsequent reads from it will return its default value.
-  mutating func clearTallyParams() {self._tallyParams = nil}
+  public mutating func clearTallyParams() {self._tallyParams = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _votingParams: Cosmos_Gov_V1beta1_VotingParams? = nil
   fileprivate var _depositParams: Cosmos_Gov_V1beta1_DepositParams? = nil
@@ -267,129 +267,129 @@ struct Cosmos_Gov_V1beta1_QueryParamsResponse {
 }
 
 /// QueryDepositRequest is the request type for the Query/Deposit RPC method.
-struct Cosmos_Gov_V1beta1_QueryDepositRequest {
+public struct Cosmos_Gov_V1beta1_QueryDepositRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// proposal_id defines the unique id of the proposal.
-  var proposalID: UInt64 = 0
+  public var proposalID: UInt64 = 0
 
   /// depositor defines the deposit addresses from the proposals.
-  var depositor: String = String()
+  public var depositor: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryDepositResponse is the response type for the Query/Deposit RPC method.
-struct Cosmos_Gov_V1beta1_QueryDepositResponse {
+public struct Cosmos_Gov_V1beta1_QueryDepositResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// deposit defines the requested deposit.
-  var deposit: Cosmos_Gov_V1beta1_Deposit {
+  public var deposit: Cosmos_Gov_V1beta1_Deposit {
     get {return _deposit ?? Cosmos_Gov_V1beta1_Deposit()}
     set {_deposit = newValue}
   }
   /// Returns true if `deposit` has been explicitly set.
-  var hasDeposit: Bool {return self._deposit != nil}
+  public var hasDeposit: Bool {return self._deposit != nil}
   /// Clears the value of `deposit`. Subsequent reads from it will return its default value.
-  mutating func clearDeposit() {self._deposit = nil}
+  public mutating func clearDeposit() {self._deposit = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _deposit: Cosmos_Gov_V1beta1_Deposit? = nil
 }
 
 /// QueryDepositsRequest is the request type for the Query/Deposits RPC method.
-struct Cosmos_Gov_V1beta1_QueryDepositsRequest {
+public struct Cosmos_Gov_V1beta1_QueryDepositsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// proposal_id defines the unique id of the proposal.
-  var proposalID: UInt64 = 0
+  public var proposalID: UInt64 = 0
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryDepositsResponse is the response type for the Query/Deposits RPC method.
-struct Cosmos_Gov_V1beta1_QueryDepositsResponse {
+public struct Cosmos_Gov_V1beta1_QueryDepositsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var deposits: [Cosmos_Gov_V1beta1_Deposit] = []
+  public var deposits: [Cosmos_Gov_V1beta1_Deposit] = []
 
   /// pagination defines the pagination in the response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// QueryTallyResultRequest is the request type for the Query/Tally RPC method.
-struct Cosmos_Gov_V1beta1_QueryTallyResultRequest {
+public struct Cosmos_Gov_V1beta1_QueryTallyResultRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// proposal_id defines the unique id of the proposal.
-  var proposalID: UInt64 = 0
+  public var proposalID: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryTallyResultResponse is the response type for the Query/Tally RPC method.
-struct Cosmos_Gov_V1beta1_QueryTallyResultResponse {
+public struct Cosmos_Gov_V1beta1_QueryTallyResultResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// tally defines the requested tally.
-  var tally: Cosmos_Gov_V1beta1_TallyResult {
+  public var tally: Cosmos_Gov_V1beta1_TallyResult {
     get {return _tally ?? Cosmos_Gov_V1beta1_TallyResult()}
     set {_tally = newValue}
   }
   /// Returns true if `tally` has been explicitly set.
-  var hasTally: Bool {return self._tally != nil}
+  public var hasTally: Bool {return self._tally != nil}
   /// Clears the value of `tally`. Subsequent reads from it will return its default value.
-  mutating func clearTally() {self._tally = nil}
+  public mutating func clearTally() {self._tally = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _tally: Cosmos_Gov_V1beta1_TallyResult? = nil
 }
@@ -399,12 +399,12 @@ struct Cosmos_Gov_V1beta1_QueryTallyResultResponse {
 fileprivate let _protobuf_package = "cosmos.gov.v1beta1"
 
 extension Cosmos_Gov_V1beta1_QueryProposalRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryProposalRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryProposalRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "proposal_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -416,14 +416,14 @@ extension Cosmos_Gov_V1beta1_QueryProposalRequest: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.proposalID != 0 {
       try visitor.visitSingularUInt64Field(value: self.proposalID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryProposalRequest, rhs: Cosmos_Gov_V1beta1_QueryProposalRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryProposalRequest, rhs: Cosmos_Gov_V1beta1_QueryProposalRequest) -> Bool {
     if lhs.proposalID != rhs.proposalID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -431,12 +431,12 @@ extension Cosmos_Gov_V1beta1_QueryProposalRequest: SwiftProtobuf.Message, SwiftP
 }
 
 extension Cosmos_Gov_V1beta1_QueryProposalResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryProposalResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryProposalResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "proposal"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -448,14 +448,14 @@ extension Cosmos_Gov_V1beta1_QueryProposalResponse: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._proposal {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryProposalResponse, rhs: Cosmos_Gov_V1beta1_QueryProposalResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryProposalResponse, rhs: Cosmos_Gov_V1beta1_QueryProposalResponse) -> Bool {
     if lhs._proposal != rhs._proposal {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -463,15 +463,15 @@ extension Cosmos_Gov_V1beta1_QueryProposalResponse: SwiftProtobuf.Message, Swift
 }
 
 extension Cosmos_Gov_V1beta1_QueryProposalsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryProposalsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryProposalsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "proposal_status"),
     2: .same(proto: "voter"),
     3: .same(proto: "depositor"),
     4: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -486,7 +486,7 @@ extension Cosmos_Gov_V1beta1_QueryProposalsRequest: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.proposalStatus != .unspecified {
       try visitor.visitSingularEnumField(value: self.proposalStatus, fieldNumber: 1)
     }
@@ -502,7 +502,7 @@ extension Cosmos_Gov_V1beta1_QueryProposalsRequest: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryProposalsRequest, rhs: Cosmos_Gov_V1beta1_QueryProposalsRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryProposalsRequest, rhs: Cosmos_Gov_V1beta1_QueryProposalsRequest) -> Bool {
     if lhs.proposalStatus != rhs.proposalStatus {return false}
     if lhs.voter != rhs.voter {return false}
     if lhs.depositor != rhs.depositor {return false}
@@ -513,13 +513,13 @@ extension Cosmos_Gov_V1beta1_QueryProposalsRequest: SwiftProtobuf.Message, Swift
 }
 
 extension Cosmos_Gov_V1beta1_QueryProposalsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryProposalsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryProposalsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "proposals"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -532,7 +532,7 @@ extension Cosmos_Gov_V1beta1_QueryProposalsResponse: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.proposals.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.proposals, fieldNumber: 1)
     }
@@ -542,7 +542,7 @@ extension Cosmos_Gov_V1beta1_QueryProposalsResponse: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryProposalsResponse, rhs: Cosmos_Gov_V1beta1_QueryProposalsResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryProposalsResponse, rhs: Cosmos_Gov_V1beta1_QueryProposalsResponse) -> Bool {
     if lhs.proposals != rhs.proposals {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -551,13 +551,13 @@ extension Cosmos_Gov_V1beta1_QueryProposalsResponse: SwiftProtobuf.Message, Swif
 }
 
 extension Cosmos_Gov_V1beta1_QueryVoteRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryVoteRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryVoteRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "proposal_id"),
     2: .same(proto: "voter"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -570,7 +570,7 @@ extension Cosmos_Gov_V1beta1_QueryVoteRequest: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.proposalID != 0 {
       try visitor.visitSingularUInt64Field(value: self.proposalID, fieldNumber: 1)
     }
@@ -580,7 +580,7 @@ extension Cosmos_Gov_V1beta1_QueryVoteRequest: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryVoteRequest, rhs: Cosmos_Gov_V1beta1_QueryVoteRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryVoteRequest, rhs: Cosmos_Gov_V1beta1_QueryVoteRequest) -> Bool {
     if lhs.proposalID != rhs.proposalID {return false}
     if lhs.voter != rhs.voter {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -589,12 +589,12 @@ extension Cosmos_Gov_V1beta1_QueryVoteRequest: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Cosmos_Gov_V1beta1_QueryVoteResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryVoteResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryVoteResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "vote"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -606,14 +606,14 @@ extension Cosmos_Gov_V1beta1_QueryVoteResponse: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._vote {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryVoteResponse, rhs: Cosmos_Gov_V1beta1_QueryVoteResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryVoteResponse, rhs: Cosmos_Gov_V1beta1_QueryVoteResponse) -> Bool {
     if lhs._vote != rhs._vote {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -621,13 +621,13 @@ extension Cosmos_Gov_V1beta1_QueryVoteResponse: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Cosmos_Gov_V1beta1_QueryVotesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryVotesRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryVotesRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "proposal_id"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -640,7 +640,7 @@ extension Cosmos_Gov_V1beta1_QueryVotesRequest: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.proposalID != 0 {
       try visitor.visitSingularUInt64Field(value: self.proposalID, fieldNumber: 1)
     }
@@ -650,7 +650,7 @@ extension Cosmos_Gov_V1beta1_QueryVotesRequest: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryVotesRequest, rhs: Cosmos_Gov_V1beta1_QueryVotesRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryVotesRequest, rhs: Cosmos_Gov_V1beta1_QueryVotesRequest) -> Bool {
     if lhs.proposalID != rhs.proposalID {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -659,13 +659,13 @@ extension Cosmos_Gov_V1beta1_QueryVotesRequest: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Cosmos_Gov_V1beta1_QueryVotesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryVotesResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryVotesResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "votes"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -678,7 +678,7 @@ extension Cosmos_Gov_V1beta1_QueryVotesResponse: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.votes.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.votes, fieldNumber: 1)
     }
@@ -688,7 +688,7 @@ extension Cosmos_Gov_V1beta1_QueryVotesResponse: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryVotesResponse, rhs: Cosmos_Gov_V1beta1_QueryVotesResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryVotesResponse, rhs: Cosmos_Gov_V1beta1_QueryVotesResponse) -> Bool {
     if lhs.votes != rhs.votes {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -697,12 +697,12 @@ extension Cosmos_Gov_V1beta1_QueryVotesResponse: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Cosmos_Gov_V1beta1_QueryParamsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "params_type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -714,14 +714,14 @@ extension Cosmos_Gov_V1beta1_QueryParamsRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.paramsType.isEmpty {
       try visitor.visitSingularStringField(value: self.paramsType, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryParamsRequest, rhs: Cosmos_Gov_V1beta1_QueryParamsRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryParamsRequest, rhs: Cosmos_Gov_V1beta1_QueryParamsRequest) -> Bool {
     if lhs.paramsType != rhs.paramsType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -729,14 +729,14 @@ extension Cosmos_Gov_V1beta1_QueryParamsRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Cosmos_Gov_V1beta1_QueryParamsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "voting_params"),
     2: .standard(proto: "deposit_params"),
     3: .standard(proto: "tally_params"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -750,7 +750,7 @@ extension Cosmos_Gov_V1beta1_QueryParamsResponse: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._votingParams {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -763,7 +763,7 @@ extension Cosmos_Gov_V1beta1_QueryParamsResponse: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryParamsResponse, rhs: Cosmos_Gov_V1beta1_QueryParamsResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryParamsResponse, rhs: Cosmos_Gov_V1beta1_QueryParamsResponse) -> Bool {
     if lhs._votingParams != rhs._votingParams {return false}
     if lhs._depositParams != rhs._depositParams {return false}
     if lhs._tallyParams != rhs._tallyParams {return false}
@@ -773,13 +773,13 @@ extension Cosmos_Gov_V1beta1_QueryParamsResponse: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Cosmos_Gov_V1beta1_QueryDepositRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDepositRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDepositRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "proposal_id"),
     2: .same(proto: "depositor"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -792,7 +792,7 @@ extension Cosmos_Gov_V1beta1_QueryDepositRequest: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.proposalID != 0 {
       try visitor.visitSingularUInt64Field(value: self.proposalID, fieldNumber: 1)
     }
@@ -802,7 +802,7 @@ extension Cosmos_Gov_V1beta1_QueryDepositRequest: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryDepositRequest, rhs: Cosmos_Gov_V1beta1_QueryDepositRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryDepositRequest, rhs: Cosmos_Gov_V1beta1_QueryDepositRequest) -> Bool {
     if lhs.proposalID != rhs.proposalID {return false}
     if lhs.depositor != rhs.depositor {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -811,12 +811,12 @@ extension Cosmos_Gov_V1beta1_QueryDepositRequest: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Cosmos_Gov_V1beta1_QueryDepositResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDepositResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDepositResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "deposit"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -828,14 +828,14 @@ extension Cosmos_Gov_V1beta1_QueryDepositResponse: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._deposit {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryDepositResponse, rhs: Cosmos_Gov_V1beta1_QueryDepositResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryDepositResponse, rhs: Cosmos_Gov_V1beta1_QueryDepositResponse) -> Bool {
     if lhs._deposit != rhs._deposit {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -843,13 +843,13 @@ extension Cosmos_Gov_V1beta1_QueryDepositResponse: SwiftProtobuf.Message, SwiftP
 }
 
 extension Cosmos_Gov_V1beta1_QueryDepositsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDepositsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDepositsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "proposal_id"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -862,7 +862,7 @@ extension Cosmos_Gov_V1beta1_QueryDepositsRequest: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.proposalID != 0 {
       try visitor.visitSingularUInt64Field(value: self.proposalID, fieldNumber: 1)
     }
@@ -872,7 +872,7 @@ extension Cosmos_Gov_V1beta1_QueryDepositsRequest: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryDepositsRequest, rhs: Cosmos_Gov_V1beta1_QueryDepositsRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryDepositsRequest, rhs: Cosmos_Gov_V1beta1_QueryDepositsRequest) -> Bool {
     if lhs.proposalID != rhs.proposalID {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -881,13 +881,13 @@ extension Cosmos_Gov_V1beta1_QueryDepositsRequest: SwiftProtobuf.Message, SwiftP
 }
 
 extension Cosmos_Gov_V1beta1_QueryDepositsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDepositsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDepositsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "deposits"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -900,7 +900,7 @@ extension Cosmos_Gov_V1beta1_QueryDepositsResponse: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.deposits.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.deposits, fieldNumber: 1)
     }
@@ -910,7 +910,7 @@ extension Cosmos_Gov_V1beta1_QueryDepositsResponse: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryDepositsResponse, rhs: Cosmos_Gov_V1beta1_QueryDepositsResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryDepositsResponse, rhs: Cosmos_Gov_V1beta1_QueryDepositsResponse) -> Bool {
     if lhs.deposits != rhs.deposits {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -919,12 +919,12 @@ extension Cosmos_Gov_V1beta1_QueryDepositsResponse: SwiftProtobuf.Message, Swift
 }
 
 extension Cosmos_Gov_V1beta1_QueryTallyResultRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryTallyResultRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryTallyResultRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "proposal_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -936,14 +936,14 @@ extension Cosmos_Gov_V1beta1_QueryTallyResultRequest: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.proposalID != 0 {
       try visitor.visitSingularUInt64Field(value: self.proposalID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryTallyResultRequest, rhs: Cosmos_Gov_V1beta1_QueryTallyResultRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryTallyResultRequest, rhs: Cosmos_Gov_V1beta1_QueryTallyResultRequest) -> Bool {
     if lhs.proposalID != rhs.proposalID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -951,12 +951,12 @@ extension Cosmos_Gov_V1beta1_QueryTallyResultRequest: SwiftProtobuf.Message, Swi
 }
 
 extension Cosmos_Gov_V1beta1_QueryTallyResultResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryTallyResultResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryTallyResultResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "tally"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -968,14 +968,14 @@ extension Cosmos_Gov_V1beta1_QueryTallyResultResponse: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._tally {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Gov_V1beta1_QueryTallyResultResponse, rhs: Cosmos_Gov_V1beta1_QueryTallyResultResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Gov_V1beta1_QueryTallyResultResponse, rhs: Cosmos_Gov_V1beta1_QueryTallyResultResponse) -> Bool {
     if lhs._tally != rhs._tally {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

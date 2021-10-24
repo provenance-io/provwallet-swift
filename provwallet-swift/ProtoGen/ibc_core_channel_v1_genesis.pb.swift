@@ -21,49 +21,49 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// GenesisState defines the ibc channel submodule's genesis state.
-struct Ibc_Core_Channel_V1_GenesisState {
+public struct Ibc_Core_Channel_V1_GenesisState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var channels: [Ibc_Core_Channel_V1_IdentifiedChannel] = []
+  public var channels: [Ibc_Core_Channel_V1_IdentifiedChannel] = []
 
-  var acknowledgements: [Ibc_Core_Channel_V1_PacketState] = []
+  public var acknowledgements: [Ibc_Core_Channel_V1_PacketState] = []
 
-  var commitments: [Ibc_Core_Channel_V1_PacketState] = []
+  public var commitments: [Ibc_Core_Channel_V1_PacketState] = []
 
-  var receipts: [Ibc_Core_Channel_V1_PacketState] = []
+  public var receipts: [Ibc_Core_Channel_V1_PacketState] = []
 
-  var sendSequences: [Ibc_Core_Channel_V1_PacketSequence] = []
+  public var sendSequences: [Ibc_Core_Channel_V1_PacketSequence] = []
 
-  var recvSequences: [Ibc_Core_Channel_V1_PacketSequence] = []
+  public var recvSequences: [Ibc_Core_Channel_V1_PacketSequence] = []
 
-  var ackSequences: [Ibc_Core_Channel_V1_PacketSequence] = []
+  public var ackSequences: [Ibc_Core_Channel_V1_PacketSequence] = []
 
   /// the sequence for the next generated channel identifier
-  var nextChannelSequence: UInt64 = 0
+  public var nextChannelSequence: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// PacketSequence defines the genesis type necessary to retrieve and store
 /// next send and receive sequences.
-struct Ibc_Core_Channel_V1_PacketSequence {
+public struct Ibc_Core_Channel_V1_PacketSequence {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var portID: String = String()
+  public var portID: String = String()
 
-  var channelID: String = String()
+  public var channelID: String = String()
 
-  var sequence: UInt64 = 0
+  public var sequence: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -71,8 +71,8 @@ struct Ibc_Core_Channel_V1_PacketSequence {
 fileprivate let _protobuf_package = "ibc.core.channel.v1"
 
 extension Ibc_Core_Channel_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GenesisState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GenesisState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "channels"),
     2: .same(proto: "acknowledgements"),
     3: .same(proto: "commitments"),
@@ -83,7 +83,7 @@ extension Ibc_Core_Channel_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf
     8: .standard(proto: "next_channel_sequence"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -102,7 +102,7 @@ extension Ibc_Core_Channel_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.channels.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.channels, fieldNumber: 1)
     }
@@ -130,7 +130,7 @@ extension Ibc_Core_Channel_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_GenesisState, rhs: Ibc_Core_Channel_V1_GenesisState) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_GenesisState, rhs: Ibc_Core_Channel_V1_GenesisState) -> Bool {
     if lhs.channels != rhs.channels {return false}
     if lhs.acknowledgements != rhs.acknowledgements {return false}
     if lhs.commitments != rhs.commitments {return false}
@@ -145,14 +145,14 @@ extension Ibc_Core_Channel_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Ibc_Core_Channel_V1_PacketSequence: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PacketSequence"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PacketSequence"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "port_id"),
     2: .standard(proto: "channel_id"),
     3: .same(proto: "sequence"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -166,7 +166,7 @@ extension Ibc_Core_Channel_V1_PacketSequence: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.portID.isEmpty {
       try visitor.visitSingularStringField(value: self.portID, fieldNumber: 1)
     }
@@ -179,7 +179,7 @@ extension Ibc_Core_Channel_V1_PacketSequence: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_PacketSequence, rhs: Ibc_Core_Channel_V1_PacketSequence) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_PacketSequence, rhs: Ibc_Core_Channel_V1_PacketSequence) -> Bool {
     if lhs.portID != rhs.portID {return false}
     if lhs.channelID != rhs.channelID {return false}
     if lhs.sequence != rhs.sequence {return false}

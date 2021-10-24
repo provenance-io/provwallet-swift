@@ -22,36 +22,36 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// Defines an Locator object stored on chain, which represents a owner( blockchain address) associated with a endpoint
 /// uri for it's associated object store.
-struct Provenance_Metadata_V1_ObjectStoreLocator {
+public struct Provenance_Metadata_V1_ObjectStoreLocator {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// account address the endpoint is owned by
-  var owner: String = String()
+  public var owner: String = String()
 
   /// locator endpoint uri
-  var locatorUri: String = String()
+  public var locatorUri: String = String()
 
   /// owners encryption key address
-  var encryptionKey: String = String()
+  public var encryptionKey: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Params defines the parameters for the metadata-locator module methods.
-struct Provenance_Metadata_V1_OSLocatorParams {
+public struct Provenance_Metadata_V1_OSLocatorParams {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var maxUriLength: UInt32 = 0
+  public var maxUriLength: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -59,14 +59,14 @@ struct Provenance_Metadata_V1_OSLocatorParams {
 fileprivate let _protobuf_package = "provenance.metadata.v1"
 
 extension Provenance_Metadata_V1_ObjectStoreLocator: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ObjectStoreLocator"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ObjectStoreLocator"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "owner"),
     2: .standard(proto: "locator_uri"),
     3: .standard(proto: "encryption_key"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -80,7 +80,7 @@ extension Provenance_Metadata_V1_ObjectStoreLocator: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.owner.isEmpty {
       try visitor.visitSingularStringField(value: self.owner, fieldNumber: 1)
     }
@@ -93,7 +93,7 @@ extension Provenance_Metadata_V1_ObjectStoreLocator: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ObjectStoreLocator, rhs: Provenance_Metadata_V1_ObjectStoreLocator) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ObjectStoreLocator, rhs: Provenance_Metadata_V1_ObjectStoreLocator) -> Bool {
     if lhs.owner != rhs.owner {return false}
     if lhs.locatorUri != rhs.locatorUri {return false}
     if lhs.encryptionKey != rhs.encryptionKey {return false}
@@ -103,12 +103,12 @@ extension Provenance_Metadata_V1_ObjectStoreLocator: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Metadata_V1_OSLocatorParams: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OSLocatorParams"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OSLocatorParams"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "max_uri_length"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -120,14 +120,14 @@ extension Provenance_Metadata_V1_OSLocatorParams: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.maxUriLength != 0 {
       try visitor.visitSingularUInt32Field(value: self.maxUriLength, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_OSLocatorParams, rhs: Provenance_Metadata_V1_OSLocatorParams) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_OSLocatorParams, rhs: Provenance_Metadata_V1_OSLocatorParams) -> Bool {
     if lhs.maxUriLength != rhs.maxUriLength {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

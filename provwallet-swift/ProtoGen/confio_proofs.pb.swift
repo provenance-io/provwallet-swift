@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Ics23_HashOp: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Ics23_HashOp: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// NO_HASH is the default if no data passed. Note this is an illegal argument some places.
   case noHash // = 0
@@ -34,11 +34,11 @@ enum Ics23_HashOp: SwiftProtobuf.Enum {
   case bitcoin // = 5
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .noHash
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .noHash
     case 1: self = .sha256
@@ -50,7 +50,7 @@ enum Ics23_HashOp: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .noHash: return 0
     case .sha256: return 1
@@ -68,7 +68,7 @@ enum Ics23_HashOp: SwiftProtobuf.Enum {
 
 extension Ics23_HashOp: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Ics23_HashOp] = [
+  public static var allCases: [Ics23_HashOp] = [
     .noHash,
     .sha256,
     .sha512,
@@ -85,8 +85,8 @@ extension Ics23_HashOp: CaseIterable {
 ///to include length information. After encoding the length with the given
 ///algorithm, the length will be prepended to the key and value bytes.
 ///(Each one with it's own encoded length)
-enum Ics23_LengthOp: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Ics23_LengthOp: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// NO_PREFIX don't include any length info
   case noPrefix // = 0
@@ -116,11 +116,11 @@ enum Ics23_LengthOp: SwiftProtobuf.Enum {
   case require64Bytes // = 8
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .noPrefix
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .noPrefix
     case 1: self = .varProto
@@ -135,7 +135,7 @@ enum Ics23_LengthOp: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .noPrefix: return 0
     case .varProto: return 1
@@ -156,7 +156,7 @@ enum Ics23_LengthOp: SwiftProtobuf.Enum {
 
 extension Ics23_LengthOp: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Ics23_LengthOp] = [
+  public static var allCases: [Ics23_LengthOp] = [
     .noPrefix,
     .varProto,
     .varRlp,
@@ -191,29 +191,29 @@ extension Ics23_LengthOp: CaseIterable {
 ///With LengthOp this is tricker but not impossible. Which is why the "leafPrefixEqual" field
 ///in the ProofSpec is valuable to prevent this mutability. And why all trees should
 ///length-prefix the data before hashing it.
-struct Ics23_ExistenceProof {
+public struct Ics23_ExistenceProof {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var key: Data = Data()
+  public var key: Data = Data()
 
-  var value: Data = Data()
+  public var value: Data = Data()
 
-  var leaf: Ics23_LeafOp {
+  public var leaf: Ics23_LeafOp {
     get {return _leaf ?? Ics23_LeafOp()}
     set {_leaf = newValue}
   }
   /// Returns true if `leaf` has been explicitly set.
-  var hasLeaf: Bool {return self._leaf != nil}
+  public var hasLeaf: Bool {return self._leaf != nil}
   /// Clears the value of `leaf`. Subsequent reads from it will return its default value.
-  mutating func clearLeaf() {self._leaf = nil}
+  public mutating func clearLeaf() {self._leaf = nil}
 
-  var path: [Ics23_InnerOp] = []
+  public var path: [Ics23_InnerOp] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _leaf: Ics23_LeafOp? = nil
 }
@@ -222,52 +222,52 @@ struct Ics23_ExistenceProof {
 ///NonExistenceProof takes a proof of two neighbors, one left of the desired key,
 ///one right of the desired key. If both proofs are valid AND they are neighbors,
 ///then there is no valid proof for the given key.
-struct Ics23_NonExistenceProof {
+public struct Ics23_NonExistenceProof {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// TODO: remove this as unnecessary??? we prove a range
-  var key: Data {
+  public var key: Data {
     get {return _storage._key}
     set {_uniqueStorage()._key = newValue}
   }
 
-  var left: Ics23_ExistenceProof {
+  public var left: Ics23_ExistenceProof {
     get {return _storage._left ?? Ics23_ExistenceProof()}
     set {_uniqueStorage()._left = newValue}
   }
   /// Returns true if `left` has been explicitly set.
-  var hasLeft: Bool {return _storage._left != nil}
+  public var hasLeft: Bool {return _storage._left != nil}
   /// Clears the value of `left`. Subsequent reads from it will return its default value.
-  mutating func clearLeft() {_uniqueStorage()._left = nil}
+  public mutating func clearLeft() {_uniqueStorage()._left = nil}
 
-  var right: Ics23_ExistenceProof {
+  public var right: Ics23_ExistenceProof {
     get {return _storage._right ?? Ics23_ExistenceProof()}
     set {_uniqueStorage()._right = newValue}
   }
   /// Returns true if `right` has been explicitly set.
-  var hasRight: Bool {return _storage._right != nil}
+  public var hasRight: Bool {return _storage._right != nil}
   /// Clears the value of `right`. Subsequent reads from it will return its default value.
-  mutating func clearRight() {_uniqueStorage()._right = nil}
+  public mutating func clearRight() {_uniqueStorage()._right = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 ///
 ///CommitmentProof is either an ExistenceProof or a NonExistenceProof, or a Batch of such messages
-struct Ics23_CommitmentProof {
+public struct Ics23_CommitmentProof {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var proof: Ics23_CommitmentProof.OneOf_Proof? = nil
+  public var proof: Ics23_CommitmentProof.OneOf_Proof? = nil
 
-  var exist: Ics23_ExistenceProof {
+  public var exist: Ics23_ExistenceProof {
     get {
       if case .exist(let v)? = proof {return v}
       return Ics23_ExistenceProof()
@@ -275,7 +275,7 @@ struct Ics23_CommitmentProof {
     set {proof = .exist(newValue)}
   }
 
-  var nonexist: Ics23_NonExistenceProof {
+  public var nonexist: Ics23_NonExistenceProof {
     get {
       if case .nonexist(let v)? = proof {return v}
       return Ics23_NonExistenceProof()
@@ -283,7 +283,7 @@ struct Ics23_CommitmentProof {
     set {proof = .nonexist(newValue)}
   }
 
-  var batch: Ics23_BatchProof {
+  public var batch: Ics23_BatchProof {
     get {
       if case .batch(let v)? = proof {return v}
       return Ics23_BatchProof()
@@ -291,7 +291,7 @@ struct Ics23_CommitmentProof {
     set {proof = .batch(newValue)}
   }
 
-  var compressed: Ics23_CompressedBatchProof {
+  public var compressed: Ics23_CompressedBatchProof {
     get {
       if case .compressed(let v)? = proof {return v}
       return Ics23_CompressedBatchProof()
@@ -299,16 +299,16 @@ struct Ics23_CommitmentProof {
     set {proof = .compressed(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Proof: Equatable {
+  public enum OneOf_Proof: Equatable {
     case exist(Ics23_ExistenceProof)
     case nonexist(Ics23_NonExistenceProof)
     case batch(Ics23_BatchProof)
     case compressed(Ics23_CompressedBatchProof)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Ics23_CommitmentProof.OneOf_Proof, rhs: Ics23_CommitmentProof.OneOf_Proof) -> Bool {
+    public static func ==(lhs: Ics23_CommitmentProof.OneOf_Proof, rhs: Ics23_CommitmentProof.OneOf_Proof) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -335,7 +335,7 @@ struct Ics23_CommitmentProof {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -353,26 +353,26 @@ struct Ics23_CommitmentProof {
 ///
 ///Then combine the bytes, and hash it
 ///output = hash(prefix || length(hkey) || hkey || length(hvalue) || hvalue)
-struct Ics23_LeafOp {
+public struct Ics23_LeafOp {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var hash: Ics23_HashOp = .noHash
+  public var hash: Ics23_HashOp = .noHash
 
-  var prehashKey: Ics23_HashOp = .noHash
+  public var prehashKey: Ics23_HashOp = .noHash
 
-  var prehashValue: Ics23_HashOp = .noHash
+  public var prehashValue: Ics23_HashOp = .noHash
 
-  var length: Ics23_LengthOp = .noPrefix
+  public var length: Ics23_LengthOp = .noPrefix
 
   /// prefix is a fixed bytes that may optionally be included at the beginning to differentiate
   /// a leaf node from an inner node.
-  var prefix: Data = Data()
+  public var prefix: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -391,20 +391,20 @@ struct Ics23_LeafOp {
 ///Any special data, like prepending child with the length, or prepending the entire operation with
 ///some value to differentiate from leaf nodes, should be included in prefix and suffix.
 ///If either of prefix or suffix is empty, we just treat it as an empty string
-struct Ics23_InnerOp {
+public struct Ics23_InnerOp {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var hash: Ics23_HashOp = .noHash
+  public var hash: Ics23_HashOp = .noHash
 
-  var prefix: Data = Data()
+  public var prefix: Data = Data()
 
-  var suffix: Data = Data()
+  public var suffix: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///*
@@ -418,40 +418,40 @@ struct Ics23_InnerOp {
 ///generate a given hash (by interpretting the preimage differently).
 ///We need this for proper security, requires client knows a priori what
 ///tree format server uses. But not in code, rather a configuration object.
-struct Ics23_ProofSpec {
+public struct Ics23_ProofSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// any field in the ExistenceProof must be the same as in this spec.
   /// except Prefix, which is just the first bytes of prefix (spec can be longer) 
-  var leafSpec: Ics23_LeafOp {
+  public var leafSpec: Ics23_LeafOp {
     get {return _leafSpec ?? Ics23_LeafOp()}
     set {_leafSpec = newValue}
   }
   /// Returns true if `leafSpec` has been explicitly set.
-  var hasLeafSpec: Bool {return self._leafSpec != nil}
+  public var hasLeafSpec: Bool {return self._leafSpec != nil}
   /// Clears the value of `leafSpec`. Subsequent reads from it will return its default value.
-  mutating func clearLeafSpec() {self._leafSpec = nil}
+  public mutating func clearLeafSpec() {self._leafSpec = nil}
 
-  var innerSpec: Ics23_InnerSpec {
+  public var innerSpec: Ics23_InnerSpec {
     get {return _innerSpec ?? Ics23_InnerSpec()}
     set {_innerSpec = newValue}
   }
   /// Returns true if `innerSpec` has been explicitly set.
-  var hasInnerSpec: Bool {return self._innerSpec != nil}
+  public var hasInnerSpec: Bool {return self._innerSpec != nil}
   /// Clears the value of `innerSpec`. Subsequent reads from it will return its default value.
-  mutating func clearInnerSpec() {self._innerSpec = nil}
+  public mutating func clearInnerSpec() {self._innerSpec = nil}
 
   /// max_depth (if > 0) is the maximum number of InnerOps allowed (mainly for fixed-depth tries)
-  var maxDepth: Int32 = 0
+  public var maxDepth: Int32 = 0
 
   /// min_depth (if > 0) is the minimum number of InnerOps allowed (mainly for fixed-depth tries)
-  var minDepth: Int32 = 0
+  public var minDepth: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _leafSpec: Ics23_LeafOp? = nil
   fileprivate var _innerSpec: Ics23_InnerSpec? = nil
@@ -466,7 +466,7 @@ struct Ics23_ProofSpec {
 ///isLeftMost(spec: InnerSpec, op: InnerOp)
 ///isRightMost(spec: InnerSpec, op: InnerOp)
 ///isLeftNeighbor(spec: InnerSpec, left: InnerOp, right: InnerOp)
-struct Ics23_InnerSpec {
+public struct Ics23_InnerSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -474,48 +474,48 @@ struct Ics23_InnerSpec {
   /// Child order is the ordering of the children node, must count from 0
   /// iavl tree is [0, 1] (left then right)
   /// merk is [0, 2, 1] (left, right, here)
-  var childOrder: [Int32] = []
+  public var childOrder: [Int32] = []
 
-  var childSize: Int32 = 0
+  public var childSize: Int32 = 0
 
-  var minPrefixLength: Int32 = 0
+  public var minPrefixLength: Int32 = 0
 
-  var maxPrefixLength: Int32 = 0
+  public var maxPrefixLength: Int32 = 0
 
   /// empty child is the prehash image that is used when one child is nil (eg. 20 bytes of 0)
-  var emptyChild: Data = Data()
+  public var emptyChild: Data = Data()
 
   /// hash is the algorithm that must be used for each InnerOp
-  var hash: Ics23_HashOp = .noHash
+  public var hash: Ics23_HashOp = .noHash
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 ///
 ///BatchProof is a group of multiple proof types than can be compressed
-struct Ics23_BatchProof {
+public struct Ics23_BatchProof {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var entries: [Ics23_BatchEntry] = []
+  public var entries: [Ics23_BatchEntry] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Use BatchEntry not CommitmentProof, to avoid recursion
-struct Ics23_BatchEntry {
+public struct Ics23_BatchEntry {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var proof: Ics23_BatchEntry.OneOf_Proof? = nil
+  public var proof: Ics23_BatchEntry.OneOf_Proof? = nil
 
-  var exist: Ics23_ExistenceProof {
+  public var exist: Ics23_ExistenceProof {
     get {
       if case .exist(let v)? = proof {return v}
       return Ics23_ExistenceProof()
@@ -523,7 +523,7 @@ struct Ics23_BatchEntry {
     set {proof = .exist(newValue)}
   }
 
-  var nonexist: Ics23_NonExistenceProof {
+  public var nonexist: Ics23_NonExistenceProof {
     get {
       if case .nonexist(let v)? = proof {return v}
       return Ics23_NonExistenceProof()
@@ -531,14 +531,14 @@ struct Ics23_BatchEntry {
     set {proof = .nonexist(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Proof: Equatable {
+  public enum OneOf_Proof: Equatable {
     case exist(Ics23_ExistenceProof)
     case nonexist(Ics23_NonExistenceProof)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Ics23_BatchEntry.OneOf_Proof, rhs: Ics23_BatchEntry.OneOf_Proof) -> Bool {
+    public static func ==(lhs: Ics23_BatchEntry.OneOf_Proof, rhs: Ics23_BatchEntry.OneOf_Proof) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -557,32 +557,32 @@ struct Ics23_BatchEntry {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
-struct Ics23_CompressedBatchProof {
+public struct Ics23_CompressedBatchProof {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var entries: [Ics23_CompressedBatchEntry] = []
+  public var entries: [Ics23_CompressedBatchEntry] = []
 
-  var lookupInners: [Ics23_InnerOp] = []
+  public var lookupInners: [Ics23_InnerOp] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Use BatchEntry not CommitmentProof, to avoid recursion
-struct Ics23_CompressedBatchEntry {
+public struct Ics23_CompressedBatchEntry {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var proof: Ics23_CompressedBatchEntry.OneOf_Proof? = nil
+  public var proof: Ics23_CompressedBatchEntry.OneOf_Proof? = nil
 
-  var exist: Ics23_CompressedExistenceProof {
+  public var exist: Ics23_CompressedExistenceProof {
     get {
       if case .exist(let v)? = proof {return v}
       return Ics23_CompressedExistenceProof()
@@ -590,7 +590,7 @@ struct Ics23_CompressedBatchEntry {
     set {proof = .exist(newValue)}
   }
 
-  var nonexist: Ics23_CompressedNonExistenceProof {
+  public var nonexist: Ics23_CompressedNonExistenceProof {
     get {
       if case .nonexist(let v)? = proof {return v}
       return Ics23_CompressedNonExistenceProof()
@@ -598,14 +598,14 @@ struct Ics23_CompressedBatchEntry {
     set {proof = .nonexist(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  enum OneOf_Proof: Equatable {
+  public enum OneOf_Proof: Equatable {
     case exist(Ics23_CompressedExistenceProof)
     case nonexist(Ics23_CompressedNonExistenceProof)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Ics23_CompressedBatchEntry.OneOf_Proof, rhs: Ics23_CompressedBatchEntry.OneOf_Proof) -> Bool {
+    public static func ==(lhs: Ics23_CompressedBatchEntry.OneOf_Proof, rhs: Ics23_CompressedBatchEntry.OneOf_Proof) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -624,69 +624,69 @@ struct Ics23_CompressedBatchEntry {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
-struct Ics23_CompressedExistenceProof {
+public struct Ics23_CompressedExistenceProof {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var key: Data = Data()
+  public var key: Data = Data()
 
-  var value: Data = Data()
+  public var value: Data = Data()
 
-  var leaf: Ics23_LeafOp {
+  public var leaf: Ics23_LeafOp {
     get {return _leaf ?? Ics23_LeafOp()}
     set {_leaf = newValue}
   }
   /// Returns true if `leaf` has been explicitly set.
-  var hasLeaf: Bool {return self._leaf != nil}
+  public var hasLeaf: Bool {return self._leaf != nil}
   /// Clears the value of `leaf`. Subsequent reads from it will return its default value.
-  mutating func clearLeaf() {self._leaf = nil}
+  public mutating func clearLeaf() {self._leaf = nil}
 
   /// these are indexes into the lookup_inners table in CompressedBatchProof
-  var path: [Int32] = []
+  public var path: [Int32] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _leaf: Ics23_LeafOp? = nil
 }
 
-struct Ics23_CompressedNonExistenceProof {
+public struct Ics23_CompressedNonExistenceProof {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// TODO: remove this as unnecessary??? we prove a range
-  var key: Data {
+  public var key: Data {
     get {return _storage._key}
     set {_uniqueStorage()._key = newValue}
   }
 
-  var left: Ics23_CompressedExistenceProof {
+  public var left: Ics23_CompressedExistenceProof {
     get {return _storage._left ?? Ics23_CompressedExistenceProof()}
     set {_uniqueStorage()._left = newValue}
   }
   /// Returns true if `left` has been explicitly set.
-  var hasLeft: Bool {return _storage._left != nil}
+  public var hasLeft: Bool {return _storage._left != nil}
   /// Clears the value of `left`. Subsequent reads from it will return its default value.
-  mutating func clearLeft() {_uniqueStorage()._left = nil}
+  public mutating func clearLeft() {_uniqueStorage()._left = nil}
 
-  var right: Ics23_CompressedExistenceProof {
+  public var right: Ics23_CompressedExistenceProof {
     get {return _storage._right ?? Ics23_CompressedExistenceProof()}
     set {_uniqueStorage()._right = newValue}
   }
   /// Returns true if `right` has been explicitly set.
-  var hasRight: Bool {return _storage._right != nil}
+  public var hasRight: Bool {return _storage._right != nil}
   /// Clears the value of `right`. Subsequent reads from it will return its default value.
-  mutating func clearRight() {_uniqueStorage()._right = nil}
+  public mutating func clearRight() {_uniqueStorage()._right = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
@@ -696,7 +696,7 @@ struct Ics23_CompressedNonExistenceProof {
 fileprivate let _protobuf_package = "ics23"
 
 extension Ics23_HashOp: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NO_HASH"),
     1: .same(proto: "SHA256"),
     2: .same(proto: "SHA512"),
@@ -707,7 +707,7 @@ extension Ics23_HashOp: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Ics23_LengthOp: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "NO_PREFIX"),
     1: .same(proto: "VAR_PROTO"),
     2: .same(proto: "VAR_RLP"),
@@ -721,15 +721,15 @@ extension Ics23_LengthOp: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Ics23_ExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ExistenceProof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ExistenceProof"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
     2: .same(proto: "value"),
     3: .same(proto: "leaf"),
     4: .same(proto: "path"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -744,7 +744,7 @@ extension Ics23_ExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.key.isEmpty {
       try visitor.visitSingularBytesField(value: self.key, fieldNumber: 1)
     }
@@ -760,7 +760,7 @@ extension Ics23_ExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_ExistenceProof, rhs: Ics23_ExistenceProof) -> Bool {
+  public static func ==(lhs: Ics23_ExistenceProof, rhs: Ics23_ExistenceProof) -> Bool {
     if lhs.key != rhs.key {return false}
     if lhs.value != rhs.value {return false}
     if lhs._leaf != rhs._leaf {return false}
@@ -771,8 +771,8 @@ extension Ics23_ExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImp
 }
 
 extension Ics23_NonExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NonExistenceProof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NonExistenceProof"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
     2: .same(proto: "left"),
     3: .same(proto: "right"),
@@ -801,7 +801,7 @@ extension Ics23_NonExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._Message
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -818,7 +818,7 @@ extension Ics23_NonExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._key.isEmpty {
         try visitor.visitSingularBytesField(value: _storage._key, fieldNumber: 1)
@@ -833,7 +833,7 @@ extension Ics23_NonExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_NonExistenceProof, rhs: Ics23_NonExistenceProof) -> Bool {
+  public static func ==(lhs: Ics23_NonExistenceProof, rhs: Ics23_NonExistenceProof) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -851,15 +851,15 @@ extension Ics23_NonExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._Message
 }
 
 extension Ics23_CommitmentProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CommitmentProof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CommitmentProof"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "exist"),
     2: .same(proto: "nonexist"),
     3: .same(proto: "batch"),
     4: .same(proto: "compressed"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -906,7 +906,7 @@ extension Ics23_CommitmentProof: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every case branch when no optimizations are
     // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -932,7 +932,7 @@ extension Ics23_CommitmentProof: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_CommitmentProof, rhs: Ics23_CommitmentProof) -> Bool {
+  public static func ==(lhs: Ics23_CommitmentProof, rhs: Ics23_CommitmentProof) -> Bool {
     if lhs.proof != rhs.proof {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -940,8 +940,8 @@ extension Ics23_CommitmentProof: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Ics23_LeafOp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LeafOp"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LeafOp"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "hash"),
     2: .standard(proto: "prehash_key"),
     3: .standard(proto: "prehash_value"),
@@ -949,7 +949,7 @@ extension Ics23_LeafOp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     5: .same(proto: "prefix"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -965,7 +965,7 @@ extension Ics23_LeafOp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.hash != .noHash {
       try visitor.visitSingularEnumField(value: self.hash, fieldNumber: 1)
     }
@@ -984,7 +984,7 @@ extension Ics23_LeafOp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_LeafOp, rhs: Ics23_LeafOp) -> Bool {
+  public static func ==(lhs: Ics23_LeafOp, rhs: Ics23_LeafOp) -> Bool {
     if lhs.hash != rhs.hash {return false}
     if lhs.prehashKey != rhs.prehashKey {return false}
     if lhs.prehashValue != rhs.prehashValue {return false}
@@ -996,14 +996,14 @@ extension Ics23_LeafOp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
 }
 
 extension Ics23_InnerOp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".InnerOp"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".InnerOp"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "hash"),
     2: .same(proto: "prefix"),
     3: .same(proto: "suffix"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1017,7 +1017,7 @@ extension Ics23_InnerOp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.hash != .noHash {
       try visitor.visitSingularEnumField(value: self.hash, fieldNumber: 1)
     }
@@ -1030,7 +1030,7 @@ extension Ics23_InnerOp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_InnerOp, rhs: Ics23_InnerOp) -> Bool {
+  public static func ==(lhs: Ics23_InnerOp, rhs: Ics23_InnerOp) -> Bool {
     if lhs.hash != rhs.hash {return false}
     if lhs.prefix != rhs.prefix {return false}
     if lhs.suffix != rhs.suffix {return false}
@@ -1040,15 +1040,15 @@ extension Ics23_InnerOp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementa
 }
 
 extension Ics23_ProofSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ProofSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ProofSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "leaf_spec"),
     2: .standard(proto: "inner_spec"),
     3: .standard(proto: "max_depth"),
     4: .standard(proto: "min_depth"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1063,7 +1063,7 @@ extension Ics23_ProofSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._leafSpec {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -1079,7 +1079,7 @@ extension Ics23_ProofSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_ProofSpec, rhs: Ics23_ProofSpec) -> Bool {
+  public static func ==(lhs: Ics23_ProofSpec, rhs: Ics23_ProofSpec) -> Bool {
     if lhs._leafSpec != rhs._leafSpec {return false}
     if lhs._innerSpec != rhs._innerSpec {return false}
     if lhs.maxDepth != rhs.maxDepth {return false}
@@ -1090,8 +1090,8 @@ extension Ics23_ProofSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension Ics23_InnerSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".InnerSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".InnerSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "child_order"),
     2: .standard(proto: "child_size"),
     3: .standard(proto: "min_prefix_length"),
@@ -1100,7 +1100,7 @@ extension Ics23_InnerSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     6: .same(proto: "hash"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1117,7 +1117,7 @@ extension Ics23_InnerSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.childOrder.isEmpty {
       try visitor.visitPackedInt32Field(value: self.childOrder, fieldNumber: 1)
     }
@@ -1139,7 +1139,7 @@ extension Ics23_InnerSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_InnerSpec, rhs: Ics23_InnerSpec) -> Bool {
+  public static func ==(lhs: Ics23_InnerSpec, rhs: Ics23_InnerSpec) -> Bool {
     if lhs.childOrder != rhs.childOrder {return false}
     if lhs.childSize != rhs.childSize {return false}
     if lhs.minPrefixLength != rhs.minPrefixLength {return false}
@@ -1152,12 +1152,12 @@ extension Ics23_InnerSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplemen
 }
 
 extension Ics23_BatchProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BatchProof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BatchProof"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entries"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1169,14 +1169,14 @@ extension Ics23_BatchProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.entries.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.entries, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_BatchProof, rhs: Ics23_BatchProof) -> Bool {
+  public static func ==(lhs: Ics23_BatchProof, rhs: Ics23_BatchProof) -> Bool {
     if lhs.entries != rhs.entries {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1184,13 +1184,13 @@ extension Ics23_BatchProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension Ics23_BatchEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".BatchEntry"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".BatchEntry"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "exist"),
     2: .same(proto: "nonexist"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1219,7 +1219,7 @@ extension Ics23_BatchEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every case branch when no optimizations are
     // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -1237,7 +1237,7 @@ extension Ics23_BatchEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_BatchEntry, rhs: Ics23_BatchEntry) -> Bool {
+  public static func ==(lhs: Ics23_BatchEntry, rhs: Ics23_BatchEntry) -> Bool {
     if lhs.proof != rhs.proof {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1245,13 +1245,13 @@ extension Ics23_BatchEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension Ics23_CompressedBatchProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CompressedBatchProof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CompressedBatchProof"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entries"),
     2: .standard(proto: "lookup_inners"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1264,7 +1264,7 @@ extension Ics23_CompressedBatchProof: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.entries.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.entries, fieldNumber: 1)
     }
@@ -1274,7 +1274,7 @@ extension Ics23_CompressedBatchProof: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_CompressedBatchProof, rhs: Ics23_CompressedBatchProof) -> Bool {
+  public static func ==(lhs: Ics23_CompressedBatchProof, rhs: Ics23_CompressedBatchProof) -> Bool {
     if lhs.entries != rhs.entries {return false}
     if lhs.lookupInners != rhs.lookupInners {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1283,13 +1283,13 @@ extension Ics23_CompressedBatchProof: SwiftProtobuf.Message, SwiftProtobuf._Mess
 }
 
 extension Ics23_CompressedBatchEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CompressedBatchEntry"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CompressedBatchEntry"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "exist"),
     2: .same(proto: "nonexist"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1318,7 +1318,7 @@ extension Ics23_CompressedBatchEntry: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every case branch when no optimizations are
     // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -1336,7 +1336,7 @@ extension Ics23_CompressedBatchEntry: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_CompressedBatchEntry, rhs: Ics23_CompressedBatchEntry) -> Bool {
+  public static func ==(lhs: Ics23_CompressedBatchEntry, rhs: Ics23_CompressedBatchEntry) -> Bool {
     if lhs.proof != rhs.proof {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1344,15 +1344,15 @@ extension Ics23_CompressedBatchEntry: SwiftProtobuf.Message, SwiftProtobuf._Mess
 }
 
 extension Ics23_CompressedExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CompressedExistenceProof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CompressedExistenceProof"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
     2: .same(proto: "value"),
     3: .same(proto: "leaf"),
     4: .same(proto: "path"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1367,7 +1367,7 @@ extension Ics23_CompressedExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.key.isEmpty {
       try visitor.visitSingularBytesField(value: self.key, fieldNumber: 1)
     }
@@ -1383,7 +1383,7 @@ extension Ics23_CompressedExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_CompressedExistenceProof, rhs: Ics23_CompressedExistenceProof) -> Bool {
+  public static func ==(lhs: Ics23_CompressedExistenceProof, rhs: Ics23_CompressedExistenceProof) -> Bool {
     if lhs.key != rhs.key {return false}
     if lhs.value != rhs.value {return false}
     if lhs._leaf != rhs._leaf {return false}
@@ -1394,8 +1394,8 @@ extension Ics23_CompressedExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Ics23_CompressedNonExistenceProof: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CompressedNonExistenceProof"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CompressedNonExistenceProof"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
     2: .same(proto: "left"),
     3: .same(proto: "right"),
@@ -1424,7 +1424,7 @@ extension Ics23_CompressedNonExistenceProof: SwiftProtobuf.Message, SwiftProtobu
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1441,7 +1441,7 @@ extension Ics23_CompressedNonExistenceProof: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._key.isEmpty {
         try visitor.visitSingularBytesField(value: _storage._key, fieldNumber: 1)
@@ -1456,7 +1456,7 @@ extension Ics23_CompressedNonExistenceProof: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ics23_CompressedNonExistenceProof, rhs: Ics23_CompressedNonExistenceProof) -> Bool {
+  public static func ==(lhs: Ics23_CompressedNonExistenceProof, rhs: Ics23_CompressedNonExistenceProof) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0

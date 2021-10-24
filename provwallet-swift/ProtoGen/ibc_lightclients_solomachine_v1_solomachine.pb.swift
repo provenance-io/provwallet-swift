@@ -22,8 +22,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// DataType defines the type of solo machine proof being created. This is done to preserve uniqueness of different
 /// data sign byte encodings.
-enum Ibc_Lightclients_Solomachine_V1_DataType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Ibc_Lightclients_Solomachine_V1_DataType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// Default State
   case uninitializedUnspecified // = 0
@@ -56,11 +56,11 @@ enum Ibc_Lightclients_Solomachine_V1_DataType: SwiftProtobuf.Enum {
   case header // = 9
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .uninitializedUnspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .uninitializedUnspecified
     case 1: self = .clientState
@@ -76,7 +76,7 @@ enum Ibc_Lightclients_Solomachine_V1_DataType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .uninitializedUnspecified: return 0
     case .clientState: return 1
@@ -98,7 +98,7 @@ enum Ibc_Lightclients_Solomachine_V1_DataType: SwiftProtobuf.Enum {
 
 extension Ibc_Lightclients_Solomachine_V1_DataType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Ibc_Lightclients_Solomachine_V1_DataType] = [
+  public static var allCases: [Ibc_Lightclients_Solomachine_V1_DataType] = [
     .uninitializedUnspecified,
     .clientState,
     .consensusState,
@@ -116,130 +116,130 @@ extension Ibc_Lightclients_Solomachine_V1_DataType: CaseIterable {
 
 /// ClientState defines a solo machine client that tracks the current consensus
 /// state and if the client is frozen.
-struct Ibc_Lightclients_Solomachine_V1_ClientState {
+public struct Ibc_Lightclients_Solomachine_V1_ClientState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// latest sequence of the client state
-  var sequence: UInt64 = 0
+  public var sequence: UInt64 = 0
 
   /// frozen sequence of the solo machine
-  var frozenSequence: UInt64 = 0
+  public var frozenSequence: UInt64 = 0
 
-  var consensusState: Ibc_Lightclients_Solomachine_V1_ConsensusState {
+  public var consensusState: Ibc_Lightclients_Solomachine_V1_ConsensusState {
     get {return _consensusState ?? Ibc_Lightclients_Solomachine_V1_ConsensusState()}
     set {_consensusState = newValue}
   }
   /// Returns true if `consensusState` has been explicitly set.
-  var hasConsensusState: Bool {return self._consensusState != nil}
+  public var hasConsensusState: Bool {return self._consensusState != nil}
   /// Clears the value of `consensusState`. Subsequent reads from it will return its default value.
-  mutating func clearConsensusState() {self._consensusState = nil}
+  public mutating func clearConsensusState() {self._consensusState = nil}
 
   /// when set to true, will allow governance to update a solo machine client.
   /// The client will be unfrozen if it is frozen.
-  var allowUpdateAfterProposal: Bool = false
+  public var allowUpdateAfterProposal: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _consensusState: Ibc_Lightclients_Solomachine_V1_ConsensusState? = nil
 }
 
 /// ConsensusState defines a solo machine consensus state. The sequence of a consensus state
 /// is contained in the "height" key used in storing the consensus state.
-struct Ibc_Lightclients_Solomachine_V1_ConsensusState {
+public struct Ibc_Lightclients_Solomachine_V1_ConsensusState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// public key of the solo machine
-  var publicKey: SwiftProtobuf.Google_Protobuf_Any {
+  public var publicKey: SwiftProtobuf.Google_Protobuf_Any {
     get {return _publicKey ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_publicKey = newValue}
   }
   /// Returns true if `publicKey` has been explicitly set.
-  var hasPublicKey: Bool {return self._publicKey != nil}
+  public var hasPublicKey: Bool {return self._publicKey != nil}
   /// Clears the value of `publicKey`. Subsequent reads from it will return its default value.
-  mutating func clearPublicKey() {self._publicKey = nil}
+  public mutating func clearPublicKey() {self._publicKey = nil}
 
   /// diversifier allows the same public key to be re-used across different solo machine clients
   /// (potentially on different chains) without being considered misbehaviour.
-  var diversifier: String = String()
+  public var diversifier: String = String()
 
-  var timestamp: UInt64 = 0
+  public var timestamp: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _publicKey: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// Header defines a solo machine consensus header
-struct Ibc_Lightclients_Solomachine_V1_Header {
+public struct Ibc_Lightclients_Solomachine_V1_Header {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// sequence to update solo machine public key at
-  var sequence: UInt64 = 0
+  public var sequence: UInt64 = 0
 
-  var timestamp: UInt64 = 0
+  public var timestamp: UInt64 = 0
 
-  var signature: Data = Data()
+  public var signature: Data = Data()
 
-  var newPublicKey: SwiftProtobuf.Google_Protobuf_Any {
+  public var newPublicKey: SwiftProtobuf.Google_Protobuf_Any {
     get {return _newPublicKey ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_newPublicKey = newValue}
   }
   /// Returns true if `newPublicKey` has been explicitly set.
-  var hasNewPublicKey: Bool {return self._newPublicKey != nil}
+  public var hasNewPublicKey: Bool {return self._newPublicKey != nil}
   /// Clears the value of `newPublicKey`. Subsequent reads from it will return its default value.
-  mutating func clearNewPublicKey() {self._newPublicKey = nil}
+  public mutating func clearNewPublicKey() {self._newPublicKey = nil}
 
-  var newDiversifier: String = String()
+  public var newDiversifier: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _newPublicKey: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// Misbehaviour defines misbehaviour for a solo machine which consists
 /// of a sequence and two signatures over different messages at that sequence.
-struct Ibc_Lightclients_Solomachine_V1_Misbehaviour {
+public struct Ibc_Lightclients_Solomachine_V1_Misbehaviour {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var clientID: String = String()
+  public var clientID: String = String()
 
-  var sequence: UInt64 = 0
+  public var sequence: UInt64 = 0
 
-  var signatureOne: Ibc_Lightclients_Solomachine_V1_SignatureAndData {
+  public var signatureOne: Ibc_Lightclients_Solomachine_V1_SignatureAndData {
     get {return _signatureOne ?? Ibc_Lightclients_Solomachine_V1_SignatureAndData()}
     set {_signatureOne = newValue}
   }
   /// Returns true if `signatureOne` has been explicitly set.
-  var hasSignatureOne: Bool {return self._signatureOne != nil}
+  public var hasSignatureOne: Bool {return self._signatureOne != nil}
   /// Clears the value of `signatureOne`. Subsequent reads from it will return its default value.
-  mutating func clearSignatureOne() {self._signatureOne = nil}
+  public mutating func clearSignatureOne() {self._signatureOne = nil}
 
-  var signatureTwo: Ibc_Lightclients_Solomachine_V1_SignatureAndData {
+  public var signatureTwo: Ibc_Lightclients_Solomachine_V1_SignatureAndData {
     get {return _signatureTwo ?? Ibc_Lightclients_Solomachine_V1_SignatureAndData()}
     set {_signatureTwo = newValue}
   }
   /// Returns true if `signatureTwo` has been explicitly set.
-  var hasSignatureTwo: Bool {return self._signatureTwo != nil}
+  public var hasSignatureTwo: Bool {return self._signatureTwo != nil}
   /// Clears the value of `signatureTwo`. Subsequent reads from it will return its default value.
-  mutating func clearSignatureTwo() {self._signatureTwo = nil}
+  public mutating func clearSignatureTwo() {self._signatureTwo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _signatureOne: Ibc_Lightclients_Solomachine_V1_SignatureAndData? = nil
   fileprivate var _signatureTwo: Ibc_Lightclients_Solomachine_V1_SignatureAndData? = nil
@@ -247,248 +247,248 @@ struct Ibc_Lightclients_Solomachine_V1_Misbehaviour {
 
 /// SignatureAndData contains a signature and the data signed over to create that
 /// signature.
-struct Ibc_Lightclients_Solomachine_V1_SignatureAndData {
+public struct Ibc_Lightclients_Solomachine_V1_SignatureAndData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var signature: Data = Data()
+  public var signature: Data = Data()
 
-  var dataType: Ibc_Lightclients_Solomachine_V1_DataType = .uninitializedUnspecified
+  public var dataType: Ibc_Lightclients_Solomachine_V1_DataType = .uninitializedUnspecified
 
-  var data: Data = Data()
+  public var data: Data = Data()
 
-  var timestamp: UInt64 = 0
+  public var timestamp: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// TimestampedSignatureData contains the signature data and the timestamp of the
 /// signature.
-struct Ibc_Lightclients_Solomachine_V1_TimestampedSignatureData {
+public struct Ibc_Lightclients_Solomachine_V1_TimestampedSignatureData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var signatureData: Data = Data()
+  public var signatureData: Data = Data()
 
-  var timestamp: UInt64 = 0
+  public var timestamp: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// SignBytes defines the signed bytes used for signature verification.
-struct Ibc_Lightclients_Solomachine_V1_SignBytes {
+public struct Ibc_Lightclients_Solomachine_V1_SignBytes {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var sequence: UInt64 = 0
+  public var sequence: UInt64 = 0
 
-  var timestamp: UInt64 = 0
+  public var timestamp: UInt64 = 0
 
-  var diversifier: String = String()
+  public var diversifier: String = String()
 
   /// type of the data used
-  var dataType: Ibc_Lightclients_Solomachine_V1_DataType = .uninitializedUnspecified
+  public var dataType: Ibc_Lightclients_Solomachine_V1_DataType = .uninitializedUnspecified
 
   /// marshaled data
-  var data: Data = Data()
+  public var data: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// HeaderData returns the SignBytes data for update verification.
-struct Ibc_Lightclients_Solomachine_V1_HeaderData {
+public struct Ibc_Lightclients_Solomachine_V1_HeaderData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// header public key
-  var newPubKey: SwiftProtobuf.Google_Protobuf_Any {
+  public var newPubKey: SwiftProtobuf.Google_Protobuf_Any {
     get {return _newPubKey ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_newPubKey = newValue}
   }
   /// Returns true if `newPubKey` has been explicitly set.
-  var hasNewPubKey: Bool {return self._newPubKey != nil}
+  public var hasNewPubKey: Bool {return self._newPubKey != nil}
   /// Clears the value of `newPubKey`. Subsequent reads from it will return its default value.
-  mutating func clearNewPubKey() {self._newPubKey = nil}
+  public mutating func clearNewPubKey() {self._newPubKey = nil}
 
   /// header diversifier
-  var newDiversifier: String = String()
+  public var newDiversifier: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _newPubKey: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// ClientStateData returns the SignBytes data for client state verification.
-struct Ibc_Lightclients_Solomachine_V1_ClientStateData {
+public struct Ibc_Lightclients_Solomachine_V1_ClientStateData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var path: Data = Data()
+  public var path: Data = Data()
 
-  var clientState: SwiftProtobuf.Google_Protobuf_Any {
+  public var clientState: SwiftProtobuf.Google_Protobuf_Any {
     get {return _clientState ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_clientState = newValue}
   }
   /// Returns true if `clientState` has been explicitly set.
-  var hasClientState: Bool {return self._clientState != nil}
+  public var hasClientState: Bool {return self._clientState != nil}
   /// Clears the value of `clientState`. Subsequent reads from it will return its default value.
-  mutating func clearClientState() {self._clientState = nil}
+  public mutating func clearClientState() {self._clientState = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _clientState: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// ConsensusStateData returns the SignBytes data for consensus state
 /// verification.
-struct Ibc_Lightclients_Solomachine_V1_ConsensusStateData {
+public struct Ibc_Lightclients_Solomachine_V1_ConsensusStateData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var path: Data = Data()
+  public var path: Data = Data()
 
-  var consensusState: SwiftProtobuf.Google_Protobuf_Any {
+  public var consensusState: SwiftProtobuf.Google_Protobuf_Any {
     get {return _consensusState ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_consensusState = newValue}
   }
   /// Returns true if `consensusState` has been explicitly set.
-  var hasConsensusState: Bool {return self._consensusState != nil}
+  public var hasConsensusState: Bool {return self._consensusState != nil}
   /// Clears the value of `consensusState`. Subsequent reads from it will return its default value.
-  mutating func clearConsensusState() {self._consensusState = nil}
+  public mutating func clearConsensusState() {self._consensusState = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _consensusState: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// ConnectionStateData returns the SignBytes data for connection state
 /// verification.
-struct Ibc_Lightclients_Solomachine_V1_ConnectionStateData {
+public struct Ibc_Lightclients_Solomachine_V1_ConnectionStateData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var path: Data = Data()
+  public var path: Data = Data()
 
-  var connection: Ibc_Core_Connection_V1_ConnectionEnd {
+  public var connection: Ibc_Core_Connection_V1_ConnectionEnd {
     get {return _connection ?? Ibc_Core_Connection_V1_ConnectionEnd()}
     set {_connection = newValue}
   }
   /// Returns true if `connection` has been explicitly set.
-  var hasConnection: Bool {return self._connection != nil}
+  public var hasConnection: Bool {return self._connection != nil}
   /// Clears the value of `connection`. Subsequent reads from it will return its default value.
-  mutating func clearConnection() {self._connection = nil}
+  public mutating func clearConnection() {self._connection = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _connection: Ibc_Core_Connection_V1_ConnectionEnd? = nil
 }
 
 /// ChannelStateData returns the SignBytes data for channel state
 /// verification.
-struct Ibc_Lightclients_Solomachine_V1_ChannelStateData {
+public struct Ibc_Lightclients_Solomachine_V1_ChannelStateData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var path: Data = Data()
+  public var path: Data = Data()
 
-  var channel: Ibc_Core_Channel_V1_Channel {
+  public var channel: Ibc_Core_Channel_V1_Channel {
     get {return _channel ?? Ibc_Core_Channel_V1_Channel()}
     set {_channel = newValue}
   }
   /// Returns true if `channel` has been explicitly set.
-  var hasChannel: Bool {return self._channel != nil}
+  public var hasChannel: Bool {return self._channel != nil}
   /// Clears the value of `channel`. Subsequent reads from it will return its default value.
-  mutating func clearChannel() {self._channel = nil}
+  public mutating func clearChannel() {self._channel = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _channel: Ibc_Core_Channel_V1_Channel? = nil
 }
 
 /// PacketCommitmentData returns the SignBytes data for packet commitment
 /// verification.
-struct Ibc_Lightclients_Solomachine_V1_PacketCommitmentData {
+public struct Ibc_Lightclients_Solomachine_V1_PacketCommitmentData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var path: Data = Data()
+  public var path: Data = Data()
 
-  var commitment: Data = Data()
+  public var commitment: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// PacketAcknowledgementData returns the SignBytes data for acknowledgement
 /// verification.
-struct Ibc_Lightclients_Solomachine_V1_PacketAcknowledgementData {
+public struct Ibc_Lightclients_Solomachine_V1_PacketAcknowledgementData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var path: Data = Data()
+  public var path: Data = Data()
 
-  var acknowledgement: Data = Data()
+  public var acknowledgement: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// PacketReceiptAbsenceData returns the SignBytes data for
 /// packet receipt absence verification.
-struct Ibc_Lightclients_Solomachine_V1_PacketReceiptAbsenceData {
+public struct Ibc_Lightclients_Solomachine_V1_PacketReceiptAbsenceData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var path: Data = Data()
+  public var path: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// NextSequenceRecvData returns the SignBytes data for verification of the next
 /// sequence to be received.
-struct Ibc_Lightclients_Solomachine_V1_NextSequenceRecvData {
+public struct Ibc_Lightclients_Solomachine_V1_NextSequenceRecvData {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var path: Data = Data()
+  public var path: Data = Data()
 
-  var nextSeqRecv: UInt64 = 0
+  public var nextSeqRecv: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -496,7 +496,7 @@ struct Ibc_Lightclients_Solomachine_V1_NextSequenceRecvData {
 fileprivate let _protobuf_package = "ibc.lightclients.solomachine.v1"
 
 extension Ibc_Lightclients_Solomachine_V1_DataType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "DATA_TYPE_UNINITIALIZED_UNSPECIFIED"),
     1: .same(proto: "DATA_TYPE_CLIENT_STATE"),
     2: .same(proto: "DATA_TYPE_CONSENSUS_STATE"),
@@ -511,15 +511,15 @@ extension Ibc_Lightclients_Solomachine_V1_DataType: SwiftProtobuf._ProtoNameProv
 }
 
 extension Ibc_Lightclients_Solomachine_V1_ClientState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ClientState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ClientState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sequence"),
     2: .standard(proto: "frozen_sequence"),
     3: .standard(proto: "consensus_state"),
     4: .standard(proto: "allow_update_after_proposal"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -534,7 +534,7 @@ extension Ibc_Lightclients_Solomachine_V1_ClientState: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.sequence != 0 {
       try visitor.visitSingularUInt64Field(value: self.sequence, fieldNumber: 1)
     }
@@ -550,7 +550,7 @@ extension Ibc_Lightclients_Solomachine_V1_ClientState: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ClientState, rhs: Ibc_Lightclients_Solomachine_V1_ClientState) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ClientState, rhs: Ibc_Lightclients_Solomachine_V1_ClientState) -> Bool {
     if lhs.sequence != rhs.sequence {return false}
     if lhs.frozenSequence != rhs.frozenSequence {return false}
     if lhs._consensusState != rhs._consensusState {return false}
@@ -561,14 +561,14 @@ extension Ibc_Lightclients_Solomachine_V1_ClientState: SwiftProtobuf.Message, Sw
 }
 
 extension Ibc_Lightclients_Solomachine_V1_ConsensusState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConsensusState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConsensusState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "public_key"),
     2: .same(proto: "diversifier"),
     3: .same(proto: "timestamp"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -582,7 +582,7 @@ extension Ibc_Lightclients_Solomachine_V1_ConsensusState: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._publicKey {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -595,7 +595,7 @@ extension Ibc_Lightclients_Solomachine_V1_ConsensusState: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ConsensusState, rhs: Ibc_Lightclients_Solomachine_V1_ConsensusState) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ConsensusState, rhs: Ibc_Lightclients_Solomachine_V1_ConsensusState) -> Bool {
     if lhs._publicKey != rhs._publicKey {return false}
     if lhs.diversifier != rhs.diversifier {return false}
     if lhs.timestamp != rhs.timestamp {return false}
@@ -605,8 +605,8 @@ extension Ibc_Lightclients_Solomachine_V1_ConsensusState: SwiftProtobuf.Message,
 }
 
 extension Ibc_Lightclients_Solomachine_V1_Header: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Header"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Header"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sequence"),
     2: .same(proto: "timestamp"),
     3: .same(proto: "signature"),
@@ -614,7 +614,7 @@ extension Ibc_Lightclients_Solomachine_V1_Header: SwiftProtobuf.Message, SwiftPr
     5: .standard(proto: "new_diversifier"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -630,7 +630,7 @@ extension Ibc_Lightclients_Solomachine_V1_Header: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.sequence != 0 {
       try visitor.visitSingularUInt64Field(value: self.sequence, fieldNumber: 1)
     }
@@ -649,7 +649,7 @@ extension Ibc_Lightclients_Solomachine_V1_Header: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_Header, rhs: Ibc_Lightclients_Solomachine_V1_Header) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_Header, rhs: Ibc_Lightclients_Solomachine_V1_Header) -> Bool {
     if lhs.sequence != rhs.sequence {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.signature != rhs.signature {return false}
@@ -661,15 +661,15 @@ extension Ibc_Lightclients_Solomachine_V1_Header: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Ibc_Lightclients_Solomachine_V1_Misbehaviour: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Misbehaviour"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Misbehaviour"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
     2: .same(proto: "sequence"),
     3: .standard(proto: "signature_one"),
     4: .standard(proto: "signature_two"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -684,7 +684,7 @@ extension Ibc_Lightclients_Solomachine_V1_Misbehaviour: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clientID.isEmpty {
       try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
     }
@@ -700,7 +700,7 @@ extension Ibc_Lightclients_Solomachine_V1_Misbehaviour: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_Misbehaviour, rhs: Ibc_Lightclients_Solomachine_V1_Misbehaviour) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_Misbehaviour, rhs: Ibc_Lightclients_Solomachine_V1_Misbehaviour) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs.sequence != rhs.sequence {return false}
     if lhs._signatureOne != rhs._signatureOne {return false}
@@ -711,15 +711,15 @@ extension Ibc_Lightclients_Solomachine_V1_Misbehaviour: SwiftProtobuf.Message, S
 }
 
 extension Ibc_Lightclients_Solomachine_V1_SignatureAndData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SignatureAndData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SignatureAndData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "signature"),
     2: .standard(proto: "data_type"),
     3: .same(proto: "data"),
     4: .same(proto: "timestamp"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -734,7 +734,7 @@ extension Ibc_Lightclients_Solomachine_V1_SignatureAndData: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.signature.isEmpty {
       try visitor.visitSingularBytesField(value: self.signature, fieldNumber: 1)
     }
@@ -750,7 +750,7 @@ extension Ibc_Lightclients_Solomachine_V1_SignatureAndData: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_SignatureAndData, rhs: Ibc_Lightclients_Solomachine_V1_SignatureAndData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_SignatureAndData, rhs: Ibc_Lightclients_Solomachine_V1_SignatureAndData) -> Bool {
     if lhs.signature != rhs.signature {return false}
     if lhs.dataType != rhs.dataType {return false}
     if lhs.data != rhs.data {return false}
@@ -761,13 +761,13 @@ extension Ibc_Lightclients_Solomachine_V1_SignatureAndData: SwiftProtobuf.Messag
 }
 
 extension Ibc_Lightclients_Solomachine_V1_TimestampedSignatureData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".TimestampedSignatureData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".TimestampedSignatureData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "signature_data"),
     2: .same(proto: "timestamp"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -780,7 +780,7 @@ extension Ibc_Lightclients_Solomachine_V1_TimestampedSignatureData: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.signatureData.isEmpty {
       try visitor.visitSingularBytesField(value: self.signatureData, fieldNumber: 1)
     }
@@ -790,7 +790,7 @@ extension Ibc_Lightclients_Solomachine_V1_TimestampedSignatureData: SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_TimestampedSignatureData, rhs: Ibc_Lightclients_Solomachine_V1_TimestampedSignatureData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_TimestampedSignatureData, rhs: Ibc_Lightclients_Solomachine_V1_TimestampedSignatureData) -> Bool {
     if lhs.signatureData != rhs.signatureData {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -799,8 +799,8 @@ extension Ibc_Lightclients_Solomachine_V1_TimestampedSignatureData: SwiftProtobu
 }
 
 extension Ibc_Lightclients_Solomachine_V1_SignBytes: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SignBytes"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SignBytes"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sequence"),
     2: .same(proto: "timestamp"),
     3: .same(proto: "diversifier"),
@@ -808,7 +808,7 @@ extension Ibc_Lightclients_Solomachine_V1_SignBytes: SwiftProtobuf.Message, Swif
     5: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -824,7 +824,7 @@ extension Ibc_Lightclients_Solomachine_V1_SignBytes: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.sequence != 0 {
       try visitor.visitSingularUInt64Field(value: self.sequence, fieldNumber: 1)
     }
@@ -843,7 +843,7 @@ extension Ibc_Lightclients_Solomachine_V1_SignBytes: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_SignBytes, rhs: Ibc_Lightclients_Solomachine_V1_SignBytes) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_SignBytes, rhs: Ibc_Lightclients_Solomachine_V1_SignBytes) -> Bool {
     if lhs.sequence != rhs.sequence {return false}
     if lhs.timestamp != rhs.timestamp {return false}
     if lhs.diversifier != rhs.diversifier {return false}
@@ -855,13 +855,13 @@ extension Ibc_Lightclients_Solomachine_V1_SignBytes: SwiftProtobuf.Message, Swif
 }
 
 extension Ibc_Lightclients_Solomachine_V1_HeaderData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".HeaderData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".HeaderData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "new_pub_key"),
     2: .standard(proto: "new_diversifier"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -874,7 +874,7 @@ extension Ibc_Lightclients_Solomachine_V1_HeaderData: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._newPubKey {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -884,7 +884,7 @@ extension Ibc_Lightclients_Solomachine_V1_HeaderData: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_HeaderData, rhs: Ibc_Lightclients_Solomachine_V1_HeaderData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_HeaderData, rhs: Ibc_Lightclients_Solomachine_V1_HeaderData) -> Bool {
     if lhs._newPubKey != rhs._newPubKey {return false}
     if lhs.newDiversifier != rhs.newDiversifier {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -893,13 +893,13 @@ extension Ibc_Lightclients_Solomachine_V1_HeaderData: SwiftProtobuf.Message, Swi
 }
 
 extension Ibc_Lightclients_Solomachine_V1_ClientStateData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ClientStateData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ClientStateData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
     2: .standard(proto: "client_state"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -912,7 +912,7 @@ extension Ibc_Lightclients_Solomachine_V1_ClientStateData: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.path.isEmpty {
       try visitor.visitSingularBytesField(value: self.path, fieldNumber: 1)
     }
@@ -922,7 +922,7 @@ extension Ibc_Lightclients_Solomachine_V1_ClientStateData: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ClientStateData, rhs: Ibc_Lightclients_Solomachine_V1_ClientStateData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ClientStateData, rhs: Ibc_Lightclients_Solomachine_V1_ClientStateData) -> Bool {
     if lhs.path != rhs.path {return false}
     if lhs._clientState != rhs._clientState {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -931,13 +931,13 @@ extension Ibc_Lightclients_Solomachine_V1_ClientStateData: SwiftProtobuf.Message
 }
 
 extension Ibc_Lightclients_Solomachine_V1_ConsensusStateData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConsensusStateData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConsensusStateData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
     2: .standard(proto: "consensus_state"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -950,7 +950,7 @@ extension Ibc_Lightclients_Solomachine_V1_ConsensusStateData: SwiftProtobuf.Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.path.isEmpty {
       try visitor.visitSingularBytesField(value: self.path, fieldNumber: 1)
     }
@@ -960,7 +960,7 @@ extension Ibc_Lightclients_Solomachine_V1_ConsensusStateData: SwiftProtobuf.Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ConsensusStateData, rhs: Ibc_Lightclients_Solomachine_V1_ConsensusStateData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ConsensusStateData, rhs: Ibc_Lightclients_Solomachine_V1_ConsensusStateData) -> Bool {
     if lhs.path != rhs.path {return false}
     if lhs._consensusState != rhs._consensusState {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -969,13 +969,13 @@ extension Ibc_Lightclients_Solomachine_V1_ConsensusStateData: SwiftProtobuf.Mess
 }
 
 extension Ibc_Lightclients_Solomachine_V1_ConnectionStateData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConnectionStateData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConnectionStateData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
     2: .same(proto: "connection"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -988,7 +988,7 @@ extension Ibc_Lightclients_Solomachine_V1_ConnectionStateData: SwiftProtobuf.Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.path.isEmpty {
       try visitor.visitSingularBytesField(value: self.path, fieldNumber: 1)
     }
@@ -998,7 +998,7 @@ extension Ibc_Lightclients_Solomachine_V1_ConnectionStateData: SwiftProtobuf.Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ConnectionStateData, rhs: Ibc_Lightclients_Solomachine_V1_ConnectionStateData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ConnectionStateData, rhs: Ibc_Lightclients_Solomachine_V1_ConnectionStateData) -> Bool {
     if lhs.path != rhs.path {return false}
     if lhs._connection != rhs._connection {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1007,13 +1007,13 @@ extension Ibc_Lightclients_Solomachine_V1_ConnectionStateData: SwiftProtobuf.Mes
 }
 
 extension Ibc_Lightclients_Solomachine_V1_ChannelStateData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ChannelStateData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ChannelStateData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
     2: .same(proto: "channel"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1026,7 +1026,7 @@ extension Ibc_Lightclients_Solomachine_V1_ChannelStateData: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.path.isEmpty {
       try visitor.visitSingularBytesField(value: self.path, fieldNumber: 1)
     }
@@ -1036,7 +1036,7 @@ extension Ibc_Lightclients_Solomachine_V1_ChannelStateData: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ChannelStateData, rhs: Ibc_Lightclients_Solomachine_V1_ChannelStateData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_ChannelStateData, rhs: Ibc_Lightclients_Solomachine_V1_ChannelStateData) -> Bool {
     if lhs.path != rhs.path {return false}
     if lhs._channel != rhs._channel {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1045,13 +1045,13 @@ extension Ibc_Lightclients_Solomachine_V1_ChannelStateData: SwiftProtobuf.Messag
 }
 
 extension Ibc_Lightclients_Solomachine_V1_PacketCommitmentData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PacketCommitmentData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PacketCommitmentData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
     2: .same(proto: "commitment"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1064,7 +1064,7 @@ extension Ibc_Lightclients_Solomachine_V1_PacketCommitmentData: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.path.isEmpty {
       try visitor.visitSingularBytesField(value: self.path, fieldNumber: 1)
     }
@@ -1074,7 +1074,7 @@ extension Ibc_Lightclients_Solomachine_V1_PacketCommitmentData: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_PacketCommitmentData, rhs: Ibc_Lightclients_Solomachine_V1_PacketCommitmentData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_PacketCommitmentData, rhs: Ibc_Lightclients_Solomachine_V1_PacketCommitmentData) -> Bool {
     if lhs.path != rhs.path {return false}
     if lhs.commitment != rhs.commitment {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1083,13 +1083,13 @@ extension Ibc_Lightclients_Solomachine_V1_PacketCommitmentData: SwiftProtobuf.Me
 }
 
 extension Ibc_Lightclients_Solomachine_V1_PacketAcknowledgementData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PacketAcknowledgementData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PacketAcknowledgementData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
     2: .same(proto: "acknowledgement"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1102,7 +1102,7 @@ extension Ibc_Lightclients_Solomachine_V1_PacketAcknowledgementData: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.path.isEmpty {
       try visitor.visitSingularBytesField(value: self.path, fieldNumber: 1)
     }
@@ -1112,7 +1112,7 @@ extension Ibc_Lightclients_Solomachine_V1_PacketAcknowledgementData: SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_PacketAcknowledgementData, rhs: Ibc_Lightclients_Solomachine_V1_PacketAcknowledgementData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_PacketAcknowledgementData, rhs: Ibc_Lightclients_Solomachine_V1_PacketAcknowledgementData) -> Bool {
     if lhs.path != rhs.path {return false}
     if lhs.acknowledgement != rhs.acknowledgement {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1121,12 +1121,12 @@ extension Ibc_Lightclients_Solomachine_V1_PacketAcknowledgementData: SwiftProtob
 }
 
 extension Ibc_Lightclients_Solomachine_V1_PacketReceiptAbsenceData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PacketReceiptAbsenceData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PacketReceiptAbsenceData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1138,14 +1138,14 @@ extension Ibc_Lightclients_Solomachine_V1_PacketReceiptAbsenceData: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.path.isEmpty {
       try visitor.visitSingularBytesField(value: self.path, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_PacketReceiptAbsenceData, rhs: Ibc_Lightclients_Solomachine_V1_PacketReceiptAbsenceData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_PacketReceiptAbsenceData, rhs: Ibc_Lightclients_Solomachine_V1_PacketReceiptAbsenceData) -> Bool {
     if lhs.path != rhs.path {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1153,13 +1153,13 @@ extension Ibc_Lightclients_Solomachine_V1_PacketReceiptAbsenceData: SwiftProtobu
 }
 
 extension Ibc_Lightclients_Solomachine_V1_NextSequenceRecvData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NextSequenceRecvData"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NextSequenceRecvData"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "path"),
     2: .standard(proto: "next_seq_recv"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1172,7 +1172,7 @@ extension Ibc_Lightclients_Solomachine_V1_NextSequenceRecvData: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.path.isEmpty {
       try visitor.visitSingularBytesField(value: self.path, fieldNumber: 1)
     }
@@ -1182,7 +1182,7 @@ extension Ibc_Lightclients_Solomachine_V1_NextSequenceRecvData: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Lightclients_Solomachine_V1_NextSequenceRecvData, rhs: Ibc_Lightclients_Solomachine_V1_NextSequenceRecvData) -> Bool {
+  public static func ==(lhs: Ibc_Lightclients_Solomachine_V1_NextSequenceRecvData, rhs: Ibc_Lightclients_Solomachine_V1_NextSequenceRecvData) -> Bool {
     if lhs.path != rhs.path {return false}
     if lhs.nextSeqRecv != rhs.nextSeqRecv {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

@@ -21,327 +21,327 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// QueryParamsRequest is the request type for the Query/Params RPC method.
-struct Cosmos_Distribution_V1beta1_QueryParamsRequest {
+public struct Cosmos_Distribution_V1beta1_QueryParamsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryParamsResponse is the response type for the Query/Params RPC method.
-struct Cosmos_Distribution_V1beta1_QueryParamsResponse {
+public struct Cosmos_Distribution_V1beta1_QueryParamsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// params defines the parameters of the module.
-  var params: Cosmos_Distribution_V1beta1_Params {
+  public var params: Cosmos_Distribution_V1beta1_Params {
     get {return _params ?? Cosmos_Distribution_V1beta1_Params()}
     set {_params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  var hasParams: Bool {return self._params != nil}
+  public var hasParams: Bool {return self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {self._params = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _params: Cosmos_Distribution_V1beta1_Params? = nil
 }
 
 /// QueryValidatorOutstandingRewardsRequest is the request type for the
 /// Query/ValidatorOutstandingRewards RPC method.
-struct Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsRequest {
+public struct Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// validator_address defines the validator address to query for.
-  var validatorAddress: String = String()
+  public var validatorAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryValidatorOutstandingRewardsResponse is the response type for the
 /// Query/ValidatorOutstandingRewards RPC method.
-struct Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsResponse {
+public struct Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var rewards: Cosmos_Distribution_V1beta1_ValidatorOutstandingRewards {
+  public var rewards: Cosmos_Distribution_V1beta1_ValidatorOutstandingRewards {
     get {return _rewards ?? Cosmos_Distribution_V1beta1_ValidatorOutstandingRewards()}
     set {_rewards = newValue}
   }
   /// Returns true if `rewards` has been explicitly set.
-  var hasRewards: Bool {return self._rewards != nil}
+  public var hasRewards: Bool {return self._rewards != nil}
   /// Clears the value of `rewards`. Subsequent reads from it will return its default value.
-  mutating func clearRewards() {self._rewards = nil}
+  public mutating func clearRewards() {self._rewards = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _rewards: Cosmos_Distribution_V1beta1_ValidatorOutstandingRewards? = nil
 }
 
 /// QueryValidatorCommissionRequest is the request type for the
 /// Query/ValidatorCommission RPC method
-struct Cosmos_Distribution_V1beta1_QueryValidatorCommissionRequest {
+public struct Cosmos_Distribution_V1beta1_QueryValidatorCommissionRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// validator_address defines the validator address to query for.
-  var validatorAddress: String = String()
+  public var validatorAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryValidatorCommissionResponse is the response type for the
 /// Query/ValidatorCommission RPC method
-struct Cosmos_Distribution_V1beta1_QueryValidatorCommissionResponse {
+public struct Cosmos_Distribution_V1beta1_QueryValidatorCommissionResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// commission defines the commision the validator received.
-  var commission: Cosmos_Distribution_V1beta1_ValidatorAccumulatedCommission {
+  public var commission: Cosmos_Distribution_V1beta1_ValidatorAccumulatedCommission {
     get {return _commission ?? Cosmos_Distribution_V1beta1_ValidatorAccumulatedCommission()}
     set {_commission = newValue}
   }
   /// Returns true if `commission` has been explicitly set.
-  var hasCommission: Bool {return self._commission != nil}
+  public var hasCommission: Bool {return self._commission != nil}
   /// Clears the value of `commission`. Subsequent reads from it will return its default value.
-  mutating func clearCommission() {self._commission = nil}
+  public mutating func clearCommission() {self._commission = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _commission: Cosmos_Distribution_V1beta1_ValidatorAccumulatedCommission? = nil
 }
 
 /// QueryValidatorSlashesRequest is the request type for the
 /// Query/ValidatorSlashes RPC method
-struct Cosmos_Distribution_V1beta1_QueryValidatorSlashesRequest {
+public struct Cosmos_Distribution_V1beta1_QueryValidatorSlashesRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// validator_address defines the validator address to query for.
-  var validatorAddress: String = String()
+  public var validatorAddress: String = String()
 
   /// starting_height defines the optional starting height to query the slashes.
-  var startingHeight: UInt64 = 0
+  public var startingHeight: UInt64 = 0
 
   /// starting_height defines the optional ending height to query the slashes.
-  var endingHeight: UInt64 = 0
+  public var endingHeight: UInt64 = 0
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryValidatorSlashesResponse is the response type for the
 /// Query/ValidatorSlashes RPC method.
-struct Cosmos_Distribution_V1beta1_QueryValidatorSlashesResponse {
+public struct Cosmos_Distribution_V1beta1_QueryValidatorSlashesResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// slashes defines the slashes the validator received.
-  var slashes: [Cosmos_Distribution_V1beta1_ValidatorSlashEvent] = []
+  public var slashes: [Cosmos_Distribution_V1beta1_ValidatorSlashEvent] = []
 
   /// pagination defines the pagination in the response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// QueryDelegationRewardsRequest is the request type for the
 /// Query/DelegationRewards RPC method.
-struct Cosmos_Distribution_V1beta1_QueryDelegationRewardsRequest {
+public struct Cosmos_Distribution_V1beta1_QueryDelegationRewardsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// delegator_address defines the delegator address to query for.
-  var delegatorAddress: String = String()
+  public var delegatorAddress: String = String()
 
   /// validator_address defines the validator address to query for.
-  var validatorAddress: String = String()
+  public var validatorAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryDelegationRewardsResponse is the response type for the
 /// Query/DelegationRewards RPC method.
-struct Cosmos_Distribution_V1beta1_QueryDelegationRewardsResponse {
+public struct Cosmos_Distribution_V1beta1_QueryDelegationRewardsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// rewards defines the rewards accrued by a delegation.
-  var rewards: [Cosmos_Base_V1beta1_DecCoin] = []
+  public var rewards: [Cosmos_Base_V1beta1_DecCoin] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryDelegationTotalRewardsRequest is the request type for the
 /// Query/DelegationTotalRewards RPC method.
-struct Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsRequest {
+public struct Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// delegator_address defines the delegator address to query for.
-  var delegatorAddress: String = String()
+  public var delegatorAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryDelegationTotalRewardsResponse is the response type for the
 /// Query/DelegationTotalRewards RPC method.
-struct Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsResponse {
+public struct Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// rewards defines all the rewards accrued by a delegator.
-  var rewards: [Cosmos_Distribution_V1beta1_DelegationDelegatorReward] = []
+  public var rewards: [Cosmos_Distribution_V1beta1_DelegationDelegatorReward] = []
 
   /// total defines the sum of all the rewards.
-  var total: [Cosmos_Base_V1beta1_DecCoin] = []
+  public var total: [Cosmos_Base_V1beta1_DecCoin] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryDelegatorValidatorsRequest is the request type for the
 /// Query/DelegatorValidators RPC method.
-struct Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsRequest {
+public struct Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// delegator_address defines the delegator address to query for.
-  var delegatorAddress: String = String()
+  public var delegatorAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryDelegatorValidatorsResponse is the response type for the
 /// Query/DelegatorValidators RPC method.
-struct Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsResponse {
+public struct Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// validators defines the validators a delegator is delegating for.
-  var validators: [String] = []
+  public var validators: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryDelegatorWithdrawAddressRequest is the request type for the
 /// Query/DelegatorWithdrawAddress RPC method.
-struct Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressRequest {
+public struct Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// delegator_address defines the delegator address to query for.
-  var delegatorAddress: String = String()
+  public var delegatorAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryDelegatorWithdrawAddressResponse is the response type for the
 /// Query/DelegatorWithdrawAddress RPC method.
-struct Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressResponse {
+public struct Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// withdraw_address defines the delegator address to query for.
-  var withdrawAddress: String = String()
+  public var withdrawAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryCommunityPoolRequest is the request type for the Query/CommunityPool RPC
 /// method.
-struct Cosmos_Distribution_V1beta1_QueryCommunityPoolRequest {
+public struct Cosmos_Distribution_V1beta1_QueryCommunityPoolRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryCommunityPoolResponse is the response type for the Query/CommunityPool
 /// RPC method.
-struct Cosmos_Distribution_V1beta1_QueryCommunityPoolResponse {
+public struct Cosmos_Distribution_V1beta1_QueryCommunityPoolResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// pool defines community pool's coins.
-  var pool: [Cosmos_Base_V1beta1_DecCoin] = []
+  public var pool: [Cosmos_Base_V1beta1_DecCoin] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -349,31 +349,31 @@ struct Cosmos_Distribution_V1beta1_QueryCommunityPoolResponse {
 fileprivate let _protobuf_package = "cosmos.distribution.v1beta1"
 
 extension Cosmos_Distribution_V1beta1_QueryParamsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryParamsRequest, rhs: Cosmos_Distribution_V1beta1_QueryParamsRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryParamsRequest, rhs: Cosmos_Distribution_V1beta1_QueryParamsRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Cosmos_Distribution_V1beta1_QueryParamsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "params"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -385,14 +385,14 @@ extension Cosmos_Distribution_V1beta1_QueryParamsResponse: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._params {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryParamsResponse, rhs: Cosmos_Distribution_V1beta1_QueryParamsResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryParamsResponse, rhs: Cosmos_Distribution_V1beta1_QueryParamsResponse) -> Bool {
     if lhs._params != rhs._params {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -400,12 +400,12 @@ extension Cosmos_Distribution_V1beta1_QueryParamsResponse: SwiftProtobuf.Message
 }
 
 extension Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryValidatorOutstandingRewardsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryValidatorOutstandingRewardsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "validator_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -417,14 +417,14 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsRequest: S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.validatorAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.validatorAddress, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsRequest, rhs: Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsRequest, rhs: Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsRequest) -> Bool {
     if lhs.validatorAddress != rhs.validatorAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -432,12 +432,12 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsRequest: S
 }
 
 extension Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryValidatorOutstandingRewardsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryValidatorOutstandingRewardsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "rewards"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -449,14 +449,14 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsResponse: 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._rewards {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsResponse, rhs: Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsResponse, rhs: Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsResponse) -> Bool {
     if lhs._rewards != rhs._rewards {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -464,12 +464,12 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorOutstandingRewardsResponse: 
 }
 
 extension Cosmos_Distribution_V1beta1_QueryValidatorCommissionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryValidatorCommissionRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryValidatorCommissionRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "validator_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -481,14 +481,14 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorCommissionRequest: SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.validatorAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.validatorAddress, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorCommissionRequest, rhs: Cosmos_Distribution_V1beta1_QueryValidatorCommissionRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorCommissionRequest, rhs: Cosmos_Distribution_V1beta1_QueryValidatorCommissionRequest) -> Bool {
     if lhs.validatorAddress != rhs.validatorAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -496,12 +496,12 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorCommissionRequest: SwiftProt
 }
 
 extension Cosmos_Distribution_V1beta1_QueryValidatorCommissionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryValidatorCommissionResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryValidatorCommissionResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "commission"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -513,14 +513,14 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorCommissionResponse: SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._commission {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorCommissionResponse, rhs: Cosmos_Distribution_V1beta1_QueryValidatorCommissionResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorCommissionResponse, rhs: Cosmos_Distribution_V1beta1_QueryValidatorCommissionResponse) -> Bool {
     if lhs._commission != rhs._commission {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -528,15 +528,15 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorCommissionResponse: SwiftPro
 }
 
 extension Cosmos_Distribution_V1beta1_QueryValidatorSlashesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryValidatorSlashesRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryValidatorSlashesRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "validator_address"),
     2: .standard(proto: "starting_height"),
     3: .standard(proto: "ending_height"),
     4: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -551,7 +551,7 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorSlashesRequest: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.validatorAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.validatorAddress, fieldNumber: 1)
     }
@@ -567,7 +567,7 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorSlashesRequest: SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorSlashesRequest, rhs: Cosmos_Distribution_V1beta1_QueryValidatorSlashesRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorSlashesRequest, rhs: Cosmos_Distribution_V1beta1_QueryValidatorSlashesRequest) -> Bool {
     if lhs.validatorAddress != rhs.validatorAddress {return false}
     if lhs.startingHeight != rhs.startingHeight {return false}
     if lhs.endingHeight != rhs.endingHeight {return false}
@@ -578,13 +578,13 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorSlashesRequest: SwiftProtobu
 }
 
 extension Cosmos_Distribution_V1beta1_QueryValidatorSlashesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryValidatorSlashesResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryValidatorSlashesResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "slashes"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -597,7 +597,7 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorSlashesResponse: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.slashes.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.slashes, fieldNumber: 1)
     }
@@ -607,7 +607,7 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorSlashesResponse: SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorSlashesResponse, rhs: Cosmos_Distribution_V1beta1_QueryValidatorSlashesResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryValidatorSlashesResponse, rhs: Cosmos_Distribution_V1beta1_QueryValidatorSlashesResponse) -> Bool {
     if lhs.slashes != rhs.slashes {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -616,13 +616,13 @@ extension Cosmos_Distribution_V1beta1_QueryValidatorSlashesResponse: SwiftProtob
 }
 
 extension Cosmos_Distribution_V1beta1_QueryDelegationRewardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDelegationRewardsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDelegationRewardsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "delegator_address"),
     2: .standard(proto: "validator_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -635,7 +635,7 @@ extension Cosmos_Distribution_V1beta1_QueryDelegationRewardsRequest: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.delegatorAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.delegatorAddress, fieldNumber: 1)
     }
@@ -645,7 +645,7 @@ extension Cosmos_Distribution_V1beta1_QueryDelegationRewardsRequest: SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegationRewardsRequest, rhs: Cosmos_Distribution_V1beta1_QueryDelegationRewardsRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegationRewardsRequest, rhs: Cosmos_Distribution_V1beta1_QueryDelegationRewardsRequest) -> Bool {
     if lhs.delegatorAddress != rhs.delegatorAddress {return false}
     if lhs.validatorAddress != rhs.validatorAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -654,12 +654,12 @@ extension Cosmos_Distribution_V1beta1_QueryDelegationRewardsRequest: SwiftProtob
 }
 
 extension Cosmos_Distribution_V1beta1_QueryDelegationRewardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDelegationRewardsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDelegationRewardsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "rewards"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -671,14 +671,14 @@ extension Cosmos_Distribution_V1beta1_QueryDelegationRewardsResponse: SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.rewards.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.rewards, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegationRewardsResponse, rhs: Cosmos_Distribution_V1beta1_QueryDelegationRewardsResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegationRewardsResponse, rhs: Cosmos_Distribution_V1beta1_QueryDelegationRewardsResponse) -> Bool {
     if lhs.rewards != rhs.rewards {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -686,12 +686,12 @@ extension Cosmos_Distribution_V1beta1_QueryDelegationRewardsResponse: SwiftProto
 }
 
 extension Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDelegationTotalRewardsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDelegationTotalRewardsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "delegator_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -703,14 +703,14 @@ extension Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsRequest: SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.delegatorAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.delegatorAddress, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsRequest, rhs: Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsRequest, rhs: Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsRequest) -> Bool {
     if lhs.delegatorAddress != rhs.delegatorAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -718,13 +718,13 @@ extension Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsRequest: SwiftP
 }
 
 extension Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDelegationTotalRewardsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDelegationTotalRewardsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "rewards"),
     2: .same(proto: "total"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -737,7 +737,7 @@ extension Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsResponse: Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.rewards.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.rewards, fieldNumber: 1)
     }
@@ -747,7 +747,7 @@ extension Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsResponse: Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsResponse, rhs: Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsResponse, rhs: Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsResponse) -> Bool {
     if lhs.rewards != rhs.rewards {return false}
     if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -756,12 +756,12 @@ extension Cosmos_Distribution_V1beta1_QueryDelegationTotalRewardsResponse: Swift
 }
 
 extension Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDelegatorValidatorsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDelegatorValidatorsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "delegator_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -773,14 +773,14 @@ extension Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsRequest: SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.delegatorAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.delegatorAddress, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsRequest, rhs: Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsRequest, rhs: Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsRequest) -> Bool {
     if lhs.delegatorAddress != rhs.delegatorAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -788,12 +788,12 @@ extension Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsRequest: SwiftProt
 }
 
 extension Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDelegatorValidatorsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDelegatorValidatorsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "validators"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -805,14 +805,14 @@ extension Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsResponse: SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.validators.isEmpty {
       try visitor.visitRepeatedStringField(value: self.validators, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsResponse, rhs: Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsResponse, rhs: Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsResponse) -> Bool {
     if lhs.validators != rhs.validators {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -820,12 +820,12 @@ extension Cosmos_Distribution_V1beta1_QueryDelegatorValidatorsResponse: SwiftPro
 }
 
 extension Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDelegatorWithdrawAddressRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDelegatorWithdrawAddressRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "delegator_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -837,14 +837,14 @@ extension Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressRequest: Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.delegatorAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.delegatorAddress, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressRequest, rhs: Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressRequest, rhs: Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressRequest) -> Bool {
     if lhs.delegatorAddress != rhs.delegatorAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -852,12 +852,12 @@ extension Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressRequest: Swif
 }
 
 extension Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryDelegatorWithdrawAddressResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryDelegatorWithdrawAddressResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "withdraw_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -869,14 +869,14 @@ extension Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressResponse: Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.withdrawAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.withdrawAddress, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressResponse, rhs: Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressResponse, rhs: Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressResponse) -> Bool {
     if lhs.withdrawAddress != rhs.withdrawAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -884,31 +884,31 @@ extension Cosmos_Distribution_V1beta1_QueryDelegatorWithdrawAddressResponse: Swi
 }
 
 extension Cosmos_Distribution_V1beta1_QueryCommunityPoolRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryCommunityPoolRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".QueryCommunityPoolRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryCommunityPoolRequest, rhs: Cosmos_Distribution_V1beta1_QueryCommunityPoolRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryCommunityPoolRequest, rhs: Cosmos_Distribution_V1beta1_QueryCommunityPoolRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Cosmos_Distribution_V1beta1_QueryCommunityPoolResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryCommunityPoolResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryCommunityPoolResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "pool"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -920,14 +920,14 @@ extension Cosmos_Distribution_V1beta1_QueryCommunityPoolResponse: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.pool.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.pool, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_QueryCommunityPoolResponse, rhs: Cosmos_Distribution_V1beta1_QueryCommunityPoolResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_QueryCommunityPoolResponse, rhs: Cosmos_Distribution_V1beta1_QueryCommunityPoolResponse) -> Bool {
     if lhs.pool != rhs.pool {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

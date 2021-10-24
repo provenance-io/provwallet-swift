@@ -21,73 +21,73 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// GenesisState defines the ibc client submodule's genesis state.
-struct Ibc_Core_Client_V1_GenesisState {
+public struct Ibc_Core_Client_V1_GenesisState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// client states with their corresponding identifiers
-  var clients: [Ibc_Core_Client_V1_IdentifiedClientState] = []
+  public var clients: [Ibc_Core_Client_V1_IdentifiedClientState] = []
 
   /// consensus states from each client
-  var clientsConsensus: [Ibc_Core_Client_V1_ClientConsensusStates] = []
+  public var clientsConsensus: [Ibc_Core_Client_V1_ClientConsensusStates] = []
 
   /// metadata from each client
-  var clientsMetadata: [Ibc_Core_Client_V1_IdentifiedGenesisMetadata] = []
+  public var clientsMetadata: [Ibc_Core_Client_V1_IdentifiedGenesisMetadata] = []
 
-  var params: Ibc_Core_Client_V1_Params {
+  public var params: Ibc_Core_Client_V1_Params {
     get {return _params ?? Ibc_Core_Client_V1_Params()}
     set {_params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  var hasParams: Bool {return self._params != nil}
+  public var hasParams: Bool {return self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {self._params = nil}
 
   /// create localhost on initialization
-  var createLocalhost: Bool = false
+  public var createLocalhost: Bool = false
 
   /// the sequence for the next generated client identifier
-  var nextClientSequence: UInt64 = 0
+  public var nextClientSequence: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _params: Ibc_Core_Client_V1_Params? = nil
 }
 
 /// GenesisMetadata defines the genesis type for metadata that clients may return
 /// with ExportMetadata
-struct Ibc_Core_Client_V1_GenesisMetadata {
+public struct Ibc_Core_Client_V1_GenesisMetadata {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// store key of metadata without clientID-prefix
-  var key: Data = Data()
+  public var key: Data = Data()
 
   /// metadata value
-  var value: Data = Data()
+  public var value: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// IdentifiedGenesisMetadata has the client metadata with the corresponding client id.
-struct Ibc_Core_Client_V1_IdentifiedGenesisMetadata {
+public struct Ibc_Core_Client_V1_IdentifiedGenesisMetadata {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var clientID: String = String()
+  public var clientID: String = String()
 
-  var clientMetadata: [Ibc_Core_Client_V1_GenesisMetadata] = []
+  public var clientMetadata: [Ibc_Core_Client_V1_GenesisMetadata] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -95,8 +95,8 @@ struct Ibc_Core_Client_V1_IdentifiedGenesisMetadata {
 fileprivate let _protobuf_package = "ibc.core.client.v1"
 
 extension Ibc_Core_Client_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GenesisState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GenesisState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "clients"),
     2: .standard(proto: "clients_consensus"),
     3: .standard(proto: "clients_metadata"),
@@ -105,7 +105,7 @@ extension Ibc_Core_Client_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf.
     6: .standard(proto: "next_client_sequence"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -122,7 +122,7 @@ extension Ibc_Core_Client_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clients.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.clients, fieldNumber: 1)
     }
@@ -144,7 +144,7 @@ extension Ibc_Core_Client_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_GenesisState, rhs: Ibc_Core_Client_V1_GenesisState) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_GenesisState, rhs: Ibc_Core_Client_V1_GenesisState) -> Bool {
     if lhs.clients != rhs.clients {return false}
     if lhs.clientsConsensus != rhs.clientsConsensus {return false}
     if lhs.clientsMetadata != rhs.clientsMetadata {return false}
@@ -157,13 +157,13 @@ extension Ibc_Core_Client_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Ibc_Core_Client_V1_GenesisMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GenesisMetadata"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GenesisMetadata"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
     2: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -176,7 +176,7 @@ extension Ibc_Core_Client_V1_GenesisMetadata: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.key.isEmpty {
       try visitor.visitSingularBytesField(value: self.key, fieldNumber: 1)
     }
@@ -186,7 +186,7 @@ extension Ibc_Core_Client_V1_GenesisMetadata: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_GenesisMetadata, rhs: Ibc_Core_Client_V1_GenesisMetadata) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_GenesisMetadata, rhs: Ibc_Core_Client_V1_GenesisMetadata) -> Bool {
     if lhs.key != rhs.key {return false}
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -195,13 +195,13 @@ extension Ibc_Core_Client_V1_GenesisMetadata: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Ibc_Core_Client_V1_IdentifiedGenesisMetadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".IdentifiedGenesisMetadata"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".IdentifiedGenesisMetadata"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
     2: .standard(proto: "client_metadata"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -214,7 +214,7 @@ extension Ibc_Core_Client_V1_IdentifiedGenesisMetadata: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clientID.isEmpty {
       try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
     }
@@ -224,7 +224,7 @@ extension Ibc_Core_Client_V1_IdentifiedGenesisMetadata: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Client_V1_IdentifiedGenesisMetadata, rhs: Ibc_Core_Client_V1_IdentifiedGenesisMetadata) -> Bool {
+  public static func ==(lhs: Ibc_Core_Client_V1_IdentifiedGenesisMetadata, rhs: Ibc_Core_Client_V1_IdentifiedGenesisMetadata) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs.clientMetadata != rhs.clientMetadata {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

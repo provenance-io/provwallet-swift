@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// Access defines the different types of permissions that a marker supports granting to an address.
-enum Provenance_Marker_V1_Access: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Marker_V1_Access: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// ACCESS_UNSPECIFIED defines a no-op vote option.
   case unspecified // = 0
@@ -52,11 +52,11 @@ enum Provenance_Marker_V1_Access: SwiftProtobuf.Enum {
   case transfer // = 7
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .mint
@@ -70,7 +70,7 @@ enum Provenance_Marker_V1_Access: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .mint: return 1
@@ -90,7 +90,7 @@ enum Provenance_Marker_V1_Access: SwiftProtobuf.Enum {
 
 extension Provenance_Marker_V1_Access: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Marker_V1_Access] = [
+  public static var allCases: [Provenance_Marker_V1_Access] = [
     .unspecified,
     .mint,
     .burn,
@@ -105,18 +105,18 @@ extension Provenance_Marker_V1_Access: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// AccessGrant associates a colelction of permisssions with an address for delegated marker account control.
-struct Provenance_Marker_V1_AccessGrant {
+public struct Provenance_Marker_V1_AccessGrant {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var address: String = String()
+  public var address: String = String()
 
-  var permissions: [Provenance_Marker_V1_Access] = []
+  public var permissions: [Provenance_Marker_V1_Access] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -124,7 +124,7 @@ struct Provenance_Marker_V1_AccessGrant {
 fileprivate let _protobuf_package = "provenance.marker.v1"
 
 extension Provenance_Marker_V1_Access: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ACCESS_UNSPECIFIED"),
     1: .same(proto: "ACCESS_MINT"),
     2: .same(proto: "ACCESS_BURN"),
@@ -137,13 +137,13 @@ extension Provenance_Marker_V1_Access: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Provenance_Marker_V1_AccessGrant: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AccessGrant"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AccessGrant"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .same(proto: "permissions"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -156,7 +156,7 @@ extension Provenance_Marker_V1_AccessGrant: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -166,7 +166,7 @@ extension Provenance_Marker_V1_AccessGrant: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_AccessGrant, rhs: Provenance_Marker_V1_AccessGrant) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_AccessGrant, rhs: Provenance_Marker_V1_AccessGrant) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.permissions != rhs.permissions {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

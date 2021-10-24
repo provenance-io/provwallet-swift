@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Contract_ExecutionResultType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Contract_ExecutionResultType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case resultTypeUnknown // = 0
   case resultTypePass // = 1
 
@@ -30,11 +30,11 @@ enum Contract_ExecutionResultType: SwiftProtobuf.Enum {
   case resultTypeFail // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .resultTypeUnknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .resultTypeUnknown
     case 1: self = .resultTypePass
@@ -44,7 +44,7 @@ enum Contract_ExecutionResultType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .resultTypeUnknown: return 0
     case .resultTypePass: return 1
@@ -60,7 +60,7 @@ enum Contract_ExecutionResultType: SwiftProtobuf.Enum {
 
 extension Contract_ExecutionResultType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Contract_ExecutionResultType] = [
+  public static var allCases: [Contract_ExecutionResultType] = [
     .resultTypeUnknown,
     .resultTypePass,
     .resultTypeSkip,
@@ -70,228 +70,228 @@ extension Contract_ExecutionResultType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct Contract_Recital {
+public struct Contract_Recital {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var signerRole: Types_PartyType = .unknown
+  public var signerRole: Types_PartyType = .unknown
 
-  var signer: Types_SigningAndEncryptionPublicKeys {
+  public var signer: Types_SigningAndEncryptionPublicKeys {
     get {return _signer ?? Types_SigningAndEncryptionPublicKeys()}
     set {_signer = newValue}
   }
   /// Returns true if `signer` has been explicitly set.
-  var hasSigner: Bool {return self._signer != nil}
+  public var hasSigner: Bool {return self._signer != nil}
   /// Clears the value of `signer`. Subsequent reads from it will return its default value.
-  mutating func clearSigner() {self._signer = nil}
+  public mutating func clearSigner() {self._signer = nil}
 
-  var address: Data = Data()
+  public var address: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _signer: Types_SigningAndEncryptionPublicKeys? = nil
 }
 
-struct Contract_Recitals {
+public struct Contract_Recitals {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var parties: [Contract_Recital] = []
+  public var parties: [Contract_Recital] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Contract_Contract {
+public struct Contract_Contract {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var definition: Spec_DefinitionSpec {
+  public var definition: Spec_DefinitionSpec {
     get {return _storage._definition ?? Spec_DefinitionSpec()}
     set {_uniqueStorage()._definition = newValue}
   }
   /// Returns true if `definition` has been explicitly set.
-  var hasDefinition: Bool {return _storage._definition != nil}
+  public var hasDefinition: Bool {return _storage._definition != nil}
   /// Clears the value of `definition`. Subsequent reads from it will return its default value.
-  mutating func clearDefinition() {_uniqueStorage()._definition = nil}
+  public mutating func clearDefinition() {_uniqueStorage()._definition = nil}
 
   /// Points to the proto for the contractSpec
-  var spec: Types_Fact {
+  public var spec: Types_Fact {
     get {return _storage._spec ?? Types_Fact()}
     set {_uniqueStorage()._spec = newValue}
   }
   /// Returns true if `spec` has been explicitly set.
-  var hasSpec: Bool {return _storage._spec != nil}
+  public var hasSpec: Bool {return _storage._spec != nil}
   /// Clears the value of `spec`. Subsequent reads from it will return its default value.
-  mutating func clearSpec() {_uniqueStorage()._spec = nil}
+  public mutating func clearSpec() {_uniqueStorage()._spec = nil}
 
   /// Invoker of this contract
-  var invoker: Types_SigningAndEncryptionPublicKeys {
+  public var invoker: Types_SigningAndEncryptionPublicKeys {
     get {return _storage._invoker ?? Types_SigningAndEncryptionPublicKeys()}
     set {_uniqueStorage()._invoker = newValue}
   }
   /// Returns true if `invoker` has been explicitly set.
-  var hasInvoker: Bool {return _storage._invoker != nil}
+  public var hasInvoker: Bool {return _storage._invoker != nil}
   /// Clears the value of `invoker`. Subsequent reads from it will return its default value.
-  mutating func clearInvoker() {_uniqueStorage()._invoker = nil}
+  public mutating func clearInvoker() {_uniqueStorage()._invoker = nil}
 
   /// Constructor arguments.
   /// These are always the output of a previously recorded consideration.
-  var inputs: [Types_Fact] {
+  public var inputs: [Types_Fact] {
     get {return _storage._inputs}
     set {_uniqueStorage()._inputs = newValue}
   }
 
-  var conditions: [Contract_Condition] {
+  public var conditions: [Contract_Condition] {
     get {return _storage._conditions}
     set {_uniqueStorage()._conditions = newValue}
   }
 
-  var considerations: [Contract_Consideration] {
+  public var considerations: [Contract_Consideration] {
     get {return _storage._considerations}
     set {_uniqueStorage()._considerations = newValue}
   }
 
-  var recitals: [Contract_Recital] {
+  public var recitals: [Contract_Recital] {
     get {return _storage._recitals}
     set {_uniqueStorage()._recitals = newValue}
   }
 
-  var timesExecuted: Int32 {
+  public var timesExecuted: Int32 {
     get {return _storage._timesExecuted}
     set {_uniqueStorage()._timesExecuted = newValue}
   }
 
   /// This is only set once when the contract is initially executed
-  var startTime: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var startTime: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _storage._startTime ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_uniqueStorage()._startTime = newValue}
   }
   /// Returns true if `startTime` has been explicitly set.
-  var hasStartTime: Bool {return _storage._startTime != nil}
+  public var hasStartTime: Bool {return _storage._startTime != nil}
   /// Clears the value of `startTime`. Subsequent reads from it will return its default value.
-  mutating func clearStartTime() {_uniqueStorage()._startTime = nil}
+  public mutating func clearStartTime() {_uniqueStorage()._startTime = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Contract_Condition {
+public struct Contract_Condition {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var conditionName: String = String()
+  public var conditionName: String = String()
 
-  var result: Contract_ExecutionResult {
+  public var result: Contract_ExecutionResult {
     get {return _result ?? Contract_ExecutionResult()}
     set {_result = newValue}
   }
   /// Returns true if `result` has been explicitly set.
-  var hasResult: Bool {return self._result != nil}
+  public var hasResult: Bool {return self._result != nil}
   /// Clears the value of `result`. Subsequent reads from it will return its default value.
-  mutating func clearResult() {self._result = nil}
+  public mutating func clearResult() {self._result = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _result: Contract_ExecutionResult? = nil
 }
 
-struct Contract_Consideration {
+public struct Contract_Consideration {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var considerationName: String = String()
+  public var considerationName: String = String()
 
   /// Data pushed to a consideration that will ultimately match the output_spec of the consideration
-  var inputs: [Contract_ProposedFact] = []
+  public var inputs: [Contract_ProposedFact] = []
 
-  var result: Contract_ExecutionResult {
+  public var result: Contract_ExecutionResult {
     get {return _result ?? Contract_ExecutionResult()}
     set {_result = newValue}
   }
   /// Returns true if `result` has been explicitly set.
-  var hasResult: Bool {return self._result != nil}
+  public var hasResult: Bool {return self._result != nil}
   /// Clears the value of `result`. Subsequent reads from it will return its default value.
-  mutating func clearResult() {self._result = nil}
+  public mutating func clearResult() {self._result = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _result: Contract_ExecutionResult? = nil
 }
 
 /// Input to a consideration defined at runtime, and emitted as a proposed fact for inclusion on the blockchain.
-struct Contract_ProposedFact {
+public struct Contract_ProposedFact {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var hash: String = String()
+  public var hash: String = String()
 
-  var classname: String = String()
+  public var classname: String = String()
 
-  var ancestor: Types_ProvenanceReference {
+  public var ancestor: Types_ProvenanceReference {
     get {return _ancestor ?? Types_ProvenanceReference()}
     set {_ancestor = newValue}
   }
   /// Returns true if `ancestor` has been explicitly set.
-  var hasAncestor: Bool {return self._ancestor != nil}
+  public var hasAncestor: Bool {return self._ancestor != nil}
   /// Clears the value of `ancestor`. Subsequent reads from it will return its default value.
-  mutating func clearAncestor() {self._ancestor = nil}
+  public mutating func clearAncestor() {self._ancestor = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _ancestor: Types_ProvenanceReference? = nil
 }
 
-struct Contract_ExecutionResult {
+public struct Contract_ExecutionResult {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var output: Contract_ProposedFact {
+  public var output: Contract_ProposedFact {
     get {return _output ?? Contract_ProposedFact()}
     set {_output = newValue}
   }
   /// Returns true if `output` has been explicitly set.
-  var hasOutput: Bool {return self._output != nil}
+  public var hasOutput: Bool {return self._output != nil}
   /// Clears the value of `output`. Subsequent reads from it will return its default value.
-  mutating func clearOutput() {self._output = nil}
+  public mutating func clearOutput() {self._output = nil}
 
-  var result: Contract_ExecutionResultType = .resultTypeUnknown
+  public var result: Contract_ExecutionResultType = .resultTypeUnknown
 
-  var recordedAt: SwiftProtobuf.Google_Protobuf_Timestamp {
+  public var recordedAt: SwiftProtobuf.Google_Protobuf_Timestamp {
     get {return _recordedAt ?? SwiftProtobuf.Google_Protobuf_Timestamp()}
     set {_recordedAt = newValue}
   }
   /// Returns true if `recordedAt` has been explicitly set.
-  var hasRecordedAt: Bool {return self._recordedAt != nil}
+  public var hasRecordedAt: Bool {return self._recordedAt != nil}
   /// Clears the value of `recordedAt`. Subsequent reads from it will return its default value.
-  mutating func clearRecordedAt() {self._recordedAt = nil}
+  public mutating func clearRecordedAt() {self._recordedAt = nil}
 
-  var errorMessage: String = String()
+  public var errorMessage: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _output: Contract_ProposedFact? = nil
   fileprivate var _recordedAt: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
@@ -302,7 +302,7 @@ struct Contract_ExecutionResult {
 fileprivate let _protobuf_package = "contract"
 
 extension Contract_ExecutionResultType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "RESULT_TYPE_UNKNOWN"),
     1: .same(proto: "RESULT_TYPE_PASS"),
     2: .same(proto: "RESULT_TYPE_SKIP"),
@@ -311,14 +311,14 @@ extension Contract_ExecutionResultType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Contract_Recital: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Recital"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Recital"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "signer_role"),
     2: .same(proto: "signer"),
     3: .same(proto: "address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -332,7 +332,7 @@ extension Contract_Recital: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.signerRole != .unknown {
       try visitor.visitSingularEnumField(value: self.signerRole, fieldNumber: 1)
     }
@@ -345,7 +345,7 @@ extension Contract_Recital: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Contract_Recital, rhs: Contract_Recital) -> Bool {
+  public static func ==(lhs: Contract_Recital, rhs: Contract_Recital) -> Bool {
     if lhs.signerRole != rhs.signerRole {return false}
     if lhs._signer != rhs._signer {return false}
     if lhs.address != rhs.address {return false}
@@ -355,12 +355,12 @@ extension Contract_Recital: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
 }
 
 extension Contract_Recitals: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Recitals"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Recitals"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "parties"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -372,14 +372,14 @@ extension Contract_Recitals: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.parties.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.parties, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Contract_Recitals, rhs: Contract_Recitals) -> Bool {
+  public static func ==(lhs: Contract_Recitals, rhs: Contract_Recitals) -> Bool {
     if lhs.parties != rhs.parties {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -387,8 +387,8 @@ extension Contract_Recitals: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Contract_Contract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Contract"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Contract"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "definition"),
     2: .same(proto: "spec"),
     3: .same(proto: "invoker"),
@@ -435,7 +435,7 @@ extension Contract_Contract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -458,7 +458,7 @@ extension Contract_Contract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._definition {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -491,7 +491,7 @@ extension Contract_Contract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Contract_Contract, rhs: Contract_Contract) -> Bool {
+  public static func ==(lhs: Contract_Contract, rhs: Contract_Contract) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -515,13 +515,13 @@ extension Contract_Contract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Contract_Condition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Condition"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Condition"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "condition_name"),
     2: .same(proto: "result"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -534,7 +534,7 @@ extension Contract_Condition: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.conditionName.isEmpty {
       try visitor.visitSingularStringField(value: self.conditionName, fieldNumber: 1)
     }
@@ -544,7 +544,7 @@ extension Contract_Condition: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Contract_Condition, rhs: Contract_Condition) -> Bool {
+  public static func ==(lhs: Contract_Condition, rhs: Contract_Condition) -> Bool {
     if lhs.conditionName != rhs.conditionName {return false}
     if lhs._result != rhs._result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -553,14 +553,14 @@ extension Contract_Condition: SwiftProtobuf.Message, SwiftProtobuf._MessageImple
 }
 
 extension Contract_Consideration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Consideration"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Consideration"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "consideration_name"),
     2: .same(proto: "inputs"),
     3: .same(proto: "result"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -574,7 +574,7 @@ extension Contract_Consideration: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.considerationName.isEmpty {
       try visitor.visitSingularStringField(value: self.considerationName, fieldNumber: 1)
     }
@@ -587,7 +587,7 @@ extension Contract_Consideration: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Contract_Consideration, rhs: Contract_Consideration) -> Bool {
+  public static func ==(lhs: Contract_Consideration, rhs: Contract_Consideration) -> Bool {
     if lhs.considerationName != rhs.considerationName {return false}
     if lhs.inputs != rhs.inputs {return false}
     if lhs._result != rhs._result {return false}
@@ -597,15 +597,15 @@ extension Contract_Consideration: SwiftProtobuf.Message, SwiftProtobuf._MessageI
 }
 
 extension Contract_ProposedFact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ProposedFact"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ProposedFact"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "hash"),
     3: .same(proto: "classname"),
     4: .same(proto: "ancestor"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -620,7 +620,7 @@ extension Contract_ProposedFact: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -636,7 +636,7 @@ extension Contract_ProposedFact: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Contract_ProposedFact, rhs: Contract_ProposedFact) -> Bool {
+  public static func ==(lhs: Contract_ProposedFact, rhs: Contract_ProposedFact) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.hash != rhs.hash {return false}
     if lhs.classname != rhs.classname {return false}
@@ -647,15 +647,15 @@ extension Contract_ProposedFact: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Contract_ExecutionResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ExecutionResult"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ExecutionResult"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "output"),
     2: .same(proto: "result"),
     3: .standard(proto: "recorded_at"),
     4: .standard(proto: "error_message"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -670,7 +670,7 @@ extension Contract_ExecutionResult: SwiftProtobuf.Message, SwiftProtobuf._Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._output {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -686,7 +686,7 @@ extension Contract_ExecutionResult: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Contract_ExecutionResult, rhs: Contract_ExecutionResult) -> Bool {
+  public static func ==(lhs: Contract_ExecutionResult, rhs: Contract_ExecutionResult) -> Bool {
     if lhs._output != rhs._output {return false}
     if lhs.result != rhs.result {return false}
     if lhs._recordedAt != rhs._recordedAt {return false}

@@ -73,24 +73,24 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///
 /// Use of this type only changes how the request and response bodies are
 /// handled, all other features will continue to work unchanged.
-struct Google_Api_HttpBody {
+public struct Google_Api_HttpBody {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The HTTP Content-Type header value specifying the content type of the body.
-  var contentType: String = String()
+  public var contentType: String = String()
 
   /// The HTTP request/response body as raw binary.
-  var data: Data = Data()
+  public var data: Data = Data()
 
   /// Application specific response metadata. Must be set in the first response
   /// for streaming APIs.
-  var extensions: [SwiftProtobuf.Google_Protobuf_Any] = []
+  public var extensions: [SwiftProtobuf.Google_Protobuf_Any] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -98,14 +98,14 @@ struct Google_Api_HttpBody {
 fileprivate let _protobuf_package = "google.api"
 
 extension Google_Api_HttpBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".HttpBody"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".HttpBody"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "content_type"),
     2: .same(proto: "data"),
     3: .same(proto: "extensions"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -119,7 +119,7 @@ extension Google_Api_HttpBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.contentType.isEmpty {
       try visitor.visitSingularStringField(value: self.contentType, fieldNumber: 1)
     }
@@ -132,7 +132,7 @@ extension Google_Api_HttpBody: SwiftProtobuf.Message, SwiftProtobuf._MessageImpl
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Google_Api_HttpBody, rhs: Google_Api_HttpBody) -> Bool {
+  public static func ==(lhs: Google_Api_HttpBody, rhs: Google_Api_HttpBody) -> Bool {
     if lhs.contentType != rhs.contentType {return false}
     if lhs.data != rhs.data {return false}
     if lhs.extensions != rhs.extensions {return false}

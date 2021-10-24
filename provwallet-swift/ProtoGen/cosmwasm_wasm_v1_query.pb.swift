@@ -22,370 +22,370 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// QueryContractInfoRequest is the request type for the Query/ContractInfo RPC
 /// method
-struct Cosmwasm_Wasm_V1_QueryContractInfoRequest {
+public struct Cosmwasm_Wasm_V1_QueryContractInfoRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// address is the address of the contract to query
-  var address: String = String()
+  public var address: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryContractInfoResponse is the response type for the Query/ContractInfo RPC
 /// method
-struct Cosmwasm_Wasm_V1_QueryContractInfoResponse {
+public struct Cosmwasm_Wasm_V1_QueryContractInfoResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// address is the address of the contract
-  var address: String = String()
+  public var address: String = String()
 
-  var contractInfo: Cosmwasm_Wasm_V1_ContractInfo {
+  public var contractInfo: Cosmwasm_Wasm_V1_ContractInfo {
     get {return _contractInfo ?? Cosmwasm_Wasm_V1_ContractInfo()}
     set {_contractInfo = newValue}
   }
   /// Returns true if `contractInfo` has been explicitly set.
-  var hasContractInfo: Bool {return self._contractInfo != nil}
+  public var hasContractInfo: Bool {return self._contractInfo != nil}
   /// Clears the value of `contractInfo`. Subsequent reads from it will return its default value.
-  mutating func clearContractInfo() {self._contractInfo = nil}
+  public mutating func clearContractInfo() {self._contractInfo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _contractInfo: Cosmwasm_Wasm_V1_ContractInfo? = nil
 }
 
 /// QueryContractHistoryRequest is the request type for the Query/ContractHistory
 /// RPC method
-struct Cosmwasm_Wasm_V1_QueryContractHistoryRequest {
+public struct Cosmwasm_Wasm_V1_QueryContractHistoryRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// address is the address of the contract to query
-  var address: String = String()
+  public var address: String = String()
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryContractHistoryResponse is the response type for the
 /// Query/ContractHistory RPC method
-struct Cosmwasm_Wasm_V1_QueryContractHistoryResponse {
+public struct Cosmwasm_Wasm_V1_QueryContractHistoryResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var entries: [Cosmwasm_Wasm_V1_ContractCodeHistoryEntry] = []
+  public var entries: [Cosmwasm_Wasm_V1_ContractCodeHistoryEntry] = []
 
   /// pagination defines the pagination in the response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// QueryContractsByCodeRequest is the request type for the Query/ContractsByCode
 /// RPC method
-struct Cosmwasm_Wasm_V1_QueryContractsByCodeRequest {
+public struct Cosmwasm_Wasm_V1_QueryContractsByCodeRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// grpc-gateway_out does not support Go style CodID
-  var codeID: UInt64 = 0
+  public var codeID: UInt64 = 0
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryContractsByCodeResponse is the response type for the
 /// Query/ContractsByCode RPC method
-struct Cosmwasm_Wasm_V1_QueryContractsByCodeResponse {
+public struct Cosmwasm_Wasm_V1_QueryContractsByCodeResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// contracts are a set of contract addresses
-  var contracts: [String] = []
+  public var contracts: [String] = []
 
   /// pagination defines the pagination in the response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// QueryAllContractStateRequest is the request type for the
 /// Query/AllContractState RPC method
-struct Cosmwasm_Wasm_V1_QueryAllContractStateRequest {
+public struct Cosmwasm_Wasm_V1_QueryAllContractStateRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// address is the address of the contract
-  var address: String = String()
+  public var address: String = String()
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryAllContractStateResponse is the response type for the
 /// Query/AllContractState RPC method
-struct Cosmwasm_Wasm_V1_QueryAllContractStateResponse {
+public struct Cosmwasm_Wasm_V1_QueryAllContractStateResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var models: [Cosmwasm_Wasm_V1_Model] = []
+  public var models: [Cosmwasm_Wasm_V1_Model] = []
 
   /// pagination defines the pagination in the response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// QueryRawContractStateRequest is the request type for the
 /// Query/RawContractState RPC method
-struct Cosmwasm_Wasm_V1_QueryRawContractStateRequest {
+public struct Cosmwasm_Wasm_V1_QueryRawContractStateRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// address is the address of the contract
-  var address: String = String()
+  public var address: String = String()
 
-  var queryData: Data = Data()
+  public var queryData: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryRawContractStateResponse is the response type for the
 /// Query/RawContractState RPC method
-struct Cosmwasm_Wasm_V1_QueryRawContractStateResponse {
+public struct Cosmwasm_Wasm_V1_QueryRawContractStateResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Data contains the raw store data
-  var data: Data = Data()
+  public var data: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QuerySmartContractStateRequest is the request type for the
 /// Query/SmartContractState RPC method
-struct Cosmwasm_Wasm_V1_QuerySmartContractStateRequest {
+public struct Cosmwasm_Wasm_V1_QuerySmartContractStateRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// address is the address of the contract
-  var address: String = String()
+  public var address: String = String()
 
   /// QueryData contains the query data passed to the contract
-  var queryData: Data = Data()
+  public var queryData: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QuerySmartContractStateResponse is the response type for the
 /// Query/SmartContractState RPC method
-struct Cosmwasm_Wasm_V1_QuerySmartContractStateResponse {
+public struct Cosmwasm_Wasm_V1_QuerySmartContractStateResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Data contains the json data returned from the smart contract
-  var data: Data = Data()
+  public var data: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryCodeRequest is the request type for the Query/Code RPC method
-struct Cosmwasm_Wasm_V1_QueryCodeRequest {
+public struct Cosmwasm_Wasm_V1_QueryCodeRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// grpc-gateway_out does not support Go style CodID
-  var codeID: UInt64 = 0
+  public var codeID: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// CodeInfoResponse contains code meta data from CodeInfo
-struct Cosmwasm_Wasm_V1_CodeInfoResponse {
+public struct Cosmwasm_Wasm_V1_CodeInfoResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// id for legacy support
-  var codeID: UInt64 = 0
+  public var codeID: UInt64 = 0
 
-  var creator: String = String()
+  public var creator: String = String()
 
-  var dataHash: Data = Data()
+  public var dataHash: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryCodeResponse is the response type for the Query/Code RPC method
-struct Cosmwasm_Wasm_V1_QueryCodeResponse {
+public struct Cosmwasm_Wasm_V1_QueryCodeResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var codeInfo: Cosmwasm_Wasm_V1_CodeInfoResponse {
+  public var codeInfo: Cosmwasm_Wasm_V1_CodeInfoResponse {
     get {return _codeInfo ?? Cosmwasm_Wasm_V1_CodeInfoResponse()}
     set {_codeInfo = newValue}
   }
   /// Returns true if `codeInfo` has been explicitly set.
-  var hasCodeInfo: Bool {return self._codeInfo != nil}
+  public var hasCodeInfo: Bool {return self._codeInfo != nil}
   /// Clears the value of `codeInfo`. Subsequent reads from it will return its default value.
-  mutating func clearCodeInfo() {self._codeInfo = nil}
+  public mutating func clearCodeInfo() {self._codeInfo = nil}
 
-  var data: Data = Data()
+  public var data: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _codeInfo: Cosmwasm_Wasm_V1_CodeInfoResponse? = nil
 }
 
 /// QueryCodesRequest is the request type for the Query/Codes RPC method
-struct Cosmwasm_Wasm_V1_QueryCodesRequest {
+public struct Cosmwasm_Wasm_V1_QueryCodesRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryCodesResponse is the response type for the Query/Codes RPC method
-struct Cosmwasm_Wasm_V1_QueryCodesResponse {
+public struct Cosmwasm_Wasm_V1_QueryCodesResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var codeInfos: [Cosmwasm_Wasm_V1_CodeInfoResponse] = []
+  public var codeInfos: [Cosmwasm_Wasm_V1_CodeInfoResponse] = []
 
   /// pagination defines the pagination in the response.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
@@ -395,12 +395,12 @@ struct Cosmwasm_Wasm_V1_QueryCodesResponse {
 fileprivate let _protobuf_package = "cosmwasm.wasm.v1"
 
 extension Cosmwasm_Wasm_V1_QueryContractInfoRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryContractInfoRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryContractInfoRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -412,14 +412,14 @@ extension Cosmwasm_Wasm_V1_QueryContractInfoRequest: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractInfoRequest, rhs: Cosmwasm_Wasm_V1_QueryContractInfoRequest) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractInfoRequest, rhs: Cosmwasm_Wasm_V1_QueryContractInfoRequest) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -427,13 +427,13 @@ extension Cosmwasm_Wasm_V1_QueryContractInfoRequest: SwiftProtobuf.Message, Swif
 }
 
 extension Cosmwasm_Wasm_V1_QueryContractInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryContractInfoResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryContractInfoResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .standard(proto: "contract_info"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -446,7 +446,7 @@ extension Cosmwasm_Wasm_V1_QueryContractInfoResponse: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -456,7 +456,7 @@ extension Cosmwasm_Wasm_V1_QueryContractInfoResponse: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractInfoResponse, rhs: Cosmwasm_Wasm_V1_QueryContractInfoResponse) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractInfoResponse, rhs: Cosmwasm_Wasm_V1_QueryContractInfoResponse) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs._contractInfo != rhs._contractInfo {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -465,13 +465,13 @@ extension Cosmwasm_Wasm_V1_QueryContractInfoResponse: SwiftProtobuf.Message, Swi
 }
 
 extension Cosmwasm_Wasm_V1_QueryContractHistoryRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryContractHistoryRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryContractHistoryRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -484,7 +484,7 @@ extension Cosmwasm_Wasm_V1_QueryContractHistoryRequest: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -494,7 +494,7 @@ extension Cosmwasm_Wasm_V1_QueryContractHistoryRequest: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractHistoryRequest, rhs: Cosmwasm_Wasm_V1_QueryContractHistoryRequest) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractHistoryRequest, rhs: Cosmwasm_Wasm_V1_QueryContractHistoryRequest) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -503,13 +503,13 @@ extension Cosmwasm_Wasm_V1_QueryContractHistoryRequest: SwiftProtobuf.Message, S
 }
 
 extension Cosmwasm_Wasm_V1_QueryContractHistoryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryContractHistoryResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryContractHistoryResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "entries"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -522,7 +522,7 @@ extension Cosmwasm_Wasm_V1_QueryContractHistoryResponse: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.entries.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.entries, fieldNumber: 1)
     }
@@ -532,7 +532,7 @@ extension Cosmwasm_Wasm_V1_QueryContractHistoryResponse: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractHistoryResponse, rhs: Cosmwasm_Wasm_V1_QueryContractHistoryResponse) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractHistoryResponse, rhs: Cosmwasm_Wasm_V1_QueryContractHistoryResponse) -> Bool {
     if lhs.entries != rhs.entries {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -541,13 +541,13 @@ extension Cosmwasm_Wasm_V1_QueryContractHistoryResponse: SwiftProtobuf.Message, 
 }
 
 extension Cosmwasm_Wasm_V1_QueryContractsByCodeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryContractsByCodeRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryContractsByCodeRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "code_id"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -560,7 +560,7 @@ extension Cosmwasm_Wasm_V1_QueryContractsByCodeRequest: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.codeID != 0 {
       try visitor.visitSingularUInt64Field(value: self.codeID, fieldNumber: 1)
     }
@@ -570,7 +570,7 @@ extension Cosmwasm_Wasm_V1_QueryContractsByCodeRequest: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractsByCodeRequest, rhs: Cosmwasm_Wasm_V1_QueryContractsByCodeRequest) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractsByCodeRequest, rhs: Cosmwasm_Wasm_V1_QueryContractsByCodeRequest) -> Bool {
     if lhs.codeID != rhs.codeID {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -579,13 +579,13 @@ extension Cosmwasm_Wasm_V1_QueryContractsByCodeRequest: SwiftProtobuf.Message, S
 }
 
 extension Cosmwasm_Wasm_V1_QueryContractsByCodeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryContractsByCodeResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryContractsByCodeResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "contracts"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -598,7 +598,7 @@ extension Cosmwasm_Wasm_V1_QueryContractsByCodeResponse: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.contracts.isEmpty {
       try visitor.visitRepeatedStringField(value: self.contracts, fieldNumber: 1)
     }
@@ -608,7 +608,7 @@ extension Cosmwasm_Wasm_V1_QueryContractsByCodeResponse: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractsByCodeResponse, rhs: Cosmwasm_Wasm_V1_QueryContractsByCodeResponse) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryContractsByCodeResponse, rhs: Cosmwasm_Wasm_V1_QueryContractsByCodeResponse) -> Bool {
     if lhs.contracts != rhs.contracts {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -617,13 +617,13 @@ extension Cosmwasm_Wasm_V1_QueryContractsByCodeResponse: SwiftProtobuf.Message, 
 }
 
 extension Cosmwasm_Wasm_V1_QueryAllContractStateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryAllContractStateRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryAllContractStateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -636,7 +636,7 @@ extension Cosmwasm_Wasm_V1_QueryAllContractStateRequest: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -646,7 +646,7 @@ extension Cosmwasm_Wasm_V1_QueryAllContractStateRequest: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryAllContractStateRequest, rhs: Cosmwasm_Wasm_V1_QueryAllContractStateRequest) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryAllContractStateRequest, rhs: Cosmwasm_Wasm_V1_QueryAllContractStateRequest) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -655,13 +655,13 @@ extension Cosmwasm_Wasm_V1_QueryAllContractStateRequest: SwiftProtobuf.Message, 
 }
 
 extension Cosmwasm_Wasm_V1_QueryAllContractStateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryAllContractStateResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryAllContractStateResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "models"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -674,7 +674,7 @@ extension Cosmwasm_Wasm_V1_QueryAllContractStateResponse: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.models.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.models, fieldNumber: 1)
     }
@@ -684,7 +684,7 @@ extension Cosmwasm_Wasm_V1_QueryAllContractStateResponse: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryAllContractStateResponse, rhs: Cosmwasm_Wasm_V1_QueryAllContractStateResponse) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryAllContractStateResponse, rhs: Cosmwasm_Wasm_V1_QueryAllContractStateResponse) -> Bool {
     if lhs.models != rhs.models {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -693,13 +693,13 @@ extension Cosmwasm_Wasm_V1_QueryAllContractStateResponse: SwiftProtobuf.Message,
 }
 
 extension Cosmwasm_Wasm_V1_QueryRawContractStateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryRawContractStateRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryRawContractStateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .standard(proto: "query_data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -712,7 +712,7 @@ extension Cosmwasm_Wasm_V1_QueryRawContractStateRequest: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -722,7 +722,7 @@ extension Cosmwasm_Wasm_V1_QueryRawContractStateRequest: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryRawContractStateRequest, rhs: Cosmwasm_Wasm_V1_QueryRawContractStateRequest) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryRawContractStateRequest, rhs: Cosmwasm_Wasm_V1_QueryRawContractStateRequest) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.queryData != rhs.queryData {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -731,12 +731,12 @@ extension Cosmwasm_Wasm_V1_QueryRawContractStateRequest: SwiftProtobuf.Message, 
 }
 
 extension Cosmwasm_Wasm_V1_QueryRawContractStateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryRawContractStateResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryRawContractStateResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -748,14 +748,14 @@ extension Cosmwasm_Wasm_V1_QueryRawContractStateResponse: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.data.isEmpty {
       try visitor.visitSingularBytesField(value: self.data, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryRawContractStateResponse, rhs: Cosmwasm_Wasm_V1_QueryRawContractStateResponse) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryRawContractStateResponse, rhs: Cosmwasm_Wasm_V1_QueryRawContractStateResponse) -> Bool {
     if lhs.data != rhs.data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -763,13 +763,13 @@ extension Cosmwasm_Wasm_V1_QueryRawContractStateResponse: SwiftProtobuf.Message,
 }
 
 extension Cosmwasm_Wasm_V1_QuerySmartContractStateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuerySmartContractStateRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuerySmartContractStateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .standard(proto: "query_data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -782,7 +782,7 @@ extension Cosmwasm_Wasm_V1_QuerySmartContractStateRequest: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -792,7 +792,7 @@ extension Cosmwasm_Wasm_V1_QuerySmartContractStateRequest: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QuerySmartContractStateRequest, rhs: Cosmwasm_Wasm_V1_QuerySmartContractStateRequest) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QuerySmartContractStateRequest, rhs: Cosmwasm_Wasm_V1_QuerySmartContractStateRequest) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.queryData != rhs.queryData {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -801,12 +801,12 @@ extension Cosmwasm_Wasm_V1_QuerySmartContractStateRequest: SwiftProtobuf.Message
 }
 
 extension Cosmwasm_Wasm_V1_QuerySmartContractStateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QuerySmartContractStateResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QuerySmartContractStateResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -818,14 +818,14 @@ extension Cosmwasm_Wasm_V1_QuerySmartContractStateResponse: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.data.isEmpty {
       try visitor.visitSingularBytesField(value: self.data, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QuerySmartContractStateResponse, rhs: Cosmwasm_Wasm_V1_QuerySmartContractStateResponse) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QuerySmartContractStateResponse, rhs: Cosmwasm_Wasm_V1_QuerySmartContractStateResponse) -> Bool {
     if lhs.data != rhs.data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -833,12 +833,12 @@ extension Cosmwasm_Wasm_V1_QuerySmartContractStateResponse: SwiftProtobuf.Messag
 }
 
 extension Cosmwasm_Wasm_V1_QueryCodeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryCodeRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryCodeRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "code_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -850,14 +850,14 @@ extension Cosmwasm_Wasm_V1_QueryCodeRequest: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.codeID != 0 {
       try visitor.visitSingularUInt64Field(value: self.codeID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryCodeRequest, rhs: Cosmwasm_Wasm_V1_QueryCodeRequest) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryCodeRequest, rhs: Cosmwasm_Wasm_V1_QueryCodeRequest) -> Bool {
     if lhs.codeID != rhs.codeID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -865,14 +865,14 @@ extension Cosmwasm_Wasm_V1_QueryCodeRequest: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Cosmwasm_Wasm_V1_CodeInfoResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CodeInfoResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CodeInfoResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "code_id"),
     2: .same(proto: "creator"),
     3: .standard(proto: "data_hash"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -886,7 +886,7 @@ extension Cosmwasm_Wasm_V1_CodeInfoResponse: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.codeID != 0 {
       try visitor.visitSingularUInt64Field(value: self.codeID, fieldNumber: 1)
     }
@@ -899,7 +899,7 @@ extension Cosmwasm_Wasm_V1_CodeInfoResponse: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_CodeInfoResponse, rhs: Cosmwasm_Wasm_V1_CodeInfoResponse) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_CodeInfoResponse, rhs: Cosmwasm_Wasm_V1_CodeInfoResponse) -> Bool {
     if lhs.codeID != rhs.codeID {return false}
     if lhs.creator != rhs.creator {return false}
     if lhs.dataHash != rhs.dataHash {return false}
@@ -909,13 +909,13 @@ extension Cosmwasm_Wasm_V1_CodeInfoResponse: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Cosmwasm_Wasm_V1_QueryCodeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryCodeResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryCodeResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "code_info"),
     2: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -928,7 +928,7 @@ extension Cosmwasm_Wasm_V1_QueryCodeResponse: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._codeInfo {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -938,7 +938,7 @@ extension Cosmwasm_Wasm_V1_QueryCodeResponse: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryCodeResponse, rhs: Cosmwasm_Wasm_V1_QueryCodeResponse) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryCodeResponse, rhs: Cosmwasm_Wasm_V1_QueryCodeResponse) -> Bool {
     if lhs._codeInfo != rhs._codeInfo {return false}
     if lhs.data != rhs.data {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -947,12 +947,12 @@ extension Cosmwasm_Wasm_V1_QueryCodeResponse: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Cosmwasm_Wasm_V1_QueryCodesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryCodesRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryCodesRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -964,14 +964,14 @@ extension Cosmwasm_Wasm_V1_QueryCodesRequest: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryCodesRequest, rhs: Cosmwasm_Wasm_V1_QueryCodesRequest) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryCodesRequest, rhs: Cosmwasm_Wasm_V1_QueryCodesRequest) -> Bool {
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -979,13 +979,13 @@ extension Cosmwasm_Wasm_V1_QueryCodesRequest: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Cosmwasm_Wasm_V1_QueryCodesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryCodesResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryCodesResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "code_infos"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -998,7 +998,7 @@ extension Cosmwasm_Wasm_V1_QueryCodesResponse: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.codeInfos.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.codeInfos, fieldNumber: 1)
     }
@@ -1008,7 +1008,7 @@ extension Cosmwasm_Wasm_V1_QueryCodesResponse: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_QueryCodesResponse, rhs: Cosmwasm_Wasm_V1_QueryCodesResponse) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryCodesResponse, rhs: Cosmwasm_Wasm_V1_QueryCodesResponse) -> Bool {
     if lhs.codeInfos != rhs.codeInfos {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

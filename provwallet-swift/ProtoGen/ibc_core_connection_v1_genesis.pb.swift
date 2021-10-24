@@ -21,21 +21,21 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// GenesisState defines the ibc connection submodule's genesis state.
-struct Ibc_Core_Connection_V1_GenesisState {
+public struct Ibc_Core_Connection_V1_GenesisState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var connections: [Ibc_Core_Connection_V1_IdentifiedConnection] = []
+  public var connections: [Ibc_Core_Connection_V1_IdentifiedConnection] = []
 
-  var clientConnectionPaths: [Ibc_Core_Connection_V1_ConnectionPaths] = []
+  public var clientConnectionPaths: [Ibc_Core_Connection_V1_ConnectionPaths] = []
 
   /// the sequence for the next generated connection identifier
-  var nextConnectionSequence: UInt64 = 0
+  public var nextConnectionSequence: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -43,14 +43,14 @@ struct Ibc_Core_Connection_V1_GenesisState {
 fileprivate let _protobuf_package = "ibc.core.connection.v1"
 
 extension Ibc_Core_Connection_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GenesisState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GenesisState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "connections"),
     2: .standard(proto: "client_connection_paths"),
     3: .standard(proto: "next_connection_sequence"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -64,7 +64,7 @@ extension Ibc_Core_Connection_V1_GenesisState: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.connections.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.connections, fieldNumber: 1)
     }
@@ -77,7 +77,7 @@ extension Ibc_Core_Connection_V1_GenesisState: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_GenesisState, rhs: Ibc_Core_Connection_V1_GenesisState) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_GenesisState, rhs: Ibc_Core_Connection_V1_GenesisState) -> Bool {
     if lhs.connections != rhs.connections {return false}
     if lhs.clientConnectionPaths != rhs.clientConnectionPaths {return false}
     if lhs.nextConnectionSequence != rhs.nextConnectionSequence {return false}

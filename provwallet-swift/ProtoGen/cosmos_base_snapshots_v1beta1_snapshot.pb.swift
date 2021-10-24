@@ -21,47 +21,47 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// Snapshot contains Tendermint state sync snapshot info.
-struct Cosmos_Base_Snapshots_V1beta1_Snapshot {
+public struct Cosmos_Base_Snapshots_V1beta1_Snapshot {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var height: UInt64 = 0
+  public var height: UInt64 = 0
 
-  var format: UInt32 = 0
+  public var format: UInt32 = 0
 
-  var chunks: UInt32 = 0
+  public var chunks: UInt32 = 0
 
-  var hash: Data = Data()
+  public var hash: Data = Data()
 
-  var metadata: Cosmos_Base_Snapshots_V1beta1_Metadata {
+  public var metadata: Cosmos_Base_Snapshots_V1beta1_Metadata {
     get {return _metadata ?? Cosmos_Base_Snapshots_V1beta1_Metadata()}
     set {_metadata = newValue}
   }
   /// Returns true if `metadata` has been explicitly set.
-  var hasMetadata: Bool {return self._metadata != nil}
+  public var hasMetadata: Bool {return self._metadata != nil}
   /// Clears the value of `metadata`. Subsequent reads from it will return its default value.
-  mutating func clearMetadata() {self._metadata = nil}
+  public mutating func clearMetadata() {self._metadata = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _metadata: Cosmos_Base_Snapshots_V1beta1_Metadata? = nil
 }
 
 /// Metadata contains SDK-specific snapshot metadata.
-struct Cosmos_Base_Snapshots_V1beta1_Metadata {
+public struct Cosmos_Base_Snapshots_V1beta1_Metadata {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// SHA-256 chunk hashes
-  var chunkHashes: [Data] = []
+  public var chunkHashes: [Data] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -69,8 +69,8 @@ struct Cosmos_Base_Snapshots_V1beta1_Metadata {
 fileprivate let _protobuf_package = "cosmos.base.snapshots.v1beta1"
 
 extension Cosmos_Base_Snapshots_V1beta1_Snapshot: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Snapshot"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Snapshot"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "height"),
     2: .same(proto: "format"),
     3: .same(proto: "chunks"),
@@ -78,7 +78,7 @@ extension Cosmos_Base_Snapshots_V1beta1_Snapshot: SwiftProtobuf.Message, SwiftPr
     5: .same(proto: "metadata"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -94,7 +94,7 @@ extension Cosmos_Base_Snapshots_V1beta1_Snapshot: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.height != 0 {
       try visitor.visitSingularUInt64Field(value: self.height, fieldNumber: 1)
     }
@@ -113,7 +113,7 @@ extension Cosmos_Base_Snapshots_V1beta1_Snapshot: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Snapshots_V1beta1_Snapshot, rhs: Cosmos_Base_Snapshots_V1beta1_Snapshot) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Snapshots_V1beta1_Snapshot, rhs: Cosmos_Base_Snapshots_V1beta1_Snapshot) -> Bool {
     if lhs.height != rhs.height {return false}
     if lhs.format != rhs.format {return false}
     if lhs.chunks != rhs.chunks {return false}
@@ -125,12 +125,12 @@ extension Cosmos_Base_Snapshots_V1beta1_Snapshot: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Cosmos_Base_Snapshots_V1beta1_Metadata: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Metadata"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Metadata"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "chunk_hashes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -142,14 +142,14 @@ extension Cosmos_Base_Snapshots_V1beta1_Metadata: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.chunkHashes.isEmpty {
       try visitor.visitRepeatedBytesField(value: self.chunkHashes, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Snapshots_V1beta1_Metadata, rhs: Cosmos_Base_Snapshots_V1beta1_Metadata) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Snapshots_V1beta1_Metadata, rhs: Cosmos_Base_Snapshots_V1beta1_Metadata) -> Bool {
     if lhs.chunkHashes != rhs.chunkHashes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

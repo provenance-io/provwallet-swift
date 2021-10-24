@@ -21,48 +21,48 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// GenesisState defines the account module's genesis state.
-struct Provenance_Metadata_V1_GenesisState {
+public struct Provenance_Metadata_V1_GenesisState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// params defines all the parameters of the module.
-  var params: Provenance_Metadata_V1_Params {
+  public var params: Provenance_Metadata_V1_Params {
     get {return _params ?? Provenance_Metadata_V1_Params()}
     set {_params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  var hasParams: Bool {return self._params != nil}
+  public var hasParams: Bool {return self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {self._params = nil}
 
   /// A collection of metadata scopes and specs to create on start
-  var scopes: [Provenance_Metadata_V1_Scope] = []
+  public var scopes: [Provenance_Metadata_V1_Scope] = []
 
-  var sessions: [Provenance_Metadata_V1_Session] = []
+  public var sessions: [Provenance_Metadata_V1_Session] = []
 
-  var records: [Provenance_Metadata_V1_Record] = []
+  public var records: [Provenance_Metadata_V1_Record] = []
 
-  var scopeSpecifications: [Provenance_Metadata_V1_ScopeSpecification] = []
+  public var scopeSpecifications: [Provenance_Metadata_V1_ScopeSpecification] = []
 
-  var contractSpecifications: [Provenance_Metadata_V1_ContractSpecification] = []
+  public var contractSpecifications: [Provenance_Metadata_V1_ContractSpecification] = []
 
-  var recordSpecifications: [Provenance_Metadata_V1_RecordSpecification] = []
+  public var recordSpecifications: [Provenance_Metadata_V1_RecordSpecification] = []
 
-  var oSLocatorParams: Provenance_Metadata_V1_OSLocatorParams {
+  public var oSLocatorParams: Provenance_Metadata_V1_OSLocatorParams {
     get {return _oSLocatorParams ?? Provenance_Metadata_V1_OSLocatorParams()}
     set {_oSLocatorParams = newValue}
   }
   /// Returns true if `oSLocatorParams` has been explicitly set.
-  var hasOSLocatorParams: Bool {return self._oSLocatorParams != nil}
+  public var hasOSLocatorParams: Bool {return self._oSLocatorParams != nil}
   /// Clears the value of `oSLocatorParams`. Subsequent reads from it will return its default value.
-  mutating func clearOSLocatorParams() {self._oSLocatorParams = nil}
+  public mutating func clearOSLocatorParams() {self._oSLocatorParams = nil}
 
-  var objectStoreLocators: [Provenance_Metadata_V1_ObjectStoreLocator] = []
+  public var objectStoreLocators: [Provenance_Metadata_V1_ObjectStoreLocator] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _params: Provenance_Metadata_V1_Params? = nil
   fileprivate var _oSLocatorParams: Provenance_Metadata_V1_OSLocatorParams? = nil
@@ -73,8 +73,8 @@ struct Provenance_Metadata_V1_GenesisState {
 fileprivate let _protobuf_package = "provenance.metadata.v1"
 
 extension Provenance_Metadata_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GenesisState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GenesisState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "params"),
     2: .same(proto: "scopes"),
     3: .same(proto: "sessions"),
@@ -86,7 +86,7 @@ extension Provenance_Metadata_V1_GenesisState: SwiftProtobuf.Message, SwiftProto
     9: .standard(proto: "object_store_locators"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -106,7 +106,7 @@ extension Provenance_Metadata_V1_GenesisState: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._params {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -137,7 +137,7 @@ extension Provenance_Metadata_V1_GenesisState: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_GenesisState, rhs: Provenance_Metadata_V1_GenesisState) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_GenesisState, rhs: Provenance_Metadata_V1_GenesisState) -> Bool {
     if lhs._params != rhs._params {return false}
     if lhs.scopes != rhs.scopes {return false}
     if lhs.sessions != rhs.sessions {return false}

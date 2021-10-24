@@ -21,206 +21,206 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// QueryParamsRequest is the request type for the Query/Params RPC method.
-struct Provenance_Attribute_V1_QueryParamsRequest {
+public struct Provenance_Attribute_V1_QueryParamsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryParamsResponse is the response type for the Query/Params RPC method.
-struct Provenance_Attribute_V1_QueryParamsResponse {
+public struct Provenance_Attribute_V1_QueryParamsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// params defines the parameters of the module.
-  var params: Provenance_Attribute_V1_Params {
+  public var params: Provenance_Attribute_V1_Params {
     get {return _params ?? Provenance_Attribute_V1_Params()}
     set {_params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  var hasParams: Bool {return self._params != nil}
+  public var hasParams: Bool {return self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {self._params = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _params: Provenance_Attribute_V1_Params? = nil
 }
 
 /// QueryAttributeRequest is the request type for the Query/Attribute method.
-struct Provenance_Attribute_V1_QueryAttributeRequest {
+public struct Provenance_Attribute_V1_QueryAttributeRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// account defines the address to query for.
-  var account: String = String()
+  public var account: String = String()
 
   /// name is the attribute name to query for
-  var name: String = String()
+  public var name: String = String()
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryAttributeResponse is the response type for the Query/Attribute method.
-struct Provenance_Attribute_V1_QueryAttributeResponse {
+public struct Provenance_Attribute_V1_QueryAttributeResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// a string containing the address of the account the attributes are assigned to.
-  var account: String = String()
+  public var account: String = String()
 
   /// a list of attribute values
-  var attributes: [Provenance_Attribute_V1_Attribute] = []
+  public var attributes: [Provenance_Attribute_V1_Attribute] = []
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// QueryAttributesRequest is the request type for the Query/Attributes method.
-struct Provenance_Attribute_V1_QueryAttributesRequest {
+public struct Provenance_Attribute_V1_QueryAttributesRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// account defines the address to query for.
-  var account: String = String()
+  public var account: String = String()
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryAttributesResponse is the response type for the Query/Attribute method.
-struct Provenance_Attribute_V1_QueryAttributesResponse {
+public struct Provenance_Attribute_V1_QueryAttributesResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// a string containing the address of the account the attributes are assigned to=
-  var account: String = String()
+  public var account: String = String()
 
   /// a list of attribute values
-  var attributes: [Provenance_Attribute_V1_Attribute] = []
+  public var attributes: [Provenance_Attribute_V1_Attribute] = []
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
 /// QueryScanRequest is the request type for the Query/Scan account attributes method.
-struct Provenance_Attribute_V1_QueryScanRequest {
+public struct Provenance_Attribute_V1_QueryScanRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// account defines the address to query for.
-  var account: String = String()
+  public var account: String = String()
 
   /// name defines the partial attribute name to search for base on names being in RDNS format.
-  var suffix: String = String()
+  public var suffix: String = String()
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryScanResponse is the response type for the Query/Attribute method.
-struct Provenance_Attribute_V1_QueryScanResponse {
+public struct Provenance_Attribute_V1_QueryScanResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// a string containing the address of the account the attributes are assigned to=
-  var account: String = String()
+  public var account: String = String()
 
   /// a list of attribute values
-  var attributes: [Provenance_Attribute_V1_Attribute] = []
+  public var attributes: [Provenance_Attribute_V1_Attribute] = []
 
   /// pagination defines an optional pagination for the request.
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
@@ -230,31 +230,31 @@ struct Provenance_Attribute_V1_QueryScanResponse {
 fileprivate let _protobuf_package = "provenance.attribute.v1"
 
 extension Provenance_Attribute_V1_QueryParamsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_QueryParamsRequest, rhs: Provenance_Attribute_V1_QueryParamsRequest) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_QueryParamsRequest, rhs: Provenance_Attribute_V1_QueryParamsRequest) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Provenance_Attribute_V1_QueryParamsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "params"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -266,14 +266,14 @@ extension Provenance_Attribute_V1_QueryParamsResponse: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._params {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_QueryParamsResponse, rhs: Provenance_Attribute_V1_QueryParamsResponse) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_QueryParamsResponse, rhs: Provenance_Attribute_V1_QueryParamsResponse) -> Bool {
     if lhs._params != rhs._params {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -281,14 +281,14 @@ extension Provenance_Attribute_V1_QueryParamsResponse: SwiftProtobuf.Message, Sw
 }
 
 extension Provenance_Attribute_V1_QueryAttributeRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryAttributeRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryAttributeRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "account"),
     2: .same(proto: "name"),
     3: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -302,7 +302,7 @@ extension Provenance_Attribute_V1_QueryAttributeRequest: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.account.isEmpty {
       try visitor.visitSingularStringField(value: self.account, fieldNumber: 1)
     }
@@ -315,7 +315,7 @@ extension Provenance_Attribute_V1_QueryAttributeRequest: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_QueryAttributeRequest, rhs: Provenance_Attribute_V1_QueryAttributeRequest) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_QueryAttributeRequest, rhs: Provenance_Attribute_V1_QueryAttributeRequest) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs.name != rhs.name {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -325,14 +325,14 @@ extension Provenance_Attribute_V1_QueryAttributeRequest: SwiftProtobuf.Message, 
 }
 
 extension Provenance_Attribute_V1_QueryAttributeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryAttributeResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryAttributeResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "account"),
     2: .same(proto: "attributes"),
     3: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -346,7 +346,7 @@ extension Provenance_Attribute_V1_QueryAttributeResponse: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.account.isEmpty {
       try visitor.visitSingularStringField(value: self.account, fieldNumber: 1)
     }
@@ -359,7 +359,7 @@ extension Provenance_Attribute_V1_QueryAttributeResponse: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_QueryAttributeResponse, rhs: Provenance_Attribute_V1_QueryAttributeResponse) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_QueryAttributeResponse, rhs: Provenance_Attribute_V1_QueryAttributeResponse) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs.attributes != rhs.attributes {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -369,13 +369,13 @@ extension Provenance_Attribute_V1_QueryAttributeResponse: SwiftProtobuf.Message,
 }
 
 extension Provenance_Attribute_V1_QueryAttributesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryAttributesRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryAttributesRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "account"),
     2: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -388,7 +388,7 @@ extension Provenance_Attribute_V1_QueryAttributesRequest: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.account.isEmpty {
       try visitor.visitSingularStringField(value: self.account, fieldNumber: 1)
     }
@@ -398,7 +398,7 @@ extension Provenance_Attribute_V1_QueryAttributesRequest: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_QueryAttributesRequest, rhs: Provenance_Attribute_V1_QueryAttributesRequest) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_QueryAttributesRequest, rhs: Provenance_Attribute_V1_QueryAttributesRequest) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -407,14 +407,14 @@ extension Provenance_Attribute_V1_QueryAttributesRequest: SwiftProtobuf.Message,
 }
 
 extension Provenance_Attribute_V1_QueryAttributesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryAttributesResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryAttributesResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "account"),
     2: .same(proto: "attributes"),
     3: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -428,7 +428,7 @@ extension Provenance_Attribute_V1_QueryAttributesResponse: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.account.isEmpty {
       try visitor.visitSingularStringField(value: self.account, fieldNumber: 1)
     }
@@ -441,7 +441,7 @@ extension Provenance_Attribute_V1_QueryAttributesResponse: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_QueryAttributesResponse, rhs: Provenance_Attribute_V1_QueryAttributesResponse) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_QueryAttributesResponse, rhs: Provenance_Attribute_V1_QueryAttributesResponse) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs.attributes != rhs.attributes {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -451,14 +451,14 @@ extension Provenance_Attribute_V1_QueryAttributesResponse: SwiftProtobuf.Message
 }
 
 extension Provenance_Attribute_V1_QueryScanRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryScanRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryScanRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "account"),
     2: .same(proto: "suffix"),
     3: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -472,7 +472,7 @@ extension Provenance_Attribute_V1_QueryScanRequest: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.account.isEmpty {
       try visitor.visitSingularStringField(value: self.account, fieldNumber: 1)
     }
@@ -485,7 +485,7 @@ extension Provenance_Attribute_V1_QueryScanRequest: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_QueryScanRequest, rhs: Provenance_Attribute_V1_QueryScanRequest) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_QueryScanRequest, rhs: Provenance_Attribute_V1_QueryScanRequest) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs.suffix != rhs.suffix {return false}
     if lhs._pagination != rhs._pagination {return false}
@@ -495,14 +495,14 @@ extension Provenance_Attribute_V1_QueryScanRequest: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Attribute_V1_QueryScanResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryScanResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryScanResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "account"),
     2: .same(proto: "attributes"),
     3: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -516,7 +516,7 @@ extension Provenance_Attribute_V1_QueryScanResponse: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.account.isEmpty {
       try visitor.visitSingularStringField(value: self.account, fieldNumber: 1)
     }
@@ -529,7 +529,7 @@ extension Provenance_Attribute_V1_QueryScanResponse: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_QueryScanResponse, rhs: Provenance_Attribute_V1_QueryScanResponse) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_QueryScanResponse, rhs: Provenance_Attribute_V1_QueryScanResponse) -> Bool {
     if lhs.account != rhs.account {return false}
     if lhs.attributes != rhs.attributes {return false}
     if lhs._pagination != rhs._pagination {return false}

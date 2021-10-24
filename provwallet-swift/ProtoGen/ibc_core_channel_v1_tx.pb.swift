@@ -22,451 +22,451 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// MsgChannelOpenInit defines an sdk.Msg to initialize a channel handshake. It
 /// is called by a relayer on Chain A.
-struct Ibc_Core_Channel_V1_MsgChannelOpenInit {
+public struct Ibc_Core_Channel_V1_MsgChannelOpenInit {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var portID: String = String()
+  public var portID: String = String()
 
-  var channel: Ibc_Core_Channel_V1_Channel {
+  public var channel: Ibc_Core_Channel_V1_Channel {
     get {return _channel ?? Ibc_Core_Channel_V1_Channel()}
     set {_channel = newValue}
   }
   /// Returns true if `channel` has been explicitly set.
-  var hasChannel: Bool {return self._channel != nil}
+  public var hasChannel: Bool {return self._channel != nil}
   /// Clears the value of `channel`. Subsequent reads from it will return its default value.
-  mutating func clearChannel() {self._channel = nil}
+  public mutating func clearChannel() {self._channel = nil}
 
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _channel: Ibc_Core_Channel_V1_Channel? = nil
 }
 
 /// MsgChannelOpenInitResponse defines the Msg/ChannelOpenInit response type.
-struct Ibc_Core_Channel_V1_MsgChannelOpenInitResponse {
+public struct Ibc_Core_Channel_V1_MsgChannelOpenInitResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgChannelOpenInit defines a msg sent by a Relayer to try to open a channel
 /// on Chain B.
-struct Ibc_Core_Channel_V1_MsgChannelOpenTry {
+public struct Ibc_Core_Channel_V1_MsgChannelOpenTry {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var portID: String = String()
+  public var portID: String = String()
 
   /// in the case of crossing hello's, when both chains call OpenInit, we need the channel identifier
   /// of the previous channel in state INIT
-  var previousChannelID: String = String()
+  public var previousChannelID: String = String()
 
-  var channel: Ibc_Core_Channel_V1_Channel {
+  public var channel: Ibc_Core_Channel_V1_Channel {
     get {return _channel ?? Ibc_Core_Channel_V1_Channel()}
     set {_channel = newValue}
   }
   /// Returns true if `channel` has been explicitly set.
-  var hasChannel: Bool {return self._channel != nil}
+  public var hasChannel: Bool {return self._channel != nil}
   /// Clears the value of `channel`. Subsequent reads from it will return its default value.
-  mutating func clearChannel() {self._channel = nil}
+  public mutating func clearChannel() {self._channel = nil}
 
-  var counterpartyVersion: String = String()
+  public var counterpartyVersion: String = String()
 
-  var proofInit: Data = Data()
+  public var proofInit: Data = Data()
 
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _channel: Ibc_Core_Channel_V1_Channel? = nil
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
 /// MsgChannelOpenTryResponse defines the Msg/ChannelOpenTry response type.
-struct Ibc_Core_Channel_V1_MsgChannelOpenTryResponse {
+public struct Ibc_Core_Channel_V1_MsgChannelOpenTryResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgChannelOpenAck defines a msg sent by a Relayer to Chain A to acknowledge
 /// the change of channel state to TRYOPEN on Chain B.
-struct Ibc_Core_Channel_V1_MsgChannelOpenAck {
+public struct Ibc_Core_Channel_V1_MsgChannelOpenAck {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var portID: String = String()
+  public var portID: String = String()
 
-  var channelID: String = String()
+  public var channelID: String = String()
 
-  var counterpartyChannelID: String = String()
+  public var counterpartyChannelID: String = String()
 
-  var counterpartyVersion: String = String()
+  public var counterpartyVersion: String = String()
 
-  var proofTry: Data = Data()
+  public var proofTry: Data = Data()
 
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
 /// MsgChannelOpenAckResponse defines the Msg/ChannelOpenAck response type.
-struct Ibc_Core_Channel_V1_MsgChannelOpenAckResponse {
+public struct Ibc_Core_Channel_V1_MsgChannelOpenAckResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgChannelOpenConfirm defines a msg sent by a Relayer to Chain B to
 /// acknowledge the change of channel state to OPEN on Chain A.
-struct Ibc_Core_Channel_V1_MsgChannelOpenConfirm {
+public struct Ibc_Core_Channel_V1_MsgChannelOpenConfirm {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var portID: String = String()
+  public var portID: String = String()
 
-  var channelID: String = String()
+  public var channelID: String = String()
 
-  var proofAck: Data = Data()
+  public var proofAck: Data = Data()
 
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
 /// MsgChannelOpenConfirmResponse defines the Msg/ChannelOpenConfirm response type.
-struct Ibc_Core_Channel_V1_MsgChannelOpenConfirmResponse {
+public struct Ibc_Core_Channel_V1_MsgChannelOpenConfirmResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgChannelCloseInit defines a msg sent by a Relayer to Chain A
 /// to close a channel with Chain B.
-struct Ibc_Core_Channel_V1_MsgChannelCloseInit {
+public struct Ibc_Core_Channel_V1_MsgChannelCloseInit {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var portID: String = String()
+  public var portID: String = String()
 
-  var channelID: String = String()
+  public var channelID: String = String()
 
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgChannelCloseInitResponse defines the Msg/ChannelCloseInit response type.
-struct Ibc_Core_Channel_V1_MsgChannelCloseInitResponse {
+public struct Ibc_Core_Channel_V1_MsgChannelCloseInitResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgChannelCloseConfirm defines a msg sent by a Relayer to Chain B
 /// to acknowledge the change of channel state to CLOSED on Chain A.
-struct Ibc_Core_Channel_V1_MsgChannelCloseConfirm {
+public struct Ibc_Core_Channel_V1_MsgChannelCloseConfirm {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var portID: String = String()
+  public var portID: String = String()
 
-  var channelID: String = String()
+  public var channelID: String = String()
 
-  var proofInit: Data = Data()
+  public var proofInit: Data = Data()
 
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
 /// MsgChannelCloseConfirmResponse defines the Msg/ChannelCloseConfirm response type.
-struct Ibc_Core_Channel_V1_MsgChannelCloseConfirmResponse {
+public struct Ibc_Core_Channel_V1_MsgChannelCloseConfirmResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgRecvPacket receives incoming IBC packet
-struct Ibc_Core_Channel_V1_MsgRecvPacket {
+public struct Ibc_Core_Channel_V1_MsgRecvPacket {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var packet: Ibc_Core_Channel_V1_Packet {
+  public var packet: Ibc_Core_Channel_V1_Packet {
     get {return _packet ?? Ibc_Core_Channel_V1_Packet()}
     set {_packet = newValue}
   }
   /// Returns true if `packet` has been explicitly set.
-  var hasPacket: Bool {return self._packet != nil}
+  public var hasPacket: Bool {return self._packet != nil}
   /// Clears the value of `packet`. Subsequent reads from it will return its default value.
-  mutating func clearPacket() {self._packet = nil}
+  public mutating func clearPacket() {self._packet = nil}
 
-  var proofCommitment: Data = Data()
+  public var proofCommitment: Data = Data()
 
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _packet: Ibc_Core_Channel_V1_Packet? = nil
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
 /// MsgRecvPacketResponse defines the Msg/RecvPacket response type.
-struct Ibc_Core_Channel_V1_MsgRecvPacketResponse {
+public struct Ibc_Core_Channel_V1_MsgRecvPacketResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgTimeout receives timed-out packet
-struct Ibc_Core_Channel_V1_MsgTimeout {
+public struct Ibc_Core_Channel_V1_MsgTimeout {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var packet: Ibc_Core_Channel_V1_Packet {
+  public var packet: Ibc_Core_Channel_V1_Packet {
     get {return _packet ?? Ibc_Core_Channel_V1_Packet()}
     set {_packet = newValue}
   }
   /// Returns true if `packet` has been explicitly set.
-  var hasPacket: Bool {return self._packet != nil}
+  public var hasPacket: Bool {return self._packet != nil}
   /// Clears the value of `packet`. Subsequent reads from it will return its default value.
-  mutating func clearPacket() {self._packet = nil}
+  public mutating func clearPacket() {self._packet = nil}
 
-  var proofUnreceived: Data = Data()
+  public var proofUnreceived: Data = Data()
 
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var nextSequenceRecv: UInt64 = 0
+  public var nextSequenceRecv: UInt64 = 0
 
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _packet: Ibc_Core_Channel_V1_Packet? = nil
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
 /// MsgTimeoutResponse defines the Msg/Timeout response type.
-struct Ibc_Core_Channel_V1_MsgTimeoutResponse {
+public struct Ibc_Core_Channel_V1_MsgTimeoutResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgTimeoutOnClose timed-out packet upon counterparty channel closure.
-struct Ibc_Core_Channel_V1_MsgTimeoutOnClose {
+public struct Ibc_Core_Channel_V1_MsgTimeoutOnClose {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var packet: Ibc_Core_Channel_V1_Packet {
+  public var packet: Ibc_Core_Channel_V1_Packet {
     get {return _packet ?? Ibc_Core_Channel_V1_Packet()}
     set {_packet = newValue}
   }
   /// Returns true if `packet` has been explicitly set.
-  var hasPacket: Bool {return self._packet != nil}
+  public var hasPacket: Bool {return self._packet != nil}
   /// Clears the value of `packet`. Subsequent reads from it will return its default value.
-  mutating func clearPacket() {self._packet = nil}
+  public mutating func clearPacket() {self._packet = nil}
 
-  var proofUnreceived: Data = Data()
+  public var proofUnreceived: Data = Data()
 
-  var proofClose: Data = Data()
+  public var proofClose: Data = Data()
 
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var nextSequenceRecv: UInt64 = 0
+  public var nextSequenceRecv: UInt64 = 0
 
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _packet: Ibc_Core_Channel_V1_Packet? = nil
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
 /// MsgTimeoutOnCloseResponse defines the Msg/TimeoutOnClose response type.
-struct Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse {
+public struct Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgAcknowledgement receives incoming IBC acknowledgement
-struct Ibc_Core_Channel_V1_MsgAcknowledgement {
+public struct Ibc_Core_Channel_V1_MsgAcknowledgement {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var packet: Ibc_Core_Channel_V1_Packet {
+  public var packet: Ibc_Core_Channel_V1_Packet {
     get {return _packet ?? Ibc_Core_Channel_V1_Packet()}
     set {_packet = newValue}
   }
   /// Returns true if `packet` has been explicitly set.
-  var hasPacket: Bool {return self._packet != nil}
+  public var hasPacket: Bool {return self._packet != nil}
   /// Clears the value of `packet`. Subsequent reads from it will return its default value.
-  mutating func clearPacket() {self._packet = nil}
+  public mutating func clearPacket() {self._packet = nil}
 
-  var acknowledgement: Data = Data()
+  public var acknowledgement: Data = Data()
 
-  var proofAcked: Data = Data()
+  public var proofAcked: Data = Data()
 
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var signer: String = String()
+  public var signer: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _packet: Ibc_Core_Channel_V1_Packet? = nil
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
 /// MsgAcknowledgementResponse defines the Msg/Acknowledgement response type.
-struct Ibc_Core_Channel_V1_MsgAcknowledgementResponse {
+public struct Ibc_Core_Channel_V1_MsgAcknowledgementResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -474,14 +474,14 @@ struct Ibc_Core_Channel_V1_MsgAcknowledgementResponse {
 fileprivate let _protobuf_package = "ibc.core.channel.v1"
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenInit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenInit"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenInit"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "port_id"),
     2: .same(proto: "channel"),
     3: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -495,7 +495,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenInit: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.portID.isEmpty {
       try visitor.visitSingularStringField(value: self.portID, fieldNumber: 1)
     }
@@ -508,7 +508,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenInit: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenInit, rhs: Ibc_Core_Channel_V1_MsgChannelOpenInit) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenInit, rhs: Ibc_Core_Channel_V1_MsgChannelOpenInit) -> Bool {
     if lhs.portID != rhs.portID {return false}
     if lhs._channel != rhs._channel {return false}
     if lhs.signer != rhs.signer {return false}
@@ -518,27 +518,27 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenInit: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenInitResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenInitResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenInitResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenInitResponse, rhs: Ibc_Core_Channel_V1_MsgChannelOpenInitResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenInitResponse, rhs: Ibc_Core_Channel_V1_MsgChannelOpenInitResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenTry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenTry"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenTry"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "port_id"),
     2: .standard(proto: "previous_channel_id"),
     3: .same(proto: "channel"),
@@ -548,7 +548,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenTry: SwiftProtobuf.Message, SwiftPro
     7: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -566,7 +566,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenTry: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.portID.isEmpty {
       try visitor.visitSingularStringField(value: self.portID, fieldNumber: 1)
     }
@@ -591,7 +591,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenTry: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenTry, rhs: Ibc_Core_Channel_V1_MsgChannelOpenTry) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenTry, rhs: Ibc_Core_Channel_V1_MsgChannelOpenTry) -> Bool {
     if lhs.portID != rhs.portID {return false}
     if lhs.previousChannelID != rhs.previousChannelID {return false}
     if lhs._channel != rhs._channel {return false}
@@ -605,27 +605,27 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenTry: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenTryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenTryResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenTryResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenTryResponse, rhs: Ibc_Core_Channel_V1_MsgChannelOpenTryResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenTryResponse, rhs: Ibc_Core_Channel_V1_MsgChannelOpenTryResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenAck: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenAck"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenAck"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "port_id"),
     2: .standard(proto: "channel_id"),
     3: .standard(proto: "counterparty_channel_id"),
@@ -635,7 +635,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenAck: SwiftProtobuf.Message, SwiftPro
     7: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -653,7 +653,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenAck: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.portID.isEmpty {
       try visitor.visitSingularStringField(value: self.portID, fieldNumber: 1)
     }
@@ -678,7 +678,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenAck: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenAck, rhs: Ibc_Core_Channel_V1_MsgChannelOpenAck) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenAck, rhs: Ibc_Core_Channel_V1_MsgChannelOpenAck) -> Bool {
     if lhs.portID != rhs.portID {return false}
     if lhs.channelID != rhs.channelID {return false}
     if lhs.counterpartyChannelID != rhs.counterpartyChannelID {return false}
@@ -692,27 +692,27 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenAck: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenAckResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenAckResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenAckResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenAckResponse, rhs: Ibc_Core_Channel_V1_MsgChannelOpenAckResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenAckResponse, rhs: Ibc_Core_Channel_V1_MsgChannelOpenAckResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenConfirm: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenConfirm"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenConfirm"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "port_id"),
     2: .standard(proto: "channel_id"),
     3: .standard(proto: "proof_ack"),
@@ -720,7 +720,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenConfirm: SwiftProtobuf.Message, Swif
     5: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -736,7 +736,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenConfirm: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.portID.isEmpty {
       try visitor.visitSingularStringField(value: self.portID, fieldNumber: 1)
     }
@@ -755,7 +755,7 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenConfirm: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenConfirm, rhs: Ibc_Core_Channel_V1_MsgChannelOpenConfirm) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenConfirm, rhs: Ibc_Core_Channel_V1_MsgChannelOpenConfirm) -> Bool {
     if lhs.portID != rhs.portID {return false}
     if lhs.channelID != rhs.channelID {return false}
     if lhs.proofAck != rhs.proofAck {return false}
@@ -767,33 +767,33 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenConfirm: SwiftProtobuf.Message, Swif
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenConfirmResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenConfirmResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenConfirmResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenConfirmResponse, rhs: Ibc_Core_Channel_V1_MsgChannelOpenConfirmResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenConfirmResponse, rhs: Ibc_Core_Channel_V1_MsgChannelOpenConfirmResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelCloseInit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelCloseInit"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelCloseInit"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "port_id"),
     2: .standard(proto: "channel_id"),
     3: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -807,7 +807,7 @@ extension Ibc_Core_Channel_V1_MsgChannelCloseInit: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.portID.isEmpty {
       try visitor.visitSingularStringField(value: self.portID, fieldNumber: 1)
     }
@@ -820,7 +820,7 @@ extension Ibc_Core_Channel_V1_MsgChannelCloseInit: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelCloseInit, rhs: Ibc_Core_Channel_V1_MsgChannelCloseInit) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelCloseInit, rhs: Ibc_Core_Channel_V1_MsgChannelCloseInit) -> Bool {
     if lhs.portID != rhs.portID {return false}
     if lhs.channelID != rhs.channelID {return false}
     if lhs.signer != rhs.signer {return false}
@@ -830,27 +830,27 @@ extension Ibc_Core_Channel_V1_MsgChannelCloseInit: SwiftProtobuf.Message, SwiftP
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelCloseInitResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelCloseInitResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelCloseInitResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelCloseInitResponse, rhs: Ibc_Core_Channel_V1_MsgChannelCloseInitResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelCloseInitResponse, rhs: Ibc_Core_Channel_V1_MsgChannelCloseInitResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelCloseConfirm: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelCloseConfirm"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelCloseConfirm"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "port_id"),
     2: .standard(proto: "channel_id"),
     3: .standard(proto: "proof_init"),
@@ -858,7 +858,7 @@ extension Ibc_Core_Channel_V1_MsgChannelCloseConfirm: SwiftProtobuf.Message, Swi
     5: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -874,7 +874,7 @@ extension Ibc_Core_Channel_V1_MsgChannelCloseConfirm: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.portID.isEmpty {
       try visitor.visitSingularStringField(value: self.portID, fieldNumber: 1)
     }
@@ -893,7 +893,7 @@ extension Ibc_Core_Channel_V1_MsgChannelCloseConfirm: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelCloseConfirm, rhs: Ibc_Core_Channel_V1_MsgChannelCloseConfirm) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelCloseConfirm, rhs: Ibc_Core_Channel_V1_MsgChannelCloseConfirm) -> Bool {
     if lhs.portID != rhs.portID {return false}
     if lhs.channelID != rhs.channelID {return false}
     if lhs.proofInit != rhs.proofInit {return false}
@@ -905,34 +905,34 @@ extension Ibc_Core_Channel_V1_MsgChannelCloseConfirm: SwiftProtobuf.Message, Swi
 }
 
 extension Ibc_Core_Channel_V1_MsgChannelCloseConfirmResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgChannelCloseConfirmResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgChannelCloseConfirmResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelCloseConfirmResponse, rhs: Ibc_Core_Channel_V1_MsgChannelCloseConfirmResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelCloseConfirmResponse, rhs: Ibc_Core_Channel_V1_MsgChannelCloseConfirmResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Channel_V1_MsgRecvPacket: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgRecvPacket"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgRecvPacket"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "packet"),
     2: .standard(proto: "proof_commitment"),
     3: .standard(proto: "proof_height"),
     4: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -947,7 +947,7 @@ extension Ibc_Core_Channel_V1_MsgRecvPacket: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._packet {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -963,7 +963,7 @@ extension Ibc_Core_Channel_V1_MsgRecvPacket: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgRecvPacket, rhs: Ibc_Core_Channel_V1_MsgRecvPacket) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgRecvPacket, rhs: Ibc_Core_Channel_V1_MsgRecvPacket) -> Bool {
     if lhs._packet != rhs._packet {return false}
     if lhs.proofCommitment != rhs.proofCommitment {return false}
     if lhs._proofHeight != rhs._proofHeight {return false}
@@ -974,27 +974,27 @@ extension Ibc_Core_Channel_V1_MsgRecvPacket: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Ibc_Core_Channel_V1_MsgRecvPacketResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgRecvPacketResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgRecvPacketResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgRecvPacketResponse, rhs: Ibc_Core_Channel_V1_MsgRecvPacketResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgRecvPacketResponse, rhs: Ibc_Core_Channel_V1_MsgRecvPacketResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Channel_V1_MsgTimeout: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgTimeout"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgTimeout"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "packet"),
     2: .standard(proto: "proof_unreceived"),
     3: .standard(proto: "proof_height"),
@@ -1002,7 +1002,7 @@ extension Ibc_Core_Channel_V1_MsgTimeout: SwiftProtobuf.Message, SwiftProtobuf._
     5: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1018,7 +1018,7 @@ extension Ibc_Core_Channel_V1_MsgTimeout: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._packet {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -1037,7 +1037,7 @@ extension Ibc_Core_Channel_V1_MsgTimeout: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgTimeout, rhs: Ibc_Core_Channel_V1_MsgTimeout) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgTimeout, rhs: Ibc_Core_Channel_V1_MsgTimeout) -> Bool {
     if lhs._packet != rhs._packet {return false}
     if lhs.proofUnreceived != rhs.proofUnreceived {return false}
     if lhs._proofHeight != rhs._proofHeight {return false}
@@ -1049,27 +1049,27 @@ extension Ibc_Core_Channel_V1_MsgTimeout: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Ibc_Core_Channel_V1_MsgTimeoutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgTimeoutResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgTimeoutResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgTimeoutResponse, rhs: Ibc_Core_Channel_V1_MsgTimeoutResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgTimeoutResponse, rhs: Ibc_Core_Channel_V1_MsgTimeoutResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Channel_V1_MsgTimeoutOnClose: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgTimeoutOnClose"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgTimeoutOnClose"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "packet"),
     2: .standard(proto: "proof_unreceived"),
     3: .standard(proto: "proof_close"),
@@ -1078,7 +1078,7 @@ extension Ibc_Core_Channel_V1_MsgTimeoutOnClose: SwiftProtobuf.Message, SwiftPro
     6: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1095,7 +1095,7 @@ extension Ibc_Core_Channel_V1_MsgTimeoutOnClose: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._packet {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -1117,7 +1117,7 @@ extension Ibc_Core_Channel_V1_MsgTimeoutOnClose: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgTimeoutOnClose, rhs: Ibc_Core_Channel_V1_MsgTimeoutOnClose) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgTimeoutOnClose, rhs: Ibc_Core_Channel_V1_MsgTimeoutOnClose) -> Bool {
     if lhs._packet != rhs._packet {return false}
     if lhs.proofUnreceived != rhs.proofUnreceived {return false}
     if lhs.proofClose != rhs.proofClose {return false}
@@ -1130,27 +1130,27 @@ extension Ibc_Core_Channel_V1_MsgTimeoutOnClose: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgTimeoutOnCloseResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgTimeoutOnCloseResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse, rhs: Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse, rhs: Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Ibc_Core_Channel_V1_MsgAcknowledgement: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgAcknowledgement"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgAcknowledgement"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "packet"),
     2: .same(proto: "acknowledgement"),
     3: .standard(proto: "proof_acked"),
@@ -1158,7 +1158,7 @@ extension Ibc_Core_Channel_V1_MsgAcknowledgement: SwiftProtobuf.Message, SwiftPr
     5: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1174,7 +1174,7 @@ extension Ibc_Core_Channel_V1_MsgAcknowledgement: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._packet {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -1193,7 +1193,7 @@ extension Ibc_Core_Channel_V1_MsgAcknowledgement: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgAcknowledgement, rhs: Ibc_Core_Channel_V1_MsgAcknowledgement) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgAcknowledgement, rhs: Ibc_Core_Channel_V1_MsgAcknowledgement) -> Bool {
     if lhs._packet != rhs._packet {return false}
     if lhs.acknowledgement != rhs.acknowledgement {return false}
     if lhs.proofAcked != rhs.proofAcked {return false}
@@ -1205,19 +1205,19 @@ extension Ibc_Core_Channel_V1_MsgAcknowledgement: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Ibc_Core_Channel_V1_MsgAcknowledgementResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgAcknowledgementResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgAcknowledgementResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_MsgAcknowledgementResponse, rhs: Ibc_Core_Channel_V1_MsgAcknowledgementResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_MsgAcknowledgementResponse, rhs: Ibc_Core_Channel_V1_MsgAcknowledgementResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

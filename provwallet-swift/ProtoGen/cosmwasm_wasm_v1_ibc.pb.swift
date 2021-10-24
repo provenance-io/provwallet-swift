@@ -21,41 +21,41 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// MsgIBCSend
-struct Cosmwasm_Wasm_V1_MsgIBCSend {
+public struct Cosmwasm_Wasm_V1_MsgIBCSend {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// the channel by which the packet will be sent
-  var channel: String = String()
+  public var channel: String = String()
 
   /// Timeout height relative to the current block height.
   /// The timeout is disabled when set to 0.
-  var timeoutHeight: UInt64 = 0
+  public var timeoutHeight: UInt64 = 0
 
   /// Timeout timestamp (in nanoseconds) relative to the current block timestamp.
   /// The timeout is disabled when set to 0.
-  var timeoutTimestamp: UInt64 = 0
+  public var timeoutTimestamp: UInt64 = 0
 
   /// data is the payload to transfer
-  var data: Data = Data()
+  public var data: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgIBCCloseChannel port and channel need to be owned by the contract
-struct Cosmwasm_Wasm_V1_MsgIBCCloseChannel {
+public struct Cosmwasm_Wasm_V1_MsgIBCCloseChannel {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var channel: String = String()
+  public var channel: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -63,15 +63,15 @@ struct Cosmwasm_Wasm_V1_MsgIBCCloseChannel {
 fileprivate let _protobuf_package = "cosmwasm.wasm.v1"
 
 extension Cosmwasm_Wasm_V1_MsgIBCSend: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgIBCSend"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgIBCSend"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "channel"),
     4: .standard(proto: "timeout_height"),
     5: .standard(proto: "timeout_timestamp"),
     6: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -86,7 +86,7 @@ extension Cosmwasm_Wasm_V1_MsgIBCSend: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.channel.isEmpty {
       try visitor.visitSingularStringField(value: self.channel, fieldNumber: 2)
     }
@@ -102,7 +102,7 @@ extension Cosmwasm_Wasm_V1_MsgIBCSend: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_MsgIBCSend, rhs: Cosmwasm_Wasm_V1_MsgIBCSend) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_MsgIBCSend, rhs: Cosmwasm_Wasm_V1_MsgIBCSend) -> Bool {
     if lhs.channel != rhs.channel {return false}
     if lhs.timeoutHeight != rhs.timeoutHeight {return false}
     if lhs.timeoutTimestamp != rhs.timeoutTimestamp {return false}
@@ -113,12 +113,12 @@ extension Cosmwasm_Wasm_V1_MsgIBCSend: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension Cosmwasm_Wasm_V1_MsgIBCCloseChannel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgIBCCloseChannel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgIBCCloseChannel"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .same(proto: "channel"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -130,14 +130,14 @@ extension Cosmwasm_Wasm_V1_MsgIBCCloseChannel: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.channel.isEmpty {
       try visitor.visitSingularStringField(value: self.channel, fieldNumber: 2)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_MsgIBCCloseChannel, rhs: Cosmwasm_Wasm_V1_MsgIBCCloseChannel) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_MsgIBCCloseChannel, rhs: Cosmwasm_Wasm_V1_MsgIBCCloseChannel) -> Bool {
     if lhs.channel != rhs.channel {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

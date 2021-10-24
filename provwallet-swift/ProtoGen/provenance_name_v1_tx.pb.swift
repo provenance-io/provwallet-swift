@@ -23,83 +23,83 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// MsgBindNameRequest defines an sdk.Msg type that is used to add an address/name binding under an optional parent name.
 /// The record may optionally be restricted to prevent additional names from being added under this one without the
 /// owner signing the request.
-struct Provenance_Name_V1_MsgBindNameRequest {
+public struct Provenance_Name_V1_MsgBindNameRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The parent record to bind this name under.
-  var parent: Provenance_Name_V1_NameRecord {
+  public var parent: Provenance_Name_V1_NameRecord {
     get {return _parent ?? Provenance_Name_V1_NameRecord()}
     set {_parent = newValue}
   }
   /// Returns true if `parent` has been explicitly set.
-  var hasParent: Bool {return self._parent != nil}
+  public var hasParent: Bool {return self._parent != nil}
   /// Clears the value of `parent`. Subsequent reads from it will return its default value.
-  mutating func clearParent() {self._parent = nil}
+  public mutating func clearParent() {self._parent = nil}
 
   /// The name record to bind under the parent
-  var record: Provenance_Name_V1_NameRecord {
+  public var record: Provenance_Name_V1_NameRecord {
     get {return _record ?? Provenance_Name_V1_NameRecord()}
     set {_record = newValue}
   }
   /// Returns true if `record` has been explicitly set.
-  var hasRecord: Bool {return self._record != nil}
+  public var hasRecord: Bool {return self._record != nil}
   /// Clears the value of `record`. Subsequent reads from it will return its default value.
-  mutating func clearRecord() {self._record = nil}
+  public mutating func clearRecord() {self._record = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _parent: Provenance_Name_V1_NameRecord? = nil
   fileprivate var _record: Provenance_Name_V1_NameRecord? = nil
 }
 
 /// MsgBindNameResponse defines the Msg/BindName response type.
-struct Provenance_Name_V1_MsgBindNameResponse {
+public struct Provenance_Name_V1_MsgBindNameResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgDeleteNameRequest defines an sdk.Msg type that is used to remove an existing address/name binding.  The binding
 /// may not have any child names currently bound for this request to be successful.
-struct Provenance_Name_V1_MsgDeleteNameRequest {
+public struct Provenance_Name_V1_MsgDeleteNameRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The record being removed
-  var record: Provenance_Name_V1_NameRecord {
+  public var record: Provenance_Name_V1_NameRecord {
     get {return _record ?? Provenance_Name_V1_NameRecord()}
     set {_record = newValue}
   }
   /// Returns true if `record` has been explicitly set.
-  var hasRecord: Bool {return self._record != nil}
+  public var hasRecord: Bool {return self._record != nil}
   /// Clears the value of `record`. Subsequent reads from it will return its default value.
-  mutating func clearRecord() {self._record = nil}
+  public mutating func clearRecord() {self._record = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _record: Provenance_Name_V1_NameRecord? = nil
 }
 
 /// MsgDeleteNameResponse defines the Msg/DeleteName response type.
-struct Provenance_Name_V1_MsgDeleteNameResponse {
+public struct Provenance_Name_V1_MsgDeleteNameResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -107,13 +107,13 @@ struct Provenance_Name_V1_MsgDeleteNameResponse {
 fileprivate let _protobuf_package = "provenance.name.v1"
 
 extension Provenance_Name_V1_MsgBindNameRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgBindNameRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgBindNameRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "parent"),
     2: .same(proto: "record"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -126,7 +126,7 @@ extension Provenance_Name_V1_MsgBindNameRequest: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._parent {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -136,7 +136,7 @@ extension Provenance_Name_V1_MsgBindNameRequest: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Name_V1_MsgBindNameRequest, rhs: Provenance_Name_V1_MsgBindNameRequest) -> Bool {
+  public static func ==(lhs: Provenance_Name_V1_MsgBindNameRequest, rhs: Provenance_Name_V1_MsgBindNameRequest) -> Bool {
     if lhs._parent != rhs._parent {return false}
     if lhs._record != rhs._record {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -145,31 +145,31 @@ extension Provenance_Name_V1_MsgBindNameRequest: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Provenance_Name_V1_MsgBindNameResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgBindNameResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgBindNameResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Name_V1_MsgBindNameResponse, rhs: Provenance_Name_V1_MsgBindNameResponse) -> Bool {
+  public static func ==(lhs: Provenance_Name_V1_MsgBindNameResponse, rhs: Provenance_Name_V1_MsgBindNameResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Provenance_Name_V1_MsgDeleteNameRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgDeleteNameRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgDeleteNameRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "record"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -181,14 +181,14 @@ extension Provenance_Name_V1_MsgDeleteNameRequest: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._record {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Name_V1_MsgDeleteNameRequest, rhs: Provenance_Name_V1_MsgDeleteNameRequest) -> Bool {
+  public static func ==(lhs: Provenance_Name_V1_MsgDeleteNameRequest, rhs: Provenance_Name_V1_MsgDeleteNameRequest) -> Bool {
     if lhs._record != rhs._record {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -196,19 +196,19 @@ extension Provenance_Name_V1_MsgDeleteNameRequest: SwiftProtobuf.Message, SwiftP
 }
 
 extension Provenance_Name_V1_MsgDeleteNameResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgDeleteNameResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgDeleteNameResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Name_V1_MsgDeleteNameResponse, rhs: Provenance_Name_V1_MsgDeleteNameResponse) -> Bool {
+  public static func ==(lhs: Provenance_Name_V1_MsgDeleteNameResponse, rhs: Provenance_Name_V1_MsgDeleteNameResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

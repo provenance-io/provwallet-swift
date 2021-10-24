@@ -20,19 +20,19 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-enum Provenance_Metadata_V1_P8e_DefinitionSpecType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Metadata_V1_P8e_DefinitionSpecType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
   case proposed // = 1
   case fact // = 2
   case factList // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .proposed
@@ -42,7 +42,7 @@ enum Provenance_Metadata_V1_P8e_DefinitionSpecType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .proposed: return 1
@@ -58,7 +58,7 @@ enum Provenance_Metadata_V1_P8e_DefinitionSpecType: SwiftProtobuf.Enum {
 
 extension Provenance_Metadata_V1_P8e_DefinitionSpecType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Metadata_V1_P8e_DefinitionSpecType] = [
+  public static var allCases: [Provenance_Metadata_V1_P8e_DefinitionSpecType] = [
     .unknown,
     .proposed,
     .fact,
@@ -68,17 +68,17 @@ extension Provenance_Metadata_V1_P8e_DefinitionSpecType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Provenance_Metadata_V1_P8e_PublicKeyCurve: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Metadata_V1_P8e_PublicKeyCurve: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case secp256K1 // = 0
   case p256 // = 1
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .secp256K1
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .secp256K1
     case 1: self = .p256
@@ -86,7 +86,7 @@ enum Provenance_Metadata_V1_P8e_PublicKeyCurve: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .secp256K1: return 0
     case .p256: return 1
@@ -100,7 +100,7 @@ enum Provenance_Metadata_V1_P8e_PublicKeyCurve: SwiftProtobuf.Enum {
 
 extension Provenance_Metadata_V1_P8e_PublicKeyCurve: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Metadata_V1_P8e_PublicKeyCurve] = [
+  public static var allCases: [Provenance_Metadata_V1_P8e_PublicKeyCurve] = [
     .secp256K1,
     .p256,
   ]
@@ -108,23 +108,23 @@ extension Provenance_Metadata_V1_P8e_PublicKeyCurve: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Provenance_Metadata_V1_P8e_PublicKeyType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Metadata_V1_P8e_PublicKeyType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case elliptic // = 0
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .elliptic
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .elliptic
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .elliptic: return 0
     case .UNRECOGNIZED(let i): return i
@@ -137,15 +137,15 @@ enum Provenance_Metadata_V1_P8e_PublicKeyType: SwiftProtobuf.Enum {
 
 extension Provenance_Metadata_V1_P8e_PublicKeyType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Metadata_V1_P8e_PublicKeyType] = [
+  public static var allCases: [Provenance_Metadata_V1_P8e_PublicKeyType] = [
     .elliptic,
   ]
 }
 
 #endif  // swift(>=4.2)
 
-enum Provenance_Metadata_V1_P8e_ExecutionResultType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Metadata_V1_P8e_ExecutionResultType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case resultTypeUnknown // = 0
   case resultTypePass // = 1
 
@@ -154,11 +154,11 @@ enum Provenance_Metadata_V1_P8e_ExecutionResultType: SwiftProtobuf.Enum {
   case resultTypeFail // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .resultTypeUnknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .resultTypeUnknown
     case 1: self = .resultTypePass
@@ -168,7 +168,7 @@ enum Provenance_Metadata_V1_P8e_ExecutionResultType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .resultTypeUnknown: return 0
     case .resultTypePass: return 1
@@ -184,7 +184,7 @@ enum Provenance_Metadata_V1_P8e_ExecutionResultType: SwiftProtobuf.Enum {
 
 extension Provenance_Metadata_V1_P8e_ExecutionResultType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Metadata_V1_P8e_ExecutionResultType] = [
+  public static var allCases: [Provenance_Metadata_V1_P8e_ExecutionResultType] = [
     .resultTypeUnknown,
     .resultTypePass,
     .resultTypeSkip,
@@ -194,8 +194,8 @@ extension Provenance_Metadata_V1_P8e_ExecutionResultType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-enum Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
   case unknown // = 0
   case originator // = 1
   case servicer // = 2
@@ -208,11 +208,11 @@ enum Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf.Enum {
   case marker // = 9
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .originator
@@ -228,7 +228,7 @@ enum Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .originator: return 1
@@ -250,7 +250,7 @@ enum Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf.Enum {
 
 extension Provenance_Metadata_V1_P8e_PartyType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Metadata_V1_P8e_PartyType] = [
+  public static var allCases: [Provenance_Metadata_V1_P8e_PartyType] = [
     .unknown,
     .originator,
     .servicer,
@@ -266,605 +266,605 @@ extension Provenance_Metadata_V1_P8e_PartyType: CaseIterable {
 
 #endif  // swift(>=4.2)
 
-struct Provenance_Metadata_V1_P8e_Contract {
+public struct Provenance_Metadata_V1_P8e_Contract {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var definition: Provenance_Metadata_V1_P8e_DefinitionSpec {
+  public var definition: Provenance_Metadata_V1_P8e_DefinitionSpec {
     get {return _storage._definition ?? Provenance_Metadata_V1_P8e_DefinitionSpec()}
     set {_uniqueStorage()._definition = newValue}
   }
   /// Returns true if `definition` has been explicitly set.
-  var hasDefinition: Bool {return _storage._definition != nil}
+  public var hasDefinition: Bool {return _storage._definition != nil}
   /// Clears the value of `definition`. Subsequent reads from it will return its default value.
-  mutating func clearDefinition() {_uniqueStorage()._definition = nil}
+  public mutating func clearDefinition() {_uniqueStorage()._definition = nil}
 
   /// Points to the proto for the contractSpec
-  var spec: Provenance_Metadata_V1_P8e_Fact {
+  public var spec: Provenance_Metadata_V1_P8e_Fact {
     get {return _storage._spec ?? Provenance_Metadata_V1_P8e_Fact()}
     set {_uniqueStorage()._spec = newValue}
   }
   /// Returns true if `spec` has been explicitly set.
-  var hasSpec: Bool {return _storage._spec != nil}
+  public var hasSpec: Bool {return _storage._spec != nil}
   /// Clears the value of `spec`. Subsequent reads from it will return its default value.
-  mutating func clearSpec() {_uniqueStorage()._spec = nil}
+  public mutating func clearSpec() {_uniqueStorage()._spec = nil}
 
   /// Invoker of this contract
-  var invoker: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys {
+  public var invoker: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys {
     get {return _storage._invoker ?? Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys()}
     set {_uniqueStorage()._invoker = newValue}
   }
   /// Returns true if `invoker` has been explicitly set.
-  var hasInvoker: Bool {return _storage._invoker != nil}
+  public var hasInvoker: Bool {return _storage._invoker != nil}
   /// Clears the value of `invoker`. Subsequent reads from it will return its default value.
-  mutating func clearInvoker() {_uniqueStorage()._invoker = nil}
+  public mutating func clearInvoker() {_uniqueStorage()._invoker = nil}
 
   /// Constructor arguments.
   /// These are always the output of a previously recorded consideration.
-  var inputs: [Provenance_Metadata_V1_P8e_Fact] {
+  public var inputs: [Provenance_Metadata_V1_P8e_Fact] {
     get {return _storage._inputs}
     set {_uniqueStorage()._inputs = newValue}
   }
 
   /// conditions is a deprecated field that is not used at all anymore.
-  var conditions: [Provenance_Metadata_V1_P8e_Condition] {
+  public var conditions: [Provenance_Metadata_V1_P8e_Condition] {
     get {return _storage._conditions}
     set {_uniqueStorage()._conditions = newValue}
   }
 
-  var considerations: [Provenance_Metadata_V1_P8e_Consideration] {
+  public var considerations: [Provenance_Metadata_V1_P8e_Consideration] {
     get {return _storage._considerations}
     set {_uniqueStorage()._considerations = newValue}
   }
 
-  var recitals: [Provenance_Metadata_V1_P8e_Recital] {
+  public var recitals: [Provenance_Metadata_V1_P8e_Recital] {
     get {return _storage._recitals}
     set {_uniqueStorage()._recitals = newValue}
   }
 
-  var timesExecuted: Int32 {
+  public var timesExecuted: Int32 {
     get {return _storage._timesExecuted}
     set {_uniqueStorage()._timesExecuted = newValue}
   }
 
   /// This is only set once when the contract is initially executed
-  var startTime: Provenance_Metadata_V1_P8e_Timestamp {
+  public var startTime: Provenance_Metadata_V1_P8e_Timestamp {
     get {return _storage._startTime ?? Provenance_Metadata_V1_P8e_Timestamp()}
     set {_uniqueStorage()._startTime = newValue}
   }
   /// Returns true if `startTime` has been explicitly set.
-  var hasStartTime: Bool {return _storage._startTime != nil}
+  public var hasStartTime: Bool {return _storage._startTime != nil}
   /// Clears the value of `startTime`. Subsequent reads from it will return its default value.
-  mutating func clearStartTime() {_uniqueStorage()._startTime = nil}
+  public mutating func clearStartTime() {_uniqueStorage()._startTime = nil}
 
-  var context: Data {
+  public var context: Data {
     get {return _storage._context}
     set {_uniqueStorage()._context = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Provenance_Metadata_V1_P8e_DefinitionSpec {
+public struct Provenance_Metadata_V1_P8e_DefinitionSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var resourceLocation: Provenance_Metadata_V1_P8e_Location {
+  public var resourceLocation: Provenance_Metadata_V1_P8e_Location {
     get {return _resourceLocation ?? Provenance_Metadata_V1_P8e_Location()}
     set {_resourceLocation = newValue}
   }
   /// Returns true if `resourceLocation` has been explicitly set.
-  var hasResourceLocation: Bool {return self._resourceLocation != nil}
+  public var hasResourceLocation: Bool {return self._resourceLocation != nil}
   /// Clears the value of `resourceLocation`. Subsequent reads from it will return its default value.
-  mutating func clearResourceLocation() {self._resourceLocation = nil}
+  public mutating func clearResourceLocation() {self._resourceLocation = nil}
 
-  var signature: Provenance_Metadata_V1_P8e_Signature {
+  public var signature: Provenance_Metadata_V1_P8e_Signature {
     get {return _signature ?? Provenance_Metadata_V1_P8e_Signature()}
     set {_signature = newValue}
   }
   /// Returns true if `signature` has been explicitly set.
-  var hasSignature: Bool {return self._signature != nil}
+  public var hasSignature: Bool {return self._signature != nil}
   /// Clears the value of `signature`. Subsequent reads from it will return its default value.
-  mutating func clearSignature() {self._signature = nil}
+  public mutating func clearSignature() {self._signature = nil}
 
-  var type: Provenance_Metadata_V1_P8e_DefinitionSpecType = .unknown
+  public var type: Provenance_Metadata_V1_P8e_DefinitionSpecType = .unknown
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _resourceLocation: Provenance_Metadata_V1_P8e_Location? = nil
   fileprivate var _signature: Provenance_Metadata_V1_P8e_Signature? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_Fact {
+public struct Provenance_Metadata_V1_P8e_Fact {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var dataLocation: Provenance_Metadata_V1_P8e_Location {
+  public var dataLocation: Provenance_Metadata_V1_P8e_Location {
     get {return _dataLocation ?? Provenance_Metadata_V1_P8e_Location()}
     set {_dataLocation = newValue}
   }
   /// Returns true if `dataLocation` has been explicitly set.
-  var hasDataLocation: Bool {return self._dataLocation != nil}
+  public var hasDataLocation: Bool {return self._dataLocation != nil}
   /// Clears the value of `dataLocation`. Subsequent reads from it will return its default value.
-  mutating func clearDataLocation() {self._dataLocation = nil}
+  public mutating func clearDataLocation() {self._dataLocation = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _dataLocation: Provenance_Metadata_V1_P8e_Location? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_Condition {
+public struct Provenance_Metadata_V1_P8e_Condition {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var conditionName: String = String()
+  public var conditionName: String = String()
 
-  var result: Provenance_Metadata_V1_P8e_ExecutionResult {
+  public var result: Provenance_Metadata_V1_P8e_ExecutionResult {
     get {return _result ?? Provenance_Metadata_V1_P8e_ExecutionResult()}
     set {_result = newValue}
   }
   /// Returns true if `result` has been explicitly set.
-  var hasResult: Bool {return self._result != nil}
+  public var hasResult: Bool {return self._result != nil}
   /// Clears the value of `result`. Subsequent reads from it will return its default value.
-  mutating func clearResult() {self._result = nil}
+  public mutating func clearResult() {self._result = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _result: Provenance_Metadata_V1_P8e_ExecutionResult? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_Consideration {
+public struct Provenance_Metadata_V1_P8e_Consideration {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var considerationName: String = String()
+  public var considerationName: String = String()
 
   /// Data pushed to a consideration that will ultimately match the output_spec of the consideration
-  var inputs: [Provenance_Metadata_V1_P8e_ProposedFact] = []
+  public var inputs: [Provenance_Metadata_V1_P8e_ProposedFact] = []
 
-  var result: Provenance_Metadata_V1_P8e_ExecutionResult {
+  public var result: Provenance_Metadata_V1_P8e_ExecutionResult {
     get {return _result ?? Provenance_Metadata_V1_P8e_ExecutionResult()}
     set {_result = newValue}
   }
   /// Returns true if `result` has been explicitly set.
-  var hasResult: Bool {return self._result != nil}
+  public var hasResult: Bool {return self._result != nil}
   /// Clears the value of `result`. Subsequent reads from it will return its default value.
-  mutating func clearResult() {self._result = nil}
+  public mutating func clearResult() {self._result = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _result: Provenance_Metadata_V1_P8e_ExecutionResult? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_ProposedFact {
+public struct Provenance_Metadata_V1_P8e_ProposedFact {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var hash: String = String()
+  public var hash: String = String()
 
-  var classname: String = String()
+  public var classname: String = String()
 
-  var ancestor: Provenance_Metadata_V1_P8e_ProvenanceReference {
+  public var ancestor: Provenance_Metadata_V1_P8e_ProvenanceReference {
     get {return _ancestor ?? Provenance_Metadata_V1_P8e_ProvenanceReference()}
     set {_ancestor = newValue}
   }
   /// Returns true if `ancestor` has been explicitly set.
-  var hasAncestor: Bool {return self._ancestor != nil}
+  public var hasAncestor: Bool {return self._ancestor != nil}
   /// Clears the value of `ancestor`. Subsequent reads from it will return its default value.
-  mutating func clearAncestor() {self._ancestor = nil}
+  public mutating func clearAncestor() {self._ancestor = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _ancestor: Provenance_Metadata_V1_P8e_ProvenanceReference? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_ExecutionResult {
+public struct Provenance_Metadata_V1_P8e_ExecutionResult {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var output: Provenance_Metadata_V1_P8e_ProposedFact {
+  public var output: Provenance_Metadata_V1_P8e_ProposedFact {
     get {return _output ?? Provenance_Metadata_V1_P8e_ProposedFact()}
     set {_output = newValue}
   }
   /// Returns true if `output` has been explicitly set.
-  var hasOutput: Bool {return self._output != nil}
+  public var hasOutput: Bool {return self._output != nil}
   /// Clears the value of `output`. Subsequent reads from it will return its default value.
-  mutating func clearOutput() {self._output = nil}
+  public mutating func clearOutput() {self._output = nil}
 
-  var result: Provenance_Metadata_V1_P8e_ExecutionResultType = .resultTypeUnknown
+  public var result: Provenance_Metadata_V1_P8e_ExecutionResultType = .resultTypeUnknown
 
-  var recordedAt: Provenance_Metadata_V1_P8e_Timestamp {
+  public var recordedAt: Provenance_Metadata_V1_P8e_Timestamp {
     get {return _recordedAt ?? Provenance_Metadata_V1_P8e_Timestamp()}
     set {_recordedAt = newValue}
   }
   /// Returns true if `recordedAt` has been explicitly set.
-  var hasRecordedAt: Bool {return self._recordedAt != nil}
+  public var hasRecordedAt: Bool {return self._recordedAt != nil}
   /// Clears the value of `recordedAt`. Subsequent reads from it will return its default value.
-  mutating func clearRecordedAt() {self._recordedAt = nil}
+  public mutating func clearRecordedAt() {self._recordedAt = nil}
 
-  var errorMessage: String = String()
+  public var errorMessage: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _output: Provenance_Metadata_V1_P8e_ProposedFact? = nil
   fileprivate var _recordedAt: Provenance_Metadata_V1_P8e_Timestamp? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_Recitals {
+public struct Provenance_Metadata_V1_P8e_Recitals {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var parties: [Provenance_Metadata_V1_P8e_Recital] = []
+  public var parties: [Provenance_Metadata_V1_P8e_Recital] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Provenance_Metadata_V1_P8e_Recital {
+public struct Provenance_Metadata_V1_P8e_Recital {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var signerRole: Provenance_Metadata_V1_P8e_PartyType = .unknown
+  public var signerRole: Provenance_Metadata_V1_P8e_PartyType = .unknown
 
-  var signer: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys {
+  public var signer: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys {
     get {return _signer ?? Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys()}
     set {_signer = newValue}
   }
   /// Returns true if `signer` has been explicitly set.
-  var hasSigner: Bool {return self._signer != nil}
+  public var hasSigner: Bool {return self._signer != nil}
   /// Clears the value of `signer`. Subsequent reads from it will return its default value.
-  mutating func clearSigner() {self._signer = nil}
+  public mutating func clearSigner() {self._signer = nil}
 
-  var address: Data = Data()
+  public var address: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _signer: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_Location {
+public struct Provenance_Metadata_V1_P8e_Location {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var ref: Provenance_Metadata_V1_P8e_ProvenanceReference {
+  public var ref: Provenance_Metadata_V1_P8e_ProvenanceReference {
     get {return _ref ?? Provenance_Metadata_V1_P8e_ProvenanceReference()}
     set {_ref = newValue}
   }
   /// Returns true if `ref` has been explicitly set.
-  var hasRef: Bool {return self._ref != nil}
+  public var hasRef: Bool {return self._ref != nil}
   /// Clears the value of `ref`. Subsequent reads from it will return its default value.
-  mutating func clearRef() {self._ref = nil}
+  public mutating func clearRef() {self._ref = nil}
 
-  var classname: String = String()
+  public var classname: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _ref: Provenance_Metadata_V1_P8e_ProvenanceReference? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_ProvenanceReference {
+public struct Provenance_Metadata_V1_P8e_ProvenanceReference {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// [Req] [Scope.uuid]
   /// Scope ID
-  var scopeUuid: Provenance_Metadata_V1_P8e_UUID {
+  public var scopeUuid: Provenance_Metadata_V1_P8e_UUID {
     get {return _scopeUuid ?? Provenance_Metadata_V1_P8e_UUID()}
     set {_scopeUuid = newValue}
   }
   /// Returns true if `scopeUuid` has been explicitly set.
-  var hasScopeUuid: Bool {return self._scopeUuid != nil}
+  public var hasScopeUuid: Bool {return self._scopeUuid != nil}
   /// Clears the value of `scopeUuid`. Subsequent reads from it will return its default value.
-  mutating func clearScopeUuid() {self._scopeUuid = nil}
+  public mutating func clearScopeUuid() {self._scopeUuid = nil}
 
   /// [Opt] [RecordGroup.group_uuid]
   /// require record to be within a specific group
-  var groupUuid: Provenance_Metadata_V1_P8e_UUID {
+  public var groupUuid: Provenance_Metadata_V1_P8e_UUID {
     get {return _groupUuid ?? Provenance_Metadata_V1_P8e_UUID()}
     set {_groupUuid = newValue}
   }
   /// Returns true if `groupUuid` has been explicitly set.
-  var hasGroupUuid: Bool {return self._groupUuid != nil}
+  public var hasGroupUuid: Bool {return self._groupUuid != nil}
   /// Clears the value of `groupUuid`. Subsequent reads from it will return its default value.
-  mutating func clearGroupUuid() {self._groupUuid = nil}
+  public mutating func clearGroupUuid() {self._groupUuid = nil}
 
   /// [Opt] [Record.result_hash]
   /// specify a specific record inside a scope (and group) by result-hash
-  var hash: String = String()
+  public var hash: String = String()
 
   /// [Opt] [Record.result_name]
   /// specify a result-name of a record within a scope
-  var name: String = String()
+  public var name: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _scopeUuid: Provenance_Metadata_V1_P8e_UUID? = nil
   fileprivate var _groupUuid: Provenance_Metadata_V1_P8e_UUID? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_SignatureSet {
+public struct Provenance_Metadata_V1_P8e_SignatureSet {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var signatures: [Provenance_Metadata_V1_P8e_Signature] = []
+  public var signatures: [Provenance_Metadata_V1_P8e_Signature] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Provenance_Metadata_V1_P8e_Signature {
+public struct Provenance_Metadata_V1_P8e_Signature {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Signature Detail
-  var algo: String = String()
+  public var algo: String = String()
 
-  var provider: String = String()
+  public var provider: String = String()
 
-  var signature: String = String()
+  public var signature: String = String()
 
   /// Identity of signer
-  var signer: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys {
+  public var signer: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys {
     get {return _signer ?? Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys()}
     set {_signer = newValue}
   }
   /// Returns true if `signer` has been explicitly set.
-  var hasSigner: Bool {return self._signer != nil}
+  public var hasSigner: Bool {return self._signer != nil}
   /// Clears the value of `signer`. Subsequent reads from it will return its default value.
-  mutating func clearSigner() {self._signer = nil}
+  public mutating func clearSigner() {self._signer = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _signer: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys {
+public struct Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var signingPublicKey: Provenance_Metadata_V1_P8e_PublicKey {
+  public var signingPublicKey: Provenance_Metadata_V1_P8e_PublicKey {
     get {return _signingPublicKey ?? Provenance_Metadata_V1_P8e_PublicKey()}
     set {_signingPublicKey = newValue}
   }
   /// Returns true if `signingPublicKey` has been explicitly set.
-  var hasSigningPublicKey: Bool {return self._signingPublicKey != nil}
+  public var hasSigningPublicKey: Bool {return self._signingPublicKey != nil}
   /// Clears the value of `signingPublicKey`. Subsequent reads from it will return its default value.
-  mutating func clearSigningPublicKey() {self._signingPublicKey = nil}
+  public mutating func clearSigningPublicKey() {self._signingPublicKey = nil}
 
-  var encryptionPublicKey: Provenance_Metadata_V1_P8e_PublicKey {
+  public var encryptionPublicKey: Provenance_Metadata_V1_P8e_PublicKey {
     get {return _encryptionPublicKey ?? Provenance_Metadata_V1_P8e_PublicKey()}
     set {_encryptionPublicKey = newValue}
   }
   /// Returns true if `encryptionPublicKey` has been explicitly set.
-  var hasEncryptionPublicKey: Bool {return self._encryptionPublicKey != nil}
+  public var hasEncryptionPublicKey: Bool {return self._encryptionPublicKey != nil}
   /// Clears the value of `encryptionPublicKey`. Subsequent reads from it will return its default value.
-  mutating func clearEncryptionPublicKey() {self._encryptionPublicKey = nil}
+  public mutating func clearEncryptionPublicKey() {self._encryptionPublicKey = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _signingPublicKey: Provenance_Metadata_V1_P8e_PublicKey? = nil
   fileprivate var _encryptionPublicKey: Provenance_Metadata_V1_P8e_PublicKey? = nil
 }
 
-struct Provenance_Metadata_V1_P8e_PublicKey {
+public struct Provenance_Metadata_V1_P8e_PublicKey {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var publicKeyBytes: Data = Data()
+  public var publicKeyBytes: Data = Data()
 
-  var type: Provenance_Metadata_V1_P8e_PublicKeyType = .elliptic
+  public var type: Provenance_Metadata_V1_P8e_PublicKeyType = .elliptic
 
-  var curve: Provenance_Metadata_V1_P8e_PublicKeyCurve = .secp256K1
+  public var curve: Provenance_Metadata_V1_P8e_PublicKeyCurve = .secp256K1
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Provenance_Metadata_V1_P8e_UUID {
+public struct Provenance_Metadata_V1_P8e_UUID {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var value: String = String()
+  public var value: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// A Timestamp represents a point in time using values relative to the epoch.
-struct Provenance_Metadata_V1_P8e_Timestamp {
+public struct Provenance_Metadata_V1_P8e_Timestamp {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Represents seconds of UTC time since Unix epoch
-  var seconds: Int64 = 0
+  public var seconds: Int64 = 0
 
   /// Non-negative fractions of a second at nanosecond resolution.
-  var nanos: Int32 = 0
+  public var nanos: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
-struct Provenance_Metadata_V1_P8e_ContractSpec {
+public struct Provenance_Metadata_V1_P8e_ContractSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var definition: Provenance_Metadata_V1_P8e_DefinitionSpec {
+  public var definition: Provenance_Metadata_V1_P8e_DefinitionSpec {
     get {return _storage._definition ?? Provenance_Metadata_V1_P8e_DefinitionSpec()}
     set {_uniqueStorage()._definition = newValue}
   }
   /// Returns true if `definition` has been explicitly set.
-  var hasDefinition: Bool {return _storage._definition != nil}
+  public var hasDefinition: Bool {return _storage._definition != nil}
   /// Clears the value of `definition`. Subsequent reads from it will return its default value.
-  mutating func clearDefinition() {_uniqueStorage()._definition = nil}
+  public mutating func clearDefinition() {_uniqueStorage()._definition = nil}
 
-  var inputSpecs: [Provenance_Metadata_V1_P8e_DefinitionSpec] {
+  public var inputSpecs: [Provenance_Metadata_V1_P8e_DefinitionSpec] {
     get {return _storage._inputSpecs}
     set {_uniqueStorage()._inputSpecs = newValue}
   }
 
-  var partiesInvolved: [Provenance_Metadata_V1_P8e_PartyType] {
+  public var partiesInvolved: [Provenance_Metadata_V1_P8e_PartyType] {
     get {return _storage._partiesInvolved}
     set {_uniqueStorage()._partiesInvolved = newValue}
   }
 
-  var conditionSpecs: [Provenance_Metadata_V1_P8e_ConditionSpec] {
+  public var conditionSpecs: [Provenance_Metadata_V1_P8e_ConditionSpec] {
     get {return _storage._conditionSpecs}
     set {_uniqueStorage()._conditionSpecs = newValue}
   }
 
-  var considerationSpecs: [Provenance_Metadata_V1_P8e_ConsiderationSpec] {
+  public var considerationSpecs: [Provenance_Metadata_V1_P8e_ConsiderationSpec] {
     get {return _storage._considerationSpecs}
     set {_uniqueStorage()._considerationSpecs = newValue}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Provenance_Metadata_V1_P8e_ConditionSpec {
+public struct Provenance_Metadata_V1_P8e_ConditionSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var funcName: String {
+  public var funcName: String {
     get {return _storage._funcName}
     set {_uniqueStorage()._funcName = newValue}
   }
 
-  var inputSpecs: [Provenance_Metadata_V1_P8e_DefinitionSpec] {
+  public var inputSpecs: [Provenance_Metadata_V1_P8e_DefinitionSpec] {
     get {return _storage._inputSpecs}
     set {_uniqueStorage()._inputSpecs = newValue}
   }
 
-  var outputSpec: Provenance_Metadata_V1_P8e_OutputSpec {
+  public var outputSpec: Provenance_Metadata_V1_P8e_OutputSpec {
     get {return _storage._outputSpec ?? Provenance_Metadata_V1_P8e_OutputSpec()}
     set {_uniqueStorage()._outputSpec = newValue}
   }
   /// Returns true if `outputSpec` has been explicitly set.
-  var hasOutputSpec: Bool {return _storage._outputSpec != nil}
+  public var hasOutputSpec: Bool {return _storage._outputSpec != nil}
   /// Clears the value of `outputSpec`. Subsequent reads from it will return its default value.
-  mutating func clearOutputSpec() {_uniqueStorage()._outputSpec = nil}
+  public mutating func clearOutputSpec() {_uniqueStorage()._outputSpec = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Provenance_Metadata_V1_P8e_ConsiderationSpec {
+public struct Provenance_Metadata_V1_P8e_ConsiderationSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var funcName: String {
+  public var funcName: String {
     get {return _storage._funcName}
     set {_uniqueStorage()._funcName = newValue}
   }
 
   /// Invoking party
-  var responsibleParty: Provenance_Metadata_V1_P8e_PartyType {
+  public var responsibleParty: Provenance_Metadata_V1_P8e_PartyType {
     get {return _storage._responsibleParty}
     set {_uniqueStorage()._responsibleParty = newValue}
   }
 
-  var inputSpecs: [Provenance_Metadata_V1_P8e_DefinitionSpec] {
+  public var inputSpecs: [Provenance_Metadata_V1_P8e_DefinitionSpec] {
     get {return _storage._inputSpecs}
     set {_uniqueStorage()._inputSpecs = newValue}
   }
 
-  var outputSpec: Provenance_Metadata_V1_P8e_OutputSpec {
+  public var outputSpec: Provenance_Metadata_V1_P8e_OutputSpec {
     get {return _storage._outputSpec ?? Provenance_Metadata_V1_P8e_OutputSpec()}
     set {_uniqueStorage()._outputSpec = newValue}
   }
   /// Returns true if `outputSpec` has been explicitly set.
-  var hasOutputSpec: Bool {return _storage._outputSpec != nil}
+  public var hasOutputSpec: Bool {return _storage._outputSpec != nil}
   /// Clears the value of `outputSpec`. Subsequent reads from it will return its default value.
-  mutating func clearOutputSpec() {_uniqueStorage()._outputSpec = nil}
+  public mutating func clearOutputSpec() {_uniqueStorage()._outputSpec = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
-struct Provenance_Metadata_V1_P8e_OutputSpec {
+public struct Provenance_Metadata_V1_P8e_OutputSpec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var spec: Provenance_Metadata_V1_P8e_DefinitionSpec {
+  public var spec: Provenance_Metadata_V1_P8e_DefinitionSpec {
     get {return _spec ?? Provenance_Metadata_V1_P8e_DefinitionSpec()}
     set {_spec = newValue}
   }
   /// Returns true if `spec` has been explicitly set.
-  var hasSpec: Bool {return self._spec != nil}
+  public var hasSpec: Bool {return self._spec != nil}
   /// Clears the value of `spec`. Subsequent reads from it will return its default value.
-  mutating func clearSpec() {self._spec = nil}
+  public mutating func clearSpec() {self._spec = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _spec: Provenance_Metadata_V1_P8e_DefinitionSpec? = nil
 }
@@ -874,7 +874,7 @@ struct Provenance_Metadata_V1_P8e_OutputSpec {
 fileprivate let _protobuf_package = "provenance.metadata.v1.p8e"
 
 extension Provenance_Metadata_V1_P8e_DefinitionSpecType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "DEFINITION_SPEC_TYPE_UNKNOWN"),
     1: .same(proto: "DEFINITION_SPEC_TYPE_PROPOSED"),
     2: .same(proto: "DEFINITION_SPEC_TYPE_FACT"),
@@ -883,20 +883,20 @@ extension Provenance_Metadata_V1_P8e_DefinitionSpecType: SwiftProtobuf._ProtoNam
 }
 
 extension Provenance_Metadata_V1_P8e_PublicKeyCurve: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "SECP256K1"),
     1: .same(proto: "P256"),
   ]
 }
 
 extension Provenance_Metadata_V1_P8e_PublicKeyType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ELLIPTIC"),
   ]
 }
 
 extension Provenance_Metadata_V1_P8e_ExecutionResultType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "RESULT_TYPE_UNKNOWN"),
     1: .same(proto: "RESULT_TYPE_PASS"),
     2: .same(proto: "RESULT_TYPE_SKIP"),
@@ -905,7 +905,7 @@ extension Provenance_Metadata_V1_P8e_ExecutionResultType: SwiftProtobuf._ProtoNa
 }
 
 extension Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "PARTY_TYPE_UNKNOWN"),
     1: .same(proto: "PARTY_TYPE_ORIGINATOR"),
     2: .same(proto: "PARTY_TYPE_SERVICER"),
@@ -920,8 +920,8 @@ extension Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf._ProtoNameProvidin
 }
 
 extension Provenance_Metadata_V1_P8e_Contract: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Contract"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Contract"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "definition"),
     2: .same(proto: "spec"),
     3: .same(proto: "invoker"),
@@ -971,7 +971,7 @@ extension Provenance_Metadata_V1_P8e_Contract: SwiftProtobuf.Message, SwiftProto
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -995,7 +995,7 @@ extension Provenance_Metadata_V1_P8e_Contract: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._definition {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -1031,7 +1031,7 @@ extension Provenance_Metadata_V1_P8e_Contract: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_Contract, rhs: Provenance_Metadata_V1_P8e_Contract) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_Contract, rhs: Provenance_Metadata_V1_P8e_Contract) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1056,15 +1056,15 @@ extension Provenance_Metadata_V1_P8e_Contract: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Provenance_Metadata_V1_P8e_DefinitionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DefinitionSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DefinitionSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "resource_location"),
     3: .same(proto: "signature"),
     4: .same(proto: "type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1079,7 +1079,7 @@ extension Provenance_Metadata_V1_P8e_DefinitionSpec: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -1095,7 +1095,7 @@ extension Provenance_Metadata_V1_P8e_DefinitionSpec: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_DefinitionSpec, rhs: Provenance_Metadata_V1_P8e_DefinitionSpec) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_DefinitionSpec, rhs: Provenance_Metadata_V1_P8e_DefinitionSpec) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs._resourceLocation != rhs._resourceLocation {return false}
     if lhs._signature != rhs._signature {return false}
@@ -1106,13 +1106,13 @@ extension Provenance_Metadata_V1_P8e_DefinitionSpec: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Metadata_V1_P8e_Fact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Fact"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Fact"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "data_location"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1125,7 +1125,7 @@ extension Provenance_Metadata_V1_P8e_Fact: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -1135,7 +1135,7 @@ extension Provenance_Metadata_V1_P8e_Fact: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_Fact, rhs: Provenance_Metadata_V1_P8e_Fact) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_Fact, rhs: Provenance_Metadata_V1_P8e_Fact) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs._dataLocation != rhs._dataLocation {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1144,13 +1144,13 @@ extension Provenance_Metadata_V1_P8e_Fact: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Provenance_Metadata_V1_P8e_Condition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Condition"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Condition"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "condition_name"),
     2: .same(proto: "result"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1163,7 +1163,7 @@ extension Provenance_Metadata_V1_P8e_Condition: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.conditionName.isEmpty {
       try visitor.visitSingularStringField(value: self.conditionName, fieldNumber: 1)
     }
@@ -1173,7 +1173,7 @@ extension Provenance_Metadata_V1_P8e_Condition: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_Condition, rhs: Provenance_Metadata_V1_P8e_Condition) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_Condition, rhs: Provenance_Metadata_V1_P8e_Condition) -> Bool {
     if lhs.conditionName != rhs.conditionName {return false}
     if lhs._result != rhs._result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1182,14 +1182,14 @@ extension Provenance_Metadata_V1_P8e_Condition: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Provenance_Metadata_V1_P8e_Consideration: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Consideration"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Consideration"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "consideration_name"),
     2: .same(proto: "inputs"),
     3: .same(proto: "result"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1203,7 +1203,7 @@ extension Provenance_Metadata_V1_P8e_Consideration: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.considerationName.isEmpty {
       try visitor.visitSingularStringField(value: self.considerationName, fieldNumber: 1)
     }
@@ -1216,7 +1216,7 @@ extension Provenance_Metadata_V1_P8e_Consideration: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_Consideration, rhs: Provenance_Metadata_V1_P8e_Consideration) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_Consideration, rhs: Provenance_Metadata_V1_P8e_Consideration) -> Bool {
     if lhs.considerationName != rhs.considerationName {return false}
     if lhs.inputs != rhs.inputs {return false}
     if lhs._result != rhs._result {return false}
@@ -1226,15 +1226,15 @@ extension Provenance_Metadata_V1_P8e_Consideration: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Metadata_V1_P8e_ProposedFact: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ProposedFact"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ProposedFact"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "hash"),
     3: .same(proto: "classname"),
     4: .same(proto: "ancestor"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1249,7 +1249,7 @@ extension Provenance_Metadata_V1_P8e_ProposedFact: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -1265,7 +1265,7 @@ extension Provenance_Metadata_V1_P8e_ProposedFact: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_ProposedFact, rhs: Provenance_Metadata_V1_P8e_ProposedFact) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_ProposedFact, rhs: Provenance_Metadata_V1_P8e_ProposedFact) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.hash != rhs.hash {return false}
     if lhs.classname != rhs.classname {return false}
@@ -1276,15 +1276,15 @@ extension Provenance_Metadata_V1_P8e_ProposedFact: SwiftProtobuf.Message, SwiftP
 }
 
 extension Provenance_Metadata_V1_P8e_ExecutionResult: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ExecutionResult"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ExecutionResult"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "output"),
     2: .same(proto: "result"),
     3: .standard(proto: "recorded_at"),
     4: .standard(proto: "error_message"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1299,7 +1299,7 @@ extension Provenance_Metadata_V1_P8e_ExecutionResult: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._output {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -1315,7 +1315,7 @@ extension Provenance_Metadata_V1_P8e_ExecutionResult: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_ExecutionResult, rhs: Provenance_Metadata_V1_P8e_ExecutionResult) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_ExecutionResult, rhs: Provenance_Metadata_V1_P8e_ExecutionResult) -> Bool {
     if lhs._output != rhs._output {return false}
     if lhs.result != rhs.result {return false}
     if lhs._recordedAt != rhs._recordedAt {return false}
@@ -1326,12 +1326,12 @@ extension Provenance_Metadata_V1_P8e_ExecutionResult: SwiftProtobuf.Message, Swi
 }
 
 extension Provenance_Metadata_V1_P8e_Recitals: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Recitals"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Recitals"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "parties"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1343,14 +1343,14 @@ extension Provenance_Metadata_V1_P8e_Recitals: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.parties.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.parties, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_Recitals, rhs: Provenance_Metadata_V1_P8e_Recitals) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_Recitals, rhs: Provenance_Metadata_V1_P8e_Recitals) -> Bool {
     if lhs.parties != rhs.parties {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1358,14 +1358,14 @@ extension Provenance_Metadata_V1_P8e_Recitals: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Provenance_Metadata_V1_P8e_Recital: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Recital"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Recital"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "signer_role"),
     2: .same(proto: "signer"),
     3: .same(proto: "address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1379,7 +1379,7 @@ extension Provenance_Metadata_V1_P8e_Recital: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.signerRole != .unknown {
       try visitor.visitSingularEnumField(value: self.signerRole, fieldNumber: 1)
     }
@@ -1392,7 +1392,7 @@ extension Provenance_Metadata_V1_P8e_Recital: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_Recital, rhs: Provenance_Metadata_V1_P8e_Recital) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_Recital, rhs: Provenance_Metadata_V1_P8e_Recital) -> Bool {
     if lhs.signerRole != rhs.signerRole {return false}
     if lhs._signer != rhs._signer {return false}
     if lhs.address != rhs.address {return false}
@@ -1402,13 +1402,13 @@ extension Provenance_Metadata_V1_P8e_Recital: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Provenance_Metadata_V1_P8e_Location: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Location"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Location"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "ref"),
     2: .same(proto: "classname"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1421,7 +1421,7 @@ extension Provenance_Metadata_V1_P8e_Location: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._ref {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -1431,7 +1431,7 @@ extension Provenance_Metadata_V1_P8e_Location: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_Location, rhs: Provenance_Metadata_V1_P8e_Location) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_Location, rhs: Provenance_Metadata_V1_P8e_Location) -> Bool {
     if lhs._ref != rhs._ref {return false}
     if lhs.classname != rhs.classname {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1440,15 +1440,15 @@ extension Provenance_Metadata_V1_P8e_Location: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Provenance_Metadata_V1_P8e_ProvenanceReference: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ProvenanceReference"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ProvenanceReference"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_uuid"),
     2: .standard(proto: "group_uuid"),
     3: .same(proto: "hash"),
     4: .same(proto: "name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1463,7 +1463,7 @@ extension Provenance_Metadata_V1_P8e_ProvenanceReference: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._scopeUuid {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -1479,7 +1479,7 @@ extension Provenance_Metadata_V1_P8e_ProvenanceReference: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_ProvenanceReference, rhs: Provenance_Metadata_V1_P8e_ProvenanceReference) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_ProvenanceReference, rhs: Provenance_Metadata_V1_P8e_ProvenanceReference) -> Bool {
     if lhs._scopeUuid != rhs._scopeUuid {return false}
     if lhs._groupUuid != rhs._groupUuid {return false}
     if lhs.hash != rhs.hash {return false}
@@ -1490,12 +1490,12 @@ extension Provenance_Metadata_V1_P8e_ProvenanceReference: SwiftProtobuf.Message,
 }
 
 extension Provenance_Metadata_V1_P8e_SignatureSet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SignatureSet"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SignatureSet"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "signatures"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1507,14 +1507,14 @@ extension Provenance_Metadata_V1_P8e_SignatureSet: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.signatures.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.signatures, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_SignatureSet, rhs: Provenance_Metadata_V1_P8e_SignatureSet) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_SignatureSet, rhs: Provenance_Metadata_V1_P8e_SignatureSet) -> Bool {
     if lhs.signatures != rhs.signatures {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1522,15 +1522,15 @@ extension Provenance_Metadata_V1_P8e_SignatureSet: SwiftProtobuf.Message, SwiftP
 }
 
 extension Provenance_Metadata_V1_P8e_Signature: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Signature"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Signature"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "algo"),
     2: .same(proto: "provider"),
     3: .same(proto: "signature"),
     4: .same(proto: "signer"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1545,7 +1545,7 @@ extension Provenance_Metadata_V1_P8e_Signature: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.algo.isEmpty {
       try visitor.visitSingularStringField(value: self.algo, fieldNumber: 1)
     }
@@ -1561,7 +1561,7 @@ extension Provenance_Metadata_V1_P8e_Signature: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_Signature, rhs: Provenance_Metadata_V1_P8e_Signature) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_Signature, rhs: Provenance_Metadata_V1_P8e_Signature) -> Bool {
     if lhs.algo != rhs.algo {return false}
     if lhs.provider != rhs.provider {return false}
     if lhs.signature != rhs.signature {return false}
@@ -1572,13 +1572,13 @@ extension Provenance_Metadata_V1_P8e_Signature: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SigningAndEncryptionPublicKeys"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SigningAndEncryptionPublicKeys"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "signing_public_key"),
     2: .standard(proto: "encryption_public_key"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1591,7 +1591,7 @@ extension Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._signingPublicKey {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -1601,7 +1601,7 @@ extension Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys: SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys, rhs: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys, rhs: Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys) -> Bool {
     if lhs._signingPublicKey != rhs._signingPublicKey {return false}
     if lhs._encryptionPublicKey != rhs._encryptionPublicKey {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1610,14 +1610,14 @@ extension Provenance_Metadata_V1_P8e_SigningAndEncryptionPublicKeys: SwiftProtob
 }
 
 extension Provenance_Metadata_V1_P8e_PublicKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PublicKey"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PublicKey"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "public_key_bytes"),
     2: .same(proto: "type"),
     3: .same(proto: "curve"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1631,7 +1631,7 @@ extension Provenance_Metadata_V1_P8e_PublicKey: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.publicKeyBytes.isEmpty {
       try visitor.visitSingularBytesField(value: self.publicKeyBytes, fieldNumber: 1)
     }
@@ -1644,7 +1644,7 @@ extension Provenance_Metadata_V1_P8e_PublicKey: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_PublicKey, rhs: Provenance_Metadata_V1_P8e_PublicKey) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_PublicKey, rhs: Provenance_Metadata_V1_P8e_PublicKey) -> Bool {
     if lhs.publicKeyBytes != rhs.publicKeyBytes {return false}
     if lhs.type != rhs.type {return false}
     if lhs.curve != rhs.curve {return false}
@@ -1654,12 +1654,12 @@ extension Provenance_Metadata_V1_P8e_PublicKey: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Provenance_Metadata_V1_P8e_UUID: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".UUID"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".UUID"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1671,14 +1671,14 @@ extension Provenance_Metadata_V1_P8e_UUID: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.value.isEmpty {
       try visitor.visitSingularStringField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_UUID, rhs: Provenance_Metadata_V1_P8e_UUID) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_UUID, rhs: Provenance_Metadata_V1_P8e_UUID) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1686,13 +1686,13 @@ extension Provenance_Metadata_V1_P8e_UUID: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Provenance_Metadata_V1_P8e_Timestamp: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Timestamp"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Timestamp"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "seconds"),
     2: .same(proto: "nanos"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1705,7 +1705,7 @@ extension Provenance_Metadata_V1_P8e_Timestamp: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.seconds != 0 {
       try visitor.visitSingularInt64Field(value: self.seconds, fieldNumber: 1)
     }
@@ -1715,7 +1715,7 @@ extension Provenance_Metadata_V1_P8e_Timestamp: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_Timestamp, rhs: Provenance_Metadata_V1_P8e_Timestamp) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_Timestamp, rhs: Provenance_Metadata_V1_P8e_Timestamp) -> Bool {
     if lhs.seconds != rhs.seconds {return false}
     if lhs.nanos != rhs.nanos {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1724,8 +1724,8 @@ extension Provenance_Metadata_V1_P8e_Timestamp: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Provenance_Metadata_V1_P8e_ContractSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "definition"),
     2: .standard(proto: "input_specs"),
     3: .standard(proto: "parties_involved"),
@@ -1760,7 +1760,7 @@ extension Provenance_Metadata_V1_P8e_ContractSpec: SwiftProtobuf.Message, SwiftP
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1779,7 +1779,7 @@ extension Provenance_Metadata_V1_P8e_ContractSpec: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if let v = _storage._definition {
         try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
@@ -1800,7 +1800,7 @@ extension Provenance_Metadata_V1_P8e_ContractSpec: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_ContractSpec, rhs: Provenance_Metadata_V1_P8e_ContractSpec) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_ContractSpec, rhs: Provenance_Metadata_V1_P8e_ContractSpec) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1820,8 +1820,8 @@ extension Provenance_Metadata_V1_P8e_ContractSpec: SwiftProtobuf.Message, SwiftP
 }
 
 extension Provenance_Metadata_V1_P8e_ConditionSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConditionSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConditionSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "func_name"),
     2: .standard(proto: "input_specs"),
     3: .standard(proto: "output_spec"),
@@ -1850,7 +1850,7 @@ extension Provenance_Metadata_V1_P8e_ConditionSpec: SwiftProtobuf.Message, Swift
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1867,7 +1867,7 @@ extension Provenance_Metadata_V1_P8e_ConditionSpec: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._funcName.isEmpty {
         try visitor.visitSingularStringField(value: _storage._funcName, fieldNumber: 1)
@@ -1882,7 +1882,7 @@ extension Provenance_Metadata_V1_P8e_ConditionSpec: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_ConditionSpec, rhs: Provenance_Metadata_V1_P8e_ConditionSpec) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_ConditionSpec, rhs: Provenance_Metadata_V1_P8e_ConditionSpec) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1900,8 +1900,8 @@ extension Provenance_Metadata_V1_P8e_ConditionSpec: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Metadata_V1_P8e_ConsiderationSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConsiderationSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConsiderationSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "func_name"),
     2: .standard(proto: "responsible_party"),
     3: .standard(proto: "input_specs"),
@@ -1933,7 +1933,7 @@ extension Provenance_Metadata_V1_P8e_ConsiderationSpec: SwiftProtobuf.Message, S
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -1951,7 +1951,7 @@ extension Provenance_Metadata_V1_P8e_ConsiderationSpec: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._funcName.isEmpty {
         try visitor.visitSingularStringField(value: _storage._funcName, fieldNumber: 1)
@@ -1969,7 +1969,7 @@ extension Provenance_Metadata_V1_P8e_ConsiderationSpec: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_ConsiderationSpec, rhs: Provenance_Metadata_V1_P8e_ConsiderationSpec) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_ConsiderationSpec, rhs: Provenance_Metadata_V1_P8e_ConsiderationSpec) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -1988,12 +1988,12 @@ extension Provenance_Metadata_V1_P8e_ConsiderationSpec: SwiftProtobuf.Message, S
 }
 
 extension Provenance_Metadata_V1_P8e_OutputSpec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".OutputSpec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".OutputSpec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "spec"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -2005,14 +2005,14 @@ extension Provenance_Metadata_V1_P8e_OutputSpec: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._spec {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_P8e_OutputSpec, rhs: Provenance_Metadata_V1_P8e_OutputSpec) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_P8e_OutputSpec, rhs: Provenance_Metadata_V1_P8e_OutputSpec) -> Bool {
     if lhs._spec != rhs._spec {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

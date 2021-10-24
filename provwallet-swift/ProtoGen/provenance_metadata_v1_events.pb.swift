@@ -21,362 +21,362 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// EventTxCompleted is an event message indicating that a TX has completed.
-struct Provenance_Metadata_V1_EventTxCompleted {
+public struct Provenance_Metadata_V1_EventTxCompleted {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// module is the module the TX belongs to.
-  var module: String = String()
+  public var module: String = String()
 
   /// endpoint is the rpc endpoint that was just completed.
-  var endpoint: String = String()
+  public var endpoint: String = String()
 
   /// signers are the bech32 address strings of the signers of this TX.
-  var signers: [String] = []
+  public var signers: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventScopeCreated is an event message indicating a scope has been created.
-struct Provenance_Metadata_V1_EventScopeCreated {
+public struct Provenance_Metadata_V1_EventScopeCreated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_addr is the bech32 address string of the scope id that was created.
-  var scopeAddr: String = String()
+  public var scopeAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventScopeUpdated is an event message indicating a scope has been updated.
-struct Provenance_Metadata_V1_EventScopeUpdated {
+public struct Provenance_Metadata_V1_EventScopeUpdated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_addr is the bech32 address string of the scope id that was updated.
-  var scopeAddr: String = String()
+  public var scopeAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventScopeDeleted is an event message indicating a scope has been deleted.
-struct Provenance_Metadata_V1_EventScopeDeleted {
+public struct Provenance_Metadata_V1_EventScopeDeleted {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_addr is the bech32 address string of the scope id that was deleted.
-  var scopeAddr: String = String()
+  public var scopeAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventSessionCreated is an event message indicating a session has been created.
-struct Provenance_Metadata_V1_EventSessionCreated {
+public struct Provenance_Metadata_V1_EventSessionCreated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// session_addr is the bech32 address string of the session id that was created.
-  var sessionAddr: String = String()
+  public var sessionAddr: String = String()
 
   /// scope_addr is the bech32 address string of the scope id this session belongs to.
-  var scopeAddr: String = String()
+  public var scopeAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventSessionUpdated is an event message indicating a session has been updated.
-struct Provenance_Metadata_V1_EventSessionUpdated {
+public struct Provenance_Metadata_V1_EventSessionUpdated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// session_addr is the bech32 address string of the session id that was updated.
-  var sessionAddr: String = String()
+  public var sessionAddr: String = String()
 
   /// scope_addr is the bech32 address string of the scope id this session belongs to.
-  var scopeAddr: String = String()
+  public var scopeAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventSessionDeleted is an event message indicating a session has been deleted.
-struct Provenance_Metadata_V1_EventSessionDeleted {
+public struct Provenance_Metadata_V1_EventSessionDeleted {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// session_addr is the bech32 address string of the session id that was deleted.
-  var sessionAddr: String = String()
+  public var sessionAddr: String = String()
 
   /// scope_addr is the bech32 address string of the scope id this session belongs to.
-  var scopeAddr: String = String()
+  public var scopeAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventRecordCreated is an event message indicating a record has been created.
-struct Provenance_Metadata_V1_EventRecordCreated {
+public struct Provenance_Metadata_V1_EventRecordCreated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_addr is the bech32 address string of the record id that was created.
-  var recordAddr: String = String()
+  public var recordAddr: String = String()
 
   /// session_addr is the bech32 address string of the session id this record belongs to.
-  var sessionAddr: String = String()
+  public var sessionAddr: String = String()
 
   /// scope_addr is the bech32 address string of the scope id this record belongs to.
-  var scopeAddr: String = String()
+  public var scopeAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventRecordUpdated is an event message indicating a record has been updated.
-struct Provenance_Metadata_V1_EventRecordUpdated {
+public struct Provenance_Metadata_V1_EventRecordUpdated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_addr is the bech32 address string of the record id that was updated.
-  var recordAddr: String = String()
+  public var recordAddr: String = String()
 
   /// session_addr is the bech32 address string of the session id this record belongs to.
-  var sessionAddr: String = String()
+  public var sessionAddr: String = String()
 
   /// scope_addr is the bech32 address string of the scope id this record belongs to.
-  var scopeAddr: String = String()
+  public var scopeAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventRecordDeleted is an event message indicating a record has been deleted.
-struct Provenance_Metadata_V1_EventRecordDeleted {
+public struct Provenance_Metadata_V1_EventRecordDeleted {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record is the bech32 address string of the record id that was deleted.
-  var recordAddr: String = String()
+  public var recordAddr: String = String()
 
   /// scope_addr is the bech32 address string of the scope id this record belonged to.
-  var scopeAddr: String = String()
+  public var scopeAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventScopeSpecificationCreated is an event message indicating a scope specification has been created.
-struct Provenance_Metadata_V1_EventScopeSpecificationCreated {
+public struct Provenance_Metadata_V1_EventScopeSpecificationCreated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_specification_addr is the bech32 address string of the specification id of the scope specification that was
   /// created.
-  var scopeSpecificationAddr: String = String()
+  public var scopeSpecificationAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventScopeSpecificationUpdated is an event message indicating a scope specification has been updated.
-struct Provenance_Metadata_V1_EventScopeSpecificationUpdated {
+public struct Provenance_Metadata_V1_EventScopeSpecificationUpdated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_specification_addr is the bech32 address string of the specification id of the scope specification that was
   /// updated.
-  var scopeSpecificationAddr: String = String()
+  public var scopeSpecificationAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventScopeSpecificationDeleted is an event message indicating a scope specification has been deleted.
-struct Provenance_Metadata_V1_EventScopeSpecificationDeleted {
+public struct Provenance_Metadata_V1_EventScopeSpecificationDeleted {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_specification_addr is the bech32 address string of the specification id of the scope specification that was
   /// deleted.
-  var scopeSpecificationAddr: String = String()
+  public var scopeSpecificationAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventContractSpecificationCreated is an event message indicating a contract specification has been created.
-struct Provenance_Metadata_V1_EventContractSpecificationCreated {
+public struct Provenance_Metadata_V1_EventContractSpecificationCreated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// contract_specification_addr is the bech32 address string of the specification id of the contract specification that
   /// was created.
-  var contractSpecificationAddr: String = String()
+  public var contractSpecificationAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventContractSpecificationUpdated is an event message indicating a contract specification has been updated.
-struct Provenance_Metadata_V1_EventContractSpecificationUpdated {
+public struct Provenance_Metadata_V1_EventContractSpecificationUpdated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// contract_specification_addr is the bech32 address string of the specification id of the contract specification that
   /// was updated.
-  var contractSpecificationAddr: String = String()
+  public var contractSpecificationAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventContractSpecificationDeleted is an event message indicating a contract specification has been deleted.
-struct Provenance_Metadata_V1_EventContractSpecificationDeleted {
+public struct Provenance_Metadata_V1_EventContractSpecificationDeleted {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// contract_specification_addr is the bech32 address string of the specification id of the contract specification that
   /// was deleted.
-  var contractSpecificationAddr: String = String()
+  public var contractSpecificationAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventRecordSpecificationCreated is an event message indicating a record specification has been created.
-struct Provenance_Metadata_V1_EventRecordSpecificationCreated {
+public struct Provenance_Metadata_V1_EventRecordSpecificationCreated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_specification_addr is the bech32 address string of the specification id of the record specification that was
   /// created.
-  var recordSpecificationAddr: String = String()
+  public var recordSpecificationAddr: String = String()
 
   /// contract_specification_addr is the bech32 address string of the contract specification id this record specification
   /// belongs to.
-  var contractSpecificationAddr: String = String()
+  public var contractSpecificationAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventRecordSpecificationUpdated is an event message indicating a record specification has been updated.
-struct Provenance_Metadata_V1_EventRecordSpecificationUpdated {
+public struct Provenance_Metadata_V1_EventRecordSpecificationUpdated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_specification_addr is the bech32 address string of the specification id of the record specification that was
   /// updated.
-  var recordSpecificationAddr: String = String()
+  public var recordSpecificationAddr: String = String()
 
   /// contract_specification_addr is the bech32 address string of the contract specification id this record specification
   /// belongs to.
-  var contractSpecificationAddr: String = String()
+  public var contractSpecificationAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventRecordSpecificationDeleted is an event message indicating a record specification has been deleted.
-struct Provenance_Metadata_V1_EventRecordSpecificationDeleted {
+public struct Provenance_Metadata_V1_EventRecordSpecificationDeleted {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_specification_addr is the bech32 address string of the specification id of the record specification that was
   /// deleted.
-  var recordSpecificationAddr: String = String()
+  public var recordSpecificationAddr: String = String()
 
   /// contract_specification_addr is the bech32 address string of the contract specification id this record specification
   /// belongs to.
-  var contractSpecificationAddr: String = String()
+  public var contractSpecificationAddr: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventOSLocatorCreated is an event message indicating an object store locator has been created.
-struct Provenance_Metadata_V1_EventOSLocatorCreated {
+public struct Provenance_Metadata_V1_EventOSLocatorCreated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// owner is the owner in the object store locator that was created.
-  var owner: String = String()
+  public var owner: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventOSLocatorUpdated is an event message indicating an object store locator has been updated.
-struct Provenance_Metadata_V1_EventOSLocatorUpdated {
+public struct Provenance_Metadata_V1_EventOSLocatorUpdated {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// owner is the owner in the object store locator that was updated.
-  var owner: String = String()
+  public var owner: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventOSLocatorDeleted is an event message indicating an object store locator has been deleted.
-struct Provenance_Metadata_V1_EventOSLocatorDeleted {
+public struct Provenance_Metadata_V1_EventOSLocatorDeleted {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// owner is the owner in the object store locator that was deleted.
-  var owner: String = String()
+  public var owner: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -384,14 +384,14 @@ struct Provenance_Metadata_V1_EventOSLocatorDeleted {
 fileprivate let _protobuf_package = "provenance.metadata.v1"
 
 extension Provenance_Metadata_V1_EventTxCompleted: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventTxCompleted"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventTxCompleted"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "module"),
     2: .same(proto: "endpoint"),
     3: .same(proto: "signers"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -405,7 +405,7 @@ extension Provenance_Metadata_V1_EventTxCompleted: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.module.isEmpty {
       try visitor.visitSingularStringField(value: self.module, fieldNumber: 1)
     }
@@ -418,7 +418,7 @@ extension Provenance_Metadata_V1_EventTxCompleted: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventTxCompleted, rhs: Provenance_Metadata_V1_EventTxCompleted) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventTxCompleted, rhs: Provenance_Metadata_V1_EventTxCompleted) -> Bool {
     if lhs.module != rhs.module {return false}
     if lhs.endpoint != rhs.endpoint {return false}
     if lhs.signers != rhs.signers {return false}
@@ -428,12 +428,12 @@ extension Provenance_Metadata_V1_EventTxCompleted: SwiftProtobuf.Message, SwiftP
 }
 
 extension Provenance_Metadata_V1_EventScopeCreated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventScopeCreated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventScopeCreated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -445,14 +445,14 @@ extension Provenance_Metadata_V1_EventScopeCreated: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.scopeAddr, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventScopeCreated, rhs: Provenance_Metadata_V1_EventScopeCreated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventScopeCreated, rhs: Provenance_Metadata_V1_EventScopeCreated) -> Bool {
     if lhs.scopeAddr != rhs.scopeAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -460,12 +460,12 @@ extension Provenance_Metadata_V1_EventScopeCreated: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Metadata_V1_EventScopeUpdated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventScopeUpdated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventScopeUpdated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -477,14 +477,14 @@ extension Provenance_Metadata_V1_EventScopeUpdated: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.scopeAddr, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventScopeUpdated, rhs: Provenance_Metadata_V1_EventScopeUpdated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventScopeUpdated, rhs: Provenance_Metadata_V1_EventScopeUpdated) -> Bool {
     if lhs.scopeAddr != rhs.scopeAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -492,12 +492,12 @@ extension Provenance_Metadata_V1_EventScopeUpdated: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Metadata_V1_EventScopeDeleted: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventScopeDeleted"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventScopeDeleted"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -509,14 +509,14 @@ extension Provenance_Metadata_V1_EventScopeDeleted: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.scopeAddr, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventScopeDeleted, rhs: Provenance_Metadata_V1_EventScopeDeleted) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventScopeDeleted, rhs: Provenance_Metadata_V1_EventScopeDeleted) -> Bool {
     if lhs.scopeAddr != rhs.scopeAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -524,13 +524,13 @@ extension Provenance_Metadata_V1_EventScopeDeleted: SwiftProtobuf.Message, Swift
 }
 
 extension Provenance_Metadata_V1_EventSessionCreated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventSessionCreated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventSessionCreated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "session_addr"),
     2: .standard(proto: "scope_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -543,7 +543,7 @@ extension Provenance_Metadata_V1_EventSessionCreated: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.sessionAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.sessionAddr, fieldNumber: 1)
     }
@@ -553,7 +553,7 @@ extension Provenance_Metadata_V1_EventSessionCreated: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventSessionCreated, rhs: Provenance_Metadata_V1_EventSessionCreated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventSessionCreated, rhs: Provenance_Metadata_V1_EventSessionCreated) -> Bool {
     if lhs.sessionAddr != rhs.sessionAddr {return false}
     if lhs.scopeAddr != rhs.scopeAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -562,13 +562,13 @@ extension Provenance_Metadata_V1_EventSessionCreated: SwiftProtobuf.Message, Swi
 }
 
 extension Provenance_Metadata_V1_EventSessionUpdated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventSessionUpdated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventSessionUpdated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "session_addr"),
     2: .standard(proto: "scope_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -581,7 +581,7 @@ extension Provenance_Metadata_V1_EventSessionUpdated: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.sessionAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.sessionAddr, fieldNumber: 1)
     }
@@ -591,7 +591,7 @@ extension Provenance_Metadata_V1_EventSessionUpdated: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventSessionUpdated, rhs: Provenance_Metadata_V1_EventSessionUpdated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventSessionUpdated, rhs: Provenance_Metadata_V1_EventSessionUpdated) -> Bool {
     if lhs.sessionAddr != rhs.sessionAddr {return false}
     if lhs.scopeAddr != rhs.scopeAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -600,13 +600,13 @@ extension Provenance_Metadata_V1_EventSessionUpdated: SwiftProtobuf.Message, Swi
 }
 
 extension Provenance_Metadata_V1_EventSessionDeleted: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventSessionDeleted"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventSessionDeleted"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "session_addr"),
     2: .standard(proto: "scope_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -619,7 +619,7 @@ extension Provenance_Metadata_V1_EventSessionDeleted: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.sessionAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.sessionAddr, fieldNumber: 1)
     }
@@ -629,7 +629,7 @@ extension Provenance_Metadata_V1_EventSessionDeleted: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventSessionDeleted, rhs: Provenance_Metadata_V1_EventSessionDeleted) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventSessionDeleted, rhs: Provenance_Metadata_V1_EventSessionDeleted) -> Bool {
     if lhs.sessionAddr != rhs.sessionAddr {return false}
     if lhs.scopeAddr != rhs.scopeAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -638,14 +638,14 @@ extension Provenance_Metadata_V1_EventSessionDeleted: SwiftProtobuf.Message, Swi
 }
 
 extension Provenance_Metadata_V1_EventRecordCreated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventRecordCreated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventRecordCreated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_addr"),
     2: .standard(proto: "session_addr"),
     3: .standard(proto: "scope_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -659,7 +659,7 @@ extension Provenance_Metadata_V1_EventRecordCreated: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.recordAddr, fieldNumber: 1)
     }
@@ -672,7 +672,7 @@ extension Provenance_Metadata_V1_EventRecordCreated: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventRecordCreated, rhs: Provenance_Metadata_V1_EventRecordCreated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventRecordCreated, rhs: Provenance_Metadata_V1_EventRecordCreated) -> Bool {
     if lhs.recordAddr != rhs.recordAddr {return false}
     if lhs.sessionAddr != rhs.sessionAddr {return false}
     if lhs.scopeAddr != rhs.scopeAddr {return false}
@@ -682,14 +682,14 @@ extension Provenance_Metadata_V1_EventRecordCreated: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Metadata_V1_EventRecordUpdated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventRecordUpdated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventRecordUpdated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_addr"),
     2: .standard(proto: "session_addr"),
     3: .standard(proto: "scope_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -703,7 +703,7 @@ extension Provenance_Metadata_V1_EventRecordUpdated: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.recordAddr, fieldNumber: 1)
     }
@@ -716,7 +716,7 @@ extension Provenance_Metadata_V1_EventRecordUpdated: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventRecordUpdated, rhs: Provenance_Metadata_V1_EventRecordUpdated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventRecordUpdated, rhs: Provenance_Metadata_V1_EventRecordUpdated) -> Bool {
     if lhs.recordAddr != rhs.recordAddr {return false}
     if lhs.sessionAddr != rhs.sessionAddr {return false}
     if lhs.scopeAddr != rhs.scopeAddr {return false}
@@ -726,13 +726,13 @@ extension Provenance_Metadata_V1_EventRecordUpdated: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Metadata_V1_EventRecordDeleted: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventRecordDeleted"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventRecordDeleted"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_addr"),
     3: .standard(proto: "scope_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -745,7 +745,7 @@ extension Provenance_Metadata_V1_EventRecordDeleted: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.recordAddr, fieldNumber: 1)
     }
@@ -755,7 +755,7 @@ extension Provenance_Metadata_V1_EventRecordDeleted: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventRecordDeleted, rhs: Provenance_Metadata_V1_EventRecordDeleted) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventRecordDeleted, rhs: Provenance_Metadata_V1_EventRecordDeleted) -> Bool {
     if lhs.recordAddr != rhs.recordAddr {return false}
     if lhs.scopeAddr != rhs.scopeAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -764,12 +764,12 @@ extension Provenance_Metadata_V1_EventRecordDeleted: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Metadata_V1_EventScopeSpecificationCreated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventScopeSpecificationCreated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventScopeSpecificationCreated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_specification_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -781,14 +781,14 @@ extension Provenance_Metadata_V1_EventScopeSpecificationCreated: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeSpecificationAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.scopeSpecificationAddr, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventScopeSpecificationCreated, rhs: Provenance_Metadata_V1_EventScopeSpecificationCreated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventScopeSpecificationCreated, rhs: Provenance_Metadata_V1_EventScopeSpecificationCreated) -> Bool {
     if lhs.scopeSpecificationAddr != rhs.scopeSpecificationAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -796,12 +796,12 @@ extension Provenance_Metadata_V1_EventScopeSpecificationCreated: SwiftProtobuf.M
 }
 
 extension Provenance_Metadata_V1_EventScopeSpecificationUpdated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventScopeSpecificationUpdated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventScopeSpecificationUpdated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_specification_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -813,14 +813,14 @@ extension Provenance_Metadata_V1_EventScopeSpecificationUpdated: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeSpecificationAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.scopeSpecificationAddr, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventScopeSpecificationUpdated, rhs: Provenance_Metadata_V1_EventScopeSpecificationUpdated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventScopeSpecificationUpdated, rhs: Provenance_Metadata_V1_EventScopeSpecificationUpdated) -> Bool {
     if lhs.scopeSpecificationAddr != rhs.scopeSpecificationAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -828,12 +828,12 @@ extension Provenance_Metadata_V1_EventScopeSpecificationUpdated: SwiftProtobuf.M
 }
 
 extension Provenance_Metadata_V1_EventScopeSpecificationDeleted: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventScopeSpecificationDeleted"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventScopeSpecificationDeleted"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_specification_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -845,14 +845,14 @@ extension Provenance_Metadata_V1_EventScopeSpecificationDeleted: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeSpecificationAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.scopeSpecificationAddr, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventScopeSpecificationDeleted, rhs: Provenance_Metadata_V1_EventScopeSpecificationDeleted) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventScopeSpecificationDeleted, rhs: Provenance_Metadata_V1_EventScopeSpecificationDeleted) -> Bool {
     if lhs.scopeSpecificationAddr != rhs.scopeSpecificationAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -860,12 +860,12 @@ extension Provenance_Metadata_V1_EventScopeSpecificationDeleted: SwiftProtobuf.M
 }
 
 extension Provenance_Metadata_V1_EventContractSpecificationCreated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventContractSpecificationCreated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventContractSpecificationCreated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "contract_specification_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -877,14 +877,14 @@ extension Provenance_Metadata_V1_EventContractSpecificationCreated: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.contractSpecificationAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.contractSpecificationAddr, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventContractSpecificationCreated, rhs: Provenance_Metadata_V1_EventContractSpecificationCreated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventContractSpecificationCreated, rhs: Provenance_Metadata_V1_EventContractSpecificationCreated) -> Bool {
     if lhs.contractSpecificationAddr != rhs.contractSpecificationAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -892,12 +892,12 @@ extension Provenance_Metadata_V1_EventContractSpecificationCreated: SwiftProtobu
 }
 
 extension Provenance_Metadata_V1_EventContractSpecificationUpdated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventContractSpecificationUpdated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventContractSpecificationUpdated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "contract_specification_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -909,14 +909,14 @@ extension Provenance_Metadata_V1_EventContractSpecificationUpdated: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.contractSpecificationAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.contractSpecificationAddr, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventContractSpecificationUpdated, rhs: Provenance_Metadata_V1_EventContractSpecificationUpdated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventContractSpecificationUpdated, rhs: Provenance_Metadata_V1_EventContractSpecificationUpdated) -> Bool {
     if lhs.contractSpecificationAddr != rhs.contractSpecificationAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -924,12 +924,12 @@ extension Provenance_Metadata_V1_EventContractSpecificationUpdated: SwiftProtobu
 }
 
 extension Provenance_Metadata_V1_EventContractSpecificationDeleted: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventContractSpecificationDeleted"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventContractSpecificationDeleted"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "contract_specification_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -941,14 +941,14 @@ extension Provenance_Metadata_V1_EventContractSpecificationDeleted: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.contractSpecificationAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.contractSpecificationAddr, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventContractSpecificationDeleted, rhs: Provenance_Metadata_V1_EventContractSpecificationDeleted) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventContractSpecificationDeleted, rhs: Provenance_Metadata_V1_EventContractSpecificationDeleted) -> Bool {
     if lhs.contractSpecificationAddr != rhs.contractSpecificationAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -956,13 +956,13 @@ extension Provenance_Metadata_V1_EventContractSpecificationDeleted: SwiftProtobu
 }
 
 extension Provenance_Metadata_V1_EventRecordSpecificationCreated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventRecordSpecificationCreated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventRecordSpecificationCreated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_specification_addr"),
     2: .standard(proto: "contract_specification_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -975,7 +975,7 @@ extension Provenance_Metadata_V1_EventRecordSpecificationCreated: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordSpecificationAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.recordSpecificationAddr, fieldNumber: 1)
     }
@@ -985,7 +985,7 @@ extension Provenance_Metadata_V1_EventRecordSpecificationCreated: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventRecordSpecificationCreated, rhs: Provenance_Metadata_V1_EventRecordSpecificationCreated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventRecordSpecificationCreated, rhs: Provenance_Metadata_V1_EventRecordSpecificationCreated) -> Bool {
     if lhs.recordSpecificationAddr != rhs.recordSpecificationAddr {return false}
     if lhs.contractSpecificationAddr != rhs.contractSpecificationAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -994,13 +994,13 @@ extension Provenance_Metadata_V1_EventRecordSpecificationCreated: SwiftProtobuf.
 }
 
 extension Provenance_Metadata_V1_EventRecordSpecificationUpdated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventRecordSpecificationUpdated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventRecordSpecificationUpdated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_specification_addr"),
     2: .standard(proto: "contract_specification_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1013,7 +1013,7 @@ extension Provenance_Metadata_V1_EventRecordSpecificationUpdated: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordSpecificationAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.recordSpecificationAddr, fieldNumber: 1)
     }
@@ -1023,7 +1023,7 @@ extension Provenance_Metadata_V1_EventRecordSpecificationUpdated: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventRecordSpecificationUpdated, rhs: Provenance_Metadata_V1_EventRecordSpecificationUpdated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventRecordSpecificationUpdated, rhs: Provenance_Metadata_V1_EventRecordSpecificationUpdated) -> Bool {
     if lhs.recordSpecificationAddr != rhs.recordSpecificationAddr {return false}
     if lhs.contractSpecificationAddr != rhs.contractSpecificationAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1032,13 +1032,13 @@ extension Provenance_Metadata_V1_EventRecordSpecificationUpdated: SwiftProtobuf.
 }
 
 extension Provenance_Metadata_V1_EventRecordSpecificationDeleted: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventRecordSpecificationDeleted"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventRecordSpecificationDeleted"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_specification_addr"),
     2: .standard(proto: "contract_specification_addr"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1051,7 +1051,7 @@ extension Provenance_Metadata_V1_EventRecordSpecificationDeleted: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordSpecificationAddr.isEmpty {
       try visitor.visitSingularStringField(value: self.recordSpecificationAddr, fieldNumber: 1)
     }
@@ -1061,7 +1061,7 @@ extension Provenance_Metadata_V1_EventRecordSpecificationDeleted: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventRecordSpecificationDeleted, rhs: Provenance_Metadata_V1_EventRecordSpecificationDeleted) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventRecordSpecificationDeleted, rhs: Provenance_Metadata_V1_EventRecordSpecificationDeleted) -> Bool {
     if lhs.recordSpecificationAddr != rhs.recordSpecificationAddr {return false}
     if lhs.contractSpecificationAddr != rhs.contractSpecificationAddr {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -1070,12 +1070,12 @@ extension Provenance_Metadata_V1_EventRecordSpecificationDeleted: SwiftProtobuf.
 }
 
 extension Provenance_Metadata_V1_EventOSLocatorCreated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventOSLocatorCreated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventOSLocatorCreated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "owner"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1087,14 +1087,14 @@ extension Provenance_Metadata_V1_EventOSLocatorCreated: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.owner.isEmpty {
       try visitor.visitSingularStringField(value: self.owner, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventOSLocatorCreated, rhs: Provenance_Metadata_V1_EventOSLocatorCreated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventOSLocatorCreated, rhs: Provenance_Metadata_V1_EventOSLocatorCreated) -> Bool {
     if lhs.owner != rhs.owner {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1102,12 +1102,12 @@ extension Provenance_Metadata_V1_EventOSLocatorCreated: SwiftProtobuf.Message, S
 }
 
 extension Provenance_Metadata_V1_EventOSLocatorUpdated: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventOSLocatorUpdated"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventOSLocatorUpdated"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "owner"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1119,14 +1119,14 @@ extension Provenance_Metadata_V1_EventOSLocatorUpdated: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.owner.isEmpty {
       try visitor.visitSingularStringField(value: self.owner, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventOSLocatorUpdated, rhs: Provenance_Metadata_V1_EventOSLocatorUpdated) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventOSLocatorUpdated, rhs: Provenance_Metadata_V1_EventOSLocatorUpdated) -> Bool {
     if lhs.owner != rhs.owner {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -1134,12 +1134,12 @@ extension Provenance_Metadata_V1_EventOSLocatorUpdated: SwiftProtobuf.Message, S
 }
 
 extension Provenance_Metadata_V1_EventOSLocatorDeleted: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventOSLocatorDeleted"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventOSLocatorDeleted"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "owner"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -1151,14 +1151,14 @@ extension Provenance_Metadata_V1_EventOSLocatorDeleted: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.owner.isEmpty {
       try visitor.visitSingularStringField(value: self.owner, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_EventOSLocatorDeleted, rhs: Provenance_Metadata_V1_EventOSLocatorDeleted) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_EventOSLocatorDeleted, rhs: Provenance_Metadata_V1_EventOSLocatorDeleted) -> Bool {
     if lhs.owner != rhs.owner {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

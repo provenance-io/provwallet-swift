@@ -21,202 +21,202 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// AddMarkerProposal defines defines a governance proposal to create a new marker
-struct Provenance_Marker_V1_AddMarkerProposal {
+public struct Provenance_Marker_V1_AddMarkerProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var title: String = String()
+  public var title: String = String()
 
-  var description_p: String = String()
+  public var description_p: String = String()
 
-  var amount: Cosmos_Base_V1beta1_Coin {
+  public var amount: Cosmos_Base_V1beta1_Coin {
     get {return _amount ?? Cosmos_Base_V1beta1_Coin()}
     set {_amount = newValue}
   }
   /// Returns true if `amount` has been explicitly set.
-  var hasAmount: Bool {return self._amount != nil}
+  public var hasAmount: Bool {return self._amount != nil}
   /// Clears the value of `amount`. Subsequent reads from it will return its default value.
-  mutating func clearAmount() {self._amount = nil}
+  public mutating func clearAmount() {self._amount = nil}
 
-  var manager: String = String()
+  public var manager: String = String()
 
-  var status: Provenance_Marker_V1_MarkerStatus = .unspecified
+  public var status: Provenance_Marker_V1_MarkerStatus = .unspecified
 
-  var markerType: Provenance_Marker_V1_MarkerType = .unspecified
+  public var markerType: Provenance_Marker_V1_MarkerType = .unspecified
 
-  var accessList: [Provenance_Marker_V1_AccessGrant] = []
+  public var accessList: [Provenance_Marker_V1_AccessGrant] = []
 
-  var supplyFixed: Bool = false
+  public var supplyFixed: Bool = false
 
-  var allowGovernanceControl: Bool = false
+  public var allowGovernanceControl: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _amount: Cosmos_Base_V1beta1_Coin? = nil
 }
 
 /// SupplyIncreaseProposal defines a governance proposal to administer a marker and increase total supply of the marker
 /// through minting coin and placing it within the marker or assigning it directly to an account
-struct Provenance_Marker_V1_SupplyIncreaseProposal {
+public struct Provenance_Marker_V1_SupplyIncreaseProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var title: String = String()
+  public var title: String = String()
 
-  var description_p: String = String()
+  public var description_p: String = String()
 
-  var amount: Cosmos_Base_V1beta1_Coin {
+  public var amount: Cosmos_Base_V1beta1_Coin {
     get {return _amount ?? Cosmos_Base_V1beta1_Coin()}
     set {_amount = newValue}
   }
   /// Returns true if `amount` has been explicitly set.
-  var hasAmount: Bool {return self._amount != nil}
+  public var hasAmount: Bool {return self._amount != nil}
   /// Clears the value of `amount`. Subsequent reads from it will return its default value.
-  mutating func clearAmount() {self._amount = nil}
+  public mutating func clearAmount() {self._amount = nil}
 
   /// an optional target address for the minted coin from this request
-  var targetAddress: String = String()
+  public var targetAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _amount: Cosmos_Base_V1beta1_Coin? = nil
 }
 
 /// SupplyDecreaseProposal defines a governance proposal to administer a marker and decrease the total supply through
 /// burning coin held within the marker
-struct Provenance_Marker_V1_SupplyDecreaseProposal {
+public struct Provenance_Marker_V1_SupplyDecreaseProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var title: String = String()
+  public var title: String = String()
 
-  var description_p: String = String()
+  public var description_p: String = String()
 
-  var amount: Cosmos_Base_V1beta1_Coin {
+  public var amount: Cosmos_Base_V1beta1_Coin {
     get {return _amount ?? Cosmos_Base_V1beta1_Coin()}
     set {_amount = newValue}
   }
   /// Returns true if `amount` has been explicitly set.
-  var hasAmount: Bool {return self._amount != nil}
+  public var hasAmount: Bool {return self._amount != nil}
   /// Clears the value of `amount`. Subsequent reads from it will return its default value.
-  mutating func clearAmount() {self._amount = nil}
+  public mutating func clearAmount() {self._amount = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _amount: Cosmos_Base_V1beta1_Coin? = nil
 }
 
 /// SetAdministratorProposal defines a governance proposal to administer a marker and set administrators with specific
 /// access on the marker
-struct Provenance_Marker_V1_SetAdministratorProposal {
+public struct Provenance_Marker_V1_SetAdministratorProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var title: String = String()
+  public var title: String = String()
 
-  var description_p: String = String()
+  public var description_p: String = String()
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var access: [Provenance_Marker_V1_AccessGrant] = []
+  public var access: [Provenance_Marker_V1_AccessGrant] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// RemoveAdministratorProposal defines a governance proposal to administer a marker and remove all permissions for a
 /// given address
-struct Provenance_Marker_V1_RemoveAdministratorProposal {
+public struct Provenance_Marker_V1_RemoveAdministratorProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var title: String = String()
+  public var title: String = String()
 
-  var description_p: String = String()
+  public var description_p: String = String()
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var removedAddress: [String] = []
+  public var removedAddress: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// ChangeStatusProposal defines a governance proposal to administer a marker to change its status
-struct Provenance_Marker_V1_ChangeStatusProposal {
+public struct Provenance_Marker_V1_ChangeStatusProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var title: String = String()
+  public var title: String = String()
 
-  var description_p: String = String()
+  public var description_p: String = String()
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var newStatus: Provenance_Marker_V1_MarkerStatus = .unspecified
+  public var newStatus: Provenance_Marker_V1_MarkerStatus = .unspecified
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// WithdrawEscrowProposal defines a governance proposal to withdraw escrow coins from a marker
-struct Provenance_Marker_V1_WithdrawEscrowProposal {
+public struct Provenance_Marker_V1_WithdrawEscrowProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var title: String = String()
+  public var title: String = String()
 
-  var description_p: String = String()
+  public var description_p: String = String()
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var amount: [Cosmos_Base_V1beta1_Coin] = []
+  public var amount: [Cosmos_Base_V1beta1_Coin] = []
 
-  var targetAddress: String = String()
+  public var targetAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// SetDenomMetadataProposal defines a governance proposal to set the metadata for a denom
-struct Provenance_Marker_V1_SetDenomMetadataProposal {
+public struct Provenance_Marker_V1_SetDenomMetadataProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var title: String = String()
+  public var title: String = String()
 
-  var description_p: String = String()
+  public var description_p: String = String()
 
-  var metadata: Cosmos_Bank_V1beta1_Metadata {
+  public var metadata: Cosmos_Bank_V1beta1_Metadata {
     get {return _metadata ?? Cosmos_Bank_V1beta1_Metadata()}
     set {_metadata = newValue}
   }
   /// Returns true if `metadata` has been explicitly set.
-  var hasMetadata: Bool {return self._metadata != nil}
+  public var hasMetadata: Bool {return self._metadata != nil}
   /// Clears the value of `metadata`. Subsequent reads from it will return its default value.
-  mutating func clearMetadata() {self._metadata = nil}
+  public mutating func clearMetadata() {self._metadata = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _metadata: Cosmos_Bank_V1beta1_Metadata? = nil
 }
@@ -226,8 +226,8 @@ struct Provenance_Marker_V1_SetDenomMetadataProposal {
 fileprivate let _protobuf_package = "provenance.marker.v1"
 
 extension Provenance_Marker_V1_AddMarkerProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AddMarkerProposal"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AddMarkerProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "description"),
     3: .same(proto: "amount"),
@@ -239,7 +239,7 @@ extension Provenance_Marker_V1_AddMarkerProposal: SwiftProtobuf.Message, SwiftPr
     9: .standard(proto: "allow_governance_control"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -259,7 +259,7 @@ extension Provenance_Marker_V1_AddMarkerProposal: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
     }
@@ -290,7 +290,7 @@ extension Provenance_Marker_V1_AddMarkerProposal: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_AddMarkerProposal, rhs: Provenance_Marker_V1_AddMarkerProposal) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_AddMarkerProposal, rhs: Provenance_Marker_V1_AddMarkerProposal) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs._amount != rhs._amount {return false}
@@ -306,15 +306,15 @@ extension Provenance_Marker_V1_AddMarkerProposal: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Provenance_Marker_V1_SupplyIncreaseProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SupplyIncreaseProposal"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SupplyIncreaseProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "description"),
     3: .same(proto: "amount"),
     4: .standard(proto: "target_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -329,7 +329,7 @@ extension Provenance_Marker_V1_SupplyIncreaseProposal: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
     }
@@ -345,7 +345,7 @@ extension Provenance_Marker_V1_SupplyIncreaseProposal: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_SupplyIncreaseProposal, rhs: Provenance_Marker_V1_SupplyIncreaseProposal) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_SupplyIncreaseProposal, rhs: Provenance_Marker_V1_SupplyIncreaseProposal) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs._amount != rhs._amount {return false}
@@ -356,14 +356,14 @@ extension Provenance_Marker_V1_SupplyIncreaseProposal: SwiftProtobuf.Message, Sw
 }
 
 extension Provenance_Marker_V1_SupplyDecreaseProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SupplyDecreaseProposal"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SupplyDecreaseProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "description"),
     3: .same(proto: "amount"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -377,7 +377,7 @@ extension Provenance_Marker_V1_SupplyDecreaseProposal: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
     }
@@ -390,7 +390,7 @@ extension Provenance_Marker_V1_SupplyDecreaseProposal: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_SupplyDecreaseProposal, rhs: Provenance_Marker_V1_SupplyDecreaseProposal) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_SupplyDecreaseProposal, rhs: Provenance_Marker_V1_SupplyDecreaseProposal) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs._amount != rhs._amount {return false}
@@ -400,15 +400,15 @@ extension Provenance_Marker_V1_SupplyDecreaseProposal: SwiftProtobuf.Message, Sw
 }
 
 extension Provenance_Marker_V1_SetAdministratorProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SetAdministratorProposal"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SetAdministratorProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "description"),
     3: .same(proto: "denom"),
     4: .same(proto: "access"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -423,7 +423,7 @@ extension Provenance_Marker_V1_SetAdministratorProposal: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
     }
@@ -439,7 +439,7 @@ extension Provenance_Marker_V1_SetAdministratorProposal: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_SetAdministratorProposal, rhs: Provenance_Marker_V1_SetAdministratorProposal) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_SetAdministratorProposal, rhs: Provenance_Marker_V1_SetAdministratorProposal) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.denom != rhs.denom {return false}
@@ -450,15 +450,15 @@ extension Provenance_Marker_V1_SetAdministratorProposal: SwiftProtobuf.Message, 
 }
 
 extension Provenance_Marker_V1_RemoveAdministratorProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RemoveAdministratorProposal"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RemoveAdministratorProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "description"),
     3: .same(proto: "denom"),
     4: .standard(proto: "removed_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -473,7 +473,7 @@ extension Provenance_Marker_V1_RemoveAdministratorProposal: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
     }
@@ -489,7 +489,7 @@ extension Provenance_Marker_V1_RemoveAdministratorProposal: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_RemoveAdministratorProposal, rhs: Provenance_Marker_V1_RemoveAdministratorProposal) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_RemoveAdministratorProposal, rhs: Provenance_Marker_V1_RemoveAdministratorProposal) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.denom != rhs.denom {return false}
@@ -500,15 +500,15 @@ extension Provenance_Marker_V1_RemoveAdministratorProposal: SwiftProtobuf.Messag
 }
 
 extension Provenance_Marker_V1_ChangeStatusProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ChangeStatusProposal"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ChangeStatusProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "description"),
     3: .same(proto: "denom"),
     4: .standard(proto: "new_status"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -523,7 +523,7 @@ extension Provenance_Marker_V1_ChangeStatusProposal: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
     }
@@ -539,7 +539,7 @@ extension Provenance_Marker_V1_ChangeStatusProposal: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_ChangeStatusProposal, rhs: Provenance_Marker_V1_ChangeStatusProposal) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_ChangeStatusProposal, rhs: Provenance_Marker_V1_ChangeStatusProposal) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.denom != rhs.denom {return false}
@@ -550,8 +550,8 @@ extension Provenance_Marker_V1_ChangeStatusProposal: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Marker_V1_WithdrawEscrowProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".WithdrawEscrowProposal"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".WithdrawEscrowProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "description"),
     3: .same(proto: "denom"),
@@ -559,7 +559,7 @@ extension Provenance_Marker_V1_WithdrawEscrowProposal: SwiftProtobuf.Message, Sw
     5: .standard(proto: "target_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -575,7 +575,7 @@ extension Provenance_Marker_V1_WithdrawEscrowProposal: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
     }
@@ -594,7 +594,7 @@ extension Provenance_Marker_V1_WithdrawEscrowProposal: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_WithdrawEscrowProposal, rhs: Provenance_Marker_V1_WithdrawEscrowProposal) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_WithdrawEscrowProposal, rhs: Provenance_Marker_V1_WithdrawEscrowProposal) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.denom != rhs.denom {return false}
@@ -606,14 +606,14 @@ extension Provenance_Marker_V1_WithdrawEscrowProposal: SwiftProtobuf.Message, Sw
 }
 
 extension Provenance_Marker_V1_SetDenomMetadataProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SetDenomMetadataProposal"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SetDenomMetadataProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "description"),
     3: .same(proto: "metadata"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -627,7 +627,7 @@ extension Provenance_Marker_V1_SetDenomMetadataProposal: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
     }
@@ -640,7 +640,7 @@ extension Provenance_Marker_V1_SetDenomMetadataProposal: SwiftProtobuf.Message, 
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_SetDenomMetadataProposal, rhs: Provenance_Marker_V1_SetDenomMetadataProposal) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_SetDenomMetadataProposal, rhs: Provenance_Marker_V1_SetDenomMetadataProposal) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs._metadata != rhs._metadata {return false}

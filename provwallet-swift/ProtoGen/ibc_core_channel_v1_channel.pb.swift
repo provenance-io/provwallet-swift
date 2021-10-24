@@ -22,8 +22,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// State defines if a channel is in one of the following states:
 /// CLOSED, INIT, TRYOPEN, OPEN or UNINITIALIZED.
-enum Ibc_Core_Channel_V1_State: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Ibc_Core_Channel_V1_State: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// Default State
   case uninitializedUnspecified // = 0
@@ -43,11 +43,11 @@ enum Ibc_Core_Channel_V1_State: SwiftProtobuf.Enum {
   case closed // = 4
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .uninitializedUnspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .uninitializedUnspecified
     case 1: self = .init_
@@ -58,7 +58,7 @@ enum Ibc_Core_Channel_V1_State: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .uninitializedUnspecified: return 0
     case .init_: return 1
@@ -75,7 +75,7 @@ enum Ibc_Core_Channel_V1_State: SwiftProtobuf.Enum {
 
 extension Ibc_Core_Channel_V1_State: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Ibc_Core_Channel_V1_State] = [
+  public static var allCases: [Ibc_Core_Channel_V1_State] = [
     .uninitializedUnspecified,
     .init_,
     .tryopen,
@@ -87,8 +87,8 @@ extension Ibc_Core_Channel_V1_State: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// Order defines if a channel is ORDERED or UNORDERED
-enum Ibc_Core_Channel_V1_Order: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Ibc_Core_Channel_V1_Order: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// zero-value for channel ordering
   case noneUnspecified // = 0
@@ -101,11 +101,11 @@ enum Ibc_Core_Channel_V1_Order: SwiftProtobuf.Enum {
   case ordered // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .noneUnspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .noneUnspecified
     case 1: self = .unordered
@@ -114,7 +114,7 @@ enum Ibc_Core_Channel_V1_Order: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .noneUnspecified: return 0
     case .unordered: return 1
@@ -129,7 +129,7 @@ enum Ibc_Core_Channel_V1_Order: SwiftProtobuf.Enum {
 
 extension Ibc_Core_Channel_V1_Order: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Ibc_Core_Channel_V1_Order] = [
+  public static var allCases: [Ibc_Core_Channel_V1_Order] = [
     .noneUnspecified,
     .unordered,
     .ordered,
@@ -141,103 +141,103 @@ extension Ibc_Core_Channel_V1_Order: CaseIterable {
 /// Channel defines pipeline for exactly-once packet delivery between specific
 /// modules on separate blockchains, which has at least one end capable of
 /// sending packets and one end capable of receiving packets.
-struct Ibc_Core_Channel_V1_Channel {
+public struct Ibc_Core_Channel_V1_Channel {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// current state of the channel end
-  var state: Ibc_Core_Channel_V1_State = .uninitializedUnspecified
+  public var state: Ibc_Core_Channel_V1_State = .uninitializedUnspecified
 
   /// whether the channel is ordered or unordered
-  var ordering: Ibc_Core_Channel_V1_Order = .noneUnspecified
+  public var ordering: Ibc_Core_Channel_V1_Order = .noneUnspecified
 
   /// counterparty channel end
-  var counterparty: Ibc_Core_Channel_V1_Counterparty {
+  public var counterparty: Ibc_Core_Channel_V1_Counterparty {
     get {return _counterparty ?? Ibc_Core_Channel_V1_Counterparty()}
     set {_counterparty = newValue}
   }
   /// Returns true if `counterparty` has been explicitly set.
-  var hasCounterparty: Bool {return self._counterparty != nil}
+  public var hasCounterparty: Bool {return self._counterparty != nil}
   /// Clears the value of `counterparty`. Subsequent reads from it will return its default value.
-  mutating func clearCounterparty() {self._counterparty = nil}
+  public mutating func clearCounterparty() {self._counterparty = nil}
 
   /// list of connection identifiers, in order, along which packets sent on
   /// this channel will travel
-  var connectionHops: [String] = []
+  public var connectionHops: [String] = []
 
   /// opaque channel version, which is agreed upon during the handshake
-  var version: String = String()
+  public var version: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _counterparty: Ibc_Core_Channel_V1_Counterparty? = nil
 }
 
 /// IdentifiedChannel defines a channel with additional port and channel
 /// identifier fields.
-struct Ibc_Core_Channel_V1_IdentifiedChannel {
+public struct Ibc_Core_Channel_V1_IdentifiedChannel {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// current state of the channel end
-  var state: Ibc_Core_Channel_V1_State = .uninitializedUnspecified
+  public var state: Ibc_Core_Channel_V1_State = .uninitializedUnspecified
 
   /// whether the channel is ordered or unordered
-  var ordering: Ibc_Core_Channel_V1_Order = .noneUnspecified
+  public var ordering: Ibc_Core_Channel_V1_Order = .noneUnspecified
 
   /// counterparty channel end
-  var counterparty: Ibc_Core_Channel_V1_Counterparty {
+  public var counterparty: Ibc_Core_Channel_V1_Counterparty {
     get {return _counterparty ?? Ibc_Core_Channel_V1_Counterparty()}
     set {_counterparty = newValue}
   }
   /// Returns true if `counterparty` has been explicitly set.
-  var hasCounterparty: Bool {return self._counterparty != nil}
+  public var hasCounterparty: Bool {return self._counterparty != nil}
   /// Clears the value of `counterparty`. Subsequent reads from it will return its default value.
-  mutating func clearCounterparty() {self._counterparty = nil}
+  public mutating func clearCounterparty() {self._counterparty = nil}
 
   /// list of connection identifiers, in order, along which packets sent on
   /// this channel will travel
-  var connectionHops: [String] = []
+  public var connectionHops: [String] = []
 
   /// opaque channel version, which is agreed upon during the handshake
-  var version: String = String()
+  public var version: String = String()
 
   /// port identifier
-  var portID: String = String()
+  public var portID: String = String()
 
   /// channel identifier
-  var channelID: String = String()
+  public var channelID: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _counterparty: Ibc_Core_Channel_V1_Counterparty? = nil
 }
 
 /// Counterparty defines a channel end counterparty
-struct Ibc_Core_Channel_V1_Counterparty {
+public struct Ibc_Core_Channel_V1_Counterparty {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// port on the counterparty chain which owns the other end of the channel.
-  var portID: String = String()
+  public var portID: String = String()
 
   /// channel end on the counterparty chain
-  var channelID: String = String()
+  public var channelID: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Packet defines a type that carries data across different chains through IBC
-struct Ibc_Core_Channel_V1_Packet {
+public struct Ibc_Core_Channel_V1_Packet {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
@@ -245,39 +245,39 @@ struct Ibc_Core_Channel_V1_Packet {
   /// number corresponds to the order of sends and receives, where a Packet
   /// with an earlier sequence number must be sent and received before a Packet
   /// with a later sequence number.
-  var sequence: UInt64 = 0
+  public var sequence: UInt64 = 0
 
   /// identifies the port on the sending chain.
-  var sourcePort: String = String()
+  public var sourcePort: String = String()
 
   /// identifies the channel end on the sending chain.
-  var sourceChannel: String = String()
+  public var sourceChannel: String = String()
 
   /// identifies the port on the receiving chain.
-  var destinationPort: String = String()
+  public var destinationPort: String = String()
 
   /// identifies the channel end on the receiving chain.
-  var destinationChannel: String = String()
+  public var destinationChannel: String = String()
 
   /// actual opaque bytes transferred directly to the application module
-  var data: Data = Data()
+  public var data: Data = Data()
 
   /// block height after which the packet times out
-  var timeoutHeight: Ibc_Core_Client_V1_Height {
+  public var timeoutHeight: Ibc_Core_Client_V1_Height {
     get {return _timeoutHeight ?? Ibc_Core_Client_V1_Height()}
     set {_timeoutHeight = newValue}
   }
   /// Returns true if `timeoutHeight` has been explicitly set.
-  var hasTimeoutHeight: Bool {return self._timeoutHeight != nil}
+  public var hasTimeoutHeight: Bool {return self._timeoutHeight != nil}
   /// Clears the value of `timeoutHeight`. Subsequent reads from it will return its default value.
-  mutating func clearTimeoutHeight() {self._timeoutHeight = nil}
+  public mutating func clearTimeoutHeight() {self._timeoutHeight = nil}
 
   /// block timestamp (in nanoseconds) after which the packet times out
-  var timeoutTimestamp: UInt64 = 0
+  public var timeoutTimestamp: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _timeoutHeight: Ibc_Core_Client_V1_Height? = nil
 }
@@ -286,26 +286,26 @@ struct Ibc_Core_Channel_V1_Packet {
 /// packet commitments, acknowledgements, and receipts.
 /// Caller is responsible for knowing the context necessary to interpret this
 /// state as a commitment, acknowledgement, or a receipt.
-struct Ibc_Core_Channel_V1_PacketState {
+public struct Ibc_Core_Channel_V1_PacketState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// channel port identifier.
-  var portID: String = String()
+  public var portID: String = String()
 
   /// channel unique identifier.
-  var channelID: String = String()
+  public var channelID: String = String()
 
   /// packet sequence.
-  var sequence: UInt64 = 0
+  public var sequence: UInt64 = 0
 
   /// embedded data that represents packet state.
-  var data: Data = Data()
+  public var data: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Acknowledgement is the recommended acknowledgement format to be used by
@@ -315,15 +315,15 @@ struct Ibc_Core_Channel_V1_PacketState {
 /// The first byte of any message with this format will be the non-ASCII values
 /// `0xaa` (result) or `0xb2` (error). Implemented as defined by ICS:
 /// https://github.com/cosmos/ics/tree/master/spec/ics-004-channel-and-packet-semantics#acknowledgement-envelope
-struct Ibc_Core_Channel_V1_Acknowledgement {
+public struct Ibc_Core_Channel_V1_Acknowledgement {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// response contains either a result or an error and must be non-empty
-  var response: Ibc_Core_Channel_V1_Acknowledgement.OneOf_Response? = nil
+  public var response: Ibc_Core_Channel_V1_Acknowledgement.OneOf_Response? = nil
 
-  var result: Data {
+  public var result: Data {
     get {
       if case .result(let v)? = response {return v}
       return Data()
@@ -331,7 +331,7 @@ struct Ibc_Core_Channel_V1_Acknowledgement {
     set {response = .result(newValue)}
   }
 
-  var error: String {
+  public var error: String {
     get {
       if case .error(let v)? = response {return v}
       return String()
@@ -339,15 +339,15 @@ struct Ibc_Core_Channel_V1_Acknowledgement {
     set {response = .error(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// response contains either a result or an error and must be non-empty
-  enum OneOf_Response: Equatable {
+  public enum OneOf_Response: Equatable {
     case result(Data)
     case error(String)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Ibc_Core_Channel_V1_Acknowledgement.OneOf_Response, rhs: Ibc_Core_Channel_V1_Acknowledgement.OneOf_Response) -> Bool {
+    public static func ==(lhs: Ibc_Core_Channel_V1_Acknowledgement.OneOf_Response, rhs: Ibc_Core_Channel_V1_Acknowledgement.OneOf_Response) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -366,7 +366,7 @@ struct Ibc_Core_Channel_V1_Acknowledgement {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -374,7 +374,7 @@ struct Ibc_Core_Channel_V1_Acknowledgement {
 fileprivate let _protobuf_package = "ibc.core.channel.v1"
 
 extension Ibc_Core_Channel_V1_State: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "STATE_UNINITIALIZED_UNSPECIFIED"),
     1: .same(proto: "STATE_INIT"),
     2: .same(proto: "STATE_TRYOPEN"),
@@ -384,7 +384,7 @@ extension Ibc_Core_Channel_V1_State: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Ibc_Core_Channel_V1_Order: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ORDER_NONE_UNSPECIFIED"),
     1: .same(proto: "ORDER_UNORDERED"),
     2: .same(proto: "ORDER_ORDERED"),
@@ -392,8 +392,8 @@ extension Ibc_Core_Channel_V1_Order: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Ibc_Core_Channel_V1_Channel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Channel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Channel"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "state"),
     2: .same(proto: "ordering"),
     3: .same(proto: "counterparty"),
@@ -401,7 +401,7 @@ extension Ibc_Core_Channel_V1_Channel: SwiftProtobuf.Message, SwiftProtobuf._Mes
     5: .same(proto: "version"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -417,7 +417,7 @@ extension Ibc_Core_Channel_V1_Channel: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.state != .uninitializedUnspecified {
       try visitor.visitSingularEnumField(value: self.state, fieldNumber: 1)
     }
@@ -436,7 +436,7 @@ extension Ibc_Core_Channel_V1_Channel: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_Channel, rhs: Ibc_Core_Channel_V1_Channel) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_Channel, rhs: Ibc_Core_Channel_V1_Channel) -> Bool {
     if lhs.state != rhs.state {return false}
     if lhs.ordering != rhs.ordering {return false}
     if lhs._counterparty != rhs._counterparty {return false}
@@ -448,8 +448,8 @@ extension Ibc_Core_Channel_V1_Channel: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension Ibc_Core_Channel_V1_IdentifiedChannel: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".IdentifiedChannel"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".IdentifiedChannel"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "state"),
     2: .same(proto: "ordering"),
     3: .same(proto: "counterparty"),
@@ -459,7 +459,7 @@ extension Ibc_Core_Channel_V1_IdentifiedChannel: SwiftProtobuf.Message, SwiftPro
     7: .standard(proto: "channel_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -477,7 +477,7 @@ extension Ibc_Core_Channel_V1_IdentifiedChannel: SwiftProtobuf.Message, SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.state != .uninitializedUnspecified {
       try visitor.visitSingularEnumField(value: self.state, fieldNumber: 1)
     }
@@ -502,7 +502,7 @@ extension Ibc_Core_Channel_V1_IdentifiedChannel: SwiftProtobuf.Message, SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_IdentifiedChannel, rhs: Ibc_Core_Channel_V1_IdentifiedChannel) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_IdentifiedChannel, rhs: Ibc_Core_Channel_V1_IdentifiedChannel) -> Bool {
     if lhs.state != rhs.state {return false}
     if lhs.ordering != rhs.ordering {return false}
     if lhs._counterparty != rhs._counterparty {return false}
@@ -516,13 +516,13 @@ extension Ibc_Core_Channel_V1_IdentifiedChannel: SwiftProtobuf.Message, SwiftPro
 }
 
 extension Ibc_Core_Channel_V1_Counterparty: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Counterparty"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Counterparty"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "port_id"),
     2: .standard(proto: "channel_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -535,7 +535,7 @@ extension Ibc_Core_Channel_V1_Counterparty: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.portID.isEmpty {
       try visitor.visitSingularStringField(value: self.portID, fieldNumber: 1)
     }
@@ -545,7 +545,7 @@ extension Ibc_Core_Channel_V1_Counterparty: SwiftProtobuf.Message, SwiftProtobuf
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_Counterparty, rhs: Ibc_Core_Channel_V1_Counterparty) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_Counterparty, rhs: Ibc_Core_Channel_V1_Counterparty) -> Bool {
     if lhs.portID != rhs.portID {return false}
     if lhs.channelID != rhs.channelID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -554,8 +554,8 @@ extension Ibc_Core_Channel_V1_Counterparty: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Ibc_Core_Channel_V1_Packet: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Packet"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Packet"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "sequence"),
     2: .standard(proto: "source_port"),
     3: .standard(proto: "source_channel"),
@@ -566,7 +566,7 @@ extension Ibc_Core_Channel_V1_Packet: SwiftProtobuf.Message, SwiftProtobuf._Mess
     8: .standard(proto: "timeout_timestamp"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -585,7 +585,7 @@ extension Ibc_Core_Channel_V1_Packet: SwiftProtobuf.Message, SwiftProtobuf._Mess
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.sequence != 0 {
       try visitor.visitSingularUInt64Field(value: self.sequence, fieldNumber: 1)
     }
@@ -613,7 +613,7 @@ extension Ibc_Core_Channel_V1_Packet: SwiftProtobuf.Message, SwiftProtobuf._Mess
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_Packet, rhs: Ibc_Core_Channel_V1_Packet) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_Packet, rhs: Ibc_Core_Channel_V1_Packet) -> Bool {
     if lhs.sequence != rhs.sequence {return false}
     if lhs.sourcePort != rhs.sourcePort {return false}
     if lhs.sourceChannel != rhs.sourceChannel {return false}
@@ -628,15 +628,15 @@ extension Ibc_Core_Channel_V1_Packet: SwiftProtobuf.Message, SwiftProtobuf._Mess
 }
 
 extension Ibc_Core_Channel_V1_PacketState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".PacketState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".PacketState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "port_id"),
     2: .standard(proto: "channel_id"),
     3: .same(proto: "sequence"),
     4: .same(proto: "data"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -651,7 +651,7 @@ extension Ibc_Core_Channel_V1_PacketState: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.portID.isEmpty {
       try visitor.visitSingularStringField(value: self.portID, fieldNumber: 1)
     }
@@ -667,7 +667,7 @@ extension Ibc_Core_Channel_V1_PacketState: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_PacketState, rhs: Ibc_Core_Channel_V1_PacketState) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_PacketState, rhs: Ibc_Core_Channel_V1_PacketState) -> Bool {
     if lhs.portID != rhs.portID {return false}
     if lhs.channelID != rhs.channelID {return false}
     if lhs.sequence != rhs.sequence {return false}
@@ -678,13 +678,13 @@ extension Ibc_Core_Channel_V1_PacketState: SwiftProtobuf.Message, SwiftProtobuf.
 }
 
 extension Ibc_Core_Channel_V1_Acknowledgement: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Acknowledgement"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Acknowledgement"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     21: .same(proto: "result"),
     22: .same(proto: "error"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -707,7 +707,7 @@ extension Ibc_Core_Channel_V1_Acknowledgement: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every case branch when no optimizations are
     // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -725,7 +725,7 @@ extension Ibc_Core_Channel_V1_Acknowledgement: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Channel_V1_Acknowledgement, rhs: Ibc_Core_Channel_V1_Acknowledgement) -> Bool {
+  public static func ==(lhs: Ibc_Core_Channel_V1_Acknowledgement, rhs: Ibc_Core_Channel_V1_Acknowledgement) -> Bool {
     if lhs.response != rhs.response {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

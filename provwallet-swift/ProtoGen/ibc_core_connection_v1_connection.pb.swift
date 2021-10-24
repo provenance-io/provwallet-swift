@@ -22,8 +22,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// State defines if a connection is in one of the following states:
 /// INIT, TRYOPEN, OPEN or UNINITIALIZED.
-enum Ibc_Core_Connection_V1_State: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Ibc_Core_Connection_V1_State: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// Default State
   case uninitializedUnspecified // = 0
@@ -39,11 +39,11 @@ enum Ibc_Core_Connection_V1_State: SwiftProtobuf.Enum {
   case `open` // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .uninitializedUnspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .uninitializedUnspecified
     case 1: self = .init_
@@ -53,7 +53,7 @@ enum Ibc_Core_Connection_V1_State: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .uninitializedUnspecified: return 0
     case .init_: return 1
@@ -69,7 +69,7 @@ enum Ibc_Core_Connection_V1_State: SwiftProtobuf.Enum {
 
 extension Ibc_Core_Connection_V1_State: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Ibc_Core_Connection_V1_State] = [
+  public static var allCases: [Ibc_Core_Connection_V1_State] = [
     .uninitializedUnspecified,
     .init_,
     .tryopen,
@@ -83,160 +83,160 @@ extension Ibc_Core_Connection_V1_State: CaseIterable {
 /// separate one.
 /// NOTE: there must only be 2 defined ConnectionEnds to establish
 /// a connection between two chains.
-struct Ibc_Core_Connection_V1_ConnectionEnd {
+public struct Ibc_Core_Connection_V1_ConnectionEnd {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// client associated with this connection.
-  var clientID: String = String()
+  public var clientID: String = String()
 
   /// IBC version which can be utilised to determine encodings or protocols for
   /// channels or packets utilising this connection.
-  var versions: [Ibc_Core_Connection_V1_Version] = []
+  public var versions: [Ibc_Core_Connection_V1_Version] = []
 
   /// current state of the connection end.
-  var state: Ibc_Core_Connection_V1_State = .uninitializedUnspecified
+  public var state: Ibc_Core_Connection_V1_State = .uninitializedUnspecified
 
   /// counterparty chain associated with this connection.
-  var counterparty: Ibc_Core_Connection_V1_Counterparty {
+  public var counterparty: Ibc_Core_Connection_V1_Counterparty {
     get {return _counterparty ?? Ibc_Core_Connection_V1_Counterparty()}
     set {_counterparty = newValue}
   }
   /// Returns true if `counterparty` has been explicitly set.
-  var hasCounterparty: Bool {return self._counterparty != nil}
+  public var hasCounterparty: Bool {return self._counterparty != nil}
   /// Clears the value of `counterparty`. Subsequent reads from it will return its default value.
-  mutating func clearCounterparty() {self._counterparty = nil}
+  public mutating func clearCounterparty() {self._counterparty = nil}
 
   /// delay period that must pass before a consensus state can be used for packet-verification
   /// NOTE: delay period logic is only implemented by some clients.
-  var delayPeriod: UInt64 = 0
+  public var delayPeriod: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _counterparty: Ibc_Core_Connection_V1_Counterparty? = nil
 }
 
 /// IdentifiedConnection defines a connection with additional connection
 /// identifier field.
-struct Ibc_Core_Connection_V1_IdentifiedConnection {
+public struct Ibc_Core_Connection_V1_IdentifiedConnection {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// connection identifier.
-  var id: String = String()
+  public var id: String = String()
 
   /// client associated with this connection.
-  var clientID: String = String()
+  public var clientID: String = String()
 
   /// IBC version which can be utilised to determine encodings or protocols for
   /// channels or packets utilising this connection
-  var versions: [Ibc_Core_Connection_V1_Version] = []
+  public var versions: [Ibc_Core_Connection_V1_Version] = []
 
   /// current state of the connection end.
-  var state: Ibc_Core_Connection_V1_State = .uninitializedUnspecified
+  public var state: Ibc_Core_Connection_V1_State = .uninitializedUnspecified
 
   /// counterparty chain associated with this connection.
-  var counterparty: Ibc_Core_Connection_V1_Counterparty {
+  public var counterparty: Ibc_Core_Connection_V1_Counterparty {
     get {return _counterparty ?? Ibc_Core_Connection_V1_Counterparty()}
     set {_counterparty = newValue}
   }
   /// Returns true if `counterparty` has been explicitly set.
-  var hasCounterparty: Bool {return self._counterparty != nil}
+  public var hasCounterparty: Bool {return self._counterparty != nil}
   /// Clears the value of `counterparty`. Subsequent reads from it will return its default value.
-  mutating func clearCounterparty() {self._counterparty = nil}
+  public mutating func clearCounterparty() {self._counterparty = nil}
 
   /// delay period associated with this connection.
-  var delayPeriod: UInt64 = 0
+  public var delayPeriod: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _counterparty: Ibc_Core_Connection_V1_Counterparty? = nil
 }
 
 /// Counterparty defines the counterparty chain associated with a connection end.
-struct Ibc_Core_Connection_V1_Counterparty {
+public struct Ibc_Core_Connection_V1_Counterparty {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// identifies the client on the counterparty chain associated with a given
   /// connection.
-  var clientID: String = String()
+  public var clientID: String = String()
 
   /// identifies the connection end on the counterparty chain associated with a
   /// given connection.
-  var connectionID: String = String()
+  public var connectionID: String = String()
 
   /// commitment merkle prefix of the counterparty chain.
-  var prefix: Ibc_Core_Commitment_V1_MerklePrefix {
+  public var prefix: Ibc_Core_Commitment_V1_MerklePrefix {
     get {return _prefix ?? Ibc_Core_Commitment_V1_MerklePrefix()}
     set {_prefix = newValue}
   }
   /// Returns true if `prefix` has been explicitly set.
-  var hasPrefix: Bool {return self._prefix != nil}
+  public var hasPrefix: Bool {return self._prefix != nil}
   /// Clears the value of `prefix`. Subsequent reads from it will return its default value.
-  mutating func clearPrefix() {self._prefix = nil}
+  public mutating func clearPrefix() {self._prefix = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _prefix: Ibc_Core_Commitment_V1_MerklePrefix? = nil
 }
 
 /// ClientPaths define all the connection paths for a client state.
-struct Ibc_Core_Connection_V1_ClientPaths {
+public struct Ibc_Core_Connection_V1_ClientPaths {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// list of connection paths
-  var paths: [String] = []
+  public var paths: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// ConnectionPaths define all the connection paths for a given client state.
-struct Ibc_Core_Connection_V1_ConnectionPaths {
+public struct Ibc_Core_Connection_V1_ConnectionPaths {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// client state unique identifier
-  var clientID: String = String()
+  public var clientID: String = String()
 
   /// list of connection paths
-  var paths: [String] = []
+  public var paths: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Version defines the versioning scheme used to negotiate the IBC verison in
 /// the connection handshake.
-struct Ibc_Core_Connection_V1_Version {
+public struct Ibc_Core_Connection_V1_Version {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// unique version identifier
-  var identifier: String = String()
+  public var identifier: String = String()
 
   /// list of features compatible with the specified identifier
-  var features: [String] = []
+  public var features: [String] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -244,7 +244,7 @@ struct Ibc_Core_Connection_V1_Version {
 fileprivate let _protobuf_package = "ibc.core.connection.v1"
 
 extension Ibc_Core_Connection_V1_State: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "STATE_UNINITIALIZED_UNSPECIFIED"),
     1: .same(proto: "STATE_INIT"),
     2: .same(proto: "STATE_TRYOPEN"),
@@ -253,8 +253,8 @@ extension Ibc_Core_Connection_V1_State: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Ibc_Core_Connection_V1_ConnectionEnd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConnectionEnd"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConnectionEnd"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
     2: .same(proto: "versions"),
     3: .same(proto: "state"),
@@ -262,7 +262,7 @@ extension Ibc_Core_Connection_V1_ConnectionEnd: SwiftProtobuf.Message, SwiftProt
     5: .standard(proto: "delay_period"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -278,7 +278,7 @@ extension Ibc_Core_Connection_V1_ConnectionEnd: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clientID.isEmpty {
       try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
     }
@@ -297,7 +297,7 @@ extension Ibc_Core_Connection_V1_ConnectionEnd: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_ConnectionEnd, rhs: Ibc_Core_Connection_V1_ConnectionEnd) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_ConnectionEnd, rhs: Ibc_Core_Connection_V1_ConnectionEnd) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs.versions != rhs.versions {return false}
     if lhs.state != rhs.state {return false}
@@ -309,8 +309,8 @@ extension Ibc_Core_Connection_V1_ConnectionEnd: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Ibc_Core_Connection_V1_IdentifiedConnection: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".IdentifiedConnection"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".IdentifiedConnection"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "id"),
     2: .standard(proto: "client_id"),
     3: .same(proto: "versions"),
@@ -319,7 +319,7 @@ extension Ibc_Core_Connection_V1_IdentifiedConnection: SwiftProtobuf.Message, Sw
     6: .standard(proto: "delay_period"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -336,7 +336,7 @@ extension Ibc_Core_Connection_V1_IdentifiedConnection: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.id.isEmpty {
       try visitor.visitSingularStringField(value: self.id, fieldNumber: 1)
     }
@@ -358,7 +358,7 @@ extension Ibc_Core_Connection_V1_IdentifiedConnection: SwiftProtobuf.Message, Sw
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_IdentifiedConnection, rhs: Ibc_Core_Connection_V1_IdentifiedConnection) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_IdentifiedConnection, rhs: Ibc_Core_Connection_V1_IdentifiedConnection) -> Bool {
     if lhs.id != rhs.id {return false}
     if lhs.clientID != rhs.clientID {return false}
     if lhs.versions != rhs.versions {return false}
@@ -371,14 +371,14 @@ extension Ibc_Core_Connection_V1_IdentifiedConnection: SwiftProtobuf.Message, Sw
 }
 
 extension Ibc_Core_Connection_V1_Counterparty: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Counterparty"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Counterparty"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
     2: .standard(proto: "connection_id"),
     3: .same(proto: "prefix"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -392,7 +392,7 @@ extension Ibc_Core_Connection_V1_Counterparty: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clientID.isEmpty {
       try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
     }
@@ -405,7 +405,7 @@ extension Ibc_Core_Connection_V1_Counterparty: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_Counterparty, rhs: Ibc_Core_Connection_V1_Counterparty) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_Counterparty, rhs: Ibc_Core_Connection_V1_Counterparty) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs.connectionID != rhs.connectionID {return false}
     if lhs._prefix != rhs._prefix {return false}
@@ -415,12 +415,12 @@ extension Ibc_Core_Connection_V1_Counterparty: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Ibc_Core_Connection_V1_ClientPaths: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ClientPaths"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ClientPaths"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "paths"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -432,14 +432,14 @@ extension Ibc_Core_Connection_V1_ClientPaths: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.paths.isEmpty {
       try visitor.visitRepeatedStringField(value: self.paths, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_ClientPaths, rhs: Ibc_Core_Connection_V1_ClientPaths) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_ClientPaths, rhs: Ibc_Core_Connection_V1_ClientPaths) -> Bool {
     if lhs.paths != rhs.paths {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -447,13 +447,13 @@ extension Ibc_Core_Connection_V1_ClientPaths: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Ibc_Core_Connection_V1_ConnectionPaths: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ConnectionPaths"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ConnectionPaths"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
     2: .same(proto: "paths"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -466,7 +466,7 @@ extension Ibc_Core_Connection_V1_ConnectionPaths: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clientID.isEmpty {
       try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
     }
@@ -476,7 +476,7 @@ extension Ibc_Core_Connection_V1_ConnectionPaths: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_ConnectionPaths, rhs: Ibc_Core_Connection_V1_ConnectionPaths) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_ConnectionPaths, rhs: Ibc_Core_Connection_V1_ConnectionPaths) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs.paths != rhs.paths {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -485,13 +485,13 @@ extension Ibc_Core_Connection_V1_ConnectionPaths: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Ibc_Core_Connection_V1_Version: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Version"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Version"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "identifier"),
     2: .same(proto: "features"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -504,7 +504,7 @@ extension Ibc_Core_Connection_V1_Version: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.identifier.isEmpty {
       try visitor.visitSingularStringField(value: self.identifier, fieldNumber: 1)
     }
@@ -514,7 +514,7 @@ extension Ibc_Core_Connection_V1_Version: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_Version, rhs: Ibc_Core_Connection_V1_Version) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_Version, rhs: Ibc_Core_Connection_V1_Version) -> Bool {
     if lhs.identifier != rhs.identifier {return false}
     if lhs.features != rhs.features {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

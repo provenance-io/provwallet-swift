@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// AttributeType defines the type of the data stored in the attribute value
-enum Provenance_Attribute_V1_AttributeType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Attribute_V1_AttributeType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// ATTRIBUTE_TYPE_UNSPECIFIED defines an unknown/invalid type
   case unspecified // = 0
@@ -52,11 +52,11 @@ enum Provenance_Attribute_V1_AttributeType: SwiftProtobuf.Enum {
   case bytes // = 8
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .uuid
@@ -71,7 +71,7 @@ enum Provenance_Attribute_V1_AttributeType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .uuid: return 1
@@ -92,7 +92,7 @@ enum Provenance_Attribute_V1_AttributeType: SwiftProtobuf.Enum {
 
 extension Provenance_Attribute_V1_AttributeType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Attribute_V1_AttributeType] = [
+  public static var allCases: [Provenance_Attribute_V1_AttributeType] = [
     .unspecified,
     .uuid,
     .json,
@@ -108,124 +108,124 @@ extension Provenance_Attribute_V1_AttributeType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// Params defines the set of params for the attribute module.
-struct Provenance_Attribute_V1_Params {
+public struct Provenance_Attribute_V1_Params {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// maximum length of data to allow in an attribute value
-  var maxValueLength: UInt32 = 0
+  public var maxValueLength: UInt32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Attribute holds a typed key/value structure for data associated with an account
-struct Provenance_Attribute_V1_Attribute {
+public struct Provenance_Attribute_V1_Attribute {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The attribute name.
-  var name: String = String()
+  public var name: String = String()
 
   /// The attribute value.
-  var value: Data = Data()
+  public var value: Data = Data()
 
   /// The attribute value type.
-  var attributeType: Provenance_Attribute_V1_AttributeType = .unspecified
+  public var attributeType: Provenance_Attribute_V1_AttributeType = .unspecified
 
   /// The address the attribute is bound to
-  var address: String = String()
+  public var address: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventAttributeAdd event emitted when attribute is added
-struct Provenance_Attribute_V1_EventAttributeAdd {
+public struct Provenance_Attribute_V1_EventAttributeAdd {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var value: String = String()
+  public var value: String = String()
 
-  var type: String = String()
+  public var type: String = String()
 
-  var account: String = String()
+  public var account: String = String()
 
-  var owner: String = String()
+  public var owner: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventAttributeUpdate event emitted when attribute is updated
-struct Provenance_Attribute_V1_EventAttributeUpdate {
+public struct Provenance_Attribute_V1_EventAttributeUpdate {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var originalValue: String = String()
+  public var originalValue: String = String()
 
-  var originalType: String = String()
+  public var originalType: String = String()
 
-  var updateValue: String = String()
+  public var updateValue: String = String()
 
-  var updateType: String = String()
+  public var updateType: String = String()
 
-  var account: String = String()
+  public var account: String = String()
 
-  var owner: String = String()
+  public var owner: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventAttributeDelete event emitted when attribute is deleted
-struct Provenance_Attribute_V1_EventAttributeDelete {
+public struct Provenance_Attribute_V1_EventAttributeDelete {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var account: String = String()
+  public var account: String = String()
 
-  var owner: String = String()
+  public var owner: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// EventAttributeDistinctDelete event emitted when attribute is deleted with matching value
-struct Provenance_Attribute_V1_EventAttributeDistinctDelete {
+public struct Provenance_Attribute_V1_EventAttributeDistinctDelete {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var value: String = String()
+  public var value: String = String()
 
-  var attributeType: String = String()
+  public var attributeType: String = String()
 
-  var account: String = String()
+  public var account: String = String()
 
-  var owner: String = String()
+  public var owner: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -233,7 +233,7 @@ struct Provenance_Attribute_V1_EventAttributeDistinctDelete {
 fileprivate let _protobuf_package = "provenance.attribute.v1"
 
 extension Provenance_Attribute_V1_AttributeType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ATTRIBUTE_TYPE_UNSPECIFIED"),
     1: .same(proto: "ATTRIBUTE_TYPE_UUID"),
     2: .same(proto: "ATTRIBUTE_TYPE_JSON"),
@@ -247,12 +247,12 @@ extension Provenance_Attribute_V1_AttributeType: SwiftProtobuf._ProtoNameProvidi
 }
 
 extension Provenance_Attribute_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Params"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Params"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "max_value_length"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -264,14 +264,14 @@ extension Provenance_Attribute_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.maxValueLength != 0 {
       try visitor.visitSingularUInt32Field(value: self.maxValueLength, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_Params, rhs: Provenance_Attribute_V1_Params) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_Params, rhs: Provenance_Attribute_V1_Params) -> Bool {
     if lhs.maxValueLength != rhs.maxValueLength {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -279,15 +279,15 @@ extension Provenance_Attribute_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Provenance_Attribute_V1_Attribute: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Attribute"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Attribute"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "value"),
     3: .standard(proto: "attribute_type"),
     4: .same(proto: "address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -302,7 +302,7 @@ extension Provenance_Attribute_V1_Attribute: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -318,7 +318,7 @@ extension Provenance_Attribute_V1_Attribute: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_Attribute, rhs: Provenance_Attribute_V1_Attribute) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_Attribute, rhs: Provenance_Attribute_V1_Attribute) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.value != rhs.value {return false}
     if lhs.attributeType != rhs.attributeType {return false}
@@ -329,8 +329,8 @@ extension Provenance_Attribute_V1_Attribute: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Provenance_Attribute_V1_EventAttributeAdd: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventAttributeAdd"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventAttributeAdd"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "value"),
     3: .same(proto: "type"),
@@ -338,7 +338,7 @@ extension Provenance_Attribute_V1_EventAttributeAdd: SwiftProtobuf.Message, Swif
     5: .same(proto: "owner"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -354,7 +354,7 @@ extension Provenance_Attribute_V1_EventAttributeAdd: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -373,7 +373,7 @@ extension Provenance_Attribute_V1_EventAttributeAdd: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_EventAttributeAdd, rhs: Provenance_Attribute_V1_EventAttributeAdd) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_EventAttributeAdd, rhs: Provenance_Attribute_V1_EventAttributeAdd) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.value != rhs.value {return false}
     if lhs.type != rhs.type {return false}
@@ -385,8 +385,8 @@ extension Provenance_Attribute_V1_EventAttributeAdd: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Attribute_V1_EventAttributeUpdate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventAttributeUpdate"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventAttributeUpdate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "original_value"),
     3: .standard(proto: "original_type"),
@@ -396,7 +396,7 @@ extension Provenance_Attribute_V1_EventAttributeUpdate: SwiftProtobuf.Message, S
     7: .same(proto: "owner"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -414,7 +414,7 @@ extension Provenance_Attribute_V1_EventAttributeUpdate: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -439,7 +439,7 @@ extension Provenance_Attribute_V1_EventAttributeUpdate: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_EventAttributeUpdate, rhs: Provenance_Attribute_V1_EventAttributeUpdate) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_EventAttributeUpdate, rhs: Provenance_Attribute_V1_EventAttributeUpdate) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.originalValue != rhs.originalValue {return false}
     if lhs.originalType != rhs.originalType {return false}
@@ -453,14 +453,14 @@ extension Provenance_Attribute_V1_EventAttributeUpdate: SwiftProtobuf.Message, S
 }
 
 extension Provenance_Attribute_V1_EventAttributeDelete: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventAttributeDelete"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventAttributeDelete"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "account"),
     3: .same(proto: "owner"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -474,7 +474,7 @@ extension Provenance_Attribute_V1_EventAttributeDelete: SwiftProtobuf.Message, S
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -487,7 +487,7 @@ extension Provenance_Attribute_V1_EventAttributeDelete: SwiftProtobuf.Message, S
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_EventAttributeDelete, rhs: Provenance_Attribute_V1_EventAttributeDelete) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_EventAttributeDelete, rhs: Provenance_Attribute_V1_EventAttributeDelete) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.account != rhs.account {return false}
     if lhs.owner != rhs.owner {return false}
@@ -497,8 +497,8 @@ extension Provenance_Attribute_V1_EventAttributeDelete: SwiftProtobuf.Message, S
 }
 
 extension Provenance_Attribute_V1_EventAttributeDistinctDelete: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventAttributeDistinctDelete"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventAttributeDistinctDelete"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "value"),
     3: .standard(proto: "attribute_type"),
@@ -506,7 +506,7 @@ extension Provenance_Attribute_V1_EventAttributeDistinctDelete: SwiftProtobuf.Me
     5: .same(proto: "owner"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -522,7 +522,7 @@ extension Provenance_Attribute_V1_EventAttributeDistinctDelete: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -541,7 +541,7 @@ extension Provenance_Attribute_V1_EventAttributeDistinctDelete: SwiftProtobuf.Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Attribute_V1_EventAttributeDistinctDelete, rhs: Provenance_Attribute_V1_EventAttributeDistinctDelete) -> Bool {
+  public static func ==(lhs: Provenance_Attribute_V1_EventAttributeDistinctDelete, rhs: Provenance_Attribute_V1_EventAttributeDistinctDelete) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.value != rhs.value {return false}
     if lhs.attributeType != rhs.attributeType {return false}

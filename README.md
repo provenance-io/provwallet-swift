@@ -62,6 +62,7 @@ cd Proto
 rm -rf ../ProtoGen/*
 protoc --swift_opt=FileNaming=PathToUnderscores --swift_out=../ProtoGen \
   --swiftgrpc_opt=FileNaming=PathToUnderscores \
+  --swift_opt=Visibility=Public \
   --swiftgrpc_out=Client=true,Server=false:../ProtoGen $(find . -iname "*.proto")  
 ```
     

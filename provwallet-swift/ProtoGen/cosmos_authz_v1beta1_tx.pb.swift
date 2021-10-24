@@ -22,102 +22,102 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// MsgGrant is a request type for Grant method. It declares authorization to the grantee
 /// on behalf of the granter with the provided expiration time.
-struct Cosmos_Authz_V1beta1_MsgGrant {
+public struct Cosmos_Authz_V1beta1_MsgGrant {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var granter: String = String()
+  public var granter: String = String()
 
-  var grantee: String = String()
+  public var grantee: String = String()
 
-  var grant: Cosmos_Authz_V1beta1_Grant {
+  public var grant: Cosmos_Authz_V1beta1_Grant {
     get {return _grant ?? Cosmos_Authz_V1beta1_Grant()}
     set {_grant = newValue}
   }
   /// Returns true if `grant` has been explicitly set.
-  var hasGrant: Bool {return self._grant != nil}
+  public var hasGrant: Bool {return self._grant != nil}
   /// Clears the value of `grant`. Subsequent reads from it will return its default value.
-  mutating func clearGrant() {self._grant = nil}
+  public mutating func clearGrant() {self._grant = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _grant: Cosmos_Authz_V1beta1_Grant? = nil
 }
 
 /// MsgExecResponse defines the Msg/MsgExecResponse response type.
-struct Cosmos_Authz_V1beta1_MsgExecResponse {
+public struct Cosmos_Authz_V1beta1_MsgExecResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var results: [Data] = []
+  public var results: [Data] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgExec attempts to execute the provided messages using
 /// authorizations granted to the grantee. Each message should have only
 /// one signer corresponding to the granter of the authorization.
-struct Cosmos_Authz_V1beta1_MsgExec {
+public struct Cosmos_Authz_V1beta1_MsgExec {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var grantee: String = String()
+  public var grantee: String = String()
 
   /// Authorization Msg requests to execute. Each msg must implement Authorization interface
   /// The x/authz will try to find a grant matching (msg.signers[0], grantee, MsgTypeURL(msg))
   /// triple and validate it.
-  var msgs: [SwiftProtobuf.Google_Protobuf_Any] = []
+  public var msgs: [SwiftProtobuf.Google_Protobuf_Any] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgGrantResponse defines the Msg/MsgGrant response type.
-struct Cosmos_Authz_V1beta1_MsgGrantResponse {
+public struct Cosmos_Authz_V1beta1_MsgGrantResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgRevoke revokes any authorization with the provided sdk.Msg type on the
 /// granter's account with that has been granted to the grantee.
-struct Cosmos_Authz_V1beta1_MsgRevoke {
+public struct Cosmos_Authz_V1beta1_MsgRevoke {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var granter: String = String()
+  public var granter: String = String()
 
-  var grantee: String = String()
+  public var grantee: String = String()
 
-  var msgTypeURL: String = String()
+  public var msgTypeURL: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgRevokeResponse defines the Msg/MsgRevokeResponse response type.
-struct Cosmos_Authz_V1beta1_MsgRevokeResponse {
+public struct Cosmos_Authz_V1beta1_MsgRevokeResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -125,14 +125,14 @@ struct Cosmos_Authz_V1beta1_MsgRevokeResponse {
 fileprivate let _protobuf_package = "cosmos.authz.v1beta1"
 
 extension Cosmos_Authz_V1beta1_MsgGrant: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgGrant"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgGrant"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "granter"),
     2: .same(proto: "grantee"),
     3: .same(proto: "grant"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -146,7 +146,7 @@ extension Cosmos_Authz_V1beta1_MsgGrant: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.granter.isEmpty {
       try visitor.visitSingularStringField(value: self.granter, fieldNumber: 1)
     }
@@ -159,7 +159,7 @@ extension Cosmos_Authz_V1beta1_MsgGrant: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Authz_V1beta1_MsgGrant, rhs: Cosmos_Authz_V1beta1_MsgGrant) -> Bool {
+  public static func ==(lhs: Cosmos_Authz_V1beta1_MsgGrant, rhs: Cosmos_Authz_V1beta1_MsgGrant) -> Bool {
     if lhs.granter != rhs.granter {return false}
     if lhs.grantee != rhs.grantee {return false}
     if lhs._grant != rhs._grant {return false}
@@ -169,12 +169,12 @@ extension Cosmos_Authz_V1beta1_MsgGrant: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Cosmos_Authz_V1beta1_MsgExecResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgExecResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgExecResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "results"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -186,14 +186,14 @@ extension Cosmos_Authz_V1beta1_MsgExecResponse: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.results.isEmpty {
       try visitor.visitRepeatedBytesField(value: self.results, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Authz_V1beta1_MsgExecResponse, rhs: Cosmos_Authz_V1beta1_MsgExecResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Authz_V1beta1_MsgExecResponse, rhs: Cosmos_Authz_V1beta1_MsgExecResponse) -> Bool {
     if lhs.results != rhs.results {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -201,13 +201,13 @@ extension Cosmos_Authz_V1beta1_MsgExecResponse: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Cosmos_Authz_V1beta1_MsgExec: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgExec"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgExec"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "grantee"),
     2: .same(proto: "msgs"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -220,7 +220,7 @@ extension Cosmos_Authz_V1beta1_MsgExec: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.grantee.isEmpty {
       try visitor.visitSingularStringField(value: self.grantee, fieldNumber: 1)
     }
@@ -230,7 +230,7 @@ extension Cosmos_Authz_V1beta1_MsgExec: SwiftProtobuf.Message, SwiftProtobuf._Me
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Authz_V1beta1_MsgExec, rhs: Cosmos_Authz_V1beta1_MsgExec) -> Bool {
+  public static func ==(lhs: Cosmos_Authz_V1beta1_MsgExec, rhs: Cosmos_Authz_V1beta1_MsgExec) -> Bool {
     if lhs.grantee != rhs.grantee {return false}
     if lhs.msgs != rhs.msgs {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -239,33 +239,33 @@ extension Cosmos_Authz_V1beta1_MsgExec: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Cosmos_Authz_V1beta1_MsgGrantResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgGrantResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgGrantResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Authz_V1beta1_MsgGrantResponse, rhs: Cosmos_Authz_V1beta1_MsgGrantResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Authz_V1beta1_MsgGrantResponse, rhs: Cosmos_Authz_V1beta1_MsgGrantResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Cosmos_Authz_V1beta1_MsgRevoke: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgRevoke"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgRevoke"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "granter"),
     2: .same(proto: "grantee"),
     3: .standard(proto: "msg_type_url"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -279,7 +279,7 @@ extension Cosmos_Authz_V1beta1_MsgRevoke: SwiftProtobuf.Message, SwiftProtobuf._
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.granter.isEmpty {
       try visitor.visitSingularStringField(value: self.granter, fieldNumber: 1)
     }
@@ -292,7 +292,7 @@ extension Cosmos_Authz_V1beta1_MsgRevoke: SwiftProtobuf.Message, SwiftProtobuf._
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Authz_V1beta1_MsgRevoke, rhs: Cosmos_Authz_V1beta1_MsgRevoke) -> Bool {
+  public static func ==(lhs: Cosmos_Authz_V1beta1_MsgRevoke, rhs: Cosmos_Authz_V1beta1_MsgRevoke) -> Bool {
     if lhs.granter != rhs.granter {return false}
     if lhs.grantee != rhs.grantee {return false}
     if lhs.msgTypeURL != rhs.msgTypeURL {return false}
@@ -302,19 +302,19 @@ extension Cosmos_Authz_V1beta1_MsgRevoke: SwiftProtobuf.Message, SwiftProtobuf._
 }
 
 extension Cosmos_Authz_V1beta1_MsgRevokeResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgRevokeResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgRevokeResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Authz_V1beta1_MsgRevokeResponse, rhs: Cosmos_Authz_V1beta1_MsgRevokeResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Authz_V1beta1_MsgRevokeResponse, rhs: Cosmos_Authz_V1beta1_MsgRevokeResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -21,41 +21,41 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// QueryParamsRequest is request type for the Query/Params RPC method.
-struct Cosmos_Params_V1beta1_QueryParamsRequest {
+public struct Cosmos_Params_V1beta1_QueryParamsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// subspace defines the module to query the parameter for.
-  var subspace: String = String()
+  public var subspace: String = String()
 
   /// key defines the key of the parameter in the subspace.
-  var key: String = String()
+  public var key: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryParamsResponse is response type for the Query/Params RPC method.
-struct Cosmos_Params_V1beta1_QueryParamsResponse {
+public struct Cosmos_Params_V1beta1_QueryParamsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// param defines the queried parameter.
-  var param: Cosmos_Params_V1beta1_ParamChange {
+  public var param: Cosmos_Params_V1beta1_ParamChange {
     get {return _param ?? Cosmos_Params_V1beta1_ParamChange()}
     set {_param = newValue}
   }
   /// Returns true if `param` has been explicitly set.
-  var hasParam: Bool {return self._param != nil}
+  public var hasParam: Bool {return self._param != nil}
   /// Clears the value of `param`. Subsequent reads from it will return its default value.
-  mutating func clearParam() {self._param = nil}
+  public mutating func clearParam() {self._param = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _param: Cosmos_Params_V1beta1_ParamChange? = nil
 }
@@ -65,13 +65,13 @@ struct Cosmos_Params_V1beta1_QueryParamsResponse {
 fileprivate let _protobuf_package = "cosmos.params.v1beta1"
 
 extension Cosmos_Params_V1beta1_QueryParamsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "subspace"),
     2: .same(proto: "key"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -84,7 +84,7 @@ extension Cosmos_Params_V1beta1_QueryParamsRequest: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.subspace.isEmpty {
       try visitor.visitSingularStringField(value: self.subspace, fieldNumber: 1)
     }
@@ -94,7 +94,7 @@ extension Cosmos_Params_V1beta1_QueryParamsRequest: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Params_V1beta1_QueryParamsRequest, rhs: Cosmos_Params_V1beta1_QueryParamsRequest) -> Bool {
+  public static func ==(lhs: Cosmos_Params_V1beta1_QueryParamsRequest, rhs: Cosmos_Params_V1beta1_QueryParamsRequest) -> Bool {
     if lhs.subspace != rhs.subspace {return false}
     if lhs.key != rhs.key {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -103,12 +103,12 @@ extension Cosmos_Params_V1beta1_QueryParamsRequest: SwiftProtobuf.Message, Swift
 }
 
 extension Cosmos_Params_V1beta1_QueryParamsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "param"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -120,14 +120,14 @@ extension Cosmos_Params_V1beta1_QueryParamsResponse: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._param {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Params_V1beta1_QueryParamsResponse, rhs: Cosmos_Params_V1beta1_QueryParamsResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Params_V1beta1_QueryParamsResponse, rhs: Cosmos_Params_V1beta1_QueryParamsResponse) -> Bool {
     if lhs._param != rhs._param {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

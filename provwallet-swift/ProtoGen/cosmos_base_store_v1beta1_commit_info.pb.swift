@@ -22,59 +22,59 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// CommitInfo defines commit information used by the multi-store when committing
 /// a version/height.
-struct Cosmos_Base_Store_V1beta1_CommitInfo {
+public struct Cosmos_Base_Store_V1beta1_CommitInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var version: Int64 = 0
+  public var version: Int64 = 0
 
-  var storeInfos: [Cosmos_Base_Store_V1beta1_StoreInfo] = []
+  public var storeInfos: [Cosmos_Base_Store_V1beta1_StoreInfo] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// StoreInfo defines store-specific commit information. It contains a reference
 /// between a store name and the commit ID.
-struct Cosmos_Base_Store_V1beta1_StoreInfo {
+public struct Cosmos_Base_Store_V1beta1_StoreInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var commitID: Cosmos_Base_Store_V1beta1_CommitID {
+  public var commitID: Cosmos_Base_Store_V1beta1_CommitID {
     get {return _commitID ?? Cosmos_Base_Store_V1beta1_CommitID()}
     set {_commitID = newValue}
   }
   /// Returns true if `commitID` has been explicitly set.
-  var hasCommitID: Bool {return self._commitID != nil}
+  public var hasCommitID: Bool {return self._commitID != nil}
   /// Clears the value of `commitID`. Subsequent reads from it will return its default value.
-  mutating func clearCommitID() {self._commitID = nil}
+  public mutating func clearCommitID() {self._commitID = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _commitID: Cosmos_Base_Store_V1beta1_CommitID? = nil
 }
 
 /// CommitID defines the committment information when a specific store is
 /// committed.
-struct Cosmos_Base_Store_V1beta1_CommitID {
+public struct Cosmos_Base_Store_V1beta1_CommitID {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var version: Int64 = 0
+  public var version: Int64 = 0
 
-  var hash: Data = Data()
+  public var hash: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -82,13 +82,13 @@ struct Cosmos_Base_Store_V1beta1_CommitID {
 fileprivate let _protobuf_package = "cosmos.base.store.v1beta1"
 
 extension Cosmos_Base_Store_V1beta1_CommitInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CommitInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CommitInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "version"),
     2: .standard(proto: "store_infos"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -101,7 +101,7 @@ extension Cosmos_Base_Store_V1beta1_CommitInfo: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.version != 0 {
       try visitor.visitSingularInt64Field(value: self.version, fieldNumber: 1)
     }
@@ -111,7 +111,7 @@ extension Cosmos_Base_Store_V1beta1_CommitInfo: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Store_V1beta1_CommitInfo, rhs: Cosmos_Base_Store_V1beta1_CommitInfo) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Store_V1beta1_CommitInfo, rhs: Cosmos_Base_Store_V1beta1_CommitInfo) -> Bool {
     if lhs.version != rhs.version {return false}
     if lhs.storeInfos != rhs.storeInfos {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -120,13 +120,13 @@ extension Cosmos_Base_Store_V1beta1_CommitInfo: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Cosmos_Base_Store_V1beta1_StoreInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".StoreInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".StoreInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .standard(proto: "commit_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -139,7 +139,7 @@ extension Cosmos_Base_Store_V1beta1_StoreInfo: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -149,7 +149,7 @@ extension Cosmos_Base_Store_V1beta1_StoreInfo: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Store_V1beta1_StoreInfo, rhs: Cosmos_Base_Store_V1beta1_StoreInfo) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Store_V1beta1_StoreInfo, rhs: Cosmos_Base_Store_V1beta1_StoreInfo) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs._commitID != rhs._commitID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -158,13 +158,13 @@ extension Cosmos_Base_Store_V1beta1_StoreInfo: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Cosmos_Base_Store_V1beta1_CommitID: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CommitID"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CommitID"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "version"),
     2: .same(proto: "hash"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -177,7 +177,7 @@ extension Cosmos_Base_Store_V1beta1_CommitID: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.version != 0 {
       try visitor.visitSingularInt64Field(value: self.version, fieldNumber: 1)
     }
@@ -187,7 +187,7 @@ extension Cosmos_Base_Store_V1beta1_CommitID: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Store_V1beta1_CommitID, rhs: Cosmos_Base_Store_V1beta1_CommitID) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Store_V1beta1_CommitID, rhs: Cosmos_Base_Store_V1beta1_CommitID) -> Bool {
     if lhs.version != rhs.version {return false}
     if lhs.hash != rhs.hash {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

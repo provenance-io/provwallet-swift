@@ -21,15 +21,15 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// SnapshotItem is an item contained in a rootmulti.Store snapshot.
-struct Cosmos_Base_Store_V1beta1_SnapshotItem {
+public struct Cosmos_Base_Store_V1beta1_SnapshotItem {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// item is the specific type of snapshot item.
-  var item: Cosmos_Base_Store_V1beta1_SnapshotItem.OneOf_Item? = nil
+  public var item: Cosmos_Base_Store_V1beta1_SnapshotItem.OneOf_Item? = nil
 
-  var store: Cosmos_Base_Store_V1beta1_SnapshotStoreItem {
+  public var store: Cosmos_Base_Store_V1beta1_SnapshotStoreItem {
     get {
       if case .store(let v)? = item {return v}
       return Cosmos_Base_Store_V1beta1_SnapshotStoreItem()
@@ -37,7 +37,7 @@ struct Cosmos_Base_Store_V1beta1_SnapshotItem {
     set {item = .store(newValue)}
   }
 
-  var iavl: Cosmos_Base_Store_V1beta1_SnapshotIAVLItem {
+  public var iavl: Cosmos_Base_Store_V1beta1_SnapshotIAVLItem {
     get {
       if case .iavl(let v)? = item {return v}
       return Cosmos_Base_Store_V1beta1_SnapshotIAVLItem()
@@ -45,15 +45,15 @@ struct Cosmos_Base_Store_V1beta1_SnapshotItem {
     set {item = .iavl(newValue)}
   }
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   /// item is the specific type of snapshot item.
-  enum OneOf_Item: Equatable {
+  public enum OneOf_Item: Equatable {
     case store(Cosmos_Base_Store_V1beta1_SnapshotStoreItem)
     case iavl(Cosmos_Base_Store_V1beta1_SnapshotIAVLItem)
 
   #if !swift(>=4.1)
-    static func ==(lhs: Cosmos_Base_Store_V1beta1_SnapshotItem.OneOf_Item, rhs: Cosmos_Base_Store_V1beta1_SnapshotItem.OneOf_Item) -> Bool {
+    public static func ==(lhs: Cosmos_Base_Store_V1beta1_SnapshotItem.OneOf_Item, rhs: Cosmos_Base_Store_V1beta1_SnapshotItem.OneOf_Item) -> Bool {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -72,39 +72,39 @@ struct Cosmos_Base_Store_V1beta1_SnapshotItem {
   #endif
   }
 
-  init() {}
+  public init() {}
 }
 
 /// SnapshotStoreItem contains metadata about a snapshotted store.
-struct Cosmos_Base_Store_V1beta1_SnapshotStoreItem {
+public struct Cosmos_Base_Store_V1beta1_SnapshotStoreItem {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var name: String = String()
+  public var name: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// SnapshotIAVLItem is an exported IAVL node.
-struct Cosmos_Base_Store_V1beta1_SnapshotIAVLItem {
+public struct Cosmos_Base_Store_V1beta1_SnapshotIAVLItem {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var key: Data = Data()
+  public var key: Data = Data()
 
-  var value: Data = Data()
+  public var value: Data = Data()
 
-  var version: Int64 = 0
+  public var version: Int64 = 0
 
-  var height: Int32 = 0
+  public var height: Int32 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -112,13 +112,13 @@ struct Cosmos_Base_Store_V1beta1_SnapshotIAVLItem {
 fileprivate let _protobuf_package = "cosmos.base.store.v1beta1"
 
 extension Cosmos_Base_Store_V1beta1_SnapshotItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SnapshotItem"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SnapshotItem"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "store"),
     2: .same(proto: "iavl"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -147,7 +147,7 @@ extension Cosmos_Base_Store_V1beta1_SnapshotItem: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     // The use of inline closures is to circumvent an issue where the compiler
     // allocates stack space for every case branch when no optimizations are
     // enabled. https://github.com/apple/swift-protobuf/issues/1034
@@ -165,7 +165,7 @@ extension Cosmos_Base_Store_V1beta1_SnapshotItem: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Store_V1beta1_SnapshotItem, rhs: Cosmos_Base_Store_V1beta1_SnapshotItem) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Store_V1beta1_SnapshotItem, rhs: Cosmos_Base_Store_V1beta1_SnapshotItem) -> Bool {
     if lhs.item != rhs.item {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -173,12 +173,12 @@ extension Cosmos_Base_Store_V1beta1_SnapshotItem: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Cosmos_Base_Store_V1beta1_SnapshotStoreItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SnapshotStoreItem"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SnapshotStoreItem"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -190,14 +190,14 @@ extension Cosmos_Base_Store_V1beta1_SnapshotStoreItem: SwiftProtobuf.Message, Sw
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Store_V1beta1_SnapshotStoreItem, rhs: Cosmos_Base_Store_V1beta1_SnapshotStoreItem) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Store_V1beta1_SnapshotStoreItem, rhs: Cosmos_Base_Store_V1beta1_SnapshotStoreItem) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -205,15 +205,15 @@ extension Cosmos_Base_Store_V1beta1_SnapshotStoreItem: SwiftProtobuf.Message, Sw
 }
 
 extension Cosmos_Base_Store_V1beta1_SnapshotIAVLItem: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SnapshotIAVLItem"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SnapshotIAVLItem"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
     2: .same(proto: "value"),
     3: .same(proto: "version"),
     4: .same(proto: "height"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -228,7 +228,7 @@ extension Cosmos_Base_Store_V1beta1_SnapshotIAVLItem: SwiftProtobuf.Message, Swi
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.key.isEmpty {
       try visitor.visitSingularBytesField(value: self.key, fieldNumber: 1)
     }
@@ -244,7 +244,7 @@ extension Cosmos_Base_Store_V1beta1_SnapshotIAVLItem: SwiftProtobuf.Message, Swi
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_Store_V1beta1_SnapshotIAVLItem, rhs: Cosmos_Base_Store_V1beta1_SnapshotIAVLItem) -> Bool {
+  public static func ==(lhs: Cosmos_Base_Store_V1beta1_SnapshotIAVLItem, rhs: Cosmos_Base_Store_V1beta1_SnapshotIAVLItem) -> Bool {
     if lhs.key != rhs.key {return false}
     if lhs.value != rhs.value {return false}
     if lhs.version != rhs.version {return false}

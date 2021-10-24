@@ -22,108 +22,108 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// MsgSetWithdrawAddress sets the withdraw address for
 /// a delegator (or validator self-delegation).
-struct Cosmos_Distribution_V1beta1_MsgSetWithdrawAddress {
+public struct Cosmos_Distribution_V1beta1_MsgSetWithdrawAddress {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var delegatorAddress: String = String()
+  public var delegatorAddress: String = String()
 
-  var withdrawAddress: String = String()
+  public var withdrawAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgSetWithdrawAddressResponse defines the Msg/SetWithdrawAddress response type.
-struct Cosmos_Distribution_V1beta1_MsgSetWithdrawAddressResponse {
+public struct Cosmos_Distribution_V1beta1_MsgSetWithdrawAddressResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgWithdrawDelegatorReward represents delegation withdrawal to a delegator
 /// from a single validator.
-struct Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorReward {
+public struct Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorReward {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var delegatorAddress: String = String()
+  public var delegatorAddress: String = String()
 
-  var validatorAddress: String = String()
+  public var validatorAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgWithdrawDelegatorRewardResponse defines the Msg/WithdrawDelegatorReward response type.
-struct Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorRewardResponse {
+public struct Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorRewardResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgWithdrawValidatorCommission withdraws the full commission to the validator
 /// address.
-struct Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommission {
+public struct Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommission {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var validatorAddress: String = String()
+  public var validatorAddress: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgWithdrawValidatorCommissionResponse defines the Msg/WithdrawValidatorCommission response type.
-struct Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommissionResponse {
+public struct Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommissionResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgFundCommunityPool allows an account to directly
 /// fund the community pool.
-struct Cosmos_Distribution_V1beta1_MsgFundCommunityPool {
+public struct Cosmos_Distribution_V1beta1_MsgFundCommunityPool {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var amount: [Cosmos_Base_V1beta1_Coin] = []
+  public var amount: [Cosmos_Base_V1beta1_Coin] = []
 
-  var depositor: String = String()
+  public var depositor: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// MsgFundCommunityPoolResponse defines the Msg/FundCommunityPool response type.
-struct Cosmos_Distribution_V1beta1_MsgFundCommunityPoolResponse {
+public struct Cosmos_Distribution_V1beta1_MsgFundCommunityPoolResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -131,13 +131,13 @@ struct Cosmos_Distribution_V1beta1_MsgFundCommunityPoolResponse {
 fileprivate let _protobuf_package = "cosmos.distribution.v1beta1"
 
 extension Cosmos_Distribution_V1beta1_MsgSetWithdrawAddress: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgSetWithdrawAddress"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgSetWithdrawAddress"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "delegator_address"),
     2: .standard(proto: "withdraw_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -150,7 +150,7 @@ extension Cosmos_Distribution_V1beta1_MsgSetWithdrawAddress: SwiftProtobuf.Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.delegatorAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.delegatorAddress, fieldNumber: 1)
     }
@@ -160,7 +160,7 @@ extension Cosmos_Distribution_V1beta1_MsgSetWithdrawAddress: SwiftProtobuf.Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_MsgSetWithdrawAddress, rhs: Cosmos_Distribution_V1beta1_MsgSetWithdrawAddress) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_MsgSetWithdrawAddress, rhs: Cosmos_Distribution_V1beta1_MsgSetWithdrawAddress) -> Bool {
     if lhs.delegatorAddress != rhs.delegatorAddress {return false}
     if lhs.withdrawAddress != rhs.withdrawAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -169,32 +169,32 @@ extension Cosmos_Distribution_V1beta1_MsgSetWithdrawAddress: SwiftProtobuf.Messa
 }
 
 extension Cosmos_Distribution_V1beta1_MsgSetWithdrawAddressResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgSetWithdrawAddressResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgSetWithdrawAddressResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_MsgSetWithdrawAddressResponse, rhs: Cosmos_Distribution_V1beta1_MsgSetWithdrawAddressResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_MsgSetWithdrawAddressResponse, rhs: Cosmos_Distribution_V1beta1_MsgSetWithdrawAddressResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorReward: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgWithdrawDelegatorReward"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgWithdrawDelegatorReward"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "delegator_address"),
     2: .standard(proto: "validator_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -207,7 +207,7 @@ extension Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorReward: SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.delegatorAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.delegatorAddress, fieldNumber: 1)
     }
@@ -217,7 +217,7 @@ extension Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorReward: SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorReward, rhs: Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorReward) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorReward, rhs: Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorReward) -> Bool {
     if lhs.delegatorAddress != rhs.delegatorAddress {return false}
     if lhs.validatorAddress != rhs.validatorAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -226,31 +226,31 @@ extension Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorReward: SwiftProtobuf.
 }
 
 extension Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorRewardResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgWithdrawDelegatorRewardResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgWithdrawDelegatorRewardResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorRewardResponse, rhs: Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorRewardResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorRewardResponse, rhs: Cosmos_Distribution_V1beta1_MsgWithdrawDelegatorRewardResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommission: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgWithdrawValidatorCommission"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgWithdrawValidatorCommission"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "validator_address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -262,14 +262,14 @@ extension Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommission: SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.validatorAddress.isEmpty {
       try visitor.visitSingularStringField(value: self.validatorAddress, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommission, rhs: Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommission) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommission, rhs: Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommission) -> Bool {
     if lhs.validatorAddress != rhs.validatorAddress {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -277,32 +277,32 @@ extension Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommission: SwiftProto
 }
 
 extension Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommissionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgWithdrawValidatorCommissionResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgWithdrawValidatorCommissionResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommissionResponse, rhs: Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommissionResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommissionResponse, rhs: Cosmos_Distribution_V1beta1_MsgWithdrawValidatorCommissionResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Cosmos_Distribution_V1beta1_MsgFundCommunityPool: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgFundCommunityPool"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MsgFundCommunityPool"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "amount"),
     2: .same(proto: "depositor"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -315,7 +315,7 @@ extension Cosmos_Distribution_V1beta1_MsgFundCommunityPool: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.amount.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.amount, fieldNumber: 1)
     }
@@ -325,7 +325,7 @@ extension Cosmos_Distribution_V1beta1_MsgFundCommunityPool: SwiftProtobuf.Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_MsgFundCommunityPool, rhs: Cosmos_Distribution_V1beta1_MsgFundCommunityPool) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_MsgFundCommunityPool, rhs: Cosmos_Distribution_V1beta1_MsgFundCommunityPool) -> Bool {
     if lhs.amount != rhs.amount {return false}
     if lhs.depositor != rhs.depositor {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -334,19 +334,19 @@ extension Cosmos_Distribution_V1beta1_MsgFundCommunityPool: SwiftProtobuf.Messag
 }
 
 extension Cosmos_Distribution_V1beta1_MsgFundCommunityPoolResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MsgFundCommunityPoolResponse"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".MsgFundCommunityPoolResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Distribution_V1beta1_MsgFundCommunityPoolResponse, rhs: Cosmos_Distribution_V1beta1_MsgFundCommunityPoolResponse) -> Bool {
+  public static func ==(lhs: Cosmos_Distribution_V1beta1_MsgFundCommunityPoolResponse, rhs: Cosmos_Distribution_V1beta1_MsgFundCommunityPoolResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

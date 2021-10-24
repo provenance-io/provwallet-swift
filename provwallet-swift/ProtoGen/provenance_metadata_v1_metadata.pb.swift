@@ -21,207 +21,207 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// Params defines the set of params for the metadata module.
-struct Provenance_Metadata_V1_Params {
+public struct Provenance_Metadata_V1_Params {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// ScopeIdInfo contains various info regarding a scope id.
-struct Provenance_Metadata_V1_ScopeIdInfo {
+public struct Provenance_Metadata_V1_ScopeIdInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_id is the raw bytes of the scope address.
-  var scopeID: Data = Data()
+  public var scopeID: Data = Data()
 
   /// scope_id_prefix is the prefix portion of the scope_id.
-  var scopeIDPrefix: Data = Data()
+  public var scopeIDPrefix: Data = Data()
 
   /// scope_id_scope_uuid is the scope_uuid portion of the scope_id.
-  var scopeIDScopeUuid: Data = Data()
+  public var scopeIDScopeUuid: Data = Data()
 
   /// scope_addr is the bech32 string version of the scope_id.
-  var scopeAddr: String = String()
+  public var scopeAddr: String = String()
 
   /// scope_uuid is the uuid hex string of the scope_id_scope_uuid.
-  var scopeUuid: String = String()
+  public var scopeUuid: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// SessionIdInfo contains various info regarding a session id.
-struct Provenance_Metadata_V1_SessionIdInfo {
+public struct Provenance_Metadata_V1_SessionIdInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// session_id is the raw bytes of the session address.
-  var sessionID: Data = Data()
+  public var sessionID: Data = Data()
 
   /// session_id_prefix is the prefix portion of the session_id.
-  var sessionIDPrefix: Data = Data()
+  public var sessionIDPrefix: Data = Data()
 
   /// session_id_scope_uuid is the scope_uuid portion of the session_id.
-  var sessionIDScopeUuid: Data = Data()
+  public var sessionIDScopeUuid: Data = Data()
 
   /// session_id_session_uuid is the session_uuid portion of the session_id.
-  var sessionIDSessionUuid: Data = Data()
+  public var sessionIDSessionUuid: Data = Data()
 
   /// session_addr is the bech32 string version of the session_id.
-  var sessionAddr: String = String()
+  public var sessionAddr: String = String()
 
   /// session_uuid is the uuid hex string of the session_id_session_uuid.
-  var sessionUuid: String = String()
+  public var sessionUuid: String = String()
 
   /// scope_id_info is information about the scope id referenced in the session_id.
-  var scopeIDInfo: Provenance_Metadata_V1_ScopeIdInfo {
+  public var scopeIDInfo: Provenance_Metadata_V1_ScopeIdInfo {
     get {return _scopeIDInfo ?? Provenance_Metadata_V1_ScopeIdInfo()}
     set {_scopeIDInfo = newValue}
   }
   /// Returns true if `scopeIDInfo` has been explicitly set.
-  var hasScopeIDInfo: Bool {return self._scopeIDInfo != nil}
+  public var hasScopeIDInfo: Bool {return self._scopeIDInfo != nil}
   /// Clears the value of `scopeIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearScopeIDInfo() {self._scopeIDInfo = nil}
+  public mutating func clearScopeIDInfo() {self._scopeIDInfo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _scopeIDInfo: Provenance_Metadata_V1_ScopeIdInfo? = nil
 }
 
 /// RecordIdInfo contains various info regarding a record id.
-struct Provenance_Metadata_V1_RecordIdInfo {
+public struct Provenance_Metadata_V1_RecordIdInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_id is the raw bytes of the record address.
-  var recordID: Data = Data()
+  public var recordID: Data = Data()
 
   /// record_id_prefix is the prefix portion of the record_id.
-  var recordIDPrefix: Data = Data()
+  public var recordIDPrefix: Data = Data()
 
   /// record_id_scope_uuid is the scope_uuid portion of the record_id.
-  var recordIDScopeUuid: Data = Data()
+  public var recordIDScopeUuid: Data = Data()
 
   /// record_id_hashed_name is the hashed name portion of the record_id.
-  var recordIDHashedName: Data = Data()
+  public var recordIDHashedName: Data = Data()
 
   /// record_addr is the bech32 string version of the record_id.
-  var recordAddr: String = String()
+  public var recordAddr: String = String()
 
   /// scope_id_info is information about the scope id referenced in the record_id.
-  var scopeIDInfo: Provenance_Metadata_V1_ScopeIdInfo {
+  public var scopeIDInfo: Provenance_Metadata_V1_ScopeIdInfo {
     get {return _scopeIDInfo ?? Provenance_Metadata_V1_ScopeIdInfo()}
     set {_scopeIDInfo = newValue}
   }
   /// Returns true if `scopeIDInfo` has been explicitly set.
-  var hasScopeIDInfo: Bool {return self._scopeIDInfo != nil}
+  public var hasScopeIDInfo: Bool {return self._scopeIDInfo != nil}
   /// Clears the value of `scopeIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearScopeIDInfo() {self._scopeIDInfo = nil}
+  public mutating func clearScopeIDInfo() {self._scopeIDInfo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _scopeIDInfo: Provenance_Metadata_V1_ScopeIdInfo? = nil
 }
 
 /// ScopeSpecIdInfo contains various info regarding a scope specification id.
-struct Provenance_Metadata_V1_ScopeSpecIdInfo {
+public struct Provenance_Metadata_V1_ScopeSpecIdInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// scope_spec_id is the raw bytes of the scope specification address.
-  var scopeSpecID: Data = Data()
+  public var scopeSpecID: Data = Data()
 
   /// scope_spec_id_prefix is the prefix portion of the scope_spec_id.
-  var scopeSpecIDPrefix: Data = Data()
+  public var scopeSpecIDPrefix: Data = Data()
 
   /// scope_spec_id_scope_spec_uuid is the scope_spec_uuid portion of the scope_spec_id.
-  var scopeSpecIDScopeSpecUuid: Data = Data()
+  public var scopeSpecIDScopeSpecUuid: Data = Data()
 
   /// scope_spec_addr is the bech32 string version of the scope_spec_id.
-  var scopeSpecAddr: String = String()
+  public var scopeSpecAddr: String = String()
 
   /// scope_spec_uuid is the uuid hex string of the scope_spec_id_scope_spec_uuid.
-  var scopeSpecUuid: String = String()
+  public var scopeSpecUuid: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// ContractSpecIdInfo contains various info regarding a contract specification id.
-struct Provenance_Metadata_V1_ContractSpecIdInfo {
+public struct Provenance_Metadata_V1_ContractSpecIdInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// contract_spec_id is the raw bytes of the contract specification address.
-  var contractSpecID: Data = Data()
+  public var contractSpecID: Data = Data()
 
   /// contract_spec_id_prefix is the prefix portion of the contract_spec_id.
-  var contractSpecIDPrefix: Data = Data()
+  public var contractSpecIDPrefix: Data = Data()
 
   /// contract_spec_id_contract_spec_uuid is the contract_spec_uuid portion of the contract_spec_id.
-  var contractSpecIDContractSpecUuid: Data = Data()
+  public var contractSpecIDContractSpecUuid: Data = Data()
 
   /// contract_spec_addr is the bech32 string version of the contract_spec_id.
-  var contractSpecAddr: String = String()
+  public var contractSpecAddr: String = String()
 
   /// contract_spec_uuid is the uuid hex string of the contract_spec_id_contract_spec_uuid.
-  var contractSpecUuid: String = String()
+  public var contractSpecUuid: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// RecordSpecIdInfo contains various info regarding a record specification id.
-struct Provenance_Metadata_V1_RecordSpecIdInfo {
+public struct Provenance_Metadata_V1_RecordSpecIdInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// record_spec_id is the raw bytes of the record specification address.
-  var recordSpecID: Data = Data()
+  public var recordSpecID: Data = Data()
 
   /// record_spec_id_prefix is the prefix portion of the record_spec_id.
-  var recordSpecIDPrefix: Data = Data()
+  public var recordSpecIDPrefix: Data = Data()
 
   /// record_spec_id_contract_spec_uuid is the contract_spec_uuid portion of the record_spec_id.
-  var recordSpecIDContractSpecUuid: Data = Data()
+  public var recordSpecIDContractSpecUuid: Data = Data()
 
   /// record_spec_id_hashed_name is the hashed name portion of the record_spec_id.
-  var recordSpecIDHashedName: Data = Data()
+  public var recordSpecIDHashedName: Data = Data()
 
   /// record_spec_addr is the bech32 string version of the record_spec_id.
-  var recordSpecAddr: String = String()
+  public var recordSpecAddr: String = String()
 
   /// contract_spec_id_info is information about the contract spec id referenced in the record_spec_id.
-  var contractSpecIDInfo: Provenance_Metadata_V1_ContractSpecIdInfo {
+  public var contractSpecIDInfo: Provenance_Metadata_V1_ContractSpecIdInfo {
     get {return _contractSpecIDInfo ?? Provenance_Metadata_V1_ContractSpecIdInfo()}
     set {_contractSpecIDInfo = newValue}
   }
   /// Returns true if `contractSpecIDInfo` has been explicitly set.
-  var hasContractSpecIDInfo: Bool {return self._contractSpecIDInfo != nil}
+  public var hasContractSpecIDInfo: Bool {return self._contractSpecIDInfo != nil}
   /// Clears the value of `contractSpecIDInfo`. Subsequent reads from it will return its default value.
-  mutating func clearContractSpecIDInfo() {self._contractSpecIDInfo = nil}
+  public mutating func clearContractSpecIDInfo() {self._contractSpecIDInfo = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _contractSpecIDInfo: Provenance_Metadata_V1_ContractSpecIdInfo? = nil
 }
@@ -231,27 +231,27 @@ struct Provenance_Metadata_V1_RecordSpecIdInfo {
 fileprivate let _protobuf_package = "provenance.metadata.v1"
 
 extension Provenance_Metadata_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Params"
-  static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let protoMessageName: String = _protobuf_package + ".Params"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let _ = try decoder.nextFieldNumber() {
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_Params, rhs: Provenance_Metadata_V1_Params) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_Params, rhs: Provenance_Metadata_V1_Params) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
 }
 
 extension Provenance_Metadata_V1_ScopeIdInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeIdInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeIdInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_id"),
     2: .standard(proto: "scope_id_prefix"),
     3: .standard(proto: "scope_id_scope_uuid"),
@@ -259,7 +259,7 @@ extension Provenance_Metadata_V1_ScopeIdInfo: SwiftProtobuf.Message, SwiftProtob
     5: .standard(proto: "scope_uuid"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -275,7 +275,7 @@ extension Provenance_Metadata_V1_ScopeIdInfo: SwiftProtobuf.Message, SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeID.isEmpty {
       try visitor.visitSingularBytesField(value: self.scopeID, fieldNumber: 1)
     }
@@ -294,7 +294,7 @@ extension Provenance_Metadata_V1_ScopeIdInfo: SwiftProtobuf.Message, SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeIdInfo, rhs: Provenance_Metadata_V1_ScopeIdInfo) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeIdInfo, rhs: Provenance_Metadata_V1_ScopeIdInfo) -> Bool {
     if lhs.scopeID != rhs.scopeID {return false}
     if lhs.scopeIDPrefix != rhs.scopeIDPrefix {return false}
     if lhs.scopeIDScopeUuid != rhs.scopeIDScopeUuid {return false}
@@ -306,8 +306,8 @@ extension Provenance_Metadata_V1_ScopeIdInfo: SwiftProtobuf.Message, SwiftProtob
 }
 
 extension Provenance_Metadata_V1_SessionIdInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".SessionIdInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".SessionIdInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "session_id"),
     2: .standard(proto: "session_id_prefix"),
     3: .standard(proto: "session_id_scope_uuid"),
@@ -317,7 +317,7 @@ extension Provenance_Metadata_V1_SessionIdInfo: SwiftProtobuf.Message, SwiftProt
     7: .standard(proto: "scope_id_info"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -335,7 +335,7 @@ extension Provenance_Metadata_V1_SessionIdInfo: SwiftProtobuf.Message, SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.sessionID.isEmpty {
       try visitor.visitSingularBytesField(value: self.sessionID, fieldNumber: 1)
     }
@@ -360,7 +360,7 @@ extension Provenance_Metadata_V1_SessionIdInfo: SwiftProtobuf.Message, SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_SessionIdInfo, rhs: Provenance_Metadata_V1_SessionIdInfo) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_SessionIdInfo, rhs: Provenance_Metadata_V1_SessionIdInfo) -> Bool {
     if lhs.sessionID != rhs.sessionID {return false}
     if lhs.sessionIDPrefix != rhs.sessionIDPrefix {return false}
     if lhs.sessionIDScopeUuid != rhs.sessionIDScopeUuid {return false}
@@ -374,8 +374,8 @@ extension Provenance_Metadata_V1_SessionIdInfo: SwiftProtobuf.Message, SwiftProt
 }
 
 extension Provenance_Metadata_V1_RecordIdInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordIdInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordIdInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_id"),
     2: .standard(proto: "record_id_prefix"),
     3: .standard(proto: "record_id_scope_uuid"),
@@ -384,7 +384,7 @@ extension Provenance_Metadata_V1_RecordIdInfo: SwiftProtobuf.Message, SwiftProto
     6: .standard(proto: "scope_id_info"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -401,7 +401,7 @@ extension Provenance_Metadata_V1_RecordIdInfo: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordID.isEmpty {
       try visitor.visitSingularBytesField(value: self.recordID, fieldNumber: 1)
     }
@@ -423,7 +423,7 @@ extension Provenance_Metadata_V1_RecordIdInfo: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordIdInfo, rhs: Provenance_Metadata_V1_RecordIdInfo) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordIdInfo, rhs: Provenance_Metadata_V1_RecordIdInfo) -> Bool {
     if lhs.recordID != rhs.recordID {return false}
     if lhs.recordIDPrefix != rhs.recordIDPrefix {return false}
     if lhs.recordIDScopeUuid != rhs.recordIDScopeUuid {return false}
@@ -436,8 +436,8 @@ extension Provenance_Metadata_V1_RecordIdInfo: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Provenance_Metadata_V1_ScopeSpecIdInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeSpecIdInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeSpecIdInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "scope_spec_id"),
     2: .standard(proto: "scope_spec_id_prefix"),
     3: .standard(proto: "scope_spec_id_scope_spec_uuid"),
@@ -445,7 +445,7 @@ extension Provenance_Metadata_V1_ScopeSpecIdInfo: SwiftProtobuf.Message, SwiftPr
     5: .standard(proto: "scope_spec_uuid"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -461,7 +461,7 @@ extension Provenance_Metadata_V1_ScopeSpecIdInfo: SwiftProtobuf.Message, SwiftPr
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopeSpecID.isEmpty {
       try visitor.visitSingularBytesField(value: self.scopeSpecID, fieldNumber: 1)
     }
@@ -480,7 +480,7 @@ extension Provenance_Metadata_V1_ScopeSpecIdInfo: SwiftProtobuf.Message, SwiftPr
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ScopeSpecIdInfo, rhs: Provenance_Metadata_V1_ScopeSpecIdInfo) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ScopeSpecIdInfo, rhs: Provenance_Metadata_V1_ScopeSpecIdInfo) -> Bool {
     if lhs.scopeSpecID != rhs.scopeSpecID {return false}
     if lhs.scopeSpecIDPrefix != rhs.scopeSpecIDPrefix {return false}
     if lhs.scopeSpecIDScopeSpecUuid != rhs.scopeSpecIDScopeSpecUuid {return false}
@@ -492,8 +492,8 @@ extension Provenance_Metadata_V1_ScopeSpecIdInfo: SwiftProtobuf.Message, SwiftPr
 }
 
 extension Provenance_Metadata_V1_ContractSpecIdInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractSpecIdInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractSpecIdInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "contract_spec_id"),
     2: .standard(proto: "contract_spec_id_prefix"),
     3: .standard(proto: "contract_spec_id_contract_spec_uuid"),
@@ -501,7 +501,7 @@ extension Provenance_Metadata_V1_ContractSpecIdInfo: SwiftProtobuf.Message, Swif
     5: .standard(proto: "contract_spec_uuid"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -517,7 +517,7 @@ extension Provenance_Metadata_V1_ContractSpecIdInfo: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.contractSpecID.isEmpty {
       try visitor.visitSingularBytesField(value: self.contractSpecID, fieldNumber: 1)
     }
@@ -536,7 +536,7 @@ extension Provenance_Metadata_V1_ContractSpecIdInfo: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_ContractSpecIdInfo, rhs: Provenance_Metadata_V1_ContractSpecIdInfo) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_ContractSpecIdInfo, rhs: Provenance_Metadata_V1_ContractSpecIdInfo) -> Bool {
     if lhs.contractSpecID != rhs.contractSpecID {return false}
     if lhs.contractSpecIDPrefix != rhs.contractSpecIDPrefix {return false}
     if lhs.contractSpecIDContractSpecUuid != rhs.contractSpecIDContractSpecUuid {return false}
@@ -548,8 +548,8 @@ extension Provenance_Metadata_V1_ContractSpecIdInfo: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Metadata_V1_RecordSpecIdInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordSpecIdInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordSpecIdInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "record_spec_id"),
     2: .standard(proto: "record_spec_id_prefix"),
     3: .standard(proto: "record_spec_id_contract_spec_uuid"),
@@ -558,7 +558,7 @@ extension Provenance_Metadata_V1_RecordSpecIdInfo: SwiftProtobuf.Message, SwiftP
     6: .standard(proto: "contract_spec_id_info"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -575,7 +575,7 @@ extension Provenance_Metadata_V1_RecordSpecIdInfo: SwiftProtobuf.Message, SwiftP
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.recordSpecID.isEmpty {
       try visitor.visitSingularBytesField(value: self.recordSpecID, fieldNumber: 1)
     }
@@ -597,7 +597,7 @@ extension Provenance_Metadata_V1_RecordSpecIdInfo: SwiftProtobuf.Message, SwiftP
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Metadata_V1_RecordSpecIdInfo, rhs: Provenance_Metadata_V1_RecordSpecIdInfo) -> Bool {
+  public static func ==(lhs: Provenance_Metadata_V1_RecordSpecIdInfo, rhs: Provenance_Metadata_V1_RecordSpecIdInfo) -> Bool {
     if lhs.recordSpecID != rhs.recordSpecID {return false}
     if lhs.recordSpecIDPrefix != rhs.recordSpecIDPrefix {return false}
     if lhs.recordSpecIDContractSpecUuid != rhs.recordSpecIDContractSpecUuid {return false}

@@ -22,53 +22,53 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// QueryConnectionRequest is the request type for the Query/Connection RPC
 /// method
-struct Ibc_Core_Connection_V1_QueryConnectionRequest {
+public struct Ibc_Core_Connection_V1_QueryConnectionRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// connection unique identifier
-  var connectionID: String = String()
+  public var connectionID: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryConnectionResponse is the response type for the Query/Connection RPC
 /// method. Besides the connection end, it includes a proof and the height from
 /// which the proof was retrieved.
-struct Ibc_Core_Connection_V1_QueryConnectionResponse {
+public struct Ibc_Core_Connection_V1_QueryConnectionResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// connection associated with the request identifier
-  var connection: Ibc_Core_Connection_V1_ConnectionEnd {
+  public var connection: Ibc_Core_Connection_V1_ConnectionEnd {
     get {return _connection ?? Ibc_Core_Connection_V1_ConnectionEnd()}
     set {_connection = newValue}
   }
   /// Returns true if `connection` has been explicitly set.
-  var hasConnection: Bool {return self._connection != nil}
+  public var hasConnection: Bool {return self._connection != nil}
   /// Clears the value of `connection`. Subsequent reads from it will return its default value.
-  mutating func clearConnection() {self._connection = nil}
+  public mutating func clearConnection() {self._connection = nil}
 
   /// merkle proof of existence
-  var proof: Data = Data()
+  public var proof: Data = Data()
 
   /// height at which the proof was retrieved
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _connection: Ibc_Core_Connection_V1_ConnectionEnd? = nil
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
@@ -76,60 +76,60 @@ struct Ibc_Core_Connection_V1_QueryConnectionResponse {
 
 /// QueryConnectionsRequest is the request type for the Query/Connections RPC
 /// method
-struct Ibc_Core_Connection_V1_QueryConnectionsRequest {
+public struct Ibc_Core_Connection_V1_QueryConnectionsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
 }
 
 /// QueryConnectionsResponse is the response type for the Query/Connections RPC
 /// method.
-struct Ibc_Core_Connection_V1_QueryConnectionsResponse {
+public struct Ibc_Core_Connection_V1_QueryConnectionsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// list of stored connections of the chain.
-  var connections: [Ibc_Core_Connection_V1_IdentifiedConnection] = []
+  public var connections: [Ibc_Core_Connection_V1_IdentifiedConnection] = []
 
   /// pagination response
-  var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
   }
   /// Returns true if `pagination` has been explicitly set.
-  var hasPagination: Bool {return self._pagination != nil}
+  public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
-  mutating func clearPagination() {self._pagination = nil}
+  public mutating func clearPagination() {self._pagination = nil}
 
   /// query block height
-  var height: Ibc_Core_Client_V1_Height {
+  public var height: Ibc_Core_Client_V1_Height {
     get {return _height ?? Ibc_Core_Client_V1_Height()}
     set {_height = newValue}
   }
   /// Returns true if `height` has been explicitly set.
-  var hasHeight: Bool {return self._height != nil}
+  public var hasHeight: Bool {return self._height != nil}
   /// Clears the value of `height`. Subsequent reads from it will return its default value.
-  mutating func clearHeight() {self._height = nil}
+  public mutating func clearHeight() {self._height = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
   fileprivate var _height: Ibc_Core_Client_V1_Height? = nil
@@ -137,97 +137,97 @@ struct Ibc_Core_Connection_V1_QueryConnectionsResponse {
 
 /// QueryClientConnectionsRequest is the request type for the
 /// Query/ClientConnections RPC method
-struct Ibc_Core_Connection_V1_QueryClientConnectionsRequest {
+public struct Ibc_Core_Connection_V1_QueryClientConnectionsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// client identifier associated with a connection
-  var clientID: String = String()
+  public var clientID: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryClientConnectionsResponse is the response type for the
 /// Query/ClientConnections RPC method
-struct Ibc_Core_Connection_V1_QueryClientConnectionsResponse {
+public struct Ibc_Core_Connection_V1_QueryClientConnectionsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// slice of all the connection paths associated with a client.
-  var connectionPaths: [String] = []
+  public var connectionPaths: [String] = []
 
   /// merkle proof of existence
-  var proof: Data = Data()
+  public var proof: Data = Data()
 
   /// height at which the proof was generated
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
 /// QueryConnectionClientStateRequest is the request type for the
 /// Query/ConnectionClientState RPC method
-struct Ibc_Core_Connection_V1_QueryConnectionClientStateRequest {
+public struct Ibc_Core_Connection_V1_QueryConnectionClientStateRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// connection identifier
-  var connectionID: String = String()
+  public var connectionID: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryConnectionClientStateResponse is the response type for the
 /// Query/ConnectionClientState RPC method
-struct Ibc_Core_Connection_V1_QueryConnectionClientStateResponse {
+public struct Ibc_Core_Connection_V1_QueryConnectionClientStateResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// client state associated with the channel
-  var identifiedClientState: Ibc_Core_Client_V1_IdentifiedClientState {
+  public var identifiedClientState: Ibc_Core_Client_V1_IdentifiedClientState {
     get {return _identifiedClientState ?? Ibc_Core_Client_V1_IdentifiedClientState()}
     set {_identifiedClientState = newValue}
   }
   /// Returns true if `identifiedClientState` has been explicitly set.
-  var hasIdentifiedClientState: Bool {return self._identifiedClientState != nil}
+  public var hasIdentifiedClientState: Bool {return self._identifiedClientState != nil}
   /// Clears the value of `identifiedClientState`. Subsequent reads from it will return its default value.
-  mutating func clearIdentifiedClientState() {self._identifiedClientState = nil}
+  public mutating func clearIdentifiedClientState() {self._identifiedClientState = nil}
 
   /// merkle proof of existence
-  var proof: Data = Data()
+  public var proof: Data = Data()
 
   /// height at which the proof was retrieved
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _identifiedClientState: Ibc_Core_Client_V1_IdentifiedClientState? = nil
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
@@ -235,59 +235,59 @@ struct Ibc_Core_Connection_V1_QueryConnectionClientStateResponse {
 
 /// QueryConnectionConsensusStateRequest is the request type for the
 /// Query/ConnectionConsensusState RPC method
-struct Ibc_Core_Connection_V1_QueryConnectionConsensusStateRequest {
+public struct Ibc_Core_Connection_V1_QueryConnectionConsensusStateRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// connection identifier
-  var connectionID: String = String()
+  public var connectionID: String = String()
 
-  var revisionNumber: UInt64 = 0
+  public var revisionNumber: UInt64 = 0
 
-  var revisionHeight: UInt64 = 0
+  public var revisionHeight: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// QueryConnectionConsensusStateResponse is the response type for the
 /// Query/ConnectionConsensusState RPC method
-struct Ibc_Core_Connection_V1_QueryConnectionConsensusStateResponse {
+public struct Ibc_Core_Connection_V1_QueryConnectionConsensusStateResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// consensus state associated with the channel
-  var consensusState: SwiftProtobuf.Google_Protobuf_Any {
+  public var consensusState: SwiftProtobuf.Google_Protobuf_Any {
     get {return _consensusState ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_consensusState = newValue}
   }
   /// Returns true if `consensusState` has been explicitly set.
-  var hasConsensusState: Bool {return self._consensusState != nil}
+  public var hasConsensusState: Bool {return self._consensusState != nil}
   /// Clears the value of `consensusState`. Subsequent reads from it will return its default value.
-  mutating func clearConsensusState() {self._consensusState = nil}
+  public mutating func clearConsensusState() {self._consensusState = nil}
 
   /// client ID associated with the consensus state
-  var clientID: String = String()
+  public var clientID: String = String()
 
   /// merkle proof of existence
-  var proof: Data = Data()
+  public var proof: Data = Data()
 
   /// height at which the proof was retrieved
-  var proofHeight: Ibc_Core_Client_V1_Height {
+  public var proofHeight: Ibc_Core_Client_V1_Height {
     get {return _proofHeight ?? Ibc_Core_Client_V1_Height()}
     set {_proofHeight = newValue}
   }
   /// Returns true if `proofHeight` has been explicitly set.
-  var hasProofHeight: Bool {return self._proofHeight != nil}
+  public var hasProofHeight: Bool {return self._proofHeight != nil}
   /// Clears the value of `proofHeight`. Subsequent reads from it will return its default value.
-  mutating func clearProofHeight() {self._proofHeight = nil}
+  public mutating func clearProofHeight() {self._proofHeight = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _consensusState: SwiftProtobuf.Google_Protobuf_Any? = nil
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
@@ -298,12 +298,12 @@ struct Ibc_Core_Connection_V1_QueryConnectionConsensusStateResponse {
 fileprivate let _protobuf_package = "ibc.core.connection.v1"
 
 extension Ibc_Core_Connection_V1_QueryConnectionRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryConnectionRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryConnectionRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "connection_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -315,14 +315,14 @@ extension Ibc_Core_Connection_V1_QueryConnectionRequest: SwiftProtobuf.Message, 
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.connectionID.isEmpty {
       try visitor.visitSingularStringField(value: self.connectionID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionRequest, rhs: Ibc_Core_Connection_V1_QueryConnectionRequest) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionRequest, rhs: Ibc_Core_Connection_V1_QueryConnectionRequest) -> Bool {
     if lhs.connectionID != rhs.connectionID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -330,14 +330,14 @@ extension Ibc_Core_Connection_V1_QueryConnectionRequest: SwiftProtobuf.Message, 
 }
 
 extension Ibc_Core_Connection_V1_QueryConnectionResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryConnectionResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryConnectionResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "connection"),
     2: .same(proto: "proof"),
     3: .standard(proto: "proof_height"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -351,7 +351,7 @@ extension Ibc_Core_Connection_V1_QueryConnectionResponse: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._connection {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -364,7 +364,7 @@ extension Ibc_Core_Connection_V1_QueryConnectionResponse: SwiftProtobuf.Message,
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionResponse, rhs: Ibc_Core_Connection_V1_QueryConnectionResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionResponse, rhs: Ibc_Core_Connection_V1_QueryConnectionResponse) -> Bool {
     if lhs._connection != rhs._connection {return false}
     if lhs.proof != rhs.proof {return false}
     if lhs._proofHeight != rhs._proofHeight {return false}
@@ -374,12 +374,12 @@ extension Ibc_Core_Connection_V1_QueryConnectionResponse: SwiftProtobuf.Message,
 }
 
 extension Ibc_Core_Connection_V1_QueryConnectionsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryConnectionsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryConnectionsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "pagination"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -391,14 +391,14 @@ extension Ibc_Core_Connection_V1_QueryConnectionsRequest: SwiftProtobuf.Message,
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionsRequest, rhs: Ibc_Core_Connection_V1_QueryConnectionsRequest) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionsRequest, rhs: Ibc_Core_Connection_V1_QueryConnectionsRequest) -> Bool {
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -406,14 +406,14 @@ extension Ibc_Core_Connection_V1_QueryConnectionsRequest: SwiftProtobuf.Message,
 }
 
 extension Ibc_Core_Connection_V1_QueryConnectionsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryConnectionsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryConnectionsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "connections"),
     2: .same(proto: "pagination"),
     3: .same(proto: "height"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -427,7 +427,7 @@ extension Ibc_Core_Connection_V1_QueryConnectionsResponse: SwiftProtobuf.Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.connections.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.connections, fieldNumber: 1)
     }
@@ -440,7 +440,7 @@ extension Ibc_Core_Connection_V1_QueryConnectionsResponse: SwiftProtobuf.Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionsResponse, rhs: Ibc_Core_Connection_V1_QueryConnectionsResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionsResponse, rhs: Ibc_Core_Connection_V1_QueryConnectionsResponse) -> Bool {
     if lhs.connections != rhs.connections {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs._height != rhs._height {return false}
@@ -450,12 +450,12 @@ extension Ibc_Core_Connection_V1_QueryConnectionsResponse: SwiftProtobuf.Message
 }
 
 extension Ibc_Core_Connection_V1_QueryClientConnectionsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryClientConnectionsRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryClientConnectionsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "client_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -467,14 +467,14 @@ extension Ibc_Core_Connection_V1_QueryClientConnectionsRequest: SwiftProtobuf.Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.clientID.isEmpty {
       try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_QueryClientConnectionsRequest, rhs: Ibc_Core_Connection_V1_QueryClientConnectionsRequest) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_QueryClientConnectionsRequest, rhs: Ibc_Core_Connection_V1_QueryClientConnectionsRequest) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -482,14 +482,14 @@ extension Ibc_Core_Connection_V1_QueryClientConnectionsRequest: SwiftProtobuf.Me
 }
 
 extension Ibc_Core_Connection_V1_QueryClientConnectionsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryClientConnectionsResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryClientConnectionsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "connection_paths"),
     2: .same(proto: "proof"),
     3: .standard(proto: "proof_height"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -503,7 +503,7 @@ extension Ibc_Core_Connection_V1_QueryClientConnectionsResponse: SwiftProtobuf.M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.connectionPaths.isEmpty {
       try visitor.visitRepeatedStringField(value: self.connectionPaths, fieldNumber: 1)
     }
@@ -516,7 +516,7 @@ extension Ibc_Core_Connection_V1_QueryClientConnectionsResponse: SwiftProtobuf.M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_QueryClientConnectionsResponse, rhs: Ibc_Core_Connection_V1_QueryClientConnectionsResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_QueryClientConnectionsResponse, rhs: Ibc_Core_Connection_V1_QueryClientConnectionsResponse) -> Bool {
     if lhs.connectionPaths != rhs.connectionPaths {return false}
     if lhs.proof != rhs.proof {return false}
     if lhs._proofHeight != rhs._proofHeight {return false}
@@ -526,12 +526,12 @@ extension Ibc_Core_Connection_V1_QueryClientConnectionsResponse: SwiftProtobuf.M
 }
 
 extension Ibc_Core_Connection_V1_QueryConnectionClientStateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryConnectionClientStateRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryConnectionClientStateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "connection_id"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -543,14 +543,14 @@ extension Ibc_Core_Connection_V1_QueryConnectionClientStateRequest: SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.connectionID.isEmpty {
       try visitor.visitSingularStringField(value: self.connectionID, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionClientStateRequest, rhs: Ibc_Core_Connection_V1_QueryConnectionClientStateRequest) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionClientStateRequest, rhs: Ibc_Core_Connection_V1_QueryConnectionClientStateRequest) -> Bool {
     if lhs.connectionID != rhs.connectionID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -558,14 +558,14 @@ extension Ibc_Core_Connection_V1_QueryConnectionClientStateRequest: SwiftProtobu
 }
 
 extension Ibc_Core_Connection_V1_QueryConnectionClientStateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryConnectionClientStateResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryConnectionClientStateResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "identified_client_state"),
     2: .same(proto: "proof"),
     3: .standard(proto: "proof_height"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -579,7 +579,7 @@ extension Ibc_Core_Connection_V1_QueryConnectionClientStateResponse: SwiftProtob
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._identifiedClientState {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -592,7 +592,7 @@ extension Ibc_Core_Connection_V1_QueryConnectionClientStateResponse: SwiftProtob
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionClientStateResponse, rhs: Ibc_Core_Connection_V1_QueryConnectionClientStateResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionClientStateResponse, rhs: Ibc_Core_Connection_V1_QueryConnectionClientStateResponse) -> Bool {
     if lhs._identifiedClientState != rhs._identifiedClientState {return false}
     if lhs.proof != rhs.proof {return false}
     if lhs._proofHeight != rhs._proofHeight {return false}
@@ -602,14 +602,14 @@ extension Ibc_Core_Connection_V1_QueryConnectionClientStateResponse: SwiftProtob
 }
 
 extension Ibc_Core_Connection_V1_QueryConnectionConsensusStateRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryConnectionConsensusStateRequest"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryConnectionConsensusStateRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "connection_id"),
     2: .standard(proto: "revision_number"),
     3: .standard(proto: "revision_height"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -623,7 +623,7 @@ extension Ibc_Core_Connection_V1_QueryConnectionConsensusStateRequest: SwiftProt
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.connectionID.isEmpty {
       try visitor.visitSingularStringField(value: self.connectionID, fieldNumber: 1)
     }
@@ -636,7 +636,7 @@ extension Ibc_Core_Connection_V1_QueryConnectionConsensusStateRequest: SwiftProt
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionConsensusStateRequest, rhs: Ibc_Core_Connection_V1_QueryConnectionConsensusStateRequest) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionConsensusStateRequest, rhs: Ibc_Core_Connection_V1_QueryConnectionConsensusStateRequest) -> Bool {
     if lhs.connectionID != rhs.connectionID {return false}
     if lhs.revisionNumber != rhs.revisionNumber {return false}
     if lhs.revisionHeight != rhs.revisionHeight {return false}
@@ -646,15 +646,15 @@ extension Ibc_Core_Connection_V1_QueryConnectionConsensusStateRequest: SwiftProt
 }
 
 extension Ibc_Core_Connection_V1_QueryConnectionConsensusStateResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".QueryConnectionConsensusStateResponse"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".QueryConnectionConsensusStateResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "consensus_state"),
     2: .standard(proto: "client_id"),
     3: .same(proto: "proof"),
     4: .standard(proto: "proof_height"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -669,7 +669,7 @@ extension Ibc_Core_Connection_V1_QueryConnectionConsensusStateResponse: SwiftPro
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._consensusState {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -685,7 +685,7 @@ extension Ibc_Core_Connection_V1_QueryConnectionConsensusStateResponse: SwiftPro
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionConsensusStateResponse, rhs: Ibc_Core_Connection_V1_QueryConnectionConsensusStateResponse) -> Bool {
+  public static func ==(lhs: Ibc_Core_Connection_V1_QueryConnectionConsensusStateResponse, rhs: Ibc_Core_Connection_V1_QueryConnectionConsensusStateResponse) -> Bool {
     if lhs._consensusState != rhs._consensusState {return false}
     if lhs.clientID != rhs.clientID {return false}
     if lhs.proof != rhs.proof {return false}

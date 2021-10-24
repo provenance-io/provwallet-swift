@@ -22,17 +22,17 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// MarkerTransferAuthorization gives the grantee permissions to execute
 /// a marker transfer on behalf of the granter's account.
-struct Provenance_Marker_V1_MarkerTransferAuthorization {
+public struct Provenance_Marker_V1_MarkerTransferAuthorization {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// transfer_limit is the total amount the grantee can transfer
-  var transferLimit: [Cosmos_Base_V1beta1_Coin] = []
+  public var transferLimit: [Cosmos_Base_V1beta1_Coin] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -40,12 +40,12 @@ struct Provenance_Marker_V1_MarkerTransferAuthorization {
 fileprivate let _protobuf_package = "provenance.marker.v1"
 
 extension Provenance_Marker_V1_MarkerTransferAuthorization: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".MarkerTransferAuthorization"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".MarkerTransferAuthorization"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "transfer_limit"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -57,14 +57,14 @@ extension Provenance_Marker_V1_MarkerTransferAuthorization: SwiftProtobuf.Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.transferLimit.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.transferLimit, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Marker_V1_MarkerTransferAuthorization, rhs: Provenance_Marker_V1_MarkerTransferAuthorization) -> Bool {
+  public static func ==(lhs: Provenance_Marker_V1_MarkerTransferAuthorization, rhs: Provenance_Marker_V1_MarkerTransferAuthorization) -> Bool {
     if lhs.transferLimit != rhs.transferLimit {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

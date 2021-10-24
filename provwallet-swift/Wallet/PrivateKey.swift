@@ -16,6 +16,15 @@ enum PrivateKeyType {
     case nonHd
 }
 
+public enum AccountType {
+    case root
+    case purpose
+    case coinType
+    case account
+    case scope
+    case address
+}
+
 struct KeyTypeVersions: DataConvertable {
     let rawValue: UInt32
     static let xprv = KeyTypeVersions(rawValue: CFSwapInt32HostToBig(0x0488ADE4))
@@ -65,10 +74,9 @@ public struct PrivateKey {
         let isPrivateKey: Bool = keyVersionBytes == KeyTypeVersions.xprv.rawValue ||
                 keyVersionBytes == KeyTypeVersions.tprv.rawValue
         if(!isPrivateKey) {
-            //TODO fix this, should be able to import pub key?
             throw ProvenanceWalletError.ConvertError.failedToConvert("only private key supported")
-
         }
+
         let depth = data.subdata(in: 4..<5).to(type: UInt8.self)
         let parentFingerPrint = data.subdata(in: 5..<9).to(type: UInt32.self)
         let index = data.subdata(in: 9..<13).to(type: UInt32.self)
@@ -145,6 +153,7 @@ public struct PrivateKey {
         let curveOrder = BInt(hex: "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFEBAAEDCE6AF48A03BBFD25E8CD0364141")!
         let derivedPrivateKey = ((BInt(data: raw) + factor) % curveOrder).data
         let derivedChainCode = digest[32..<64]
+
         return PrivateKey(
             privateKey: derivedPrivateKey,
             chainCode: derivedChainCode,
@@ -204,6 +213,48 @@ public struct PrivateKey {
         if(out.count != (PrivateKey.EXTENDED_KEY_SIZE + PrivateKey.CHECKSUM_SIZE)) { throw ProvenanceWalletError.ConvertError.failedToConvert(out)}
 
         return Base58.encode(out)
+    }
+
+    /**
+     Returns the preferred wallet path: m/44'/<coin type>'/0'/0/0
+     */
+    public func defaultKey(account: UInt32 = 0) -> PrivateKey {
+        // BIP44 key derivation
+        // m/44'
+        let purpose = derived(at: .hardened(44))
+
+        // m/44'/**coin type**'
+        let coinType = purpose.derived(at: .hardened(coin.coinType))
+
+        // m/44'/1'/0'
+        let account = coinType.derived(at: .hardened(account))
+
+        // m/44'/1'/0'/0
+        let change = account.derived(at: .notHardened(0))
+
+        // m/44'/1'/0'/0/0
+        let address = change.derived(at: .notHardened(0))
+
+        return address
+    }
+
+    public func type() throws -> AccountType {
+        switch depth {
+            case 0:
+                return AccountType.root
+            case 1:
+                return AccountType.purpose
+            case 2:
+                return AccountType.coinType
+            case 3:
+                return AccountType.account
+            case 4:
+                return AccountType.scope
+            case 5:
+                return AccountType.address
+            default:
+                throw ProvenanceWalletError.invalidDepth
+        }
     }
 
 }

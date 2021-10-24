@@ -21,99 +21,99 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// Params defines the set of params for the name module.
-struct Provenance_Name_V1_Params {
+public struct Provenance_Name_V1_Params {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// maximum length of name segment to allow
-  var maxSegmentLength: UInt32 = 0
+  public var maxSegmentLength: UInt32 = 0
 
   /// minimum length of name segment to allow
-  var minSegmentLength: UInt32 = 0
+  public var minSegmentLength: UInt32 = 0
 
   /// maximum number of name segments to allow.  Example: `foo.bar.baz` would be 3
-  var maxNameLevels: UInt32 = 0
+  public var maxNameLevels: UInt32 = 0
 
   /// determines if unrestricted name keys are allowed or not
-  var allowUnrestrictedNames: Bool = false
+  public var allowUnrestrictedNames: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// NameRecord is a structure used to bind ownership of a name hierarchy to a collection of addresses
-struct Provenance_Name_V1_NameRecord {
+public struct Provenance_Name_V1_NameRecord {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// The bound name
-  var name: String = String()
+  public var name: String = String()
 
   /// The address the name resolved to.
-  var address: String = String()
+  public var address: String = String()
 
   /// Whether owner signature is required to add sub-names.
-  var restricted: Bool = false
+  public var restricted: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// CreateRootNameProposal details a proposal to create a new root name
 /// that is controlled by a given owner and optionally restricted to the owner
 /// for the sole creation of sub names.
-struct Provenance_Name_V1_CreateRootNameProposal {
+public struct Provenance_Name_V1_CreateRootNameProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var title: String = String()
+  public var title: String = String()
 
-  var description_p: String = String()
+  public var description_p: String = String()
 
-  var name: String = String()
+  public var name: String = String()
 
-  var owner: String = String()
+  public var owner: String = String()
 
-  var restricted: Bool = false
+  public var restricted: Bool = false
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Event emitted when name is bound.
-struct Provenance_Name_V1_EventNameBound {
+public struct Provenance_Name_V1_EventNameBound {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var address: String = String()
+  public var address: String = String()
 
-  var name: String = String()
+  public var name: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Event emitted when name is unbound.
-struct Provenance_Name_V1_EventNameUnbound {
+public struct Provenance_Name_V1_EventNameUnbound {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var address: String = String()
+  public var address: String = String()
 
-  var name: String = String()
+  public var name: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -121,15 +121,15 @@ struct Provenance_Name_V1_EventNameUnbound {
 fileprivate let _protobuf_package = "provenance.name.v1"
 
 extension Provenance_Name_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Params"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Params"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "max_segment_length"),
     2: .standard(proto: "min_segment_length"),
     3: .standard(proto: "max_name_levels"),
     4: .standard(proto: "allow_unrestricted_names"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -144,7 +144,7 @@ extension Provenance_Name_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.maxSegmentLength != 0 {
       try visitor.visitSingularUInt32Field(value: self.maxSegmentLength, fieldNumber: 1)
     }
@@ -160,7 +160,7 @@ extension Provenance_Name_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Name_V1_Params, rhs: Provenance_Name_V1_Params) -> Bool {
+  public static func ==(lhs: Provenance_Name_V1_Params, rhs: Provenance_Name_V1_Params) -> Bool {
     if lhs.maxSegmentLength != rhs.maxSegmentLength {return false}
     if lhs.minSegmentLength != rhs.minSegmentLength {return false}
     if lhs.maxNameLevels != rhs.maxNameLevels {return false}
@@ -171,14 +171,14 @@ extension Provenance_Name_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension Provenance_Name_V1_NameRecord: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".NameRecord"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".NameRecord"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "address"),
     3: .same(proto: "restricted"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -192,7 +192,7 @@ extension Provenance_Name_V1_NameRecord: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -205,7 +205,7 @@ extension Provenance_Name_V1_NameRecord: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Name_V1_NameRecord, rhs: Provenance_Name_V1_NameRecord) -> Bool {
+  public static func ==(lhs: Provenance_Name_V1_NameRecord, rhs: Provenance_Name_V1_NameRecord) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.address != rhs.address {return false}
     if lhs.restricted != rhs.restricted {return false}
@@ -215,8 +215,8 @@ extension Provenance_Name_V1_NameRecord: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Provenance_Name_V1_CreateRootNameProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CreateRootNameProposal"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CreateRootNameProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "description"),
     3: .same(proto: "name"),
@@ -224,7 +224,7 @@ extension Provenance_Name_V1_CreateRootNameProposal: SwiftProtobuf.Message, Swif
     5: .same(proto: "restricted"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -240,7 +240,7 @@ extension Provenance_Name_V1_CreateRootNameProposal: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.title.isEmpty {
       try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
     }
@@ -259,7 +259,7 @@ extension Provenance_Name_V1_CreateRootNameProposal: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Name_V1_CreateRootNameProposal, rhs: Provenance_Name_V1_CreateRootNameProposal) -> Bool {
+  public static func ==(lhs: Provenance_Name_V1_CreateRootNameProposal, rhs: Provenance_Name_V1_CreateRootNameProposal) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.name != rhs.name {return false}
@@ -271,13 +271,13 @@ extension Provenance_Name_V1_CreateRootNameProposal: SwiftProtobuf.Message, Swif
 }
 
 extension Provenance_Name_V1_EventNameBound: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventNameBound"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventNameBound"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .same(proto: "name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -290,7 +290,7 @@ extension Provenance_Name_V1_EventNameBound: SwiftProtobuf.Message, SwiftProtobu
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -300,7 +300,7 @@ extension Provenance_Name_V1_EventNameBound: SwiftProtobuf.Message, SwiftProtobu
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Name_V1_EventNameBound, rhs: Provenance_Name_V1_EventNameBound) -> Bool {
+  public static func ==(lhs: Provenance_Name_V1_EventNameBound, rhs: Provenance_Name_V1_EventNameBound) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.name != rhs.name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -309,13 +309,13 @@ extension Provenance_Name_V1_EventNameBound: SwiftProtobuf.Message, SwiftProtobu
 }
 
 extension Provenance_Name_V1_EventNameUnbound: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".EventNameUnbound"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".EventNameUnbound"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .same(proto: "name"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -328,7 +328,7 @@ extension Provenance_Name_V1_EventNameUnbound: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
@@ -338,7 +338,7 @@ extension Provenance_Name_V1_EventNameUnbound: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Name_V1_EventNameUnbound, rhs: Provenance_Name_V1_EventNameUnbound) -> Bool {
+  public static func ==(lhs: Provenance_Name_V1_EventNameUnbound, rhs: Provenance_Name_V1_EventNameUnbound) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.name != rhs.name {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

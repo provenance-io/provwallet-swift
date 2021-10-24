@@ -24,62 +24,62 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 ///
 /// NOTE: The amount field is an Int which implements the custom method
 /// signatures required by gogoproto.
-struct Cosmos_Base_V1beta1_Coin {
+public struct Cosmos_Base_V1beta1_Coin {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var amount: String = String()
+  public var amount: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// DecCoin defines a token with a denomination and a decimal amount.
 ///
 /// NOTE: The amount field is an Dec which implements the custom method
 /// signatures required by gogoproto.
-struct Cosmos_Base_V1beta1_DecCoin {
+public struct Cosmos_Base_V1beta1_DecCoin {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var denom: String = String()
+  public var denom: String = String()
 
-  var amount: String = String()
+  public var amount: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// IntProto defines a Protobuf wrapper around an Int object.
-struct Cosmos_Base_V1beta1_IntProto {
+public struct Cosmos_Base_V1beta1_IntProto {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var int: String = String()
+  public var int: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// DecProto defines a Protobuf wrapper around a Dec object.
-struct Cosmos_Base_V1beta1_DecProto {
+public struct Cosmos_Base_V1beta1_DecProto {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var dec: String = String()
+  public var dec: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -87,13 +87,13 @@ struct Cosmos_Base_V1beta1_DecProto {
 fileprivate let _protobuf_package = "cosmos.base.v1beta1"
 
 extension Cosmos_Base_V1beta1_Coin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Coin"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Coin"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "denom"),
     2: .same(proto: "amount"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -106,7 +106,7 @@ extension Cosmos_Base_V1beta1_Coin: SwiftProtobuf.Message, SwiftProtobuf._Messag
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.denom.isEmpty {
       try visitor.visitSingularStringField(value: self.denom, fieldNumber: 1)
     }
@@ -116,7 +116,7 @@ extension Cosmos_Base_V1beta1_Coin: SwiftProtobuf.Message, SwiftProtobuf._Messag
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_V1beta1_Coin, rhs: Cosmos_Base_V1beta1_Coin) -> Bool {
+  public static func ==(lhs: Cosmos_Base_V1beta1_Coin, rhs: Cosmos_Base_V1beta1_Coin) -> Bool {
     if lhs.denom != rhs.denom {return false}
     if lhs.amount != rhs.amount {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -125,13 +125,13 @@ extension Cosmos_Base_V1beta1_Coin: SwiftProtobuf.Message, SwiftProtobuf._Messag
 }
 
 extension Cosmos_Base_V1beta1_DecCoin: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DecCoin"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DecCoin"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "denom"),
     2: .same(proto: "amount"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -144,7 +144,7 @@ extension Cosmos_Base_V1beta1_DecCoin: SwiftProtobuf.Message, SwiftProtobuf._Mes
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.denom.isEmpty {
       try visitor.visitSingularStringField(value: self.denom, fieldNumber: 1)
     }
@@ -154,7 +154,7 @@ extension Cosmos_Base_V1beta1_DecCoin: SwiftProtobuf.Message, SwiftProtobuf._Mes
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_V1beta1_DecCoin, rhs: Cosmos_Base_V1beta1_DecCoin) -> Bool {
+  public static func ==(lhs: Cosmos_Base_V1beta1_DecCoin, rhs: Cosmos_Base_V1beta1_DecCoin) -> Bool {
     if lhs.denom != rhs.denom {return false}
     if lhs.amount != rhs.amount {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -163,12 +163,12 @@ extension Cosmos_Base_V1beta1_DecCoin: SwiftProtobuf.Message, SwiftProtobuf._Mes
 }
 
 extension Cosmos_Base_V1beta1_IntProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".IntProto"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".IntProto"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "int"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -180,14 +180,14 @@ extension Cosmos_Base_V1beta1_IntProto: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.int.isEmpty {
       try visitor.visitSingularStringField(value: self.int, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_V1beta1_IntProto, rhs: Cosmos_Base_V1beta1_IntProto) -> Bool {
+  public static func ==(lhs: Cosmos_Base_V1beta1_IntProto, rhs: Cosmos_Base_V1beta1_IntProto) -> Bool {
     if lhs.int != rhs.int {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -195,12 +195,12 @@ extension Cosmos_Base_V1beta1_IntProto: SwiftProtobuf.Message, SwiftProtobuf._Me
 }
 
 extension Cosmos_Base_V1beta1_DecProto: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".DecProto"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".DecProto"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "dec"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -212,14 +212,14 @@ extension Cosmos_Base_V1beta1_DecProto: SwiftProtobuf.Message, SwiftProtobuf._Me
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.dec.isEmpty {
       try visitor.visitSingularStringField(value: self.dec, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Base_V1beta1_DecProto, rhs: Cosmos_Base_V1beta1_DecProto) -> Bool {
+  public static func ==(lhs: Cosmos_Base_V1beta1_DecProto, rhs: Cosmos_Base_V1beta1_DecProto) -> Bool {
     if lhs.dec != rhs.dec {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

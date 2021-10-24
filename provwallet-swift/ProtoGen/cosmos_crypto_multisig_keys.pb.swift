@@ -23,18 +23,18 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 /// LegacyAminoPubKey specifies a public key type
 /// which nests multiple public keys and a threshold,
 /// it uses legacy amino address rules.
-struct Cosmos_Crypto_Multisig_LegacyAminoPubKey {
+public struct Cosmos_Crypto_Multisig_LegacyAminoPubKey {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var threshold: UInt32 = 0
+  public var threshold: UInt32 = 0
 
-  var publicKeys: [SwiftProtobuf.Google_Protobuf_Any] = []
+  public var publicKeys: [SwiftProtobuf.Google_Protobuf_Any] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -42,13 +42,13 @@ struct Cosmos_Crypto_Multisig_LegacyAminoPubKey {
 fileprivate let _protobuf_package = "cosmos.crypto.multisig"
 
 extension Cosmos_Crypto_Multisig_LegacyAminoPubKey: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".LegacyAminoPubKey"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".LegacyAminoPubKey"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "threshold"),
     2: .standard(proto: "public_keys"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -61,7 +61,7 @@ extension Cosmos_Crypto_Multisig_LegacyAminoPubKey: SwiftProtobuf.Message, Swift
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.threshold != 0 {
       try visitor.visitSingularUInt32Field(value: self.threshold, fieldNumber: 1)
     }
@@ -71,7 +71,7 @@ extension Cosmos_Crypto_Multisig_LegacyAminoPubKey: SwiftProtobuf.Message, Swift
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmos_Crypto_Multisig_LegacyAminoPubKey, rhs: Cosmos_Crypto_Multisig_LegacyAminoPubKey) -> Bool {
+  public static func ==(lhs: Cosmos_Crypto_Multisig_LegacyAminoPubKey, rhs: Cosmos_Crypto_Multisig_LegacyAminoPubKey) -> Bool {
     if lhs.threshold != rhs.threshold {return false}
     if lhs.publicKeys != rhs.publicKeys {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

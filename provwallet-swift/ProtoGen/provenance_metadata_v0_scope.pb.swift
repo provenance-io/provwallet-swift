@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// RecordInputType indicates if an input is data on or off chain.
-enum Scope_RecordInputType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Scope_RecordInputType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// invalid status
   case unknown // = 0
@@ -34,11 +34,11 @@ enum Scope_RecordInputType: SwiftProtobuf.Enum {
   case fact // = 2
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unknown
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unknown
     case 1: self = .proposed
@@ -47,7 +47,7 @@ enum Scope_RecordInputType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unknown: return 0
     case .proposed: return 1
@@ -62,7 +62,7 @@ enum Scope_RecordInputType: SwiftProtobuf.Enum {
 
 extension Scope_RecordInputType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Scope_RecordInputType] = [
+  public static var allCases: [Scope_RecordInputType] = [
     .unknown,
     .proposed,
     .fact,
@@ -72,32 +72,32 @@ extension Scope_RecordInputType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// Event references in relation to scope
-struct Scope_Event {
+public struct Scope_Event {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var groupUuid: Types_UUID {
+  public var groupUuid: Types_UUID {
     get {return _groupUuid ?? Types_UUID()}
     set {_groupUuid = newValue}
   }
   /// Returns true if `groupUuid` has been explicitly set.
-  var hasGroupUuid: Bool {return self._groupUuid != nil}
+  public var hasGroupUuid: Bool {return self._groupUuid != nil}
   /// Clears the value of `groupUuid`. Subsequent reads from it will return its default value.
-  mutating func clearGroupUuid() {self._groupUuid = nil}
+  public mutating func clearGroupUuid() {self._groupUuid = nil}
 
-  var executionUuid: Types_UUID {
+  public var executionUuid: Types_UUID {
     get {return _executionUuid ?? Types_UUID()}
     set {_executionUuid = newValue}
   }
   /// Returns true if `executionUuid` has been explicitly set.
-  var hasExecutionUuid: Bool {return self._executionUuid != nil}
+  public var hasExecutionUuid: Bool {return self._executionUuid != nil}
   /// Clears the value of `executionUuid`. Subsequent reads from it will return its default value.
-  mutating func clearExecutionUuid() {self._executionUuid = nil}
+  public mutating func clearExecutionUuid() {self._executionUuid = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _groupUuid: Types_UUID? = nil
   fileprivate var _executionUuid: Types_UUID? = nil
@@ -105,184 +105,184 @@ struct Scope_Event {
 
 /// A ContractScope is a context that binds multiple p8e working together to create a set of facts managed a defined
 /// set of affiliates.
-struct Scope_Scope {
+public struct Scope_Scope {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Unique ID for building up ProvenanceReferences
-  var uuid: Types_UUID {
+  public var uuid: Types_UUID {
     get {return _uuid ?? Types_UUID()}
     set {_uuid = newValue}
   }
   /// Returns true if `uuid` has been explicitly set.
-  var hasUuid: Bool {return self._uuid != nil}
+  public var hasUuid: Bool {return self._uuid != nil}
   /// Clears the value of `uuid`. Subsequent reads from it will return its default value.
-  mutating func clearUuid() {self._uuid = nil}
+  public mutating func clearUuid() {self._uuid = nil}
 
   /// Required parties on this scope.  These are union with any contract specific recital requirements
-  var parties: [Contract_Recital] = []
+  public var parties: [Contract_Recital] = []
 
   /// Each contract memorialized in this scope is stored in this list of contract_group.  The list of groups is keyed
   /// as a hashmap based on the contract_spec_ref as a unique key.
-  var recordGroup: [Scope_RecordGroup] = []
+  public var recordGroup: [Scope_RecordGroup] = []
 
   /// Last event that resulted in scope changes.
-  var lastEvent: Scope_Event {
+  public var lastEvent: Scope_Event {
     get {return _lastEvent ?? Scope_Event()}
     set {_lastEvent = newValue}
   }
   /// Returns true if `lastEvent` has been explicitly set.
-  var hasLastEvent: Bool {return self._lastEvent != nil}
+  public var hasLastEvent: Bool {return self._lastEvent != nil}
   /// Clears the value of `lastEvent`. Subsequent reads from it will return its default value.
-  mutating func clearLastEvent() {self._lastEvent = nil}
+  public mutating func clearLastEvent() {self._lastEvent = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _uuid: Types_UUID? = nil
   fileprivate var _lastEvent: Scope_Event? = nil
 }
 
 /// A collection wrapper around scopes
-struct Scope_ScopeCollection {
+public struct Scope_ScopeCollection {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var scopes: [Scope_Scope] = []
+  public var scopes: [Scope_Scope] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// An record group is created for each contract memorialized against a scope.  This tracks who controls each record for
 /// future use.
-struct Scope_RecordGroup {
+public struct Scope_RecordGroup {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// contract.spec.data_location.hash -- the specific contract specification that was used to create this group.
-  var specification: String {
+  public var specification: String {
     get {return _storage._specification}
     set {_uniqueStorage()._specification = newValue}
   }
 
   /// Unique ID for building up ProvenanceReferences.  Set to the value on of group_uuid on the incoming contract ref.
-  var groupUuid: Types_UUID {
+  public var groupUuid: Types_UUID {
     get {return _storage._groupUuid ?? Types_UUID()}
     set {_uniqueStorage()._groupUuid = newValue}
   }
   /// Returns true if `groupUuid` has been explicitly set.
-  var hasGroupUuid: Bool {return _storage._groupUuid != nil}
+  public var hasGroupUuid: Bool {return _storage._groupUuid != nil}
   /// Clears the value of `groupUuid`. Subsequent reads from it will return its default value.
-  mutating func clearGroupUuid() {_uniqueStorage()._groupUuid = nil}
+  public mutating func clearGroupUuid() {_uniqueStorage()._groupUuid = nil}
 
   /// Identity that is memorializing this contract
-  var executor: Types_SigningAndEncryptionPublicKeys {
+  public var executor: Types_SigningAndEncryptionPublicKeys {
     get {return _storage._executor ?? Types_SigningAndEncryptionPublicKeys()}
     set {_uniqueStorage()._executor = newValue}
   }
   /// Returns true if `executor` has been explicitly set.
-  var hasExecutor: Bool {return _storage._executor != nil}
+  public var hasExecutor: Bool {return _storage._executor != nil}
   /// Clears the value of `executor`. Subsequent reads from it will return its default value.
-  mutating func clearExecutor() {_uniqueStorage()._executor = nil}
+  public mutating func clearExecutor() {_uniqueStorage()._executor = nil}
 
   /// Set of identities that signed this contract
-  var parties: [Contract_Recital] {
+  public var parties: [Contract_Recital] {
     get {return _storage._parties}
     set {_uniqueStorage()._parties = newValue}
   }
 
   /// Accumulated records (of fact) resulting from Considerations
-  var records: [Scope_Record] {
+  public var records: [Scope_Record] {
     get {return _storage._records}
     set {_uniqueStorage()._records = newValue}
   }
 
   /// name of the class associated with this record group specification
-  var classname: String {
+  public var classname: String {
     get {return _storage._classname}
     set {_uniqueStorage()._classname = newValue}
   }
 
   /// Created by, updated by, timestamps, version number, and related info.
-  var audit: Types_AuditFields {
+  public var audit: Types_AuditFields {
     get {return _storage._audit ?? Types_AuditFields()}
     set {_uniqueStorage()._audit = newValue}
   }
   /// Returns true if `audit` has been explicitly set.
-  var hasAudit: Bool {return _storage._audit != nil}
+  public var hasAudit: Bool {return _storage._audit != nil}
   /// Clears the value of `audit`. Subsequent reads from it will return its default value.
-  mutating func clearAudit() {_uniqueStorage()._audit = nil}
+  public mutating func clearAudit() {_uniqueStorage()._audit = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 /// A record (of fact) is attached to an group or each consideration output from a contract.
-struct Scope_Record {
+public struct Scope_Record {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// ConsiderationSpec.func_name <--> ConsiderationProto.consideration_name (method on the classname below that
   /// generated this)
-  var name: String = String()
+  public var name: String = String()
 
   /// ConsiderationSpec.outputSpec.spec.resourceLocation.ref.hash (this is the hash of the consideration which generated
   /// the record, see also result_hash)
-  var hash: String = String()
+  public var hash: String = String()
 
   /// ContractSpec.definition.resourceLocation.classname (class that contains the method 'name' as given above)
-  var classname: String = String()
+  public var classname: String = String()
 
   /// ConsiderationProto.inputs for reference with ConsiderationSpec.input_spec for type
-  var inputs: [Scope_RecordInput] = []
+  public var inputs: [Scope_RecordInput] = []
 
   /// ConsiderationProto.result.result      (indicates SKIP [not allowed], PASS, or FAIL result)
-  var result: Contract_ExecutionResultType = .resultTypeUnknown
+  public var result: Contract_ExecutionResultType = .resultTypeUnknown
 
   /// ConsiderationProto.result.output.name
-  var resultName: String = String()
+  public var resultName: String = String()
 
   /// ConsiderationProto.result.output.hash (the hash of the data output from the consideration)
-  var resultHash: String = String()
+  public var resultHash: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Tracks the inputs used with a Consideration to establish the output record.
 /// FACT references must have come from the input fact list.
 /// For proposed we will only have the hash
-struct Scope_RecordInput {
+public struct Scope_RecordInput {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// Name value included to link back to the definition spec.
-  var name: String = String()
+  public var name: String = String()
 
   /// For proposed facts we only have the hash ... for facts this hash maps to something in the input list.
-  var hash: String = String()
+  public var hash: String = String()
 
   /// from proposed fact structure to unmarshal
-  var classname: String = String()
+  public var classname: String = String()
 
   /// Indicates if this input was a recorded fact on chain or just a given hashed input
-  var type: Scope_RecordInputType = .unknown
+  public var type: Scope_RecordInputType = .unknown
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -290,7 +290,7 @@ struct Scope_RecordInput {
 fileprivate let _protobuf_package = "scope"
 
 extension Scope_RecordInputType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "RECORD_INPUT_TYPE_UNKNOWN"),
     1: .same(proto: "RECORD_INPUT_TYPE_PROPOSED"),
     2: .same(proto: "RECORD_INPUT_TYPE_FACT"),
@@ -298,13 +298,13 @@ extension Scope_RecordInputType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Scope_Event: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Event"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Event"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "group_uuid"),
     2: .standard(proto: "execution_uuid"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -317,7 +317,7 @@ extension Scope_Event: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._groupUuid {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -327,7 +327,7 @@ extension Scope_Event: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Scope_Event, rhs: Scope_Event) -> Bool {
+  public static func ==(lhs: Scope_Event, rhs: Scope_Event) -> Bool {
     if lhs._groupUuid != rhs._groupUuid {return false}
     if lhs._executionUuid != rhs._executionUuid {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -336,15 +336,15 @@ extension Scope_Event: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
 }
 
 extension Scope_Scope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Scope"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Scope"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "uuid"),
     2: .same(proto: "parties"),
     3: .standard(proto: "record_group"),
     4: .standard(proto: "last_event"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -359,7 +359,7 @@ extension Scope_Scope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._uuid {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -375,7 +375,7 @@ extension Scope_Scope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Scope_Scope, rhs: Scope_Scope) -> Bool {
+  public static func ==(lhs: Scope_Scope, rhs: Scope_Scope) -> Bool {
     if lhs._uuid != rhs._uuid {return false}
     if lhs.parties != rhs.parties {return false}
     if lhs.recordGroup != rhs.recordGroup {return false}
@@ -386,12 +386,12 @@ extension Scope_Scope: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
 }
 
 extension Scope_ScopeCollection: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ScopeCollection"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ScopeCollection"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "scopes"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -403,14 +403,14 @@ extension Scope_ScopeCollection: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.scopes.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.scopes, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Scope_ScopeCollection, rhs: Scope_ScopeCollection) -> Bool {
+  public static func ==(lhs: Scope_ScopeCollection, rhs: Scope_ScopeCollection) -> Bool {
     if lhs.scopes != rhs.scopes {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -418,8 +418,8 @@ extension Scope_ScopeCollection: SwiftProtobuf.Message, SwiftProtobuf._MessageIm
 }
 
 extension Scope_RecordGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordGroup"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordGroup"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "specification"),
     2: .standard(proto: "group_uuid"),
     3: .same(proto: "executor"),
@@ -460,7 +460,7 @@ extension Scope_RecordGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     return _storage
   }
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     _ = _uniqueStorage()
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       while let fieldNumber = try decoder.nextFieldNumber() {
@@ -481,7 +481,7 @@ extension Scope_RecordGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
       if !_storage._specification.isEmpty {
         try visitor.visitSingularStringField(value: _storage._specification, fieldNumber: 1)
@@ -508,7 +508,7 @@ extension Scope_RecordGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Scope_RecordGroup, rhs: Scope_RecordGroup) -> Bool {
+  public static func ==(lhs: Scope_RecordGroup, rhs: Scope_RecordGroup) -> Bool {
     if lhs._storage !== rhs._storage {
       let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
         let _storage = _args.0
@@ -530,8 +530,8 @@ extension Scope_RecordGroup: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
 }
 
 extension Scope_Record: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Record"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Record"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "hash"),
     3: .same(proto: "classname"),
@@ -541,7 +541,7 @@ extension Scope_Record: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     7: .standard(proto: "result_hash"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -559,7 +559,7 @@ extension Scope_Record: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -584,7 +584,7 @@ extension Scope_Record: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Scope_Record, rhs: Scope_Record) -> Bool {
+  public static func ==(lhs: Scope_Record, rhs: Scope_Record) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.hash != rhs.hash {return false}
     if lhs.classname != rhs.classname {return false}
@@ -598,15 +598,15 @@ extension Scope_Record: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
 }
 
 extension Scope_RecordInput: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".RecordInput"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".RecordInput"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "name"),
     2: .same(proto: "hash"),
     3: .same(proto: "classname"),
     4: .same(proto: "type"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -621,7 +621,7 @@ extension Scope_RecordInput: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
     }
@@ -637,7 +637,7 @@ extension Scope_RecordInput: SwiftProtobuf.Message, SwiftProtobuf._MessageImplem
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Scope_RecordInput, rhs: Scope_RecordInput) -> Bool {
+  public static func ==(lhs: Scope_RecordInput, rhs: Scope_RecordInput) -> Bool {
     if lhs.name != rhs.name {return false}
     if lhs.hash != rhs.hash {return false}
     if lhs.classname != rhs.classname {return false}

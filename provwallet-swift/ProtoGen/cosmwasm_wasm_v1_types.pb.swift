@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// AccessType permission types
-enum Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// AccessTypeUnspecified placeholder for empty value
   case unspecified // = 0
@@ -37,11 +37,11 @@ enum Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf.Enum {
   case everybody // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .nobody
@@ -51,7 +51,7 @@ enum Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .nobody: return 1
@@ -67,7 +67,7 @@ enum Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf.Enum {
 
 extension Cosmwasm_Wasm_V1_AccessType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Cosmwasm_Wasm_V1_AccessType] = [
+  public static var allCases: [Cosmwasm_Wasm_V1_AccessType] = [
     .unspecified,
     .nobody,
     .onlyAddress,
@@ -78,8 +78,8 @@ extension Cosmwasm_Wasm_V1_AccessType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// ContractCodeHistoryOperationType actions that caused a code change
-enum Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// ContractCodeHistoryOperationTypeUnspecified placeholder for empty value
   case unspecified // = 0
@@ -94,11 +94,11 @@ enum Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType: SwiftProtobuf.Enum {
   case genesis // = 3
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .unspecified
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case 0: self = .unspecified
     case 1: self = .init_
@@ -108,7 +108,7 @@ enum Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .unspecified: return 0
     case .init_: return 1
@@ -124,7 +124,7 @@ enum Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType: SwiftProtobuf.Enum {
 
 extension Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType] = [
+  public static var allCases: [Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType] = [
     .unspecified,
     .init_,
     .migrate,
@@ -135,203 +135,203 @@ extension Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// AccessTypeParam
-struct Cosmwasm_Wasm_V1_AccessTypeParam {
+public struct Cosmwasm_Wasm_V1_AccessTypeParam {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var value: Cosmwasm_Wasm_V1_AccessType = .unspecified
+  public var value: Cosmwasm_Wasm_V1_AccessType = .unspecified
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// AccessConfig access control type.
-struct Cosmwasm_Wasm_V1_AccessConfig {
+public struct Cosmwasm_Wasm_V1_AccessConfig {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var permission: Cosmwasm_Wasm_V1_AccessType = .unspecified
+  public var permission: Cosmwasm_Wasm_V1_AccessType = .unspecified
 
-  var address: String = String()
+  public var address: String = String()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Params defines the set of wasm parameters.
-struct Cosmwasm_Wasm_V1_Params {
+public struct Cosmwasm_Wasm_V1_Params {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var codeUploadAccess: Cosmwasm_Wasm_V1_AccessConfig {
+  public var codeUploadAccess: Cosmwasm_Wasm_V1_AccessConfig {
     get {return _codeUploadAccess ?? Cosmwasm_Wasm_V1_AccessConfig()}
     set {_codeUploadAccess = newValue}
   }
   /// Returns true if `codeUploadAccess` has been explicitly set.
-  var hasCodeUploadAccess: Bool {return self._codeUploadAccess != nil}
+  public var hasCodeUploadAccess: Bool {return self._codeUploadAccess != nil}
   /// Clears the value of `codeUploadAccess`. Subsequent reads from it will return its default value.
-  mutating func clearCodeUploadAccess() {self._codeUploadAccess = nil}
+  public mutating func clearCodeUploadAccess() {self._codeUploadAccess = nil}
 
-  var instantiateDefaultPermission: Cosmwasm_Wasm_V1_AccessType = .unspecified
+  public var instantiateDefaultPermission: Cosmwasm_Wasm_V1_AccessType = .unspecified
 
-  var maxWasmCodeSize: UInt64 = 0
+  public var maxWasmCodeSize: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _codeUploadAccess: Cosmwasm_Wasm_V1_AccessConfig? = nil
 }
 
 /// CodeInfo is data for the uploaded contract WASM code
-struct Cosmwasm_Wasm_V1_CodeInfo {
+public struct Cosmwasm_Wasm_V1_CodeInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// CodeHash is the unique identifier created by wasmvm
-  var codeHash: Data = Data()
+  public var codeHash: Data = Data()
 
   /// Creator address who initially stored the code
-  var creator: String = String()
+  public var creator: String = String()
 
   /// InstantiateConfig access control to apply on contract creation, optional
-  var instantiateConfig: Cosmwasm_Wasm_V1_AccessConfig {
+  public var instantiateConfig: Cosmwasm_Wasm_V1_AccessConfig {
     get {return _instantiateConfig ?? Cosmwasm_Wasm_V1_AccessConfig()}
     set {_instantiateConfig = newValue}
   }
   /// Returns true if `instantiateConfig` has been explicitly set.
-  var hasInstantiateConfig: Bool {return self._instantiateConfig != nil}
+  public var hasInstantiateConfig: Bool {return self._instantiateConfig != nil}
   /// Clears the value of `instantiateConfig`. Subsequent reads from it will return its default value.
-  mutating func clearInstantiateConfig() {self._instantiateConfig = nil}
+  public mutating func clearInstantiateConfig() {self._instantiateConfig = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _instantiateConfig: Cosmwasm_Wasm_V1_AccessConfig? = nil
 }
 
 /// ContractInfo stores a WASM contract instance
-struct Cosmwasm_Wasm_V1_ContractInfo {
+public struct Cosmwasm_Wasm_V1_ContractInfo {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// CodeID is the reference to the stored Wasm code
-  var codeID: UInt64 = 0
+  public var codeID: UInt64 = 0
 
   /// Creator address who initially instantiated the contract
-  var creator: String = String()
+  public var creator: String = String()
 
   /// Admin is an optional address that can execute migrations
-  var admin: String = String()
+  public var admin: String = String()
 
   /// Label is optional metadata to be stored with a contract instance.
-  var label: String = String()
+  public var label: String = String()
 
   /// Created Tx position when the contract was instantiated.
   /// This data should kept internal and not be exposed via query results. Just
   /// use for sorting
-  var created: Cosmwasm_Wasm_V1_AbsoluteTxPosition {
+  public var created: Cosmwasm_Wasm_V1_AbsoluteTxPosition {
     get {return _created ?? Cosmwasm_Wasm_V1_AbsoluteTxPosition()}
     set {_created = newValue}
   }
   /// Returns true if `created` has been explicitly set.
-  var hasCreated: Bool {return self._created != nil}
+  public var hasCreated: Bool {return self._created != nil}
   /// Clears the value of `created`. Subsequent reads from it will return its default value.
-  mutating func clearCreated() {self._created = nil}
+  public mutating func clearCreated() {self._created = nil}
 
-  var ibcPortID: String = String()
+  public var ibcPortID: String = String()
 
   /// Extension is an extension point to store custom metadata within the
   /// persistence model.
-  var `extension`: SwiftProtobuf.Google_Protobuf_Any {
+  public var `extension`: SwiftProtobuf.Google_Protobuf_Any {
     get {return _extension ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_extension = newValue}
   }
   /// Returns true if ``extension`` has been explicitly set.
-  var hasExtension: Bool {return self._extension != nil}
+  public var hasExtension: Bool {return self._extension != nil}
   /// Clears the value of ``extension``. Subsequent reads from it will return its default value.
-  mutating func clearExtension() {self._extension = nil}
+  public mutating func clearExtension() {self._extension = nil}
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _created: Cosmwasm_Wasm_V1_AbsoluteTxPosition? = nil
   fileprivate var _extension: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
 /// ContractCodeHistoryEntry metadata to a contract.
-struct Cosmwasm_Wasm_V1_ContractCodeHistoryEntry {
+public struct Cosmwasm_Wasm_V1_ContractCodeHistoryEntry {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var operation: Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType = .unspecified
+  public var operation: Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType = .unspecified
 
   /// CodeID is the reference to the stored WASM code
-  var codeID: UInt64 = 0
+  public var codeID: UInt64 = 0
 
   /// Updated Tx position when the operation was executed.
-  var updated: Cosmwasm_Wasm_V1_AbsoluteTxPosition {
+  public var updated: Cosmwasm_Wasm_V1_AbsoluteTxPosition {
     get {return _updated ?? Cosmwasm_Wasm_V1_AbsoluteTxPosition()}
     set {_updated = newValue}
   }
   /// Returns true if `updated` has been explicitly set.
-  var hasUpdated: Bool {return self._updated != nil}
+  public var hasUpdated: Bool {return self._updated != nil}
   /// Clears the value of `updated`. Subsequent reads from it will return its default value.
-  mutating func clearUpdated() {self._updated = nil}
+  public mutating func clearUpdated() {self._updated = nil}
 
-  var msg: Data = Data()
+  public var msg: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _updated: Cosmwasm_Wasm_V1_AbsoluteTxPosition? = nil
 }
 
 /// AbsoluteTxPosition is a unique transaction position that allows for global
 /// ordering of transactions.
-struct Cosmwasm_Wasm_V1_AbsoluteTxPosition {
+public struct Cosmwasm_Wasm_V1_AbsoluteTxPosition {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// BlockHeight is the block the contract was created at
-  var blockHeight: UInt64 = 0
+  public var blockHeight: UInt64 = 0
 
   /// TxIndex is a monotonic counter within the block (actual transaction index,
   /// or gas consumed)
-  var txIndex: UInt64 = 0
+  public var txIndex: UInt64 = 0
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 /// Model is a struct that holds a KV pair
-struct Cosmwasm_Wasm_V1_Model {
+public struct Cosmwasm_Wasm_V1_Model {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// hex-encode key to read it better (this is often ascii)
-  var key: Data = Data()
+  public var key: Data = Data()
 
   /// base64-encode raw value
-  var value: Data = Data()
+  public var value: Data = Data()
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -339,7 +339,7 @@ struct Cosmwasm_Wasm_V1_Model {
 fileprivate let _protobuf_package = "cosmwasm.wasm.v1"
 
 extension Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "ACCESS_TYPE_UNSPECIFIED"),
     1: .same(proto: "ACCESS_TYPE_NOBODY"),
     2: .same(proto: "ACCESS_TYPE_ONLY_ADDRESS"),
@@ -348,7 +348,7 @@ extension Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf._ProtoNameProviding {
 }
 
 extension Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     0: .same(proto: "CONTRACT_CODE_HISTORY_OPERATION_TYPE_UNSPECIFIED"),
     1: .same(proto: "CONTRACT_CODE_HISTORY_OPERATION_TYPE_INIT"),
     2: .same(proto: "CONTRACT_CODE_HISTORY_OPERATION_TYPE_MIGRATE"),
@@ -357,12 +357,12 @@ extension Cosmwasm_Wasm_V1_ContractCodeHistoryOperationType: SwiftProtobuf._Prot
 }
 
 extension Cosmwasm_Wasm_V1_AccessTypeParam: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AccessTypeParam"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AccessTypeParam"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -374,14 +374,14 @@ extension Cosmwasm_Wasm_V1_AccessTypeParam: SwiftProtobuf.Message, SwiftProtobuf
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.value != .unspecified {
       try visitor.visitSingularEnumField(value: self.value, fieldNumber: 1)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_AccessTypeParam, rhs: Cosmwasm_Wasm_V1_AccessTypeParam) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_AccessTypeParam, rhs: Cosmwasm_Wasm_V1_AccessTypeParam) -> Bool {
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
@@ -389,13 +389,13 @@ extension Cosmwasm_Wasm_V1_AccessTypeParam: SwiftProtobuf.Message, SwiftProtobuf
 }
 
 extension Cosmwasm_Wasm_V1_AccessConfig: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AccessConfig"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AccessConfig"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "permission"),
     2: .same(proto: "address"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -408,7 +408,7 @@ extension Cosmwasm_Wasm_V1_AccessConfig: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.permission != .unspecified {
       try visitor.visitSingularEnumField(value: self.permission, fieldNumber: 1)
     }
@@ -418,7 +418,7 @@ extension Cosmwasm_Wasm_V1_AccessConfig: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_AccessConfig, rhs: Cosmwasm_Wasm_V1_AccessConfig) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_AccessConfig, rhs: Cosmwasm_Wasm_V1_AccessConfig) -> Bool {
     if lhs.permission != rhs.permission {return false}
     if lhs.address != rhs.address {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -427,14 +427,14 @@ extension Cosmwasm_Wasm_V1_AccessConfig: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Cosmwasm_Wasm_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Params"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Params"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "code_upload_access"),
     2: .standard(proto: "instantiate_default_permission"),
     3: .standard(proto: "max_wasm_code_size"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -448,7 +448,7 @@ extension Cosmwasm_Wasm_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Message
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._codeUploadAccess {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -461,7 +461,7 @@ extension Cosmwasm_Wasm_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Message
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_Params, rhs: Cosmwasm_Wasm_V1_Params) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_Params, rhs: Cosmwasm_Wasm_V1_Params) -> Bool {
     if lhs._codeUploadAccess != rhs._codeUploadAccess {return false}
     if lhs.instantiateDefaultPermission != rhs.instantiateDefaultPermission {return false}
     if lhs.maxWasmCodeSize != rhs.maxWasmCodeSize {return false}
@@ -471,14 +471,14 @@ extension Cosmwasm_Wasm_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Message
 }
 
 extension Cosmwasm_Wasm_V1_CodeInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".CodeInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".CodeInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "code_hash"),
     2: .same(proto: "creator"),
     5: .standard(proto: "instantiate_config"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -492,7 +492,7 @@ extension Cosmwasm_Wasm_V1_CodeInfo: SwiftProtobuf.Message, SwiftProtobuf._Messa
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.codeHash.isEmpty {
       try visitor.visitSingularBytesField(value: self.codeHash, fieldNumber: 1)
     }
@@ -505,7 +505,7 @@ extension Cosmwasm_Wasm_V1_CodeInfo: SwiftProtobuf.Message, SwiftProtobuf._Messa
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_CodeInfo, rhs: Cosmwasm_Wasm_V1_CodeInfo) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_CodeInfo, rhs: Cosmwasm_Wasm_V1_CodeInfo) -> Bool {
     if lhs.codeHash != rhs.codeHash {return false}
     if lhs.creator != rhs.creator {return false}
     if lhs._instantiateConfig != rhs._instantiateConfig {return false}
@@ -515,8 +515,8 @@ extension Cosmwasm_Wasm_V1_CodeInfo: SwiftProtobuf.Message, SwiftProtobuf._Messa
 }
 
 extension Cosmwasm_Wasm_V1_ContractInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractInfo"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "code_id"),
     2: .same(proto: "creator"),
     3: .same(proto: "admin"),
@@ -526,7 +526,7 @@ extension Cosmwasm_Wasm_V1_ContractInfo: SwiftProtobuf.Message, SwiftProtobuf._M
     7: .same(proto: "extension"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -544,7 +544,7 @@ extension Cosmwasm_Wasm_V1_ContractInfo: SwiftProtobuf.Message, SwiftProtobuf._M
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.codeID != 0 {
       try visitor.visitSingularUInt64Field(value: self.codeID, fieldNumber: 1)
     }
@@ -569,7 +569,7 @@ extension Cosmwasm_Wasm_V1_ContractInfo: SwiftProtobuf.Message, SwiftProtobuf._M
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_ContractInfo, rhs: Cosmwasm_Wasm_V1_ContractInfo) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_ContractInfo, rhs: Cosmwasm_Wasm_V1_ContractInfo) -> Bool {
     if lhs.codeID != rhs.codeID {return false}
     if lhs.creator != rhs.creator {return false}
     if lhs.admin != rhs.admin {return false}
@@ -583,15 +583,15 @@ extension Cosmwasm_Wasm_V1_ContractInfo: SwiftProtobuf.Message, SwiftProtobuf._M
 }
 
 extension Cosmwasm_Wasm_V1_ContractCodeHistoryEntry: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".ContractCodeHistoryEntry"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".ContractCodeHistoryEntry"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "operation"),
     2: .standard(proto: "code_id"),
     3: .same(proto: "updated"),
     4: .same(proto: "msg"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -606,7 +606,7 @@ extension Cosmwasm_Wasm_V1_ContractCodeHistoryEntry: SwiftProtobuf.Message, Swif
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.operation != .unspecified {
       try visitor.visitSingularEnumField(value: self.operation, fieldNumber: 1)
     }
@@ -622,7 +622,7 @@ extension Cosmwasm_Wasm_V1_ContractCodeHistoryEntry: SwiftProtobuf.Message, Swif
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_ContractCodeHistoryEntry, rhs: Cosmwasm_Wasm_V1_ContractCodeHistoryEntry) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_ContractCodeHistoryEntry, rhs: Cosmwasm_Wasm_V1_ContractCodeHistoryEntry) -> Bool {
     if lhs.operation != rhs.operation {return false}
     if lhs.codeID != rhs.codeID {return false}
     if lhs._updated != rhs._updated {return false}
@@ -633,13 +633,13 @@ extension Cosmwasm_Wasm_V1_ContractCodeHistoryEntry: SwiftProtobuf.Message, Swif
 }
 
 extension Cosmwasm_Wasm_V1_AbsoluteTxPosition: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".AbsoluteTxPosition"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".AbsoluteTxPosition"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "block_height"),
     2: .standard(proto: "tx_index"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -652,7 +652,7 @@ extension Cosmwasm_Wasm_V1_AbsoluteTxPosition: SwiftProtobuf.Message, SwiftProto
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.blockHeight != 0 {
       try visitor.visitSingularUInt64Field(value: self.blockHeight, fieldNumber: 1)
     }
@@ -662,7 +662,7 @@ extension Cosmwasm_Wasm_V1_AbsoluteTxPosition: SwiftProtobuf.Message, SwiftProto
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_AbsoluteTxPosition, rhs: Cosmwasm_Wasm_V1_AbsoluteTxPosition) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_AbsoluteTxPosition, rhs: Cosmwasm_Wasm_V1_AbsoluteTxPosition) -> Bool {
     if lhs.blockHeight != rhs.blockHeight {return false}
     if lhs.txIndex != rhs.txIndex {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -671,13 +671,13 @@ extension Cosmwasm_Wasm_V1_AbsoluteTxPosition: SwiftProtobuf.Message, SwiftProto
 }
 
 extension Cosmwasm_Wasm_V1_Model: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".Model"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".Model"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "key"),
     2: .same(proto: "value"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -690,7 +690,7 @@ extension Cosmwasm_Wasm_V1_Model: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if !self.key.isEmpty {
       try visitor.visitSingularBytesField(value: self.key, fieldNumber: 1)
     }
@@ -700,7 +700,7 @@ extension Cosmwasm_Wasm_V1_Model: SwiftProtobuf.Message, SwiftProtobuf._MessageI
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Cosmwasm_Wasm_V1_Model, rhs: Cosmwasm_Wasm_V1_Model) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_Model, rhs: Cosmwasm_Wasm_V1_Model) -> Bool {
     if lhs.key != rhs.key {return false}
     if lhs.value != rhs.value {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}

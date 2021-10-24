@@ -21,8 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// SIPrefix represents an International System of Units (SI) Prefix.
-enum Provenance_Marker_V1_SIPrefix: SwiftProtobuf.Enum {
-  typealias RawValue = Int
+public enum Provenance_Marker_V1_SIPrefix: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
 
   /// 10^0    (none)
   case none // = 0
@@ -88,11 +88,11 @@ enum Provenance_Marker_V1_SIPrefix: SwiftProtobuf.Enum {
   case yocto // = -24
   case UNRECOGNIZED(Int)
 
-  init() {
+  public init() {
     self = .none
   }
 
-  init?(rawValue: Int) {
+  public init?(rawValue: Int) {
     switch rawValue {
     case -24: self = .yocto
     case -21: self = .zepto
@@ -119,7 +119,7 @@ enum Provenance_Marker_V1_SIPrefix: SwiftProtobuf.Enum {
     }
   }
 
-  var rawValue: Int {
+  public var rawValue: Int {
     switch self {
     case .yocto: return -24
     case .zepto: return -21
@@ -152,7 +152,7 @@ enum Provenance_Marker_V1_SIPrefix: SwiftProtobuf.Enum {
 
 extension Provenance_Marker_V1_SIPrefix: CaseIterable {
   // The compiler won't synthesize support with the UNRECOGNIZED case.
-  static var allCases: [Provenance_Marker_V1_SIPrefix] = [
+  public static var allCases: [Provenance_Marker_V1_SIPrefix] = [
     .none,
     .deka,
     .hecto,
@@ -182,7 +182,7 @@ extension Provenance_Marker_V1_SIPrefix: CaseIterable {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 extension Provenance_Marker_V1_SIPrefix: SwiftProtobuf._ProtoNameProviding {
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     -24: .same(proto: "SI_PREFIX_YOCTO"),
     -21: .same(proto: "SI_PREFIX_ZEPTO"),
     -18: .same(proto: "SI_PREFIX_ATTO"),

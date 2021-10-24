@@ -14,6 +14,7 @@ public enum ProvenanceWalletError: Error {
         case failedToConvert(Any)
     }
 
+    case invalidDepth
     case cryptoError(CryptoError)
     case contractError(ContractError)
     case convertError(ConvertError)

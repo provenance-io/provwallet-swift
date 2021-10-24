@@ -21,27 +21,27 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// GenesisState defines the name module's genesis state.
-struct Provenance_Name_V1_GenesisState {
+public struct Provenance_Name_V1_GenesisState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
   /// params defines all the parameters of the module.
-  var params: Provenance_Name_V1_Params {
+  public var params: Provenance_Name_V1_Params {
     get {return _params ?? Provenance_Name_V1_Params()}
     set {_params = newValue}
   }
   /// Returns true if `params` has been explicitly set.
-  var hasParams: Bool {return self._params != nil}
+  public var hasParams: Bool {return self._params != nil}
   /// Clears the value of `params`. Subsequent reads from it will return its default value.
-  mutating func clearParams() {self._params = nil}
+  public mutating func clearParams() {self._params = nil}
 
   /// bindings defines all the name records present at genesis
-  var bindings: [Provenance_Name_V1_NameRecord] = []
+  public var bindings: [Provenance_Name_V1_NameRecord] = []
 
-  var unknownFields = SwiftProtobuf.UnknownStorage()
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
 
-  init() {}
+  public init() {}
 
   fileprivate var _params: Provenance_Name_V1_Params? = nil
 }
@@ -51,13 +51,13 @@ struct Provenance_Name_V1_GenesisState {
 fileprivate let _protobuf_package = "provenance.name.v1"
 
 extension Provenance_Name_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
-  static let protoMessageName: String = _protobuf_package + ".GenesisState"
-  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+  public static let protoMessageName: String = _protobuf_package + ".GenesisState"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "params"),
     2: .same(proto: "bindings"),
   ]
 
-  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       // The use of inline closures is to circumvent an issue where the compiler
       // allocates stack space for every case branch when no optimizations are
@@ -70,7 +70,7 @@ extension Provenance_Name_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf.
     }
   }
 
-  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if let v = self._params {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
     }
@@ -80,7 +80,7 @@ extension Provenance_Name_V1_GenesisState: SwiftProtobuf.Message, SwiftProtobuf.
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  static func ==(lhs: Provenance_Name_V1_GenesisState, rhs: Provenance_Name_V1_GenesisState) -> Bool {
+  public static func ==(lhs: Provenance_Name_V1_GenesisState, rhs: Provenance_Name_V1_GenesisState) -> Bool {
     if lhs._params != rhs._params {return false}
     if lhs.bindings != rhs.bindings {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
