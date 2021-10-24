@@ -234,7 +234,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 
 			let gas: UInt64 = 250000
 
-			let tx = Tx.init(signingKey: self.signingKey, baseAccount: baseAccount, channel: self.channel)
+			let tx = Tx(signingKey: self.signingKey, baseAccount: baseAccount, channel: self.channel)
 
 			let bankSend = try Google_Protobuf_Any.from(
 					message: Bank.buildMsgSend(
@@ -269,7 +269,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 			// Query the blockchain account in a blocking wait
 			let baseAccount = try auth.baseAccount(address: signingKey.publicKey.address).wait()
 
-			let tx = Tx.init(signingKey: self.signingKey, baseAccount: baseAccount, channel: self.channel)
+			let tx = Tx(signingKey: self.signingKey, baseAccount: baseAccount, channel: self.channel)
 
 			let bankSend = try Google_Protobuf_Any.from(
 					message: Bank.buildMsgSend(

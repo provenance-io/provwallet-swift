@@ -16,7 +16,7 @@ and transaction signing using Provenance Blockchain-compliant
 Add the `ProvWallet` dependency to your CocoaPod pod file:
 
 ```
-pod 'ProvWallet', '~> 0.0.4'
+pod 'ProvWallet', '~> 0.0.5'
 ```
 
 ## Roadmap
@@ -198,4 +198,94 @@ print(signature.provenanceSignature.toHexString())
           
 ## Provenance Blockchain Client
 
-Refer to the `ProvenanceBlockchainClientTests.swift` test file for examples.
+### Auth Query Example
+
+Set up a gRPC channel pointing to a Provenance blockchain node,
+establish the signing key using Wallet, and submit a query:
+
+```swift
+    import GRPC
+    import NIO
+    import SwiftProtobuf
+    import CryptoKit
+
+    let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+    let channel: ClientConnection! = ClientConnection.insecure(group: group)
+                              .connect(host: "localhost", port: 9090)
+
+    let auth = AuthQuery(channel: channel) // Provenance Auth module query
+
+    //Set up signing key from mnemonic using Wallet
+    let seed = Mnemonic.createSeed(mnemonic: "...mnemonic phrase...")
+    let signingKey = PrivateKey(seed: seed, coin: .testnet).defaultKey()
+    let address = signingKey.publicKey.address
+
+    //Query base account from Auth module - returns a Promise so 
+    //use a blocking .wait() 
+    let baseAccount = try auth.baseAccount(address: address).wait()
+    
+    //Alternative query a base account using Promise when 
+    let promise = try auth.baseAccount(address: address) 
+    promise.whenSuccess { baseAccount in 
+        //...do something with baseAccount...
+    }
+    promise.whenFailure { error in 
+        //...do something with error...
+    }
+```
+
+### Transfer Coin Example
+
+Set up a gRPC channel pointing to a Provenance blockchain node,
+establish the signing key using Wallet, estimate gas, and broadcast
+a transaction:
+
+```swift
+    import GRPC
+    import NIO
+    import SwiftProtobuf
+    import CryptoKit
+
+    let group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
+    let channel: ClientConnection! = ClientConnection.insecure(group: group)
+                              .connect(host: "localhost", port: 9090)
+
+    let auth = AuthQuery(channel: channel) // Provenance Auth module query
+
+    //Set up signing key from mnemonic using Wallet
+    let seed = Mnemonic.createSeed(mnemonic: "...mnemonic phrase...")
+    let signingKey = PrivateKey(seed: seed, coin: .testnet).defaultKey()
+    let address = signingKey.publicKey.address
+
+    //Query base account from Auth module - returns a Promise so 
+    //use a blocking .wait() 
+    let baseAccount = try auth.baseAccount(address: address).wait()
+
+    let tx = Tx(signingKey: signingKey, baseAccount: baseAccount, channel: channel)
+    
+    //Estimate gas
+    let gasEstimate = try tx.estimateTx(messages: [bankSend]).wait()
+
+    let bankSend = try Google_Protobuf_Any.from(
+            message: Bank.buildMsgSend(
+                    fromAddress: baseAccount.address,
+                    toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f",
+                    amount: "77"))
+    
+    let txPromise = try tx.broadcastTx(
+		    gasEstimate: gasEstimate,
+            messages: [bankSend])
+    
+    txPromise.whenSuccess { response in
+        //...do something with response...
+    }
+    txPromise.whenError { error in 
+        //...do something with error...
+    }
+
+```
+            
+### Additional Examples
+
+Refer to the [ProvenanceBlockchainClientTests.swift](./provwallet-swiftTests/ProvenanceBlockchainClientTests.swift) 
+test file for examples.
