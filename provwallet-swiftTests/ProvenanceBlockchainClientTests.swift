@@ -18,7 +18,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 	var group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
 
 	var auth: AuthQuery!
-	var bank: BankQuery!
+	var bank: Bank!
 
 	let address = "tp1zk3qvk6dvpk6394chmvq5gtrw5arqzsag072h5"
 	let denom = "nhash"
@@ -34,7 +34,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 		                          .withKeepalive(ClientConnectionKeepalive(timeout: .seconds(10)))
 		                          .connect(host: "localhost", port: 9090)
 		auth = AuthQuery(channel: channel)
-		bank = BankQuery(channel: channel)
+		bank = Bank(channel: channel)
 
 		signingKey = PrivateKey(seed: seed, coin: .testnet).defaultKey()
 	}
@@ -73,7 +73,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 				XCTFail("\(error)")
 			}
 		}
-
+		wait(q)
 	}
 
 	func testQueryBaseAccountFail() throws {
@@ -147,7 +147,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 			var signerInfo = Cosmos_Tx_V1beta1_SignerInfo.init()
 			var publicKey = Cosmos_Crypto_Secp256k1_PubKey.init()
 			publicKey.key = signingKey.publicKey.compressedPublicKey
-			signerInfo.publicKey = try Google_Protobuf_Any.init(message: publicKey, partial: false, typePrefix: "")
+			signerInfo.publicKey = try Google_Protobuf_Any.from(message: publicKey)
 
 			/*
 			    Build Auth Info
@@ -191,7 +191,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 
 			// tx body
 			var txBody = Cosmos_Tx_V1beta1_TxBody.init()
-			txBody.messages = [try Google_Protobuf_Any.init(message: txMsgSend, partial: false, typePrefix: "")]
+			txBody.messages = [try Google_Protobuf_Any.from(message: txMsgSend)]
 
 			// signed doc
 			var signDoc = Cosmos_Tx_V1beta1_SignDoc.init()
@@ -228,32 +228,25 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 		XCTAssertEqual(signingAddress, signingKey.publicKey.address)
 		//may need to faucet the address for this test to work
 
-		// Query the blockchain account
-		let authQuery = try auth.baseAccount(address: signingKey.publicKey.address)
-
-		var baseAccount: Cosmos_Auth_V1beta1_BaseAccount!
-		authQuery.whenSuccess { ba in
-			baseAccount = ba
-		}
-		authQuery.whenFailure { error in
-			XCTFail("\(error)")
-		}
-		wait(authQuery)
-
 		do {
+			// Query the blockchain account in a blocking wait
+			let baseAccount = try auth.baseAccount(address: signingKey.publicKey.address).wait()
+
 			let gas: UInt64 = 250000
 
 			let tx = Tx.init(signingKey: self.signingKey, baseAccount: baseAccount, channel: self.channel)
 
-			let bankSend = tx.buildBankMsgSend(toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f", amount: "77")
-			let messages = [try Google_Protobuf_Any.init(message: bankSend, partial: false, typePrefix: "")]
+			let bankSend = try Google_Protobuf_Any.from(
+					message: Bank.buildMsgSend(
+							fromAddress: baseAccount.address,
+							toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f",
+							amount: "77"))
 
-			let b = try tx.broadcastTx(tx: tx.buildTx(
-					fee: tx.buildFee(gas: gas),
-					messages: messages),
-			                           mode: Cosmos_Tx_V1beta1_BroadcastMode.block)
+			let txPromise: EventLoopFuture<Cosmos_Base_Abci_V1beta1_TxResponse> = try tx.broadcastTx(
+					gas: gas,
+					messages: [bankSend])
 
-			b.whenComplete { result in
+			txPromise.whenComplete { result in
 				do {
 					let txResult = try result.get()
 					print(txResult)
@@ -261,7 +254,43 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 					XCTFail("\(error))")
 				}
 			}
-			wait(b)
+			wait(txPromise)
+		} catch {
+			XCTFail("\(error)")
+		}
+	}
+
+	func testEstimateAndBroadcast() throws {
+
+		XCTAssertEqual(signingAddress, signingKey.publicKey.address)
+		//may need to faucet the address for this test to work
+
+		do {
+			// Query the blockchain account in a blocking wait
+			let baseAccount = try auth.baseAccount(address: signingKey.publicKey.address).wait()
+
+			let tx = Tx.init(signingKey: self.signingKey, baseAccount: baseAccount, channel: self.channel)
+
+			let bankSend = try Google_Protobuf_Any.from(
+					message: Bank.buildMsgSend(
+							fromAddress: baseAccount.address,
+							toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f",
+							amount: "77"))
+
+			let estPromise: EventLoopFuture<Cosmos_Base_Abci_V1beta1_GasInfo> = try tx.estimateTx(messages: [bankSend])
+			let gasEstimate = try estPromise.wait()
+
+			let txPromise: EventLoopFuture<Cosmos_Base_Abci_V1beta1_TxResponse> = try tx.broadcastTx(gasEstimate: gasEstimate, messages: [bankSend])
+
+			txPromise.whenComplete { result in
+				do {
+					let txResult = try result.get()
+					print(txResult)
+				} catch {
+					XCTFail("\(error))")
+				}
+			}
+			wait(txPromise)
 		} catch {
 			XCTFail("\(error)")
 		}

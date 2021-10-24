@@ -8,7 +8,7 @@ import NIO
 import SwiftProtobuf
 import CryptoKit
 
-public class BankQuery: BaseQuery {
+public class Bank: BaseQuery {
 
 	private let channel: GRPCChannel
 	private let client: Cosmos_Bank_V1beta1_QueryClient
@@ -17,6 +17,8 @@ public class BankQuery: BaseQuery {
 		self.channel = channel
 		client = Cosmos_Bank_V1beta1_QueryClient(channel: channel)
 	}
+
+	//MARK: - Query
 
 	public func balance(address: String, denom: String) throws -> EventLoopFuture<Cosmos_Base_V1beta1_Coin> {
 		try buildPromise(call: client.balance(Cosmos_Bank_V1beta1_QueryBalanceRequest.with {
@@ -38,4 +40,23 @@ public class BankQuery: BaseQuery {
 			response.balances
 		}.futureResult
 	}
+
+	//MARK: - Message Creators
+
+	public static func buildMsgSend(fromAddress: String,
+	                                toAddress: String,
+	                                amount: String,
+	                                denom: String = Tx.baseDenom) -> Cosmos_Bank_V1beta1_MsgSend {
+		let coin = Cosmos_Base_V1beta1_Coin.with { coin in
+			coin.amount = amount
+			coin.denom = denom
+		}
+		return Cosmos_Bank_V1beta1_MsgSend.with { send in
+			send.fromAddress = fromAddress
+			send.toAddress = toAddress
+			send.amount = [coin]
+		}
+	}
+
+
 }

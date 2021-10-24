@@ -44,31 +44,20 @@ public class Tx {
 					}
 				}
 				si.sequence = baseAccount.sequence
-				si.publicKey = try Google_Protobuf_Any.init(message: Cosmos_Crypto_Secp256k1_PubKey.with { pk in
+				si.publicKey = try Google_Protobuf_Any.from(message: Cosmos_Crypto_Secp256k1_PubKey.with { pk in
 					pk.key = signingKey.publicKey.compressedPublicKey
-				}, partial: false, typePrefix: "")
+				})
 			}]
 		}
 	}
 
-	public func buildBankMsgSend(toAddress: String,
-	                             amount: String,
-	                             denom: String = Tx.baseDenom) -> Cosmos_Bank_V1beta1_MsgSend {
-		let coin = Cosmos_Base_V1beta1_Coin.with { coin in
-			coin.amount = amount
-			coin.denom = denom
-		}
-		return Cosmos_Bank_V1beta1_MsgSend.with { send in
-			send.fromAddress = baseAccount.address
-			send.toAddress = toAddress
-			send.amount = [coin]
-		}
-	}
-
 	public func buildTx(
-			fee: Cosmos_Tx_V1beta1_Fee,
+			gas: UInt64,
 			messages: Array<Google_Protobuf_Any>) throws -> Cosmos_Tx_V1beta1_TxRaw {
 		try Cosmos_Tx_V1beta1_TxRaw.with { raw in
+
+			let fee = buildFee(gas: gas)
+
 			let signDoc = try Cosmos_Tx_V1beta1_SignDoc.with { sd in
 
 				sd.bodyBytes = try Cosmos_Tx_V1beta1_TxBody.with { body in
@@ -93,8 +82,46 @@ public class Tx {
 		}
 	}
 
-	public func broadcastTx(tx: Cosmos_Tx_V1beta1_TxRaw,
-	                        mode: Cosmos_Tx_V1beta1_BroadcastMode) throws -> EventLoopFuture<Cosmos_Base_Abci_V1beta1_TxResponse> {
+	public func estimateTx(messages: Array<Google_Protobuf_Any>) throws -> EventLoopFuture<Cosmos_Base_Abci_V1beta1_GasInfo> {
+
+		let tx = try buildTx(gas: UInt64.zero, messages: messages)
+
+		let btx = try Cosmos_Tx_V1beta1_SimulateRequest.with { btx in
+			btx.txBytes = try tx.serializedData()
+		}
+		let call = client.simulate(btx)
+
+		let promise = call.eventLoop.makePromise(of: Cosmos_Base_Abci_V1beta1_GasInfo.self)
+
+		call.response.whenSuccess { response in
+			promise.succeed(response.gasInfo)
+		}
+		call.response.whenFailure { error in
+			promise.fail(error)
+		}
+		call.response.whenComplete { result in
+			promise.completeWith(result.map { response in
+				response.gasInfo
+			})
+		}
+		return promise.futureResult
+	}
+
+	public func broadcastTx(gasEstimate: Cosmos_Base_Abci_V1beta1_GasInfo,
+	                        messages: Array<Google_Protobuf_Any>,
+	                        mode: Cosmos_Tx_V1beta1_BroadcastMode = Cosmos_Tx_V1beta1_BroadcastMode.block) throws -> EventLoopFuture<Cosmos_Base_Abci_V1beta1_TxResponse> {
+
+		var gas = (Double(gasEstimate.gasUsed) * 1.3)
+		gas.round(.up)
+		return try broadcastTx(gas: UInt64(gas), messages: messages, mode: mode)
+	}
+
+	public func broadcastTx(gas: UInt64,
+	                        messages: Array<Google_Protobuf_Any>,
+	                        mode: Cosmos_Tx_V1beta1_BroadcastMode = Cosmos_Tx_V1beta1_BroadcastMode.block) throws -> EventLoopFuture<Cosmos_Base_Abci_V1beta1_TxResponse> {
+
+		let tx = try buildTx(gas: gas, messages: messages)
+
 		let btx = try Cosmos_Tx_V1beta1_BroadcastTxRequest.with { btx in
 			btx.mode = mode
 			btx.txBytes = try tx.serializedData()
