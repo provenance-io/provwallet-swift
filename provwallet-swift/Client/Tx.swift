@@ -130,7 +130,6 @@ public class Tx {
 			btx.mode = mode
 			btx.txBytes = try tx.serializedData()
 		}
-		print(btx)
 		let call = client.broadcastTx(btx)
 
 		let promise = call.eventLoop.makePromise(of: Cosmos_Base_Abci_V1beta1_TxResponse.self)
