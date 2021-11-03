@@ -17,7 +17,7 @@ public class Tx {
 	let signingKey: PrivateKey
 	let baseAccount: Cosmos_Auth_V1beta1_BaseAccount
 
-	init(signingKey: PrivateKey, baseAccount: Cosmos_Auth_V1beta1_BaseAccount, channel: GRPCChannel) {
+	public init(signingKey: PrivateKey, baseAccount: Cosmos_Auth_V1beta1_BaseAccount, channel: GRPCChannel) {
 		self.signingKey = signingKey
 		self.baseAccount = baseAccount
 		client = Cosmos_Tx_V1beta1_ServiceClient(channel: channel)

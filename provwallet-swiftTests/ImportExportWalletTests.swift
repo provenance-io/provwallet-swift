@@ -38,7 +38,6 @@ class ImportExportWalletTests: XCTestCase {
 		               "xprvA33u4LoDWkxUWWhAKR6Fbc3eUErMY9QL1SvFHyDv88Ld8SDyanC6LsVmSJQffeKM6ascmjHvkt5jeZqXvFkfPksD4NVzSdBmB43ev6QGj28")
 		XCTAssertEqual(try privateKey.serialize(publicKeyOnly: true),
 		               "xpub6G3FTrL7M8WmizmdRSdFxjzP2Ggqwc8BNfqr6MdXgTsc1EZ88KWLtfpFHahUWmMS6iDHNaSGCqXJLxhinmYd4g1YBd9GzaNDShmRfTLW2Bt")
-
 	}
 
 	func testExportWallet() throws {

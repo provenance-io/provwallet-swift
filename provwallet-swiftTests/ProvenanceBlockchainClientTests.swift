@@ -96,7 +96,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 	func testQueryBaseAccounts() throws {
 		let q = try auth.baseAccounts(pageRequest: Cosmos_Base_Query_V1beta1_PageRequest.with { request in
 			request.countTotal = true
-			request.limit = 10
+			request.limit = UInt64.max
 		})
 		q.whenComplete { result in
 			do {
