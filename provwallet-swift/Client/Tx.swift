@@ -113,7 +113,7 @@ public class Tx {
 
 	public func broadcastTx(gasEstimate: Cosmos_Base_Abci_V1beta1_GasInfo,
 	                        messages: Array<Google_Protobuf_Any>,
-	                        mode: Cosmos_Tx_V1beta1_BroadcastMode = Cosmos_Tx_V1beta1_BroadcastMode.block) throws -> EventLoopFuture<Cosmos_Base_Abci_V1beta1_TxResponse> {
+	                        mode: Cosmos_Tx_V1beta1_BroadcastMode = Cosmos_Tx_V1beta1_BroadcastMode.block) throws -> EventLoopFuture<RawTxResponsePair> {
 
 		var gas = (Double(gasEstimate.gasUsed) * 1.3)
 		gas.round(.up)
@@ -122,7 +122,7 @@ public class Tx {
 
 	public func broadcastTx(gas: UInt64,
 	                        messages: Array<Google_Protobuf_Any>,
-	                        mode: Cosmos_Tx_V1beta1_BroadcastMode = Cosmos_Tx_V1beta1_BroadcastMode.block) throws -> EventLoopFuture<Cosmos_Base_Abci_V1beta1_TxResponse> {
+	                        mode: Cosmos_Tx_V1beta1_BroadcastMode = Cosmos_Tx_V1beta1_BroadcastMode.block) throws -> EventLoopFuture<RawTxResponsePair> {
 
 		let tx = try buildTx(gas: gas, messages: messages)
 
@@ -132,17 +132,17 @@ public class Tx {
 		}
 		let call = client.broadcastTx(btx)
 
-		let promise = call.eventLoop.makePromise(of: Cosmos_Base_Abci_V1beta1_TxResponse.self)
-
+		let promise = call.eventLoop.makePromise(of: RawTxResponsePair.self)
+		
 		call.response.whenSuccess { response in
-			promise.succeed(response.txResponse)
+			promise.succeed(RawTxResponsePair(txRaw: tx, txResponse: response.txResponse))
 		}
 		call.response.whenFailure { error in
 			promise.fail(error)
 		}
 		call.response.whenComplete { result in
 			promise.completeWith(result.map { response in
-				response.txResponse
+				RawTxResponsePair(txRaw: tx, txResponse: response.txResponse)
 			})
 		}
 

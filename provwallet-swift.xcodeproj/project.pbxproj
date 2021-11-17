@@ -268,6 +268,7 @@
 		9F1117E85487CEDCDE1D016A /* ibc_core_types_v1_genesis.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11171994C89F286ED95221 /* ibc_core_types_v1_genesis.pb.swift */; };
 		9F1117EC37B9613BE642B817 /* authz.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111FF41023E7ACDCA50710 /* authz.proto */; };
 		9F1117F31B5B25A24DB84D91 /* types.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111FBFDD9941A2E5F3F7AA /* types.proto */; };
+		9F1117FB0C27885236907F61 /* RawTxResponsePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111CB7670764CCDC8EDE10 /* RawTxResponsePair.swift */; };
 		9F11180D6B64C77690CEED5E /* ibc_applications_transfer_v1_genesis.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111950186CA92A0F2910F1 /* ibc_applications_transfer_v1_genesis.pb.swift */; };
 		9F11181C4423F07D72EB4875 /* query.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111E106A0D3064212380E6 /* query.proto */; };
 		9F11181C4A0EBA515D2A5EFC /* commit_info.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111991CD1712E76DB2064F /* commit_info.proto */; };
@@ -859,6 +860,7 @@
 		9F111C9664A782EF90CADE66 /* cosmos_vesting_v1beta1_tx.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmos_vesting_v1beta1_tx.pb.swift; sourceTree = "<group>"; };
 		9F111CA0F7C501713A02C6FE /* cosmos_bank_v1beta1_tx.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmos_bank_v1beta1_tx.pb.swift; sourceTree = "<group>"; };
 		9F111CA7D5663DF9AD6DFC9F /* PrivateKeyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKeyTests.swift; sourceTree = "<group>"; };
+		9F111CB7670764CCDC8EDE10 /* RawTxResponsePair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RawTxResponsePair.swift; sourceTree = "<group>"; };
 		9F111CC143EB8775F41CA850 /* EllipticCurveEncrypterSecp256k1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EllipticCurveEncrypterSecp256k1.swift; sourceTree = "<group>"; };
 		9F111CCDA766704748D76664 /* cosmwasm_wasm_v1_query.grpc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmwasm_wasm_v1_query.grpc.swift; sourceTree = "<group>"; };
 		9F111CD07EC82A66227646AC /* authz.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = authz.proto; sourceTree = "<group>"; };
@@ -1741,6 +1743,7 @@
 			isa = PBXGroup;
 			children = (
 				9F111196B9736CE585D30280 /* Account.swift */,
+				9F111CB7670764CCDC8EDE10 /* RawTxResponsePair.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2975,6 +2978,7 @@
 				9F1113ED50EB58CDF8F0834B /* Bank.swift in Sources */,
 				9F1113FE9C4A0946801C8C27 /* Tx.swift in Sources */,
 				9F11164A3FE4218798064FAA /* Proto+Provenance.swift in Sources */,
+				9F1117FB0C27885236907F61 /* RawTxResponsePair.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

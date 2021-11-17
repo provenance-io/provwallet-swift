@@ -12,7 +12,7 @@ import CryptoKit
 
 class ProvenanceBlockchainClientTests: XCTestCase {
 
-	let pbHost = "localhost"
+	let pbHost = "grpc.test.provenance.io"
 	let pbPort = 9090
 	var channel: ClientConnection!
 	var group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
@@ -30,9 +30,9 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 
 	override func setUpWithError() throws {
 		// Put setup code here. This method is called before the invocation of each test method in the class.
-		channel = ClientConnection.insecure(group: group)
+		channel = ClientConnection.usingTLSBackedByNIOSSL(on: group)
 		                          .withKeepalive(ClientConnectionKeepalive(timeout: .seconds(10)))
-		                          .connect(host: "localhost", port: 9090)
+		                          .connect(host: pbHost)
 		auth = AuthQuery(channel: channel)
 		bank = Bank(channel: channel)
 
@@ -242,7 +242,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 							toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f",
 							amount: "77"))
 
-			let txPromise: EventLoopFuture<Cosmos_Base_Abci_V1beta1_TxResponse> = try tx.broadcastTx(
+			let txPromise: EventLoopFuture<RawTxResponsePair> = try tx.broadcastTx(
 					gas: gas,
 					messages: [bankSend])
 
@@ -280,7 +280,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 			let estPromise: EventLoopFuture<Cosmos_Base_Abci_V1beta1_GasInfo> = try tx.estimateTx(messages: [bankSend])
 			let gasEstimate = try estPromise.wait()
 
-			let txPromise: EventLoopFuture<Cosmos_Base_Abci_V1beta1_TxResponse> = try tx.broadcastTx(gasEstimate: gasEstimate, messages: [bankSend])
+			let txPromise: EventLoopFuture<RawTxResponsePair> = try tx.broadcastTx(gasEstimate: gasEstimate, messages: [bankSend])
 
 			txPromise.whenComplete { result in
 				do {
