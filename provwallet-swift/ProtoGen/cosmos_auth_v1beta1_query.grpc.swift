@@ -55,6 +55,8 @@ extension Cosmos_Auth_V1beta1_QueryClientProtocol {
 
   /// Accounts returns all the existing accounts
   ///
+  /// Since: cosmos-sdk 0.43
+  ///
   /// - Parameters:
   ///   - request: Request to send to Accounts.
   ///   - callOptions: Call options.

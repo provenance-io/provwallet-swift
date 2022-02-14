@@ -121,6 +121,8 @@ public struct Cosmos_Bank_V1beta1_QueryTotalSupplyRequest {
   // methods supported on all messages.
 
   /// pagination defines an optional pagination for the request.
+  ///
+  /// Since: cosmos-sdk 0.43
   public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
@@ -148,6 +150,8 @@ public struct Cosmos_Bank_V1beta1_QueryTotalSupplyResponse {
   public var supply: [Cosmos_Base_V1beta1_Coin] = []
 
   /// pagination defines the pagination in the response.
+  ///
+  /// Since: cosmos-sdk 0.43
   public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}

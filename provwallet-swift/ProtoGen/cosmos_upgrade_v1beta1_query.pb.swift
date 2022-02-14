@@ -109,6 +109,7 @@ public struct Cosmos_Upgrade_V1beta1_QueryUpgradedConsensusStateResponse {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// Since: cosmos-sdk 0.43
   public var upgradedConsensusState: Data = Data()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -118,6 +119,8 @@ public struct Cosmos_Upgrade_V1beta1_QueryUpgradedConsensusStateResponse {
 
 /// QueryModuleVersionsRequest is the request type for the Query/ModuleVersions
 /// RPC method.
+///
+/// Since: cosmos-sdk 0.43
 public struct Cosmos_Upgrade_V1beta1_QueryModuleVersionsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -135,6 +138,8 @@ public struct Cosmos_Upgrade_V1beta1_QueryModuleVersionsRequest {
 
 /// QueryModuleVersionsResponse is the response type for the Query/ModuleVersions
 /// RPC method.
+///
+/// Since: cosmos-sdk 0.43
 public struct Cosmos_Upgrade_V1beta1_QueryModuleVersionsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

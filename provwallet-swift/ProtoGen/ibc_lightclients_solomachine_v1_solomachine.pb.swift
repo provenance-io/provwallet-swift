@@ -20,8 +20,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
-/// DataType defines the type of solo machine proof being created. This is done to preserve uniqueness of different
-/// data sign byte encodings.
+/// DataType defines the type of solo machine proof being created. This is done
+/// to preserve uniqueness of different data sign byte encodings.
 public enum Ibc_Lightclients_Solomachine_V1_DataType: SwiftProtobuf.Enum {
   public typealias RawValue = Int
 
@@ -147,8 +147,9 @@ public struct Ibc_Lightclients_Solomachine_V1_ClientState {
   fileprivate var _consensusState: Ibc_Lightclients_Solomachine_V1_ConsensusState? = nil
 }
 
-/// ConsensusState defines a solo machine consensus state. The sequence of a consensus state
-/// is contained in the "height" key used in storing the consensus state.
+/// ConsensusState defines a solo machine consensus state. The sequence of a
+/// consensus state is contained in the "height" key used in storing the
+/// consensus state.
 public struct Ibc_Lightclients_Solomachine_V1_ConsensusState {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -164,8 +165,9 @@ public struct Ibc_Lightclients_Solomachine_V1_ConsensusState {
   /// Clears the value of `publicKey`. Subsequent reads from it will return its default value.
   public mutating func clearPublicKey() {self._publicKey = nil}
 
-  /// diversifier allows the same public key to be re-used across different solo machine clients
-  /// (potentially on different chains) without being considered misbehaviour.
+  /// diversifier allows the same public key to be re-used across different solo
+  /// machine clients (potentially on different chains) without being considered
+  /// misbehaviour.
   public var diversifier: String = String()
 
   public var timestamp: UInt64 = 0

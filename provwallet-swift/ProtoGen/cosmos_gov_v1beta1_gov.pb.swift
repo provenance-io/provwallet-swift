@@ -158,6 +158,8 @@ extension Cosmos_Gov_V1beta1_ProposalStatus: CaseIterable {
 #endif  // swift(>=4.2)
 
 /// WeightedVoteOption defines a unit of vote for vote split.
+///
+/// Since: cosmos-sdk 0.43
 public struct Cosmos_Gov_V1beta1_WeightedVoteOption {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -319,6 +321,7 @@ public struct Cosmos_Gov_V1beta1_Vote {
   /// other cases, this field will default to VOTE_OPTION_UNSPECIFIED.
   public var option: Cosmos_Gov_V1beta1_VoteOption = .unspecified
 
+  /// Since: cosmos-sdk 0.43
   public var options: [Cosmos_Gov_V1beta1_WeightedVoteOption] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()

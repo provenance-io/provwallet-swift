@@ -324,6 +324,7 @@ public struct Cosmos_Base_Tendermint_V1beta1_VersionInfo {
 
   public var buildDeps: [Cosmos_Base_Tendermint_V1beta1_Module] = []
 
+  /// Since: cosmos-sdk 0.43
   public var cosmosSdkVersion: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()

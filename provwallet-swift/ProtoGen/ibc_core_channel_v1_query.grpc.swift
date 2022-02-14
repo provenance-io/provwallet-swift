@@ -233,7 +233,8 @@ extension Ibc_Core_Channel_V1_QueryClientProtocol {
     )
   }
 
-  /// PacketReceipt queries if a given packet sequence has been received on the queried chain
+  /// PacketReceipt queries if a given packet sequence has been received on the
+  /// queried chain
   ///
   /// - Parameters:
   ///   - request: Request to send to PacketReceipt.
@@ -307,8 +308,8 @@ extension Ibc_Core_Channel_V1_QueryClientProtocol {
     )
   }
 
-  /// UnreceivedAcks returns all the unreceived IBC acknowledgements associated with a
-  /// channel and sequences.
+  /// UnreceivedAcks returns all the unreceived IBC acknowledgements associated
+  /// with a channel and sequences.
   ///
   /// - Parameters:
   ///   - request: Request to send to UnreceivedAcks.

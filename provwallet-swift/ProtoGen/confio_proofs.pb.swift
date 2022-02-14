@@ -32,6 +32,7 @@ public enum Ics23_HashOp: SwiftProtobuf.Enum {
 
   /// ripemd160(sha256(x))
   case bitcoin // = 5
+  case sha512256 // = 6
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -46,6 +47,7 @@ public enum Ics23_HashOp: SwiftProtobuf.Enum {
     case 3: self = .keccak
     case 4: self = .ripemd160
     case 5: self = .bitcoin
+    case 6: self = .sha512256
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -58,6 +60,7 @@ public enum Ics23_HashOp: SwiftProtobuf.Enum {
     case .keccak: return 3
     case .ripemd160: return 4
     case .bitcoin: return 5
+    case .sha512256: return 6
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -75,6 +78,7 @@ extension Ics23_HashOp: CaseIterable {
     .keccak,
     .ripemd160,
     .bitcoin,
+    .sha512256,
   ]
 }
 
@@ -703,6 +707,7 @@ extension Ics23_HashOp: SwiftProtobuf._ProtoNameProviding {
     3: .same(proto: "KECCAK"),
     4: .same(proto: "RIPEMD160"),
     5: .same(proto: "BITCOIN"),
+    6: .same(proto: "SHA512_256"),
   ]
 }
 

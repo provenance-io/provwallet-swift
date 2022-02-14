@@ -75,7 +75,8 @@ public struct Ibc_Core_Client_V1_GenesisMetadata {
   public init() {}
 }
 
-/// IdentifiedGenesisMetadata has the client metadata with the corresponding client id.
+/// IdentifiedGenesisMetadata has the client metadata with the corresponding
+/// client id.
 public struct Ibc_Core_Client_V1_IdentifiedGenesisMetadata {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

@@ -67,8 +67,8 @@ public struct Ibc_Core_Channel_V1_MsgChannelOpenTry {
 
   public var portID: String = String()
 
-  /// in the case of crossing hello's, when both chains call OpenInit, we need the channel identifier
-  /// of the previous channel in state INIT
+  /// in the case of crossing hello's, when both chains call OpenInit, we need
+  /// the channel identifier of the previous channel in state INIT
   public var previousChannelID: String = String()
 
   public var channel: Ibc_Core_Channel_V1_Channel {
@@ -191,7 +191,8 @@ public struct Ibc_Core_Channel_V1_MsgChannelOpenConfirm {
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
-/// MsgChannelOpenConfirmResponse defines the Msg/ChannelOpenConfirm response type.
+/// MsgChannelOpenConfirmResponse defines the Msg/ChannelOpenConfirm response
+/// type.
 public struct Ibc_Core_Channel_V1_MsgChannelOpenConfirmResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -262,7 +263,8 @@ public struct Ibc_Core_Channel_V1_MsgChannelCloseConfirm {
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
-/// MsgChannelCloseConfirmResponse defines the Msg/ChannelCloseConfirm response type.
+/// MsgChannelCloseConfirmResponse defines the Msg/ChannelCloseConfirm response
+/// type.
 public struct Ibc_Core_Channel_V1_MsgChannelCloseConfirmResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

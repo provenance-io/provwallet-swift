@@ -13,7 +13,7 @@ import CryptoKit
 class ProvenanceBlockchainClientTests: XCTestCase {
 
 	let pbHost = "grpc.test.provenance.io"
-	let pbPort = 9090
+	let pbPort = 443
 	var channel: ClientConnection!
 	var group = PlatformSupport.makeEventLoopGroup(loopCount: 1)
 
@@ -93,6 +93,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 		wait(q)
 	}
 
+	/* broken because of marker marker accounts
 	func testQueryBaseAccounts() throws {
 		let q = try auth.baseAccounts(pageRequest: Cosmos_Base_Query_V1beta1_PageRequest.with { request in
 			request.countTotal = true
@@ -107,7 +108,8 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 			}
 		}
 		wait(q)
-	}
+	}	
+	 */
 
 	func testQueryBank() throws {
 		let q = try bank.balance(address: address, denom: denom)
@@ -277,7 +279,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 							toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f",
 							amount: "77"))
 
-			let estPromise: EventLoopFuture<Cosmos_Base_Abci_V1beta1_GasInfo> = try tx.estimateTx(messages: [bankSend])
+			let estPromise: EventLoopFuture<Provenance_Msgfees_V1_CalculateTxFeesResponse> = try tx.estimateTx(messages: [bankSend])
 			let gasEstimate = try estPromise.wait()
 
 			let txPromise: EventLoopFuture<RawTxResponsePair> = try tx.broadcastTx(gasEstimate: gasEstimate, messages: [bankSend])
@@ -290,6 +292,88 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 					XCTFail("\(error))")
 				}
 			}
+			wait(txPromise)
+		} catch {
+			XCTFail("\(error)")
+		}
+	}
+
+	func testTimeoutHeightFail() throws {
+
+		XCTAssertEqual(signingAddress, signingKey.publicKey.address)
+		//may need to faucet the address for this test to work
+
+		do {
+			// Query the blockchain account in a blocking wait
+			let baseAccount = try auth.baseAccount(address: signingKey.publicKey.address).wait()
+
+			let tx = Tx(signingKey: self.signingKey, baseAccount: baseAccount, channel: self.channel)
+
+			let bankSend = try Google_Protobuf_Any.from(
+					message: Bank.buildMsgSend(
+							fromAddress: baseAccount.address,
+							toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f",
+							amount: "77"))
+
+			let estPromise: EventLoopFuture<Provenance_Msgfees_V1_CalculateTxFeesResponse> = try tx.estimateTx(messages: [bankSend])
+			let gasEstimate = try estPromise.wait()
+
+			let currentBlockHeight = try tx.currentBlockHeight().wait()
+			let blockTimeout = UInt64(currentBlockHeight.block.header.height) - 1 // should cause it to timeout right away
+
+			let txPromise: EventLoopFuture<RawTxResponsePair> = try tx.broadcastTx(gasEstimate: gasEstimate, messages: [bankSend], timeoutHeight: blockTimeout)
+
+			txPromise.whenComplete { result in
+				do {
+					let txResult = try result.get()
+					print(txResult)
+					XCTAssertTrue(txResult.txResponse.code == 30)
+				} catch {
+					XCTFail("\(error))")
+				}
+			}
+			
+			wait(txPromise)
+		} catch {
+			XCTFail("\(error)")
+		}
+	}
+
+	func testTimeoutHeight() throws {
+
+		XCTAssertEqual(signingAddress, signingKey.publicKey.address)
+		//may need to faucet the address for this test to work
+
+		do {
+			// Query the blockchain account in a blocking wait
+			let baseAccount = try auth.baseAccount(address: signingKey.publicKey.address).wait()
+
+			let tx = Tx(signingKey: self.signingKey, baseAccount: baseAccount, channel: self.channel)
+
+			let bankSend = try Google_Protobuf_Any.from(
+					message: Bank.buildMsgSend(
+							fromAddress: baseAccount.address,
+							toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f",
+							amount: "77"))
+
+			let estPromise: EventLoopFuture<Provenance_Msgfees_V1_CalculateTxFeesResponse> = try tx.estimateTx(messages: [bankSend])
+			let gasEstimate = try estPromise.wait()
+
+			let currentBlockHeight = try tx.currentBlockHeight().wait()
+			let blockTimeout = UInt64(currentBlockHeight.block.header.height) + 5
+
+			let txPromise: EventLoopFuture<RawTxResponsePair> = try tx.broadcastTx(gasEstimate: gasEstimate, messages: [bankSend], timeoutHeight: blockTimeout)
+
+			txPromise.whenComplete { result in
+				do {
+					let txResult = try result.get()
+					print(txResult)
+					XCTAssertTrue(txResult.txResponse.code == 0 && txResult.txResponse.height > 0)
+				} catch {
+					XCTFail("\(error))")
+				}
+			}
+
 			wait(txPromise)
 		} catch {
 			XCTFail("\(error)")

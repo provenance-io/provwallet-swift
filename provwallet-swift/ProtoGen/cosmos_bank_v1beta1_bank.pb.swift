@@ -141,10 +141,14 @@ public struct Cosmos_Bank_V1beta1_Metadata {
   public var display: String = String()
 
   /// name defines the name of the token (eg: Cosmos Atom)
+  ///
+  /// Since: cosmos-sdk 0.43
   public var name: String = String()
 
   /// symbol is the token symbol usually shown on exchanges (eg: ATOM). This can
   /// be the same as the display.
+  ///
+  /// Since: cosmos-sdk 0.43
   public var symbol: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()

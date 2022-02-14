@@ -37,7 +37,8 @@ public struct Cosmwasm_Wasm_V1_MsgIBCSend {
   /// The timeout is disabled when set to 0.
   public var timeoutTimestamp: UInt64 = 0
 
-  /// data is the payload to transfer
+  /// Data is the payload to transfer. We must not make assumption what format or
+  /// content is in here.
   public var data: Data = Data()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()

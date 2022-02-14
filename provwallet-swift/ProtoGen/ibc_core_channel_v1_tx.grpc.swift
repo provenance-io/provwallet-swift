@@ -178,7 +178,8 @@ extension Ibc_Core_Channel_V1_MsgClientProtocol {
     )
   }
 
-  /// ChannelCloseConfirm defines a rpc handler method for MsgChannelCloseConfirm.
+  /// ChannelCloseConfirm defines a rpc handler method for
+  /// MsgChannelCloseConfirm.
   ///
   /// - Parameters:
   ///   - request: Request to send to ChannelCloseConfirm.

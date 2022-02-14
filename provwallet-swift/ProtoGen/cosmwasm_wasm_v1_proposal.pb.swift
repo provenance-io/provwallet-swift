@@ -103,17 +103,67 @@ public struct Cosmwasm_Wasm_V1_MigrateContractProposal {
   /// Description is a human readable text
   public var description_p: String = String()
 
+  /// Contract is the address of the smart contract
+  public var contract: String = String()
+
+  /// CodeID references the new WASM codesudo
+  public var codeID: UInt64 = 0
+
+  /// Msg json encoded message to be passed to the contract on migration
+  public var msg: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// SudoContractProposal gov proposal content type to call sudo on a contract.
+public struct Cosmwasm_Wasm_V1_SudoContractProposal {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Title is a short summary
+  public var title: String = String()
+
+  /// Description is a human readable text
+  public var description_p: String = String()
+
+  /// Contract is the address of the smart contract
+  public var contract: String = String()
+
+  /// Msg json encoded message to be passed to the contract as sudo
+  public var msg: Data = Data()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// ExecuteContractProposal gov proposal content type to call execute on a
+/// contract.
+public struct Cosmwasm_Wasm_V1_ExecuteContractProposal {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Title is a short summary
+  public var title: String = String()
+
+  /// Description is a human readable text
+  public var description_p: String = String()
+
   /// RunAs is the address that is passed to the contract's environment as sender
   public var runAs: String = String()
 
   /// Contract is the address of the smart contract
   public var contract: String = String()
 
-  /// CodeID references the new WASM code
-  public var codeID: UInt64 = 0
-
-  /// Msg json encoded message to be passed to the contract on migration
+  /// Msg json encoded message to be passed to the contract as execute
   public var msg: Data = Data()
+
+  /// Funds coins that are transferred to the contract on instantiation
+  public var funds: [Cosmos_Base_V1beta1_Coin] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -345,7 +395,6 @@ extension Cosmwasm_Wasm_V1_MigrateContractProposal: SwiftProtobuf.Message, Swift
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "title"),
     2: .same(proto: "description"),
-    3: .standard(proto: "run_as"),
     4: .same(proto: "contract"),
     5: .standard(proto: "code_id"),
     6: .same(proto: "msg"),
@@ -359,10 +408,117 @@ extension Cosmwasm_Wasm_V1_MigrateContractProposal: SwiftProtobuf.Message, Swift
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.title) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
-      case 3: try { try decoder.decodeSingularStringField(value: &self.runAs) }()
       case 4: try { try decoder.decodeSingularStringField(value: &self.contract) }()
       case 5: try { try decoder.decodeSingularUInt64Field(value: &self.codeID) }()
       case 6: try { try decoder.decodeSingularBytesField(value: &self.msg) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
+    }
+    if !self.contract.isEmpty {
+      try visitor.visitSingularStringField(value: self.contract, fieldNumber: 4)
+    }
+    if self.codeID != 0 {
+      try visitor.visitSingularUInt64Field(value: self.codeID, fieldNumber: 5)
+    }
+    if !self.msg.isEmpty {
+      try visitor.visitSingularBytesField(value: self.msg, fieldNumber: 6)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmwasm_Wasm_V1_MigrateContractProposal, rhs: Cosmwasm_Wasm_V1_MigrateContractProposal) -> Bool {
+    if lhs.title != rhs.title {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.contract != rhs.contract {return false}
+    if lhs.codeID != rhs.codeID {return false}
+    if lhs.msg != rhs.msg {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmwasm_Wasm_V1_SudoContractProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".SudoContractProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "title"),
+    2: .same(proto: "description"),
+    3: .same(proto: "contract"),
+    4: .same(proto: "msg"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.contract) }()
+      case 4: try { try decoder.decodeSingularBytesField(value: &self.msg) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
+    }
+    if !self.contract.isEmpty {
+      try visitor.visitSingularStringField(value: self.contract, fieldNumber: 3)
+    }
+    if !self.msg.isEmpty {
+      try visitor.visitSingularBytesField(value: self.msg, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmwasm_Wasm_V1_SudoContractProposal, rhs: Cosmwasm_Wasm_V1_SudoContractProposal) -> Bool {
+    if lhs.title != rhs.title {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.contract != rhs.contract {return false}
+    if lhs.msg != rhs.msg {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmwasm_Wasm_V1_ExecuteContractProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ExecuteContractProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "title"),
+    2: .same(proto: "description"),
+    3: .standard(proto: "run_as"),
+    4: .same(proto: "contract"),
+    5: .same(proto: "msg"),
+    6: .same(proto: "funds"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.runAs) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.contract) }()
+      case 5: try { try decoder.decodeSingularBytesField(value: &self.msg) }()
+      case 6: try { try decoder.decodeRepeatedMessageField(value: &self.funds) }()
       default: break
       }
     }
@@ -381,22 +537,22 @@ extension Cosmwasm_Wasm_V1_MigrateContractProposal: SwiftProtobuf.Message, Swift
     if !self.contract.isEmpty {
       try visitor.visitSingularStringField(value: self.contract, fieldNumber: 4)
     }
-    if self.codeID != 0 {
-      try visitor.visitSingularUInt64Field(value: self.codeID, fieldNumber: 5)
-    }
     if !self.msg.isEmpty {
-      try visitor.visitSingularBytesField(value: self.msg, fieldNumber: 6)
+      try visitor.visitSingularBytesField(value: self.msg, fieldNumber: 5)
+    }
+    if !self.funds.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.funds, fieldNumber: 6)
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
-  public static func ==(lhs: Cosmwasm_Wasm_V1_MigrateContractProposal, rhs: Cosmwasm_Wasm_V1_MigrateContractProposal) -> Bool {
+  public static func ==(lhs: Cosmwasm_Wasm_V1_ExecuteContractProposal, rhs: Cosmwasm_Wasm_V1_ExecuteContractProposal) -> Bool {
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.runAs != rhs.runAs {return false}
     if lhs.contract != rhs.contract {return false}
-    if lhs.codeID != rhs.codeID {return false}
     if lhs.msg != rhs.msg {return false}
+    if lhs.funds != rhs.funds {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

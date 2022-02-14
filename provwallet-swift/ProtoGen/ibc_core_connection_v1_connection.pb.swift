@@ -108,8 +108,9 @@ public struct Ibc_Core_Connection_V1_ConnectionEnd {
   /// Clears the value of `counterparty`. Subsequent reads from it will return its default value.
   public mutating func clearCounterparty() {self._counterparty = nil}
 
-  /// delay period that must pass before a consensus state can be used for packet-verification
-  /// NOTE: delay period logic is only implemented by some clients.
+  /// delay period that must pass before a consensus state can be used for
+  /// packet-verification NOTE: delay period logic is only implemented by some
+  /// clients.
   public var delayPeriod: UInt64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
@@ -233,6 +234,22 @@ public struct Ibc_Core_Connection_V1_Version {
 
   /// list of features compatible with the specified identifier
   public var features: [String] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// Params defines the set of Connection parameters.
+public struct Ibc_Core_Connection_V1_Params {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// maximum expected time per block (in nanoseconds), used to enforce block delay. This parameter should reflect the
+  /// largest amount of time that the chain might reasonably take to produce the next block under normal operating
+  /// conditions. A safe choice is 3-5x the expected time per block.
+  public var maxExpectedTimePerBlock: UInt64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -517,6 +534,38 @@ extension Ibc_Core_Connection_V1_Version: SwiftProtobuf.Message, SwiftProtobuf._
   public static func ==(lhs: Ibc_Core_Connection_V1_Version, rhs: Ibc_Core_Connection_V1_Version) -> Bool {
     if lhs.identifier != rhs.identifier {return false}
     if lhs.features != rhs.features {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Ibc_Core_Connection_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".Params"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "max_expected_time_per_block"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt64Field(value: &self.maxExpectedTimePerBlock) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.maxExpectedTimePerBlock != 0 {
+      try visitor.visitSingularUInt64Field(value: self.maxExpectedTimePerBlock, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Ibc_Core_Connection_V1_Params, rhs: Ibc_Core_Connection_V1_Params) -> Bool {
+    if lhs.maxExpectedTimePerBlock != rhs.maxExpectedTimePerBlock {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

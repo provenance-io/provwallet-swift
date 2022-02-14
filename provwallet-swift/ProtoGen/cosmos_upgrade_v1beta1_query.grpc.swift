@@ -119,6 +119,8 @@ extension Cosmos_Upgrade_V1beta1_QueryClientProtocol {
 
   /// ModuleVersions queries the list of module versions from state.
   ///
+  /// Since: cosmos-sdk 0.43
+  ///
   /// - Parameters:
   ///   - request: Request to send to ModuleVersions.
   ///   - callOptions: Call options.

@@ -145,6 +145,8 @@ public struct Cosmos_Vesting_V1beta1_PeriodicVestingAccount {
 /// PermanentLockedAccount implements the VestingAccount interface. It does
 /// not ever release coins, locking them indefinitely. Coins in this account can
 /// still be used for delegating and for governance votes even while locked.
+///
+/// Since: cosmos-sdk 0.43
 public struct Cosmos_Vesting_V1beta1_PermanentLockedAccount {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

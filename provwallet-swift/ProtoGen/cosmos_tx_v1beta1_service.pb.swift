@@ -250,6 +250,8 @@ public struct Cosmos_Tx_V1beta1_SimulateRequest {
   public mutating func clearTx() {self._tx = nil}
 
   /// tx_bytes is the raw transaction.
+  ///
+  /// Since: cosmos-sdk 0.43
   public var txBytes: Data = Data()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()

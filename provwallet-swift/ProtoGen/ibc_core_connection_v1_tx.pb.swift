@@ -59,7 +59,8 @@ public struct Ibc_Core_Connection_V1_MsgConnectionOpenInit {
   fileprivate var _version: Ibc_Core_Connection_V1_Version? = nil
 }
 
-/// MsgConnectionOpenInitResponse defines the Msg/ConnectionOpenInit response type.
+/// MsgConnectionOpenInitResponse defines the Msg/ConnectionOpenInit response
+/// type.
 public struct Ibc_Core_Connection_V1_MsgConnectionOpenInitResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -79,8 +80,8 @@ public struct Ibc_Core_Connection_V1_MsgConnectionOpenTry {
 
   public var clientID: String = String()
 
-  /// in the case of crossing hello's, when both chains call OpenInit, we need the connection identifier
-  /// of the previous connection in state INIT
+  /// in the case of crossing hello's, when both chains call OpenInit, we need
+  /// the connection identifier of the previous connection in state INIT
   public var previousConnectionID: String = String()
 
   public var clientState: SwiftProtobuf.Google_Protobuf_Any {
@@ -266,7 +267,8 @@ public struct Ibc_Core_Connection_V1_MsgConnectionOpenConfirm {
   fileprivate var _proofHeight: Ibc_Core_Client_V1_Height? = nil
 }
 
-/// MsgConnectionOpenConfirmResponse defines the Msg/ConnectionOpenConfirm response type.
+/// MsgConnectionOpenConfirmResponse defines the Msg/ConnectionOpenConfirm
+/// response type.
 public struct Ibc_Core_Connection_V1_MsgConnectionOpenConfirmResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

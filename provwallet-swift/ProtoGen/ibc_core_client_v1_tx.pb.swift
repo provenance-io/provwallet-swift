@@ -110,7 +110,8 @@ public struct Ibc_Core_Client_V1_MsgUpdateClientResponse {
   public init() {}
 }
 
-/// MsgUpgradeClient defines an sdk.Msg to upgrade an IBC client to a new client state
+/// MsgUpgradeClient defines an sdk.Msg to upgrade an IBC client to a new client
+/// state
 public struct Ibc_Core_Client_V1_MsgUpgradeClient {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -129,7 +130,8 @@ public struct Ibc_Core_Client_V1_MsgUpgradeClient {
   /// Clears the value of `clientState`. Subsequent reads from it will return its default value.
   public mutating func clearClientState() {self._clientState = nil}
 
-  /// upgraded consensus state, only contains enough information to serve as a basis of trust in update logic
+  /// upgraded consensus state, only contains enough information to serve as a
+  /// basis of trust in update logic
   public var consensusState: SwiftProtobuf.Google_Protobuf_Any {
     get {return _consensusState ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_consensusState = newValue}
@@ -197,7 +199,8 @@ public struct Ibc_Core_Client_V1_MsgSubmitMisbehaviour {
   fileprivate var _misbehaviour: SwiftProtobuf.Google_Protobuf_Any? = nil
 }
 
-/// MsgSubmitMisbehaviourResponse defines the Msg/SubmitMisbehaviour response type.
+/// MsgSubmitMisbehaviourResponse defines the Msg/SubmitMisbehaviour response
+/// type.
 public struct Ibc_Core_Client_V1_MsgSubmitMisbehaviourResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

@@ -21,6 +21,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 }
 
 /// QueryAccountsRequest is the request type for the Query/Accounts RPC method.
+///
+/// Since: cosmos-sdk 0.43
 public struct Cosmos_Auth_V1beta1_QueryAccountsRequest {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -44,6 +46,8 @@ public struct Cosmos_Auth_V1beta1_QueryAccountsRequest {
 }
 
 /// QueryAccountsResponse is the response type for the Query/Accounts RPC method.
+///
+/// Since: cosmos-sdk 0.43
 public struct Cosmos_Auth_V1beta1_QueryAccountsResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

@@ -96,6 +96,8 @@ extension Cosmos_Gov_V1beta1_MsgClientProtocol {
 
   /// VoteWeighted defines a method to add a weighted vote on a specific proposal.
   ///
+  /// Since: cosmos-sdk 0.43
+  ///
   /// - Parameters:
   ///   - request: Request to send to VoteWeighted.
   ///   - callOptions: Call options.

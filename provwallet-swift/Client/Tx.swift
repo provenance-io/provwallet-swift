@@ -13,6 +13,8 @@ public class Tx {
 	public static let gasPrice: UInt64 = 1905
 
 	private let client: Cosmos_Tx_V1beta1_ServiceClient
+	private let msgFeeClient: Provenance_Msgfees_V1_QueryClient
+	private let tmClient: Cosmos_Base_Tendermint_V1beta1_ServiceClient
 
 	let signingKey: PrivateKey
 	let baseAccount: Cosmos_Auth_V1beta1_BaseAccount
@@ -20,7 +22,9 @@ public class Tx {
 	public init(signingKey: PrivateKey, baseAccount: Cosmos_Auth_V1beta1_BaseAccount, channel: GRPCChannel) {
 		self.signingKey = signingKey
 		self.baseAccount = baseAccount
+		tmClient = Cosmos_Base_Tendermint_V1beta1_ServiceClient(channel: channel)
 		client = Cosmos_Tx_V1beta1_ServiceClient(channel: channel)
+		msgFeeClient = Provenance_Msgfees_V1_QueryClient(channel: channel)
 	}
 
 	//MARK: - Builders
@@ -55,7 +59,8 @@ public class Tx {
 
 	private func buildTx(
 			gas: UInt64,
-			messages: Array<Google_Protobuf_Any>) throws -> Cosmos_Tx_V1beta1_TxRaw {
+			messages: Array<Google_Protobuf_Any>,
+			timeoutHeight: UInt64? = nil) throws -> Cosmos_Tx_V1beta1_TxRaw {
 		try Cosmos_Tx_V1beta1_TxRaw.with { raw in
 
 			let fee = buildFee(gas: gas)
@@ -63,8 +68,12 @@ public class Tx {
 			let signDoc = try Cosmos_Tx_V1beta1_SignDoc.with { sd in
 
 				sd.bodyBytes = try Cosmos_Tx_V1beta1_TxBody.with { body in
-					body.messages = messages
-				}.serializedData()
+                       body.messages = messages
+                       if let th = timeoutHeight {
+                           body.timeoutHeight = th
+                       }
+                   }
+                   .serializedData()
 
 				sd.authInfoBytes = try buildAuthInfo(fee: fee).serializedData()
 
@@ -86,45 +95,48 @@ public class Tx {
 
 	//MARK: - Estimate and Broadcast
 
-	public func estimateTx(messages: Array<Google_Protobuf_Any>) throws -> EventLoopFuture<Cosmos_Base_Abci_V1beta1_GasInfo> {
+	public func estimateTx(
+			messages: Array<Google_Protobuf_Any>) throws -> EventLoopFuture<Provenance_Msgfees_V1_CalculateTxFeesResponse> {
 
 		let tx = try buildTx(gas: UInt64.zero, messages: messages)
 
-		let btx = try Cosmos_Tx_V1beta1_SimulateRequest.with { btx in
-			btx.txBytes = try tx.serializedData()
+		let ptx = try Provenance_Msgfees_V1_CalculateTxFeesRequest.with { ptx in
+			ptx.txBytes = try tx.serializedData()
 		}
-		let call = client.simulate(btx)
+		let call = msgFeeClient.calculateTxFees(ptx)
 
-		let promise = call.eventLoop.makePromise(of: Cosmos_Base_Abci_V1beta1_GasInfo.self)
+		let promise = call.eventLoop.makePromise(of: Provenance_Msgfees_V1_CalculateTxFeesResponse.self)
 
 		call.response.whenSuccess { response in
-			promise.succeed(response.gasInfo)
+			promise.succeed(response)
 		}
 		call.response.whenFailure { error in
 			promise.fail(error)
 		}
 		call.response.whenComplete { result in
 			promise.completeWith(result.map { response in
-				response.gasInfo
+				response
 			})
 		}
 		return promise.futureResult
 	}
 
-	public func broadcastTx(gasEstimate: Cosmos_Base_Abci_V1beta1_GasInfo,
+	public func broadcastTx(gasEstimate: Provenance_Msgfees_V1_CalculateTxFeesResponse,
 	                        messages: Array<Google_Protobuf_Any>,
-	                        mode: Cosmos_Tx_V1beta1_BroadcastMode = Cosmos_Tx_V1beta1_BroadcastMode.block) throws -> EventLoopFuture<RawTxResponsePair> {
+	                        mode: Cosmos_Tx_V1beta1_BroadcastMode = Cosmos_Tx_V1beta1_BroadcastMode.block,
+	                        timeoutHeight: UInt64? = nil) throws -> EventLoopFuture<RawTxResponsePair> {
 
-		var gas = (Double(gasEstimate.gasUsed) * 1.3)
+		var gas = (Double(gasEstimate.estimatedGas) * 1.3)
 		gas.round(.up)
-		return try broadcastTx(gas: UInt64(gas), messages: messages, mode: mode)
+		return try broadcastTx(gas: UInt64(gas), messages: messages, mode: mode, timeoutHeight: timeoutHeight)
 	}
 
 	public func broadcastTx(gas: UInt64,
 	                        messages: Array<Google_Protobuf_Any>,
-	                        mode: Cosmos_Tx_V1beta1_BroadcastMode = Cosmos_Tx_V1beta1_BroadcastMode.block) throws -> EventLoopFuture<RawTxResponsePair> {
+	                        mode: Cosmos_Tx_V1beta1_BroadcastMode = Cosmos_Tx_V1beta1_BroadcastMode.block,
+	                        timeoutHeight: UInt64? = nil) throws -> EventLoopFuture<RawTxResponsePair> {
 
-		let tx = try buildTx(gas: gas, messages: messages)
+		let tx = try buildTx(gas: gas, messages: messages, timeoutHeight: timeoutHeight)
 
 		let btx = try Cosmos_Tx_V1beta1_BroadcastTxRequest.with { btx in
 			btx.mode = mode
@@ -133,7 +145,7 @@ public class Tx {
 		let call = client.broadcastTx(btx)
 
 		let promise = call.eventLoop.makePromise(of: RawTxResponsePair.self)
-		
+
 		call.response.whenSuccess { response in
 			promise.succeed(RawTxResponsePair(txRaw: tx, txResponse: response.txResponse))
 		}
@@ -146,6 +158,25 @@ public class Tx {
 			})
 		}
 
+		return promise.futureResult
+	}
+
+	//MARK: - Tendermint
+	public func currentBlockHeight() throws -> EventLoopFuture<Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse> {
+
+		let call = tmClient.getLatestBlock(Cosmos_Base_Tendermint_V1beta1_GetLatestBlockRequest())
+		let promise = call.eventLoop.makePromise(of: Cosmos_Base_Tendermint_V1beta1_GetLatestBlockResponse.self)
+		call.response.whenSuccess { response in
+			promise.succeed(response)
+		}
+		call.response.whenFailure { error in
+			promise.fail(error)
+		}
+		call.response.whenComplete { result in
+			promise.completeWith(result.map { response in
+				response
+			})
+		}
 		return promise.futureResult
 	}
 }

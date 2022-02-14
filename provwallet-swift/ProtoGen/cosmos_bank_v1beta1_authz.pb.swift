@@ -22,6 +22,8 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 /// SendAuthorization allows the grantee to spend up to spend_limit coins from
 /// the granter's account.
+///
+/// Since: cosmos-sdk 0.43
 public struct Cosmos_Bank_V1beta1_SendAuthorization {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

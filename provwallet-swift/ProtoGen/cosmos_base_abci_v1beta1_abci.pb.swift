@@ -73,6 +73,14 @@ public struct Cosmos_Base_Abci_V1beta1_TxResponse {
   /// it's genesis time.
   public var timestamp: String = String()
 
+  /// Events defines all the events emitted by processing a transaction. Note,
+  /// these events include those emitted by processing all the messages and those
+  /// emitted from the ante handler. Whereas Logs contains the events, with
+  /// additional metadata, emitted only by processing the messages.
+  ///
+  /// Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
+  public var events: [Tendermint_Abci_Event] = []
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -281,6 +289,7 @@ extension Cosmos_Base_Abci_V1beta1_TxResponse: SwiftProtobuf.Message, SwiftProto
     10: .standard(proto: "gas_used"),
     11: .same(proto: "tx"),
     12: .same(proto: "timestamp"),
+    13: .same(proto: "events"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -301,6 +310,7 @@ extension Cosmos_Base_Abci_V1beta1_TxResponse: SwiftProtobuf.Message, SwiftProto
       case 10: try { try decoder.decodeSingularInt64Field(value: &self.gasUsed) }()
       case 11: try { try decoder.decodeSingularMessageField(value: &self._tx) }()
       case 12: try { try decoder.decodeSingularStringField(value: &self.timestamp) }()
+      case 13: try { try decoder.decodeRepeatedMessageField(value: &self.events) }()
       default: break
       }
     }
@@ -343,6 +353,9 @@ extension Cosmos_Base_Abci_V1beta1_TxResponse: SwiftProtobuf.Message, SwiftProto
     if !self.timestamp.isEmpty {
       try visitor.visitSingularStringField(value: self.timestamp, fieldNumber: 12)
     }
+    if !self.events.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.events, fieldNumber: 13)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -359,6 +372,7 @@ extension Cosmos_Base_Abci_V1beta1_TxResponse: SwiftProtobuf.Message, SwiftProto
     if lhs.gasUsed != rhs.gasUsed {return false}
     if lhs._tx != rhs._tx {return false}
     if lhs.timestamp != rhs.timestamp {return false}
+    if lhs.events != rhs.events {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

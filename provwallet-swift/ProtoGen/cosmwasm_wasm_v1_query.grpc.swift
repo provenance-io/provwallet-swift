@@ -71,6 +71,11 @@ internal protocol Cosmwasm_Wasm_V1_QueryClientProtocol: GRPCClient {
     _ request: Cosmwasm_Wasm_V1_QueryCodesRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmwasm_Wasm_V1_QueryCodesRequest, Cosmwasm_Wasm_V1_QueryCodesResponse>
+
+  func pinnedCodes(
+    _ request: Cosmwasm_Wasm_V1_QueryPinnedCodesRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmwasm_Wasm_V1_QueryPinnedCodesRequest, Cosmwasm_Wasm_V1_QueryPinnedCodesResponse>
 }
 
 extension Cosmwasm_Wasm_V1_QueryClientProtocol {
@@ -221,6 +226,24 @@ extension Cosmwasm_Wasm_V1_QueryClientProtocol {
       interceptors: self.interceptors?.makeCodesInterceptors() ?? []
     )
   }
+
+  /// PinnedCodes gets the pinned code ids
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to PinnedCodes.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func pinnedCodes(
+    _ request: Cosmwasm_Wasm_V1_QueryPinnedCodesRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmwasm_Wasm_V1_QueryPinnedCodesRequest, Cosmwasm_Wasm_V1_QueryPinnedCodesResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmwasm.wasm.v1.Query/PinnedCodes",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makePinnedCodesInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmwasm_Wasm_V1_QueryClientInterceptorFactoryProtocol {
@@ -248,6 +271,9 @@ internal protocol Cosmwasm_Wasm_V1_QueryClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'codes'.
   func makeCodesInterceptors() -> [ClientInterceptor<Cosmwasm_Wasm_V1_QueryCodesRequest, Cosmwasm_Wasm_V1_QueryCodesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'pinnedCodes'.
+  func makePinnedCodesInterceptors() -> [ClientInterceptor<Cosmwasm_Wasm_V1_QueryPinnedCodesRequest, Cosmwasm_Wasm_V1_QueryPinnedCodesResponse>]
 }
 
 internal final class Cosmwasm_Wasm_V1_QueryClient: Cosmwasm_Wasm_V1_QueryClientProtocol {

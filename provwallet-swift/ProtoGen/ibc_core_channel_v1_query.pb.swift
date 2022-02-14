@@ -462,8 +462,8 @@ public struct Ibc_Core_Channel_V1_QueryPacketReceiptRequest {
   public init() {}
 }
 
-/// QueryPacketReceiptResponse defines the client query response for a packet receipt
-/// which also includes a proof, and the height from which the proof was
+/// QueryPacketReceiptResponse defines the client query response for a packet
+/// receipt which also includes a proof, and the height from which the proof was
 /// retrieved
 public struct Ibc_Core_Channel_V1_QueryPacketReceiptResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
@@ -567,6 +567,9 @@ public struct Ibc_Core_Channel_V1_QueryPacketAcknowledgementsRequest {
   public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
   public mutating func clearPagination() {self._pagination = nil}
+
+  /// list of packet sequences
+  public var packetCommitmentSequences: [UInt64] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1540,6 +1543,7 @@ extension Ibc_Core_Channel_V1_QueryPacketAcknowledgementsRequest: SwiftProtobuf.
     1: .standard(proto: "port_id"),
     2: .standard(proto: "channel_id"),
     3: .same(proto: "pagination"),
+    4: .standard(proto: "packet_commitment_sequences"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1551,6 +1555,7 @@ extension Ibc_Core_Channel_V1_QueryPacketAcknowledgementsRequest: SwiftProtobuf.
       case 1: try { try decoder.decodeSingularStringField(value: &self.portID) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.channelID) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      case 4: try { try decoder.decodeRepeatedUInt64Field(value: &self.packetCommitmentSequences) }()
       default: break
       }
     }
@@ -1566,6 +1571,9 @@ extension Ibc_Core_Channel_V1_QueryPacketAcknowledgementsRequest: SwiftProtobuf.
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     }
+    if !self.packetCommitmentSequences.isEmpty {
+      try visitor.visitPackedUInt64Field(value: self.packetCommitmentSequences, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1573,6 +1581,7 @@ extension Ibc_Core_Channel_V1_QueryPacketAcknowledgementsRequest: SwiftProtobuf.
     if lhs.portID != rhs.portID {return false}
     if lhs.channelID != rhs.channelID {return false}
     if lhs._pagination != rhs._pagination {return false}
+    if lhs.packetCommitmentSequences != rhs.packetCommitmentSequences {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -112,7 +112,8 @@ extension Ibc_Core_Connection_V1_MsgClientProtocol {
     )
   }
 
-  /// ConnectionOpenConfirm defines a rpc handler method for MsgConnectionOpenConfirm.
+  /// ConnectionOpenConfirm defines a rpc handler method for
+  /// MsgConnectionOpenConfirm.
   ///
   /// - Parameters:
   ///   - request: Request to send to ConnectionOpenConfirm.
