@@ -1,7 +1,7 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "ProvWallet"
-  spec.version      = "0.0.8"
+  spec.version      = "0.0.9"
   spec.summary      = "Provenance Wallet and Client Library for Swift"
 
   spec.swift_versions = "5.4"
