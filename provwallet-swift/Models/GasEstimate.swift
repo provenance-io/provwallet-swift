@@ -5,10 +5,10 @@
 import Foundation
 
 public class GasEstimate: NSObject {
-	let txFees: Provenance_Msgfees_V1_CalculateTxFeesResponse!
-	let gas: UInt64!
-	let gasFee: UInt64!
-	let denom: String!
+	public let txFees: Provenance_Msgfees_V1_CalculateTxFeesResponse!
+	public let gas: UInt64!
+	public let gasFee: UInt64!
+	public let denom: String!
 
 	init(txFees: Provenance_Msgfees_V1_CalculateTxFeesResponse!, gas: UInt64!, gasFee: UInt64!, denom: String) {
 		self.txFees = txFees
