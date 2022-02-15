@@ -32,6 +32,7 @@
 		9F1114EFF1F0BA939EC5E8C5 /* query.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111E4CFCF474362D4AE42B /* query.proto */; };
 		9F11150B1E4FFF1594A0D772 /* DerivationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1119CF2B53E574E2E9ADED /* DerivationNode.swift */; };
 		9F111581C743D37FF1596C2F /* RIPEMD160.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111AB8AF0094B64DF71360 /* RIPEMD160.swift */; };
+		9F1115A0710AFC9141297810 /* GasEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111DFB846F7D10821C4D20 /* GasEstimate.swift */; };
 		9F11163F1BCC67DD3F5C5422 /* tx.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F11100587DDE59C33E3FC6C /* tx.proto */; };
 		9F11164A3FE4218798064FAA /* Proto+Provenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11159A2DA8800E3A6021B0 /* Proto+Provenance.swift */; };
 		9F1116F986F3F0F30D9A844C /* spec.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1110A60A2DAB765F9BE732 /* spec.proto */; };
@@ -351,6 +352,7 @@
 		9F111CF064CB1E0B385BE55D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		9F111D37814275CA9EB515CA /* ECDSA.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ECDSA.swift; sourceTree = "<group>"; };
 		9F111DEC9477027BF869492C /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		9F111DFB846F7D10821C4D20 /* GasEstimate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasEstimate.swift; sourceTree = "<group>"; };
 		9F111E11ADE5A0584573F7D5 /* PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
 		9F111E2A35F077384FE2D9C6 /* contract.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = contract.proto; sourceTree = "<group>"; };
 		9F111E4CFCF474362D4AE42B /* query.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = query.proto; sourceTree = "<group>"; };
@@ -1103,6 +1105,7 @@
 			children = (
 				9F111196B9736CE585D30280 /* Account.swift */,
 				9F111CB7670764CCDC8EDE10 /* RawTxResponsePair.swift */,
+				9F111DFB846F7D10821C4D20 /* GasEstimate.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2403,6 +2406,7 @@
 				CF6B8C7427BB0D830049F9B4 /* cosmos_crypto_secp256r1_keys.pb.swift in Sources */,
 				CF6B8BDF27BB0D820049F9B4 /* google_api_http.pb.swift in Sources */,
 				9F1117FB0C27885236907F61 /* RawTxResponsePair.swift in Sources */,
+				9F1115A0710AFC9141297810 /* GasEstimate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

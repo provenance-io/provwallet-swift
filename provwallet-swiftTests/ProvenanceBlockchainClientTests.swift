@@ -245,7 +245,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 							amount: "77"))
 
 			let txPromise: EventLoopFuture<RawTxResponsePair> = try tx.broadcastTx(
-					gas: gas,
+					gasEstimate: GasEstimate.baseFee(gas),
 					messages: [bankSend])
 
 			txPromise.whenComplete { result in
@@ -279,7 +279,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 							toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f",
 							amount: "77"))
 
-			let estPromise: EventLoopFuture<Provenance_Msgfees_V1_CalculateTxFeesResponse> = try tx.estimateTx(messages: [bankSend])
+			let estPromise: EventLoopFuture<GasEstimate> = try tx.estimateTx(messages: [bankSend])
 			let gasEstimate = try estPromise.wait()
 
 			let txPromise: EventLoopFuture<RawTxResponsePair> = try tx.broadcastTx(gasEstimate: gasEstimate, messages: [bankSend])
@@ -315,7 +315,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 							toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f",
 							amount: "77"))
 
-			let estPromise: EventLoopFuture<Provenance_Msgfees_V1_CalculateTxFeesResponse> = try tx.estimateTx(messages: [bankSend])
+			let estPromise: EventLoopFuture<GasEstimate> = try tx.estimateTx(messages: [bankSend])
 			let gasEstimate = try estPromise.wait()
 
 			let currentBlockHeight = try tx.currentBlockHeight().wait()
@@ -356,7 +356,7 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 							toAddress: "tp1mpapyn7sgdrrmpx8ed7haprt8m0039gg0nyn8f",
 							amount: "77"))
 
-			let estPromise: EventLoopFuture<Provenance_Msgfees_V1_CalculateTxFeesResponse> = try tx.estimateTx(messages: [bankSend])
+			let estPromise: EventLoopFuture<GasEstimate> = try tx.estimateTx(messages: [bankSend])
 			let gasEstimate = try estPromise.wait()
 
 			let currentBlockHeight = try tx.currentBlockHeight().wait()
@@ -374,6 +374,68 @@ class ProvenanceBlockchainClientTests: XCTestCase {
 				}
 			}
 
+			wait(txPromise)
+		} catch {
+			XCTFail("\(error)")
+		}
+	}
+
+	func testEstimateAndBroadcastMarker() throws {
+
+		XCTAssertEqual(signingAddress, signingKey.publicKey.address)
+		//may need to faucet the address for this test to work
+
+		do {
+			// Query the blockchain account in a blocking wait
+			let baseAccount = try auth.baseAccount(address: signingKey.publicKey.address).wait()
+
+			let tx = Tx(signingKey: self.signingKey, baseAccount: baseAccount, channel: self.channel)
+
+			let marker = try Provenance_Marker_V1_MsgAddMarkerRequest.with { request in
+				request.amount = try Cosmos_Base_V1beta1_Coin.with { coin in
+					coin.denom = "myNewMarker\(Int64((Date().timeIntervalSince1970 * 1000.0).rounded()))"
+					coin.amount = "1"
+				}
+				request.manager = signingAddress
+				request.fromAddress = signingAddress
+				request.status = Provenance_Marker_V1_MarkerStatus.finalized
+				request.markerType = Provenance_Marker_V1_MarkerType.coin
+				request.accessList = [
+					Provenance_Marker_V1_AccessGrant.with { grant in
+						grant.address = signingAddress
+						grant.permissions = [
+							Provenance_Marker_V1_Access.admin,
+							Provenance_Marker_V1_Access.burn,
+							Provenance_Marker_V1_Access.mint,
+							Provenance_Marker_V1_Access.deposit,
+							Provenance_Marker_V1_Access.withdraw,
+							Provenance_Marker_V1_Access.delete
+						]
+					}
+				]
+				request.supplyFixed = true
+			}
+
+			let addMarker = try Google_Protobuf_Any.from(message: marker)
+
+			let estPromise: EventLoopFuture<GasEstimate> = try tx.estimateTx(messages: [addMarker])
+			let gasEstimate = try estPromise.wait()
+
+			XCTAssertTrue(gasEstimate.txFees.additionalFees.count > 0)
+			XCTAssertTrue(gasEstimate.txFees.totalFees.count > 0)
+			XCTAssertTrue(gasEstimate.denom == Tx.baseDenom)
+			XCTAssertTrue(gasEstimate.gas > 0)
+
+			let txPromise: EventLoopFuture<RawTxResponsePair> = try tx.broadcastTx(gasEstimate: gasEstimate, messages: [addMarker])
+
+			txPromise.whenComplete { result in
+				do {
+					let txResult = try result.get()
+					print(txResult)
+				} catch {
+					XCTFail("\(error))")
+				}
+			}
 			wait(txPromise)
 		} catch {
 			XCTFail("\(error)")
