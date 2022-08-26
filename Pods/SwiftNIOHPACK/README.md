@@ -22,9 +22,9 @@ declaring [SwiftNIO's Public API](https://github.com/apple/swift-nio/blob/main/d
 
 To depend on `swift-nio-http2`, put the following in the `dependencies` of your `Package.swift`:
 
-    .package(url: "https://github.com/apple/swift-nio-http2.git", from: "1.5.0"),
-    
-SwiftNIO HTTP2 1.18.x and later support Swift 5.2 and above. 1.17.x and earlier also support Swift 5.0 and 5.1.
+    .package(url: "https://github.com/apple/swift-nio-http2.git", from: "1.19.2"),
+
+SwiftNIO HTTP2 1.21.x and later support Swift 5.4 and above. 1.20.x and earlier also support Swift 5.2 and 5.3. 1.17.x and earlier also support Swift 5.0 and 5.1.
 
 ### `swift-nio-http2` 0.x
 

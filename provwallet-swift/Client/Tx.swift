@@ -63,7 +63,7 @@ public class Tx {
 			messages: Array<Google_Protobuf_Any>,
 			timeoutHeight: UInt64? = nil) throws -> Cosmos_Tx_V1beta1_TxRaw {
 		try Cosmos_Tx_V1beta1_TxRaw.with { raw in
-
+			                                         
 			let fee = buildFee(gasEstimate: gasEstimate)
 
 			let signDoc = try Cosmos_Tx_V1beta1_SignDoc.with { sd in

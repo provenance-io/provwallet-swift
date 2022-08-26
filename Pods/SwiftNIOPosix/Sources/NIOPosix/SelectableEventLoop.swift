@@ -63,8 +63,13 @@ internal final class SelectableEventLoop: EventLoop {
     // This may only be read/written while holding the _tasksLock.
     internal var _pendingTaskPop = false
     @usableFromInline
+    internal var scheduledTaskCounter = NIOAtomic.makeAtomic(value: UInt64(0))
+    @usableFromInline
     internal var _scheduledTasks = PriorityQueue<ScheduledTask>()
-    private var tasksCopy = ContiguousArray<() -> Void>()
+
+    // We only need the ScheduledTask's task closure. However, an `Array<() -> Void>` allocates
+    // for every appended closure. https://bugs.swift.org/browse/SR-15872
+    private var tasksCopy = ContiguousArray<ScheduledTask>()
     @usableFromInline
     internal var _succeededVoidFuture: Optional<EventLoopFuture<Void>> = nil {
         didSet {
@@ -101,6 +106,10 @@ internal final class SelectableEventLoop: EventLoop {
     // Used for UDP control messages.
     private(set) var controlMessageStorage: UnsafeControlMessageStorage
 
+    // The `_parentGroup` will always be set unless this is a thread takeover or we shut down.
+    @usableFromInline
+    internal var _parentGroup: Optional<MultiThreadedEventLoopGroup>
+
     /// Creates a new `SelectableEventLoop` instance that is tied to the given `pthread_t`.
 
     private let promiseCreationStoreLock = Lock()
@@ -118,7 +127,7 @@ internal final class SelectableEventLoop: EventLoop {
     internal func _promiseCompleted(futureIdentifier: _NIOEventLoopFutureIdentifier) -> (file: StaticString, line: UInt)? {
         precondition(_isDebugAssertConfiguration())
         return self.promiseCreationStoreLock.withLock {
-            self._promiseCreationStore.removeValue(forKey: futureIdentifier)!
+            self._promiseCreationStore.removeValue(forKey: futureIdentifier)
         }
     }
 
@@ -165,7 +174,11 @@ Further information:
         }
     }
 
-    internal init(thread: NIOThread, selector: NIOPosix.Selector<NIORegistration>, canBeShutdownIndividually: Bool) {
+    internal init(thread: NIOThread,
+                  parentGroup: MultiThreadedEventLoopGroup?, /* nil iff thread take-over */
+                  selector: NIOPosix.Selector<NIORegistration>,
+                  canBeShutdownIndividually: Bool) {
+        self._parentGroup = parentGroup
         self._selector = selector
         self.thread = thread
         self._iovecs = UnsafeMutablePointer.allocate(capacity: Socket.writevLimitIOVectors)
@@ -253,7 +266,7 @@ Further information:
     @inlinable
     internal func scheduleTask<T>(deadline: NIODeadline, _ task: @escaping () throws -> T) -> Scheduled<T> {
         let promise: EventLoopPromise<T> = self.makePromise()
-        let task = ScheduledTask({
+        let task = ScheduledTask(id: self.scheduledTaskCounter.add(1), {
             do {
                 promise.succeed(try task())
             } catch let err {
@@ -263,9 +276,10 @@ Further information:
             promise.fail(error)
         }, deadline)
 
+        let taskId = task.id
         let scheduled = Scheduled(promise: promise, cancellationTask: {
             self._tasksLock.withLockVoid {
-                self._scheduledTasks.remove(task)
+                self._scheduledTasks.removeFirst(where: { $0.id == taskId })
             }
             // We don't need to wake up the selector here, the scheduled task will never be picked up. Waking up the
             // selector would mean that we may be able to recalculate the shutdown to a later date. The cost of not
@@ -293,7 +307,7 @@ Further information:
     @inlinable
     internal func execute(_ task: @escaping () -> Void) {
         // nothing we can do if we fail enqueuing here.
-        try? self._schedule0(ScheduledTask(task, { error in
+        try? self._schedule0(ScheduledTask(id: self.scheduledTaskCounter.add(1), task, { error in
             // do nothing
         }, .now()))
     }
@@ -480,7 +494,7 @@ Further information:
                         while tasksCopy.count < tasksCopy.capacity, let task = self._scheduledTasks.peek() {
                             if task.readyIn(now) <= .nanoseconds(0) {
                                 self._scheduledTasks.pop()
-                                self.tasksCopy.append(task.task)
+                                self.tasksCopy.append(task)
                             } else {
                                 nextReadyTask = task
                                 break
@@ -506,7 +520,7 @@ Further information:
                 for task in self.tasksCopy {
                     /* for macOS: in case any calls we make to Foundation put objects into an autoreleasepool */
                     withAutoReleasePool {
-                        task()
+                        task.task()
                     }
                 }
                 // Drop everything (but keep the capacity) so we can fill it again on the next iteration.
@@ -524,6 +538,7 @@ Further information:
     internal func initiateClose(queue: DispatchQueue, completionHandler: @escaping (Result<Void, Error>) -> Void) {
         func doClose() {
             self.assertInEventLoop()
+            self._parentGroup = nil // break the cycle
             // There should only ever be one call into this function so we need to be up and running, ...
             assert(self.internalState == .runningAndAcceptingNewRegistrations)
             self.internalState = .runningButNotAcceptingNewRegistrations
@@ -629,6 +644,12 @@ Further information:
             return voidPromise.futureResult
         }
         return voidFuture
+    }
+
+    @inlinable
+    internal func parentGroupCallableFromThisEventLoopOnly() -> MultiThreadedEventLoopGroup? {
+        self.assertInEventLoop()
+        return self._parentGroup
     }
 }
 

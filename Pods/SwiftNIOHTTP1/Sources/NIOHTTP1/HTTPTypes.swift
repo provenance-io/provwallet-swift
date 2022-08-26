@@ -128,7 +128,7 @@ public struct HTTPRequestHead: Equatable {
 /// A HTTP message is made up of a request or status line with several headers,
 /// encoded by `.head`, zero or more body parts, and optionally some trailers. To
 /// indicate that a complete HTTP message has been sent or received, we use `.end`,
-/// which may also contain any trailers that make up the mssage.
+/// which may also contain any trailers that make up the message.
 public enum HTTPPart<HeadT: Equatable, BodyT: Equatable> {
     case head(HeadT)
     case body(BodyT)
@@ -225,6 +225,14 @@ public struct HTTPResponseHead: Equatable {
         if !isKnownUniquelyReferenced(&self._storage) {
             self._storage = self._storage.copy()
         }
+    }
+}
+
+extension HTTPResponseHead {
+    /// Determines if the head is purely informational. If a head is informational another head will follow this
+    /// head eventually.
+    var isInformational: Bool {
+        100 <= self.status.code && self.status.code < 200 && self.status.code != 101
     }
 }
 
@@ -1273,18 +1281,9 @@ public enum HTTPResponseStatus {
     }
 }
 
-extension HTTPResponseStatus: Equatable {
-    public static func ==(lhs: HTTPResponseStatus, rhs: HTTPResponseStatus) -> Bool {
-        switch (lhs, rhs) {
-        case (.custom(let lcode, let lreason), .custom(let rcode, let rreason)):
-            return lcode == rcode && lreason == rreason
-        case (.custom, _), (_, .custom):
-            return false
-        default:
-            return lhs.code == rhs.code
-        }
-    }
-}
+extension HTTPResponseStatus: Equatable {}
+
+extension HTTPResponseStatus: Hashable {}
 
 extension HTTPRequestHead: CustomStringConvertible {
     public var description: String {

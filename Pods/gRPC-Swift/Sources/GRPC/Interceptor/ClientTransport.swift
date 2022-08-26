@@ -93,6 +93,9 @@ internal final class ClientTransport<Request, Response> {
   /// The `NIO.Channel` used by the transport, if it is available.
   private var channel: Channel?
 
+  /// A callback which is invoked once when the stream channel becomes active.
+  private let onStart: () -> Void
+
   /// Our current state as logging metadata.
   private var stateForLogging: Logger.MetadataValue {
     if self.state.mayBuffer {
@@ -109,11 +112,13 @@ internal final class ClientTransport<Request, Response> {
     serializer: AnySerializer<Request>,
     deserializer: AnyDeserializer<Response>,
     errorDelegate: ClientErrorDelegate?,
+    onStart: @escaping () -> Void,
     onError: @escaping (Error) -> Void,
     onResponsePart: @escaping (GRPCClientResponsePart<Response>) -> Void
   ) {
     self.callEventLoop = eventLoop
     self.callDetails = details
+    self.onStart = onStart
     let logger = GRPCLogger(wrapping: details.options.logger)
     self.logger = logger
     self.serializer = serializer
@@ -249,7 +254,7 @@ extension ClientTransport {
       self.channelPromise?.fail(error)
       promise?.succeed(())
     } else {
-      promise?.fail(GRPCError.AlreadyComplete())
+      promise?.succeed(())
     }
   }
 }
@@ -266,6 +271,13 @@ extension ClientTransport: ChannelInboundHandler {
   @usableFromInline
   internal func handlerRemoved(context: ChannelHandlerContext) {
     self.dropReferences()
+  }
+
+  @usableFromInline
+  internal func handlerAdded(context: ChannelHandlerContext) {
+    if context.channel.isActive {
+      self.transportActivated(channel: context.channel)
+    }
   }
 
   @usableFromInline
@@ -319,15 +331,20 @@ extension ClientTransport {
   private func _transportActivated(channel: Channel) {
     self.callEventLoop.assertInEventLoop()
 
-    if self.state.activate() {
+    switch self.state.activate() {
+    case .unbuffer:
       self.logger.addIPAddressMetadata(local: channel.localAddress, remote: channel.remoteAddress)
-
       self._pipeline?.logger = self.logger
       self.logger.debug("activated stream channel")
       self.channel = channel
+      self.onStart()
       self.unbuffer()
-    } else {
+
+    case .close:
       channel.close(mode: .all, promise: nil)
+
+    case .doNothing:
+      ()
     }
   }
 
@@ -660,8 +677,14 @@ extension ClientTransportState {
     }
   }
 
+  enum ActivateAction {
+    case unbuffer
+    case close
+    case doNothing
+  }
+
   /// `channelActive` was invoked on the transport by the `Channel`.
-  mutating func activate() -> Bool {
+  mutating func activate() -> ActivateAction {
     // The channel has become active: what now?
     switch self {
     case .idle:
@@ -669,14 +692,15 @@ extension ClientTransportState {
 
     case .awaitingTransport:
       self = .activatingTransport
-      return true
+      return .unbuffer
 
     case .activatingTransport, .active:
-      preconditionFailure("Invalid state: stream is already active")
+      // Already activated.
+      return .doNothing
 
     case .closing:
       // We remain in closing: we only transition to closed on 'channelInactive'.
-      return false
+      return .close
 
     case .closed:
       preconditionFailure("Invalid state: stream is already inactive")
@@ -832,7 +856,7 @@ extension ClientTransport {
     promise: EventLoopPromise<Void>?
   ) {
     self.callEventLoop.assertInEventLoop()
-    self.logger.debug("buffering request part", metadata: [
+    self.logger.trace("buffering request part", metadata: [
       "request_part": "\(part.name)",
       "call_state": self.stateForLogging,
     ])
@@ -850,7 +874,7 @@ extension ClientTransport {
     // Save any flushing until we're done writing.
     var shouldFlush = false
 
-    self.logger.debug("unbuffering request parts", metadata: [
+    self.logger.trace("unbuffering request parts", metadata: [
       "request_parts": "\(self.writeBuffer.count)",
     ])
 
@@ -860,7 +884,7 @@ extension ClientTransport {
     while self.state.isUnbuffering, !self.writeBuffer.isEmpty {
       // Pull out as many writes as possible.
       while let write = self.writeBuffer.popFirst() {
-        self.logger.debug("unbuffering request part", metadata: [
+        self.logger.trace("unbuffering request part", metadata: [
           "request_part": "\(write.request.name)",
         ])
 
@@ -879,7 +903,7 @@ extension ClientTransport {
     }
 
     if self.writeBuffer.isEmpty {
-      self.logger.debug("request buffer drained")
+      self.logger.trace("request buffer drained")
     } else {
       self.logger.notice("unbuffering aborted", metadata: ["call_state": self.stateForLogging])
     }
@@ -896,7 +920,7 @@ extension ClientTransport {
   /// Fails any promises that come with buffered writes with `error`.
   /// - Parameter error: The `Error` to fail promises with.
   private func failBufferedWrites(with error: Error) {
-    self.logger.debug("failing buffered writes", metadata: ["call_state": self.stateForLogging])
+    self.logger.trace("failing buffered writes", metadata: ["call_state": self.stateForLogging])
 
     while let write = self.writeBuffer.popFirst() {
       write.promise?.fail(error)
@@ -1016,6 +1040,10 @@ internal struct ConnectionFailure: Error, GRPCStatusTransformable, CustomStringC
   }
 
   func makeGRPCStatus() -> GRPCStatus {
-    return GRPCStatus(code: .unavailable, message: String(describing: self.reason))
+    return GRPCStatus(
+      code: .unavailable,
+      message: String(describing: self.reason),
+      cause: self.reason
+    )
   }
 }

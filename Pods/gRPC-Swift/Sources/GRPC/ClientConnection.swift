@@ -13,12 +13,21 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+#if swift(>=5.6)
+@preconcurrency import Foundation
+@preconcurrency import Logging
+@preconcurrency import NIOCore
+#else
 import Foundation
 import Logging
 import NIOCore
+#endif // swift(>=5.6)
+
 import NIOHPACK
 import NIOHTTP2
+#if canImport(NIOSSL)
 import NIOSSL
+#endif
 import NIOTLS
 import NIOTransportServices
 import SwiftProtobuf
@@ -76,7 +85,7 @@ import SwiftProtobuf
 /// The 'GRPCIdleHandler' intercepts HTTP/2 frames and various events and is responsible for
 /// informing and controlling the state of the connection (idling and keepalive). The HTTP/2 streams
 /// are used to handle individual RPCs.
-public class ClientConnection {
+public final class ClientConnection: GRPCSendable {
   private let connectionManager: ConnectionManager
 
   /// HTTP multiplexer from the underlying channel handling gRPC calls.
@@ -125,9 +134,32 @@ public class ClientConnection {
     )
   }
 
-  /// Closes the connection to the server.
+  /// Close the channel, and any connections associated with it. Any ongoing RPCs may fail.
+  ///
+  /// - Returns: Returns a future which will be resolved when shutdown has completed.
   public func close() -> EventLoopFuture<Void> {
-    return self.connectionManager.shutdown()
+    let promise = self.eventLoop.makePromise(of: Void.self)
+    self.close(promise: promise)
+    return promise.futureResult
+  }
+
+  /// Close the channel, and any connections associated with it. Any ongoing RPCs may fail.
+  ///
+  /// - Parameter promise: A promise which will be completed when shutdown has completed.
+  public func close(promise: EventLoopPromise<Void>) {
+    self.connectionManager.shutdown(mode: .forceful, promise: promise)
+  }
+
+  /// Attempt to gracefully shutdown the channel. New RPCs will be failed immediately and existing
+  /// RPCs may continue to run until they complete.
+  ///
+  /// - Parameters:
+  ///   - deadline: A point in time by which the graceful shutdown must have completed. If the
+  ///       deadline passes and RPCs are still active then the connection will be closed forcefully
+  ///       and any remaining in-flight RPCs may be failed.
+  ///   - promise: A promise which will be completed when shutdown has completed.
+  public func closeGracefully(deadline: NIODeadline, promise: EventLoopPromise<Void>) {
+    return self.connectionManager.shutdown(mode: .graceful(deadline), promise: promise)
   }
 
   /// Populates the logger in `options` and appends a request ID header to the metadata, if
@@ -161,6 +193,13 @@ extension ClientConnection: GRPCChannel {
     let multiplexer = self.getMultiplexer()
     let eventLoop = callOptions.eventLoopPreference.exact ?? multiplexer.eventLoop
 
+    // This should be on the same event loop as the multiplexer (i.e. the event loop of the
+    // underlying `Channel`.
+    let channel = multiplexer.eventLoop.makePromise(of: Channel.self)
+    multiplexer.whenComplete {
+      ClientConnection.makeStreamChannel(using: $0, promise: channel)
+    }
+
     return Call(
       path: path,
       type: type,
@@ -168,7 +207,7 @@ extension ClientConnection: GRPCChannel {
       options: options,
       interceptors: interceptors,
       transportFactory: .http2(
-        multiplexer: multiplexer,
+        channel: channel.futureResult,
         authority: self.authority,
         scheme: self.scheme,
         maximumReceiveMessageLength: self.configuration.maximumReceiveMessageLength,
@@ -188,6 +227,13 @@ extension ClientConnection: GRPCChannel {
     let multiplexer = self.getMultiplexer()
     let eventLoop = callOptions.eventLoopPreference.exact ?? multiplexer.eventLoop
 
+    // This should be on the same event loop as the multiplexer (i.e. the event loop of the
+    // underlying `Channel`.
+    let channel = multiplexer.eventLoop.makePromise(of: Channel.self)
+    multiplexer.whenComplete {
+      ClientConnection.makeStreamChannel(using: $0, promise: channel)
+    }
+
     return Call(
       path: path,
       type: type,
@@ -195,7 +241,7 @@ extension ClientConnection: GRPCChannel {
       options: options,
       interceptors: interceptors,
       transportFactory: .http2(
-        multiplexer: multiplexer,
+        channel: channel.futureResult,
         authority: self.authority,
         scheme: self.scheme,
         maximumReceiveMessageLength: self.configuration.maximumReceiveMessageLength,
@@ -203,21 +249,41 @@ extension ClientConnection: GRPCChannel {
       )
     )
   }
+
+  private static func makeStreamChannel(
+    using result: Result<HTTP2StreamMultiplexer, Error>,
+    promise: EventLoopPromise<Channel>
+  ) {
+    switch result {
+    case let .success(multiplexer):
+      multiplexer.createStreamChannel(promise: promise) {
+        $0.eventLoop.makeSucceededVoidFuture()
+      }
+    case let .failure(error):
+      promise.fail(error)
+    }
+  }
 }
 
 // MARK: - Configuration structures
 
 /// A target to connect to.
-public struct ConnectionTarget {
+public struct ConnectionTarget: GRPCSendable {
   internal enum Wrapped {
     case hostAndPort(String, Int)
     case unixDomainSocket(String)
     case socketAddress(SocketAddress)
+    case connectedSocket(NIOBSDSocket.Handle)
   }
 
   internal var wrapped: Wrapped
   private init(_ wrapped: Wrapped) {
     self.wrapped = wrapped
+  }
+
+  /// The host and port. The port is 443 by default.
+  public static func host(_ host: String, port: Int = 443) -> ConnectionTarget {
+    return ConnectionTarget(.hostAndPort(host, port))
   }
 
   /// The host and port.
@@ -235,6 +301,12 @@ public struct ConnectionTarget {
     return ConnectionTarget(.socketAddress(address))
   }
 
+  /// A connected NIO socket.
+  public static func connectedSocket(_ socket: NIOBSDSocket.Handle) -> ConnectionTarget {
+    return ConnectionTarget(.connectedSocket(socket))
+  }
+
+  @usableFromInline
   var host: String {
     switch self.wrapped {
     case let .hostAndPort(host, _):
@@ -243,15 +315,15 @@ public struct ConnectionTarget {
       return address.host
     case let .socketAddress(.v6(address)):
       return address.host
-    case .unixDomainSocket, .socketAddress(.unixDomainSocket):
+    case .unixDomainSocket, .socketAddress(.unixDomainSocket), .connectedSocket:
       return "localhost"
     }
   }
 }
 
 /// The connectivity behavior to use when starting an RPC.
-public struct CallStartBehavior: Hashable {
-  internal enum Behavior: Hashable {
+public struct CallStartBehavior: Hashable, GRPCSendable {
+  internal enum Behavior: Hashable, GRPCSendable {
     case waitsForConnectivity
     case fastFailure
   }
@@ -284,7 +356,7 @@ public struct CallStartBehavior: Hashable {
 extension ClientConnection {
   /// Configuration for a `ClientConnection`. Users should prefer using one of the
   /// `ClientConnection` builders: `ClientConnection.secure(_:)` or `ClientConnection.insecure(_:)`.
-  public struct Configuration {
+  public struct Configuration: GRPCSendable {
     /// The target to connect to.
     public var target: ConnectionTarget
 
@@ -303,6 +375,7 @@ extension ClientConnection {
     /// provided but the queue is `nil` then one will be created by gRPC. Defaults to `nil`.
     public var connectivityStateDelegateQueue: DispatchQueue?
 
+    #if canImport(NIOSSL)
     /// TLS configuration for this connection. `nil` if TLS is not desired.
     ///
     /// - Important: `tls` is deprecated; use `tlsConfiguration` or one of
@@ -316,6 +389,7 @@ extension ClientConnection {
         self.tlsConfiguration = newValue.map { .init(transforming: $0) }
       }
     }
+    #endif // canImport(NIOSSL)
 
     /// TLS configuration for this connection. `nil` if TLS is not desired.
     public var tlsConfiguration: GRPCTLSConfiguration?
@@ -382,8 +456,9 @@ extension ClientConnection {
     /// used to add additional handlers to the pipeline and is intended for debugging.
     ///
     /// - Warning: The initializer closure may be invoked *multiple times*.
-    public var debugChannelInitializer: ((Channel) -> EventLoopFuture<Void>)?
+    public var debugChannelInitializer: GRPCChannelInitializer?
 
+    #if canImport(NIOSSL)
     /// Create a `Configuration` with some pre-defined defaults. Prefer using
     /// `ClientConnection.secure(group:)` to build a connection secured with TLS or
     /// `ClientConnection.insecure(group:)` to build a plaintext connection.
@@ -423,7 +498,7 @@ extension ClientConnection {
         label: "io.grpc",
         factory: { _ in SwiftLogNoOpLogHandler() }
       ),
-      debugChannelInitializer: ((Channel) -> EventLoopFuture<Void>)? = nil
+      debugChannelInitializer: GRPCChannelInitializer? = nil
     ) {
       self.target = target
       self.eventLoopGroup = eventLoopGroup
@@ -439,6 +514,7 @@ extension ClientConnection {
       self.backgroundActivityLogger = backgroundActivityLogger
       self.debugChannelInitializer = debugChannelInitializer
     }
+    #endif // canImport(NIOSSL)
 
     private init(eventLoopGroup: EventLoopGroup, target: ConnectionTarget) {
       self.eventLoopGroup = eventLoopGroup
@@ -477,10 +553,13 @@ extension ClientBootstrapProtocol {
 
     case let .socketAddress(address):
       return self.connect(to: address)
+    case let .connectedSocket(socket):
+      return self.withConnectedSocket(socket)
     }
   }
 }
 
+#if canImport(NIOSSL)
 extension ChannelPipeline.SynchronousOperations {
   internal func configureNIOSSLForGRPCClient(
     sslContext: Result<NIOSSLContext, Error>,
@@ -507,7 +586,10 @@ extension ChannelPipeline.SynchronousOperations {
     try self.addHandler(sslClientHandler)
     try self.addHandler(TLSVerificationHandler(logger: logger))
   }
+}
+#endif // canImport(NIOSSL)
 
+extension ChannelPipeline.SynchronousOperations {
   internal func configureHTTP2AndGRPCHandlersForGRPCClient(
     channel: Channel,
     connectionManager: ConnectionManager,

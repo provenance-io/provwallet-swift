@@ -14,14 +14,21 @@
  * limitations under the License.
  */
 import struct Foundation.UUID
+
+#if swift(>=5.6)
+@preconcurrency import Logging
+@preconcurrency import NIOCore
+#else
 import Logging
 import NIOCore
+#endif // swift(>=5.6)
+
 import NIOHPACK
 import NIOHTTP1
 import NIOHTTP2
 
 /// Options to use for GRPC calls.
-public struct CallOptions {
+public struct CallOptions: GRPCSendable {
   /// Additional metadata to send to the service.
   public var customMetadata: HPACKHeaders
 
@@ -121,11 +128,17 @@ public struct CallOptions {
 }
 
 extension CallOptions {
-  public struct RequestIDProvider {
-    private enum RequestIDSource {
+  public struct RequestIDProvider: GRPCSendable {
+    #if swift(>=5.6)
+    public typealias RequestIDGenerator = @Sendable () -> String
+    #else
+    public typealias RequestIDGenerator = () -> String
+    #endif // swift(>=5.6)
+
+    private enum RequestIDSource: GRPCSendable {
       case none
       case `static`(String)
-      case generated(() -> String)
+      case generated(RequestIDGenerator)
     }
 
     private var source: RequestIDSource
@@ -133,6 +146,7 @@ extension CallOptions {
       self.source = source
     }
 
+    @usableFromInline
     internal func requestID() -> String? {
       switch self.source {
       case .none:
@@ -159,14 +173,16 @@ extension CallOptions {
     }
 
     /// Provide a factory to generate request IDs.
-    public static func generated(_ requestIDFactory: @escaping () -> String) -> RequestIDProvider {
+    public static func generated(
+      _ requestIDFactory: @escaping RequestIDGenerator
+    ) -> RequestIDProvider {
       return RequestIDProvider(.generated(requestIDFactory))
     }
   }
 }
 
 extension CallOptions {
-  public struct EventLoopPreference {
+  public struct EventLoopPreference: GRPCSendable {
     /// No preference. The framework will assign an `EventLoop`.
     public static let indifferent = EventLoopPreference(.indifferent)
 
@@ -175,22 +191,26 @@ extension CallOptions {
       return EventLoopPreference(.exact(eventLoop))
     }
 
-    private enum Preference {
+    @usableFromInline
+    internal enum Preference: GRPCSendable {
       case indifferent
       case exact(EventLoop)
     }
 
-    private var preference: Preference
+    @usableFromInline
+    internal var _preference: Preference
 
-    private init(_ preference: Preference) {
-      self.preference = preference
+    @inlinable
+    internal init(_ preference: Preference) {
+      self._preference = preference
     }
   }
 }
 
 extension CallOptions.EventLoopPreference {
+  @inlinable
   internal var exact: EventLoop? {
-    switch self.preference {
+    switch self._preference {
     case let .exact(eventLoop):
       return eventLoop
     case .indifferent:
