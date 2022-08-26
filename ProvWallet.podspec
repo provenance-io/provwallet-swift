@@ -18,7 +18,7 @@ Pod::Spec.new do |spec|
       Connect to the Provenance blockchain
                    DESC
 
-  spec.homepage     = "https://github.com/JasonD5150/provwallet-swift"
+  spec.homepage     = "https://github.com/provenance-io/provwallet-swift"
 
   spec.license      = "Apache License, Version 2.0"
 
@@ -26,7 +26,7 @@ Pod::Spec.new do |spec|
 
   spec.ios.deployment_target  = '13.0'
 
-  spec.source       = { :git => "https://github.com/JasonD5150/provwallet-swift.git", :tag => "v#{spec.version}" }
+  spec.source       = { :git => "https://github.com/provenance-io/provwallet-swift.git", :tag => "v#{spec.version}" }
 
   spec.source_files  = "provwallet-swift/**/*.{swift}"
 
