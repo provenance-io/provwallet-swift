@@ -61,6 +61,13 @@ public struct ByteBufferView: RandomAccessCollection {
     }
 
     @inlinable
+    public var count: Int {
+        // Unchecked is safe here: Range enforces that upperBound is strictly greater than
+        // lower bound, and we guarantee that _range.lowerBound >= 0.
+        return self._range.upperBound &- self._range.lowerBound
+    }
+
+    @inlinable
     public subscript(position: Index) -> UInt8 {
         get {
             guard position >= self._range.lowerBound && position < self._range.upperBound else {
@@ -105,6 +112,30 @@ public struct ByteBufferView: RandomAccessCollection {
         return .some(self.withUnsafeBytes { ptr -> Index? in
             return ptr.lastIndex(of: element).map { $0 + self._range.lowerBound }
         })
+    }
+    
+    @inlinable
+    public func _customContainsEquatableElement(_ element: Element) -> Bool? {
+        return .some(self.withUnsafeBytes { ptr -> Bool in
+            return ptr.contains(element)
+        })
+    }
+
+    @inlinable
+    public func _copyContents(
+      initializing ptr: UnsafeMutableBufferPointer<UInt8>
+    ) -> (Iterator, UnsafeMutableBufferPointer<UInt8>.Index) {
+        precondition(ptr.count >= self.count)
+
+        let bytesToWrite = self.count
+
+        let endIndex = self.withContiguousStorageIfAvailable { ourBytes in
+            ptr.initialize(from: ourBytes).1
+        }
+        precondition(endIndex == bytesToWrite)
+
+        let iterator = self[self.endIndex..<self.endIndex].makeIterator()
+        return (iterator, bytesToWrite)
     }
 }
 
@@ -190,6 +221,7 @@ extension ByteBuffer {
 
 extension ByteBufferView: Equatable {
     /// required by `Equatable`
+    @inlinable
     public static func == (lhs: ByteBufferView, rhs: ByteBufferView) -> Bool {
 
         guard lhs._range.count == rhs._range.count else {
@@ -207,6 +239,7 @@ extension ByteBufferView: Equatable {
 
 extension ByteBufferView: Hashable {
     /// required by `Hashable`
+    @inlinable
     public func hash(into hasher: inout Hasher) {
         // A well-formed ByteBufferView can never have a range that is out-of-bounds of the backing ByteBuffer.
         // As a result, this getSlice call can never fail, and we'd like to know it if it does.
@@ -216,6 +249,7 @@ extension ByteBufferView: Hashable {
 
 extension ByteBufferView: ExpressibleByArrayLiteral {
     /// required by `ExpressibleByArrayLiteral`
+    @inlinable
     public init(arrayLiteral elements: Element...) {
         self.init(elements)
     }

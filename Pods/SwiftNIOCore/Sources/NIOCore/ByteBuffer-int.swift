@@ -31,10 +31,11 @@ extension ByteBuffer {
     /// - returns: An integer value deserialized from this `ByteBuffer` or `nil` if there aren't enough bytes readable.
     @inlinable
     public mutating func readInteger<T: FixedWidthInteger>(endianness: Endianness = .big, as: T.Type = T.self) -> T? {
-        return self.getInteger(at: self.readerIndex, endianness: endianness, as: T.self).map {
-            self._moveReaderIndex(forwardBy: MemoryLayout<T>.size)
-            return $0
+        guard let result = self.getInteger(at: self.readerIndex, endianness: endianness, as: T.self) else {
+            return nil
         }
+        self._moveReaderIndex(forwardBy: MemoryLayout<T>.size)
+        return result
     }
 
     /// Get the integer at `index` from this `ByteBuffer`. Does not move the reader index.
@@ -126,6 +127,7 @@ extension UInt32 {
     /// Returns the next power of two unless that would overflow, in which case UInt32.max (on 64-bit systems) or
     /// Int32.max (on 32-bit systems) is returned. The returned value is always safe to be cast to Int and passed
     /// to malloc on all platforms.
+    @inlinable
     func nextPowerOf2ClampedToMax() -> UInt32 {
         guard self > 0 else {
             return 1

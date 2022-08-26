@@ -73,7 +73,7 @@ internal class UnaryResponseParts<Response> {
 
     case let .end(status, trailers):
       // In case of a "Trailers-Only" RPC (i.e. just the trailers and status), fail the initial
-      // metadata and trailers.
+      // metadata and status.
       self.initialMetadataPromise.fail(status)
       self.responsePromise.fail(status)
 
@@ -98,7 +98,7 @@ internal class StreamingResponseParts<Response> {
   private let eventLoop: EventLoop
 
   /// A callback for response messages.
-  private let responseCallback: (Response) -> Void
+  private var responseCallback: Optional<(Response) -> Void>
 
   /// Lazy promises for the status, initial-, and trailing-metadata.
   private var initialMetadataPromise: LazyEventLoopPromise<HPACKHeaders>
@@ -139,9 +139,13 @@ internal class StreamingResponseParts<Response> {
       self.initialMetadataPromise.succeed(metadata)
 
     case let .message(response):
-      self.responseCallback(response)
+      self.responseCallback?(response)
 
     case let .end(status, trailers):
+      // Once the stream has finished, we must release the callback, to make sure don't
+      // break potential retain cycles (the callback may reference other object's that in
+      // turn reference `StreamingResponseParts`).
+      self.responseCallback = nil
       self.initialMetadataPromise.fail(status)
       self.trailingMetadataPromise.succeed(trailers)
       self.statusPromise.succeed(status)
@@ -149,6 +153,12 @@ internal class StreamingResponseParts<Response> {
   }
 
   internal func handleError(_ error: Error) {
+    self.eventLoop.assertInEventLoop()
+
+    // Once the stream has finished, we must release the callback, to make sure don't
+    // break potential retain cycles (the callback may reference other object's that in
+    // turn reference `StreamingResponseParts`).
+    self.responseCallback = nil
     let withoutContext = error.removingContext()
     let status = withoutContext.makeGRPCStatus()
     self.initialMetadataPromise.fail(withoutContext)
@@ -190,3 +200,9 @@ extension Error {
     }
   }
 }
+
+#if compiler(>=5.6)
+// @unchecked is ok: all mutable state is accessed/modified from an appropriate event loop.
+extension UnaryResponseParts: @unchecked Sendable where Response: Sendable {}
+extension StreamingResponseParts: @unchecked Sendable where Response: Sendable {}
+#endif

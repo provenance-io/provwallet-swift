@@ -127,7 +127,7 @@ internal final class GRPCIdleHandler: ChannelInboundHandler {
 
     // Max concurrent streams changed.
     if let manager = self.mode.connectionManager,
-      let maxConcurrentStreams = operations.maxConcurrentStreamsChange {
+       let maxConcurrentStreams = operations.maxConcurrentStreamsChange {
       manager.maxConcurrentStreamsChanged(maxConcurrentStreams)
     }
 
@@ -153,12 +153,28 @@ internal final class GRPCIdleHandler: ChannelInboundHandler {
         streamID: .rootStream,
         payload: .goAway(lastStreamID: streamID, errorCode: .noError, opaqueData: nil)
       )
-      self.context?.writeAndFlush(self.wrapOutboundOut(goAwayFrame), promise: nil)
+
+      self.context?.write(self.wrapOutboundOut(goAwayFrame), promise: nil)
+
+      // We emit a ping after some GOAWAY frames.
+      if operations.shouldPingAfterGoAway {
+        let pingFrame = HTTP2Frame(
+          streamID: .rootStream,
+          payload: .ping(self.pingHandler.pingDataGoAway, ack: false)
+        )
+        self.context?.write(self.wrapOutboundOut(pingFrame), promise: nil)
+      }
+
+      self.context?.flush()
     }
 
     // Close the channel, if necessary.
-    if operations.shouldCloseChannel {
-      self.context?.close(mode: .all, promise: nil)
+    if operations.shouldCloseChannel, let context = self.context {
+      // Close on the next event-loop tick so we don't drop any events which are
+      // currently being processed.
+      context.eventLoop.execute {
+        context.close(mode: .all, promise: nil)
+      }
     }
   }
 
@@ -177,6 +193,9 @@ internal final class GRPCIdleHandler: ChannelInboundHandler {
     case let .reply(framePayload):
       let frame = HTTP2Frame(streamID: .rootStream, payload: framePayload)
       self.context?.writeAndFlush(self.wrapOutboundOut(frame), promise: nil)
+
+    case .ratchetDownLastSeenStreamID:
+      self.perform(operations: self.stateMachine.ratchetDownGoAwayStreamID())
     }
   }
 

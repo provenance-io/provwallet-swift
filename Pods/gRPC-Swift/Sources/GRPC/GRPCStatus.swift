@@ -13,18 +13,74 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import Foundation
 import NIOCore
 import NIOHTTP1
 import NIOHTTP2
 
 /// Encapsulates the result of a gRPC call.
-public struct GRPCStatus: Error {
-  /// The status message of the RPC.
-  public var message: String?
+public struct GRPCStatus: Error, GRPCSendable {
+  /// Storage for message/cause. In the happy case ('ok') there will not be a message or cause
+  /// and this will reference a static storage containing nil values. Making it optional makes the
+  /// setters for message and cause a little messy.
+  private var storage: Storage
 
   /// The status code of the RPC.
   public var code: Code
+
+  /// The status message of the RPC.
+  public var message: String? {
+    get {
+      return self.storage.message
+    }
+    set {
+      if isKnownUniquelyReferenced(&self.storage) {
+        self.storage.message = newValue
+      } else {
+        self.storage = .makeStorage(message: newValue, cause: self.storage.cause)
+      }
+    }
+  }
+
+  /// The cause of an error (not 'ok') status. This value is never transmitted over the wire and is
+  /// **not** included in equality checks.
+  public var cause: Error? {
+    get {
+      return self.storage.cause
+    }
+    set {
+      if isKnownUniquelyReferenced(&self.storage) {
+        self.storage.cause = newValue
+      } else {
+        self.storage = .makeStorage(message: self.storage.message, cause: newValue)
+      }
+    }
+  }
+
+  // Backing storage for 'message' and 'cause'.
+  fileprivate final class Storage {
+    // On many happy paths there will be no message or cause, so we'll use this shared reference
+    // instead of allocating a new storage each time.
+    //
+    // Alternatively: `GRPCStatus` could hold a storage optionally however doing so made the code
+    // quite unreadable.
+    private static let none = Storage(message: nil, cause: nil)
+
+    private init(message: String?, cause: Error?) {
+      self.message = message
+      self.cause = cause
+    }
+
+    fileprivate var message: Optional<String>
+    fileprivate var cause: Optional<Error>
+
+    fileprivate static func makeStorage(message: String?, cause: Error?) -> Storage {
+      if message == nil, cause == nil {
+        return Storage.none
+      } else {
+        return Storage(message: message, cause: cause)
+      }
+    }
+  }
 
   /// Whether the status is '.ok'.
   public var isOk: Bool {
@@ -32,8 +88,12 @@ public struct GRPCStatus: Error {
   }
 
   public init(code: Code, message: String?) {
+    self.init(code: code, message: message, cause: nil)
+  }
+
+  public init(code: Code, message: String? = nil, cause: Error? = nil) {
     self.code = code
-    self.message = message
+    self.storage = .makeStorage(message: message, cause: cause)
   }
 
   // Frequently used "default" statuses.
@@ -44,10 +104,15 @@ public struct GRPCStatus: Error {
   ///   status code. Use `GRPCStatus.isOk` or check the code directly.
   public static let ok = GRPCStatus(code: .ok, message: nil)
   /// "Internal server error" status.
-  public static let processingError = GRPCStatus(
-    code: .internalError,
-    message: "unknown error processing request"
-  )
+  public static let processingError = Self.processingError(cause: nil)
+
+  public static func processingError(cause: Error?) -> GRPCStatus {
+    return GRPCStatus(
+      code: .internalError,
+      message: "unknown error processing request",
+      cause: cause
+    )
+  }
 }
 
 extension GRPCStatus: Equatable {
@@ -58,18 +123,29 @@ extension GRPCStatus: Equatable {
 
 extension GRPCStatus: CustomStringConvertible {
   public var description: String {
-    if let message = message {
+    switch (self.message, self.cause) {
+    case let (.some(message), .some(cause)):
+      return "\(self.code): \(message), cause: \(cause)"
+    case let (.some(message), .none):
       return "\(self.code): \(message)"
-    } else {
+    case let (.none, .some(cause)):
+      return "\(self.code), cause: \(cause)"
+    case (.none, .none):
       return "\(self.code)"
     }
   }
 }
 
 extension GRPCStatus {
+  internal var testingOnly_storageObjectIdentifier: ObjectIdentifier {
+    return ObjectIdentifier(self.storage)
+  }
+}
+
+extension GRPCStatus {
   /// Status codes for gRPC operations (replicated from `status_code_enum.h` in the
   /// [gRPC core library](https://github.com/grpc/grpc)).
-  public struct Code: Hashable, CustomStringConvertible {
+  public struct Code: Hashable, CustomStringConvertible, GRPCSendable {
     // `rawValue` must be an `Int` for API reasons and we don't need (or want) to store anything so
     // wide, a `UInt8` is fine.
     private let _rawValue: UInt8
@@ -240,6 +316,12 @@ extension GRPCStatus {
   }
 }
 
+#if compiler(>=5.6)
+// `GRPCStatus` has CoW semantics so it is inherently `Sendable`. Rather than marking `GRPCStatus`
+// as `@unchecked Sendable` we only mark `Storage` as such.
+extension GRPCStatus.Storage: @unchecked Sendable {}
+#endif // compiler(>=5.6)
+
 /// This protocol serves as a customisation point for error types so that gRPC calls may be
 /// terminated with an appropriate status.
 public protocol GRPCStatusTransformable: Error {
@@ -257,13 +339,13 @@ extension GRPCStatus: GRPCStatusTransformable {
 
 extension NIOHTTP2Errors.StreamClosed: GRPCStatusTransformable {
   public func makeGRPCStatus() -> GRPCStatus {
-    return .init(code: .unavailable, message: self.localizedDescription)
+    return .init(code: .unavailable, message: self.localizedDescription, cause: self)
   }
 }
 
 extension NIOHTTP2Errors.IOOnClosedConnection: GRPCStatusTransformable {
   public func makeGRPCStatus() -> GRPCStatus {
-    return .init(code: .unavailable, message: "The connection is closed")
+    return .init(code: .unavailable, message: "The connection is closed", cause: self)
   }
 }
 
@@ -271,10 +353,12 @@ extension ChannelError: GRPCStatusTransformable {
   public func makeGRPCStatus() -> GRPCStatus {
     switch self {
     case .inputClosed, .outputClosed, .ioOnClosedChannel:
-      return .init(code: .unavailable, message: "The connection is closed")
+      return .init(code: .unavailable, message: "The connection is closed", cause: self)
 
     default:
-      return .processingError
+      var processingError = GRPCStatus.processingError
+      processingError.cause = self
+      return processingError
     }
   }
 }

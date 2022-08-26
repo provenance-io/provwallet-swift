@@ -17,7 +17,7 @@ import NIOHTTP1
 import NIOHPACK
 
 /// A representation of a single HTTP/2 frame.
-public struct HTTP2Frame {
+public struct HTTP2Frame: NIOSendable {
 
     /// The frame stream ID as a 32-bit integer.
     public var streamID: HTTP2StreamID
@@ -26,7 +26,7 @@ public struct HTTP2Frame {
     public var payload: FramePayload
 
     /// Stream priority data, used in PRIORITY frames and optionally in HEADERS frames.
-    public struct StreamPriorityData: Equatable, Hashable {
+    public struct StreamPriorityData: Equatable, Hashable, NIOSendable {
         public var exclusive: Bool
         public var dependency: HTTP2StreamID
         public var weight: UInt8
@@ -107,6 +107,9 @@ public struct HTTP2Frame {
         /// the locations at which they may be addressed.
         ///
         /// See [RFC 7838 § 4](https://tools.ietf.org/html/rfc7838#section-4).
+        ///
+        /// - Important: ALTSVC frames are not currently supported. Any received ALTSVC frames will
+        ///   be ignored. Attempting to send an ALTSVC frame will result in a fatal error.
         indirect case alternativeService(origin: String?, field: ByteBuffer?)
         
         /// An ORIGIN frame. This allows servers which allow access to multiple origins
@@ -114,6 +117,9 @@ public struct HTTP2Frame {
         /// this manner.
         ///
         /// See [RFC 8336 § 2](https://tools.ietf.org/html/rfc8336#section-2).
+        ///
+        /// - Important: ORIGIN frames are not currently supported. Any received ORIGIN frames will
+        ///   be ignored. Attempting to send an ORIGIN frame will result in a fatal error.
         case origin([String])
 
         /// The payload of a DATA frame.
@@ -150,7 +156,7 @@ public struct HTTP2Frame {
         }
 
         /// The payload of a HEADERS frame.
-        public struct Headers {
+        public struct Headers: NIOSendable {
             /// The decoded header block belonging to this HEADERS frame.
             public var headers: HPACKHeaders
 
@@ -187,7 +193,7 @@ public struct HTTP2Frame {
         }
 
         /// The payload of a SETTINGS frame.
-        public enum Settings {
+        public enum Settings: NIOSendable {
             /// This SETTINGS frame contains new SETTINGS.
             case settings(HTTP2Settings)
 
@@ -195,7 +201,7 @@ public struct HTTP2Frame {
             case ack
         }
 
-        public struct PushPromise {
+        public struct PushPromise: NIOSendable {
             /// The pushed stream ID.
             public var pushedStreamID: HTTP2StreamID
 
@@ -287,3 +293,13 @@ extension HTTP2Frame.FramePayload {
         }
     }
 }
+
+// The `@unchecked` is needed because at the time of writing `NIOCore` didn't have `Sendable` support.
+#if swift(>=5.5) && canImport(_Concurrency)
+extension HTTP2Frame.FramePayload: @unchecked Sendable {
+
+}
+extension HTTP2Frame.FramePayload.Data: @unchecked Sendable {
+
+}
+#endif

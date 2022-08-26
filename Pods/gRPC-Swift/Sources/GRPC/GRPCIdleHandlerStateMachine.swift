@@ -189,10 +189,17 @@ struct GRPCIdleHandlerStateMachine {
     /// Whether the channel should be closed.
     private(set) var shouldCloseChannel: Bool
 
+    /// Whether a ping should be sent after a GOAWAY frame.
+    private(set) var shouldPingAfterGoAway: Bool
+
     fileprivate static let none = Operations()
 
-    fileprivate mutating func sendGoAwayFrame(lastPeerInitiatedStreamID streamID: HTTP2StreamID) {
+    fileprivate mutating func sendGoAwayFrame(
+      lastPeerInitiatedStreamID streamID: HTTP2StreamID,
+      followWithPing: Bool = false
+    ) {
       self.sendGoAwayWithLastPeerInitiatedStreamID = streamID
+      self.shouldPingAfterGoAway = followWithPing
     }
 
     fileprivate mutating func cancelIdleTask(_ task: Scheduled<Void>) {
@@ -220,6 +227,7 @@ struct GRPCIdleHandlerStateMachine {
       self.idleTask = nil
       self.sendGoAwayWithLastPeerInitiatedStreamID = nil
       self.shouldCloseChannel = false
+      self.shouldPingAfterGoAway = false
     }
   }
 
@@ -266,9 +274,10 @@ struct GRPCIdleHandlerStateMachine {
       self.state = .operating(operating)
       operations.cancelIdleTask(state.idleTask)
 
-    case .quiescing:
-      // Streams can't be created if we're quiescing.
-      preconditionFailure()
+    case var .quiescing(state):
+      state.lastPeerInitiatedStreamID = streamID
+      state.openStreams += 1
+      self.state = .quiescing(state)
 
     case .closing, .closed:
       ()
@@ -397,19 +406,25 @@ struct GRPCIdleHandlerStateMachine {
 
     switch self.state {
     case let .operating(state):
-      // Send a GOAWAY frame.
-      operations.sendGoAwayFrame(lastPeerInitiatedStreamID: state.lastPeerInitiatedStreamID)
-
       if state.hasOpenStreams {
         // There are open streams: send a GOAWAY frame and wait for the stream count to reach zero.
         //
         // It's okay if we haven't seen a SETTINGS frame at this point; we've initiated the shutdown
         // so making a connection is ready isn't necessary.
         operations.notifyConnectionManager(about: .quiescing)
+
+        // TODO: we should ratchet down the last initiated stream after 1-RTT.
+        //
+        // As a client we will just stop initiating streams.
+        if state.role == .server {
+          operations.sendGoAwayFrame(lastPeerInitiatedStreamID: state.lastPeerInitiatedStreamID)
+        }
+
         self.state = .quiescing(.init(fromOperating: state, initiatedByUs: true))
       } else {
         // No open streams: send a GOAWAY frame and close the channel.
         self.state = .closing(.init(fromOperating: state))
+        operations.sendGoAwayFrame(lastPeerInitiatedStreamID: state.lastPeerInitiatedStreamID)
         operations.closeChannel()
       }
 
@@ -454,6 +469,18 @@ struct GRPCIdleHandlerStateMachine {
 
       if state.hasOpenStreams {
         operations.notifyConnectionManager(about: .quiescing)
+        switch state.role {
+        case .client:
+          // The server sent us a GOAWAY we'll just stop opening new streams and will send a GOAWAY
+          // frame before we close later.
+          ()
+        case .server:
+          // Client sent us a GOAWAY frame; we'll let the streams drain and then close. We'll tell
+          // the client that we're going away and send them a ping. When we receive the pong we will
+          // send another GOAWAY frame with a lower stream ID. In this case, the pong acts as an ack
+          // for the GOAWAY.
+          operations.sendGoAwayFrame(lastPeerInitiatedStreamID: .maxID, followWithPing: true)
+        }
         self.state = .quiescing(.init(fromOperating: state, initiatedByUs: false))
       } else {
         // No open streams, we can close as well.
@@ -476,6 +503,21 @@ struct GRPCIdleHandlerStateMachine {
 
     case .closing, .closed:
       // We're already closing/closed (so must have emitted a GOAWAY frame already). Ignore this.
+      ()
+    }
+
+    return operations
+  }
+
+  mutating func ratchetDownGoAwayStreamID() -> Operations {
+    var operations: Operations = .none
+
+    switch self.state {
+    case let .quiescing(state):
+      let streamID = state.lastPeerInitiatedStreamID
+      operations.sendGoAwayFrame(lastPeerInitiatedStreamID: streamID)
+    case .operating, .waitingToIdle, .closing, .closed:
+      // We can only need to ratchet down the stream ID if we're already quiescing.
       ()
     }
 

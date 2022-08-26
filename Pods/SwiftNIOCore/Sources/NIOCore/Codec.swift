@@ -38,7 +38,9 @@ public enum ByteToMessageDecoderError: Error {
 extension ByteToMessageDecoderError {
     // TODO: For NIO 3, make this an enum case (or whatever best way for Errors we have come up with).
     /// This error can be thrown by `ByteToMessageDecoder`s if the incoming payload is larger than the max specified.
-    public struct PayloadTooLargeError: Error {}
+    public struct PayloadTooLargeError: Error {
+        public init() {}
+    }
 }
 
 
@@ -365,7 +367,7 @@ private extension B2MDBuffer {
     }
 }
 
-/// A handler which turns a given `ByteToMessageDecoder` into a `ChannelInboundHandler` that can then be added to a
+/// A handler which turns a given `ByteToMessageDecoder` into a `ChannelInboundHandler` that can then be added to a
 /// `ChannelPipeline`.
 ///
 /// Most importantly, `ByteToMessageHandler` handles the tricky buffer management for you and flattens out all
@@ -738,7 +740,7 @@ extension ByteToMessageHandler: RemovableChannelHandler {
     }
 }
 
-/// A handler which turns a given `MessageToByteEncoder` into a `ChannelOutboundHandler` that can then be added to a
+/// A handler which turns a given `MessageToByteEncoder` into a `ChannelOutboundHandler` that can then be added to a
 /// `ChannelPipeline`.
 public final class MessageToByteHandler<Encoder: MessageToByteEncoder>: ChannelOutboundHandler {
     public typealias OutboundOut = ByteBuffer

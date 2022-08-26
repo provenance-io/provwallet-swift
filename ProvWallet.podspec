@@ -1,10 +1,10 @@
 Pod::Spec.new do |spec|
 
   spec.name         = "ProvWallet"
-  spec.version      = "0.0.11"
+  spec.version      = "0.0.12"
   spec.summary      = "Provenance Wallet and Client Library for Swift"
 
-  spec.swift_versions = "5.4"
+  spec.swift_versions = "5.5"
 
   spec.description  = <<-DESC
       provwallet-swift is a Swift framework to connect to the Provenance blockchain and create and utilize HD wallet (Hierarchical Deterministic Wallets) in apps using the Provenance blockchain.
@@ -32,9 +32,9 @@ Pod::Spec.new do |spec|
 
   spec.dependency "secp256k1.swift", "~> 0.1.4"
   spec.dependency "CryptoSwift", "~> 1.4.0"
-  spec.dependency "SwiftProtobuf", "~> 1.18.0"
-  spec.dependency "gRPC-Swift", "~> 1.4.0"
-  spec.dependency "gRPC-Swift-Plugins", "~> 1.4.0"
+  spec.dependency "SwiftProtobuf", "~> 1.19.1"
+  spec.dependency "gRPC-Swift", "~> 1.8.0"
+  spec.dependency "gRPC-Swift-Plugins", "~> 1.8.0"
 
   spec.pod_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.user_target_xcconfig = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
