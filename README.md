@@ -74,9 +74,6 @@ protoc --swift_opt=FileNaming=PathToUnderscores --swift_out=../ProtoGen \
     
 ## Deploying CocoaPod
                        
-> NOTE: Xcode 12.5 and Swift 5.4 are required to build this project.  Until SwiftNIO is updated for Swift 5.5 and
-> Xcode 13.0, Xcode 12 and the related command line tools must be used.
-
 The `ProvWallet.podspec` spec defines the CocoaPods pod specification for the
 `ProvWallet` CocoaPod. To build and deploy the `provwallet-swift` to the CocoaPods
 refer to the CocoaPods guide: https://guides.cocoapods.org/making/getting-setup-with-trunk.html
