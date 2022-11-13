@@ -20,6 +20,57 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+/// ResponseResultType defines the possible outcomes of the execution of a message
+public enum Ibc_Core_Channel_V1_ResponseResultType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+
+  /// Default zero value enumeration
+  case unspecified // = 0
+
+  /// The message did not call the IBC application callbacks (because, for example, the packet had already been relayed)
+  case noop // = 1
+
+  /// The message was executed successfully
+  case success // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .noop
+    case 2: self = .success
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .noop: return 1
+    case .success: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension Ibc_Core_Channel_V1_ResponseResultType: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [Ibc_Core_Channel_V1_ResponseResultType] = [
+    .unspecified,
+    .noop,
+    .success,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 /// MsgChannelOpenInit defines an sdk.Msg to initialize a channel handshake. It
 /// is called by a relayer on Chain A.
 public struct Ibc_Core_Channel_V1_MsgChannelOpenInit {
@@ -53,13 +104,18 @@ public struct Ibc_Core_Channel_V1_MsgChannelOpenInitResponse {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  public var channelID: String = String()
+
+  public var version: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 }
 
 /// MsgChannelOpenInit defines a msg sent by a Relayer to try to open a channel
-/// on Chain B.
+/// on Chain B. The version field within the Channel field has been deprecated. Its
+/// value will be ignored by core IBC.
 public struct Ibc_Core_Channel_V1_MsgChannelOpenTry {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -67,10 +123,10 @@ public struct Ibc_Core_Channel_V1_MsgChannelOpenTry {
 
   public var portID: String = String()
 
-  /// in the case of crossing hello's, when both chains call OpenInit, we need
-  /// the channel identifier of the previous channel in state INIT
+  /// Deprecated: this field is unused. Crossing hello's are no longer supported in core IBC.
   public var previousChannelID: String = String()
 
+  /// NOTE: the version field within the channel has been deprecated. Its value will be ignored by core IBC.
   public var channel: Ibc_Core_Channel_V1_Channel {
     get {return _channel ?? Ibc_Core_Channel_V1_Channel()}
     set {_channel = newValue}
@@ -108,6 +164,8 @@ public struct Ibc_Core_Channel_V1_MsgChannelOpenTryResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
+
+  public var version: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -317,6 +375,8 @@ public struct Ibc_Core_Channel_V1_MsgRecvPacketResponse {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  public var result: Ibc_Core_Channel_V1_ResponseResultType = .unspecified
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -365,6 +425,8 @@ public struct Ibc_Core_Channel_V1_MsgTimeoutResponse {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
+
+  public var result: Ibc_Core_Channel_V1_ResponseResultType = .unspecified
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -417,6 +479,8 @@ public struct Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  public var result: Ibc_Core_Channel_V1_ResponseResultType = .unspecified
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -466,6 +530,8 @@ public struct Ibc_Core_Channel_V1_MsgAcknowledgementResponse {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  public var result: Ibc_Core_Channel_V1_ResponseResultType = .unspecified
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -474,6 +540,14 @@ public struct Ibc_Core_Channel_V1_MsgAcknowledgementResponse {
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "ibc.core.channel.v1"
+
+extension Ibc_Core_Channel_V1_ResponseResultType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "RESPONSE_RESULT_TYPE_UNSPECIFIED"),
+    1: .same(proto: "RESPONSE_RESULT_TYPE_NOOP"),
+    2: .same(proto: "RESPONSE_RESULT_TYPE_SUCCESS"),
+  ]
+}
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenInit: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenInit"
@@ -521,18 +595,37 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenInit: SwiftProtobuf.Message, SwiftPr
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenInitResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenInitResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "channel_id"),
+    2: .same(proto: "version"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.channelID) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.version) }()
+      default: break
+      }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.channelID.isEmpty {
+      try visitor.visitSingularStringField(value: self.channelID, fieldNumber: 1)
+    }
+    if !self.version.isEmpty {
+      try visitor.visitSingularStringField(value: self.version, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenInitResponse, rhs: Ibc_Core_Channel_V1_MsgChannelOpenInitResponse) -> Bool {
+    if lhs.channelID != rhs.channelID {return false}
+    if lhs.version != rhs.version {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -608,18 +701,31 @@ extension Ibc_Core_Channel_V1_MsgChannelOpenTry: SwiftProtobuf.Message, SwiftPro
 
 extension Ibc_Core_Channel_V1_MsgChannelOpenTryResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MsgChannelOpenTryResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "version"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.version) }()
+      default: break
+      }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.version.isEmpty {
+      try visitor.visitSingularStringField(value: self.version, fieldNumber: 1)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Ibc_Core_Channel_V1_MsgChannelOpenTryResponse, rhs: Ibc_Core_Channel_V1_MsgChannelOpenTryResponse) -> Bool {
+    if lhs.version != rhs.version {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -977,18 +1083,31 @@ extension Ibc_Core_Channel_V1_MsgRecvPacket: SwiftProtobuf.Message, SwiftProtobu
 
 extension Ibc_Core_Channel_V1_MsgRecvPacketResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MsgRecvPacketResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "result"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.result) }()
+      default: break
+      }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.result != .unspecified {
+      try visitor.visitSingularEnumField(value: self.result, fieldNumber: 1)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Ibc_Core_Channel_V1_MsgRecvPacketResponse, rhs: Ibc_Core_Channel_V1_MsgRecvPacketResponse) -> Bool {
+    if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1052,18 +1171,31 @@ extension Ibc_Core_Channel_V1_MsgTimeout: SwiftProtobuf.Message, SwiftProtobuf._
 
 extension Ibc_Core_Channel_V1_MsgTimeoutResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MsgTimeoutResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "result"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.result) }()
+      default: break
+      }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.result != .unspecified {
+      try visitor.visitSingularEnumField(value: self.result, fieldNumber: 1)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Ibc_Core_Channel_V1_MsgTimeoutResponse, rhs: Ibc_Core_Channel_V1_MsgTimeoutResponse) -> Bool {
+    if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1133,18 +1265,31 @@ extension Ibc_Core_Channel_V1_MsgTimeoutOnClose: SwiftProtobuf.Message, SwiftPro
 
 extension Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MsgTimeoutOnCloseResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "result"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.result) }()
+      default: break
+      }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.result != .unspecified {
+      try visitor.visitSingularEnumField(value: self.result, fieldNumber: 1)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse, rhs: Ibc_Core_Channel_V1_MsgTimeoutOnCloseResponse) -> Bool {
+    if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1208,18 +1353,31 @@ extension Ibc_Core_Channel_V1_MsgAcknowledgement: SwiftProtobuf.Message, SwiftPr
 
 extension Ibc_Core_Channel_V1_MsgAcknowledgementResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   public static let protoMessageName: String = _protobuf_package + ".MsgAcknowledgementResponse"
-  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "result"),
+  ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let _ = try decoder.nextFieldNumber() {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularEnumField(value: &self.result) }()
+      default: break
+      }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.result != .unspecified {
+      try visitor.visitSingularEnumField(value: self.result, fieldNumber: 1)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Ibc_Core_Channel_V1_MsgAcknowledgementResponse, rhs: Ibc_Core_Channel_V1_MsgAcknowledgementResponse) -> Bool {
+    if lhs.result != rhs.result {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

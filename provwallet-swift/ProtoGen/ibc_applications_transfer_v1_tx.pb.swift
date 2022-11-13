@@ -61,7 +61,7 @@ public struct Ibc_Applications_Transfer_V1_MsgTransfer {
   /// Clears the value of `timeoutHeight`. Subsequent reads from it will return its default value.
   public mutating func clearTimeoutHeight() {self._timeoutHeight = nil}
 
-  /// Timeout timestamp (in nanoseconds) relative to the current block timestamp.
+  /// Timeout timestamp in absolute nanoseconds since unix epoch.
   /// The timeout is disabled when set to 0.
   public var timeoutTimestamp: UInt64 = 0
 

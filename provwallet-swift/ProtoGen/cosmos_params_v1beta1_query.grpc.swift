@@ -36,6 +36,11 @@ internal protocol Cosmos_Params_V1beta1_QueryClientProtocol: GRPCClient {
     _ request: Cosmos_Params_V1beta1_QueryParamsRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmos_Params_V1beta1_QueryParamsRequest, Cosmos_Params_V1beta1_QueryParamsResponse>
+
+  func subspaces(
+    _ request: Cosmos_Params_V1beta1_QuerySubspacesRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Params_V1beta1_QuerySubspacesRequest, Cosmos_Params_V1beta1_QuerySubspacesResponse>
 }
 
 extension Cosmos_Params_V1beta1_QueryClientProtocol {
@@ -61,12 +66,35 @@ extension Cosmos_Params_V1beta1_QueryClientProtocol {
       interceptors: self.interceptors?.makeParamsInterceptors() ?? []
     )
   }
+
+  /// Subspaces queries for all registered subspaces and all keys for a subspace.
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to Subspaces.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func subspaces(
+    _ request: Cosmos_Params_V1beta1_QuerySubspacesRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Params_V1beta1_QuerySubspacesRequest, Cosmos_Params_V1beta1_QuerySubspacesResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.params.v1beta1.Query/Subspaces",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeSubspacesInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmos_Params_V1beta1_QueryClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'params'.
   func makeParamsInterceptors() -> [ClientInterceptor<Cosmos_Params_V1beta1_QueryParamsRequest, Cosmos_Params_V1beta1_QueryParamsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'subspaces'.
+  func makeSubspacesInterceptors() -> [ClientInterceptor<Cosmos_Params_V1beta1_QuerySubspacesRequest, Cosmos_Params_V1beta1_QuerySubspacesResponse>]
 }
 
 internal final class Cosmos_Params_V1beta1_QueryClient: Cosmos_Params_V1beta1_QueryClientProtocol {

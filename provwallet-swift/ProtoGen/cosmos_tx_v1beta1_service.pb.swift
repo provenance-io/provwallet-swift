@@ -141,7 +141,8 @@ public struct Cosmos_Tx_V1beta1_GetTxsEventRequest {
   /// events is the list of transaction event type.
   public var events: [String] = []
 
-  /// pagination defines an pagination for the request.
+  /// pagination defines a pagination for the request.
+  /// Deprecated post v0.46.x: use page and limit instead.
   public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
     set {_pagination = newValue}
@@ -152,6 +153,13 @@ public struct Cosmos_Tx_V1beta1_GetTxsEventRequest {
   public mutating func clearPagination() {self._pagination = nil}
 
   public var orderBy: Cosmos_Tx_V1beta1_OrderBy = .unspecified
+
+  /// page is the page number to query, starts at 1. If not provided, will default to first page.
+  public var page: UInt64 = 0
+
+  /// limit is the total number of results to be returned in the result page.
+  /// If left empty it will default to a value to be set by each app.
+  public var limit: UInt64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -173,7 +181,8 @@ public struct Cosmos_Tx_V1beta1_GetTxsEventResponse {
   /// tx_responses is the list of queried TxResponses.
   public var txResponses: [Cosmos_Base_Abci_V1beta1_TxResponse] = []
 
-  /// pagination defines an pagination for the response.
+  /// pagination defines a pagination for the response.
+  /// Deprecated post v0.46.x: use total instead.
   public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
     get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
     set {_pagination = newValue}
@@ -182,6 +191,9 @@ public struct Cosmos_Tx_V1beta1_GetTxsEventResponse {
   public var hasPagination: Bool {return self._pagination != nil}
   /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
   public mutating func clearPagination() {self._pagination = nil}
+
+  /// total is total number of results available
+  public var total: UInt64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -344,6 +356,83 @@ public struct Cosmos_Tx_V1beta1_GetTxResponse {
   fileprivate var _storage = _StorageClass.defaultInstance
 }
 
+/// GetBlockWithTxsRequest is the request type for the Service.GetBlockWithTxs
+/// RPC method.
+///
+/// Since: cosmos-sdk 0.45.2
+public struct Cosmos_Tx_V1beta1_GetBlockWithTxsRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// height is the height of the block to query.
+  public var height: Int64 = 0
+
+  /// pagination defines a pagination for the request.
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+    get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
+    set {_pagination = newValue}
+  }
+  /// Returns true if `pagination` has been explicitly set.
+  public var hasPagination: Bool {return self._pagination != nil}
+  /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
+  public mutating func clearPagination() {self._pagination = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
+}
+
+/// GetBlockWithTxsResponse is the response type for the Service.GetBlockWithTxs method.
+///
+/// Since: cosmos-sdk 0.45.2
+public struct Cosmos_Tx_V1beta1_GetBlockWithTxsResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// txs are the transactions in the block.
+  public var txs: [Cosmos_Tx_V1beta1_Tx] = []
+
+  public var blockID: Tendermint_Types_BlockID {
+    get {return _blockID ?? Tendermint_Types_BlockID()}
+    set {_blockID = newValue}
+  }
+  /// Returns true if `blockID` has been explicitly set.
+  public var hasBlockID: Bool {return self._blockID != nil}
+  /// Clears the value of `blockID`. Subsequent reads from it will return its default value.
+  public mutating func clearBlockID() {self._blockID = nil}
+
+  public var block: Tendermint_Types_Block {
+    get {return _block ?? Tendermint_Types_Block()}
+    set {_block = newValue}
+  }
+  /// Returns true if `block` has been explicitly set.
+  public var hasBlock: Bool {return self._block != nil}
+  /// Clears the value of `block`. Subsequent reads from it will return its default value.
+  public mutating func clearBlock() {self._block = nil}
+
+  /// pagination defines a pagination for the response.
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+    get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
+    set {_pagination = newValue}
+  }
+  /// Returns true if `pagination` has been explicitly set.
+  public var hasPagination: Bool {return self._pagination != nil}
+  /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
+  public mutating func clearPagination() {self._pagination = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _blockID: Tendermint_Types_BlockID? = nil
+  fileprivate var _block: Tendermint_Types_Block? = nil
+  fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "cosmos.tx.v1beta1"
@@ -371,6 +460,8 @@ extension Cosmos_Tx_V1beta1_GetTxsEventRequest: SwiftProtobuf.Message, SwiftProt
     1: .same(proto: "events"),
     2: .same(proto: "pagination"),
     3: .standard(proto: "order_by"),
+    4: .same(proto: "page"),
+    5: .same(proto: "limit"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -382,6 +473,8 @@ extension Cosmos_Tx_V1beta1_GetTxsEventRequest: SwiftProtobuf.Message, SwiftProt
       case 1: try { try decoder.decodeRepeatedStringField(value: &self.events) }()
       case 2: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
       case 3: try { try decoder.decodeSingularEnumField(value: &self.orderBy) }()
+      case 4: try { try decoder.decodeSingularUInt64Field(value: &self.page) }()
+      case 5: try { try decoder.decodeSingularUInt64Field(value: &self.limit) }()
       default: break
       }
     }
@@ -397,6 +490,12 @@ extension Cosmos_Tx_V1beta1_GetTxsEventRequest: SwiftProtobuf.Message, SwiftProt
     if self.orderBy != .unspecified {
       try visitor.visitSingularEnumField(value: self.orderBy, fieldNumber: 3)
     }
+    if self.page != 0 {
+      try visitor.visitSingularUInt64Field(value: self.page, fieldNumber: 4)
+    }
+    if self.limit != 0 {
+      try visitor.visitSingularUInt64Field(value: self.limit, fieldNumber: 5)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -404,6 +503,8 @@ extension Cosmos_Tx_V1beta1_GetTxsEventRequest: SwiftProtobuf.Message, SwiftProt
     if lhs.events != rhs.events {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.orderBy != rhs.orderBy {return false}
+    if lhs.page != rhs.page {return false}
+    if lhs.limit != rhs.limit {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -415,6 +516,7 @@ extension Cosmos_Tx_V1beta1_GetTxsEventResponse: SwiftProtobuf.Message, SwiftPro
     1: .same(proto: "txs"),
     2: .standard(proto: "tx_responses"),
     3: .same(proto: "pagination"),
+    4: .same(proto: "total"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -426,6 +528,7 @@ extension Cosmos_Tx_V1beta1_GetTxsEventResponse: SwiftProtobuf.Message, SwiftPro
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.txs) }()
       case 2: try { try decoder.decodeRepeatedMessageField(value: &self.txResponses) }()
       case 3: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      case 4: try { try decoder.decodeSingularUInt64Field(value: &self.total) }()
       default: break
       }
     }
@@ -441,6 +544,9 @@ extension Cosmos_Tx_V1beta1_GetTxsEventResponse: SwiftProtobuf.Message, SwiftPro
     if let v = self._pagination {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
     }
+    if self.total != 0 {
+      try visitor.visitSingularUInt64Field(value: self.total, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -448,6 +554,7 @@ extension Cosmos_Tx_V1beta1_GetTxsEventResponse: SwiftProtobuf.Message, SwiftPro
     if lhs.txs != rhs.txs {return false}
     if lhs.txResponses != rhs.txResponses {return false}
     if lhs._pagination != rhs._pagination {return false}
+    if lhs.total != rhs.total {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -698,6 +805,94 @@ extension Cosmos_Tx_V1beta1_GetTxResponse: SwiftProtobuf.Message, SwiftProtobuf.
       }
       if !storagesAreEqual {return false}
     }
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Tx_V1beta1_GetBlockWithTxsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetBlockWithTxsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "height"),
+    2: .same(proto: "pagination"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularInt64Field(value: &self.height) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.height != 0 {
+      try visitor.visitSingularInt64Field(value: self.height, fieldNumber: 1)
+    }
+    if let v = self._pagination {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Tx_V1beta1_GetBlockWithTxsRequest, rhs: Cosmos_Tx_V1beta1_GetBlockWithTxsRequest) -> Bool {
+    if lhs.height != rhs.height {return false}
+    if lhs._pagination != rhs._pagination {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Tx_V1beta1_GetBlockWithTxsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".GetBlockWithTxsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "txs"),
+    2: .standard(proto: "block_id"),
+    3: .same(proto: "block"),
+    4: .same(proto: "pagination"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.txs) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._blockID) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._block) }()
+      case 4: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.txs.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.txs, fieldNumber: 1)
+    }
+    if let v = self._blockID {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    if let v = self._block {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }
+    if let v = self._pagination {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Tx_V1beta1_GetBlockWithTxsResponse, rhs: Cosmos_Tx_V1beta1_GetBlockWithTxsResponse) -> Bool {
+    if lhs.txs != rhs.txs {return false}
+    if lhs._blockID != rhs._blockID {return false}
+    if lhs._block != rhs._block {return false}
+    if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

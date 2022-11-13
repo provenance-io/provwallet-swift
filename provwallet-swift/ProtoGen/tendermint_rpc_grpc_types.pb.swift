@@ -58,29 +58,28 @@ public struct Tendermint_Rpc_Grpc_ResponseBroadcastTx {
   // methods supported on all messages.
 
   public var checkTx: Tendermint_Abci_ResponseCheckTx {
-    get {return _checkTx ?? Tendermint_Abci_ResponseCheckTx()}
-    set {_checkTx = newValue}
+    get {return _storage._checkTx ?? Tendermint_Abci_ResponseCheckTx()}
+    set {_uniqueStorage()._checkTx = newValue}
   }
   /// Returns true if `checkTx` has been explicitly set.
-  public var hasCheckTx: Bool {return self._checkTx != nil}
+  public var hasCheckTx: Bool {return _storage._checkTx != nil}
   /// Clears the value of `checkTx`. Subsequent reads from it will return its default value.
-  public mutating func clearCheckTx() {self._checkTx = nil}
+  public mutating func clearCheckTx() {_uniqueStorage()._checkTx = nil}
 
   public var deliverTx: Tendermint_Abci_ResponseDeliverTx {
-    get {return _deliverTx ?? Tendermint_Abci_ResponseDeliverTx()}
-    set {_deliverTx = newValue}
+    get {return _storage._deliverTx ?? Tendermint_Abci_ResponseDeliverTx()}
+    set {_uniqueStorage()._deliverTx = newValue}
   }
   /// Returns true if `deliverTx` has been explicitly set.
-  public var hasDeliverTx: Bool {return self._deliverTx != nil}
+  public var hasDeliverTx: Bool {return _storage._deliverTx != nil}
   /// Clears the value of `deliverTx`. Subsequent reads from it will return its default value.
-  public mutating func clearDeliverTx() {self._deliverTx = nil}
+  public mutating func clearDeliverTx() {_uniqueStorage()._deliverTx = nil}
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
-  fileprivate var _checkTx: Tendermint_Abci_ResponseCheckTx? = nil
-  fileprivate var _deliverTx: Tendermint_Abci_ResponseDeliverTx? = nil
+  fileprivate var _storage = _StorageClass.defaultInstance
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -164,32 +163,66 @@ extension Tendermint_Rpc_Grpc_ResponseBroadcastTx: SwiftProtobuf.Message, SwiftP
     2: .standard(proto: "deliver_tx"),
   ]
 
+  fileprivate class _StorageClass {
+    var _checkTx: Tendermint_Abci_ResponseCheckTx? = nil
+    var _deliverTx: Tendermint_Abci_ResponseDeliverTx? = nil
+
+    static let defaultInstance = _StorageClass()
+
+    private init() {}
+
+    init(copying source: _StorageClass) {
+      _checkTx = source._checkTx
+      _deliverTx = source._deliverTx
+    }
+  }
+
+  fileprivate mutating func _uniqueStorage() -> _StorageClass {
+    if !isKnownUniquelyReferenced(&_storage) {
+      _storage = _StorageClass(copying: _storage)
+    }
+    return _storage
+  }
+
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
-    while let fieldNumber = try decoder.nextFieldNumber() {
-      // The use of inline closures is to circumvent an issue where the compiler
-      // allocates stack space for every case branch when no optimizations are
-      // enabled. https://github.com/apple/swift-protobuf/issues/1034
-      switch fieldNumber {
-      case 1: try { try decoder.decodeSingularMessageField(value: &self._checkTx) }()
-      case 2: try { try decoder.decodeSingularMessageField(value: &self._deliverTx) }()
-      default: break
+    _ = _uniqueStorage()
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      while let fieldNumber = try decoder.nextFieldNumber() {
+        // The use of inline closures is to circumvent an issue where the compiler
+        // allocates stack space for every case branch when no optimizations are
+        // enabled. https://github.com/apple/swift-protobuf/issues/1034
+        switch fieldNumber {
+        case 1: try { try decoder.decodeSingularMessageField(value: &_storage._checkTx) }()
+        case 2: try { try decoder.decodeSingularMessageField(value: &_storage._deliverTx) }()
+        default: break
+        }
       }
     }
   }
 
   public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
-    if let v = self._checkTx {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
-    }
-    if let v = self._deliverTx {
-      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    try withExtendedLifetime(_storage) { (_storage: _StorageClass) in
+      if let v = _storage._checkTx {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+      }
+      if let v = _storage._deliverTx {
+        try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+      }
     }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Tendermint_Rpc_Grpc_ResponseBroadcastTx, rhs: Tendermint_Rpc_Grpc_ResponseBroadcastTx) -> Bool {
-    if lhs._checkTx != rhs._checkTx {return false}
-    if lhs._deliverTx != rhs._deliverTx {return false}
+    if lhs._storage !== rhs._storage {
+      let storagesAreEqual: Bool = withExtendedLifetime((lhs._storage, rhs._storage)) { (_args: (_StorageClass, _StorageClass)) in
+        let _storage = _args.0
+        let rhs_storage = _args.1
+        if _storage._checkTx != rhs_storage._checkTx {return false}
+        if _storage._deliverTx != rhs_storage._deliverTx {return false}
+        return true
+      }
+      if !storagesAreEqual {return false}
+    }
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

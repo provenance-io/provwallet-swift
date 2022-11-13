@@ -42,6 +42,11 @@ internal protocol Cosmwasm_Wasm_V1_MsgClientProtocol: GRPCClient {
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmwasm_Wasm_V1_MsgInstantiateContract, Cosmwasm_Wasm_V1_MsgInstantiateContractResponse>
 
+  func instantiateContract2(
+    _ request: Cosmwasm_Wasm_V1_MsgInstantiateContract2,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmwasm_Wasm_V1_MsgInstantiateContract2, Cosmwasm_Wasm_V1_MsgInstantiateContract2Response>
+
   func executeContract(
     _ request: Cosmwasm_Wasm_V1_MsgExecuteContract,
     callOptions: CallOptions?
@@ -86,7 +91,8 @@ extension Cosmwasm_Wasm_V1_MsgClientProtocol {
     )
   }
 
-  ///  Instantiate creates a new smart contract instance for the given code id.
+  ///  InstantiateContract creates a new smart contract instance for the given
+  ///  code id.
   ///
   /// - Parameters:
   ///   - request: Request to send to InstantiateContract.
@@ -101,6 +107,25 @@ extension Cosmwasm_Wasm_V1_MsgClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeInstantiateContractInterceptors() ?? []
+    )
+  }
+
+  ///  InstantiateContract2 creates a new smart contract instance for the given
+  ///  code id with a predictable address
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to InstantiateContract2.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func instantiateContract2(
+    _ request: Cosmwasm_Wasm_V1_MsgInstantiateContract2,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmwasm_Wasm_V1_MsgInstantiateContract2, Cosmwasm_Wasm_V1_MsgInstantiateContract2Response> {
+    return self.makeUnaryCall(
+      path: "/cosmwasm.wasm.v1.Msg/InstantiateContract2",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeInstantiateContract2Interceptors() ?? []
     )
   }
 
@@ -184,6 +209,9 @@ internal protocol Cosmwasm_Wasm_V1_MsgClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'instantiateContract'.
   func makeInstantiateContractInterceptors() -> [ClientInterceptor<Cosmwasm_Wasm_V1_MsgInstantiateContract, Cosmwasm_Wasm_V1_MsgInstantiateContractResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'instantiateContract2'.
+  func makeInstantiateContract2Interceptors() -> [ClientInterceptor<Cosmwasm_Wasm_V1_MsgInstantiateContract2, Cosmwasm_Wasm_V1_MsgInstantiateContract2Response>]
 
   /// - Returns: Interceptors to use when invoking 'executeContract'.
   func makeExecuteContractInterceptors() -> [ClientInterceptor<Cosmwasm_Wasm_V1_MsgExecuteContract, Cosmwasm_Wasm_V1_MsgExecuteContractResponse>]

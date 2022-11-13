@@ -104,6 +104,29 @@ public struct Tendermint_State_ConsensusParamsInfo {
   fileprivate var _consensusParams: Tendermint_Types_ConsensusParams? = nil
 }
 
+public struct Tendermint_State_ABCIResponsesInfo {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var abciResponses: Tendermint_State_ABCIResponses {
+    get {return _abciResponses ?? Tendermint_State_ABCIResponses()}
+    set {_abciResponses = newValue}
+  }
+  /// Returns true if `abciResponses` has been explicitly set.
+  public var hasAbciResponses: Bool {return self._abciResponses != nil}
+  /// Clears the value of `abciResponses`. Subsequent reads from it will return its default value.
+  public mutating func clearAbciResponses() {self._abciResponses = nil}
+
+  public var height: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _abciResponses: Tendermint_State_ABCIResponses? = nil
+}
+
 public struct Tendermint_State_Version {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -368,6 +391,44 @@ extension Tendermint_State_ConsensusParamsInfo: SwiftProtobuf.Message, SwiftProt
   public static func ==(lhs: Tendermint_State_ConsensusParamsInfo, rhs: Tendermint_State_ConsensusParamsInfo) -> Bool {
     if lhs._consensusParams != rhs._consensusParams {return false}
     if lhs.lastHeightChanged != rhs.lastHeightChanged {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Tendermint_State_ABCIResponsesInfo: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ABCIResponsesInfo"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "abci_responses"),
+    2: .same(proto: "height"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._abciResponses) }()
+      case 2: try { try decoder.decodeSingularInt64Field(value: &self.height) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._abciResponses {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }
+    if self.height != 0 {
+      try visitor.visitSingularInt64Field(value: self.height, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Tendermint_State_ABCIResponsesInfo, rhs: Tendermint_State_ABCIResponsesInfo) -> Bool {
+    if lhs._abciResponses != rhs._abciResponses {return false}
+    if lhs.height != rhs.height {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

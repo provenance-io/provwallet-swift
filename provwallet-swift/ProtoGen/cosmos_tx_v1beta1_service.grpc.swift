@@ -51,6 +51,11 @@ internal protocol Cosmos_Tx_V1beta1_ServiceClientProtocol: GRPCClient {
     _ request: Cosmos_Tx_V1beta1_GetTxsEventRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmos_Tx_V1beta1_GetTxsEventRequest, Cosmos_Tx_V1beta1_GetTxsEventResponse>
+
+  func getBlockWithTxs(
+    _ request: Cosmos_Tx_V1beta1_GetBlockWithTxsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Tx_V1beta1_GetBlockWithTxsRequest, Cosmos_Tx_V1beta1_GetBlockWithTxsResponse>
 }
 
 extension Cosmos_Tx_V1beta1_ServiceClientProtocol {
@@ -129,6 +134,26 @@ extension Cosmos_Tx_V1beta1_ServiceClientProtocol {
       interceptors: self.interceptors?.makeGetTxsEventInterceptors() ?? []
     )
   }
+
+  /// GetBlockWithTxs fetches a block with decoded txs.
+  ///
+  /// Since: cosmos-sdk 0.45.2
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GetBlockWithTxs.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func getBlockWithTxs(
+    _ request: Cosmos_Tx_V1beta1_GetBlockWithTxsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Tx_V1beta1_GetBlockWithTxsRequest, Cosmos_Tx_V1beta1_GetBlockWithTxsResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.tx.v1beta1.Service/GetBlockWithTxs",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGetBlockWithTxsInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmos_Tx_V1beta1_ServiceClientInterceptorFactoryProtocol {
@@ -144,6 +169,9 @@ internal protocol Cosmos_Tx_V1beta1_ServiceClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'getTxsEvent'.
   func makeGetTxsEventInterceptors() -> [ClientInterceptor<Cosmos_Tx_V1beta1_GetTxsEventRequest, Cosmos_Tx_V1beta1_GetTxsEventResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'getBlockWithTxs'.
+  func makeGetBlockWithTxsInterceptors() -> [ClientInterceptor<Cosmos_Tx_V1beta1_GetBlockWithTxsRequest, Cosmos_Tx_V1beta1_GetBlockWithTxsResponse>]
 }
 
 internal final class Cosmos_Tx_V1beta1_ServiceClient: Cosmos_Tx_V1beta1_ServiceClientProtocol {

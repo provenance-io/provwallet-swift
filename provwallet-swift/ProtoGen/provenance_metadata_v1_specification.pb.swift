@@ -108,6 +108,12 @@ public enum Provenance_Metadata_V1_PartyType: SwiftProtobuf.Enum {
 
   /// PARTY_TYPE_PROVENANCE is used to indicate this party represents the blockchain or a smart contract action
   case provenance // = 8
+
+  /// PARTY_TYPE_CONTROLLER is an entity which controls a specific asset on chain (ie enote)
+  case controller // = 10
+
+  /// PARTY_TYPE_VALIDATOR is an entity which validates given assets on chain
+  case validator // = 11
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -125,6 +131,8 @@ public enum Provenance_Metadata_V1_PartyType: SwiftProtobuf.Enum {
     case 6: self = .affiliate
     case 7: self = .omnibus
     case 8: self = .provenance
+    case 10: self = .controller
+    case 11: self = .validator
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -140,6 +148,8 @@ public enum Provenance_Metadata_V1_PartyType: SwiftProtobuf.Enum {
     case .affiliate: return 6
     case .omnibus: return 7
     case .provenance: return 8
+    case .controller: return 10
+    case .validator: return 11
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -160,6 +170,8 @@ extension Provenance_Metadata_V1_PartyType: CaseIterable {
     .affiliate,
     .omnibus,
     .provenance,
+    .controller,
+    .validator,
   ]
 }
 
@@ -427,6 +439,8 @@ extension Provenance_Metadata_V1_PartyType: SwiftProtobuf._ProtoNameProviding {
     6: .same(proto: "PARTY_TYPE_AFFILIATE"),
     7: .same(proto: "PARTY_TYPE_OMNIBUS"),
     8: .same(proto: "PARTY_TYPE_PROVENANCE"),
+    10: .same(proto: "PARTY_TYPE_CONTROLLER"),
+    11: .same(proto: "PARTY_TYPE_VALIDATOR"),
   ]
 }
 

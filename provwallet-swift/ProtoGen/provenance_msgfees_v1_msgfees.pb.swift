@@ -36,6 +36,12 @@ public struct Provenance_Msgfees_V1_Params {
   /// Clears the value of `floorGasPrice`. Subsequent reads from it will return its default value.
   public mutating func clearFloorGasPrice() {self._floorGasPrice = nil}
 
+  /// total nhash per usd mil for converting usd to nhash
+  public var nhashPerUsdMil: UInt64 = 0
+
+  /// conversion fee denom is the denom usd is converted to
+  public var conversionFeeDenom: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -44,9 +50,11 @@ public struct Provenance_Msgfees_V1_Params {
 }
 
 /// MsgFee is the core of what gets stored on the blockchain
-/// it consists of two parts
+/// it consists of four parts
 /// 1. the msg type url, i.e. /cosmos.bank.v1beta1.MsgSend
 /// 2. minimum additional fees(can be of any denom)
+/// 3. optional recipient of fee based on `recipient_basis_points`
+/// 4. if recipient is declared they will recieve the basis points of the fee (0-10,000)
 public struct Provenance_Msgfees_V1_MsgFee {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -64,11 +72,49 @@ public struct Provenance_Msgfees_V1_MsgFee {
   /// Clears the value of `additionalFee`. Subsequent reads from it will return its default value.
   public mutating func clearAdditionalFee() {self._additionalFee = nil}
 
+  /// optional recipient address, the amount is split between recipient and fee module
+  public var recipient: String = String()
+
+  /// optional split of funds between the recipient and fee module defaults to 50:50,
+  public var recipientBasisPoints: UInt32 = 0
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
 
   fileprivate var _additionalFee: Cosmos_Base_V1beta1_Coin? = nil
+}
+
+/// EventMsgFee final event property for msg fee on type
+public struct Provenance_Msgfees_V1_EventMsgFee {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var msgType: String = String()
+
+  public var count: String = String()
+
+  public var total: String = String()
+
+  public var recipient: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// EventMsgFees event emitted with summary of msg fees
+public struct Provenance_Msgfees_V1_EventMsgFees {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var msgFees: [Provenance_Msgfees_V1_EventMsgFee] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -79,6 +125,8 @@ extension Provenance_Msgfees_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Me
   public static let protoMessageName: String = _protobuf_package + ".Params"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     2: .standard(proto: "floor_gas_price"),
+    3: .standard(proto: "nhash_per_usd_mil"),
+    4: .standard(proto: "conversion_fee_denom"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -88,6 +136,8 @@ extension Provenance_Msgfees_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Me
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 2: try { try decoder.decodeSingularMessageField(value: &self._floorGasPrice) }()
+      case 3: try { try decoder.decodeSingularUInt64Field(value: &self.nhashPerUsdMil) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.conversionFeeDenom) }()
       default: break
       }
     }
@@ -97,11 +147,19 @@ extension Provenance_Msgfees_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Me
     if let v = self._floorGasPrice {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }
+    if self.nhashPerUsdMil != 0 {
+      try visitor.visitSingularUInt64Field(value: self.nhashPerUsdMil, fieldNumber: 3)
+    }
+    if !self.conversionFeeDenom.isEmpty {
+      try visitor.visitSingularStringField(value: self.conversionFeeDenom, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Provenance_Msgfees_V1_Params, rhs: Provenance_Msgfees_V1_Params) -> Bool {
     if lhs._floorGasPrice != rhs._floorGasPrice {return false}
+    if lhs.nhashPerUsdMil != rhs.nhashPerUsdMil {return false}
+    if lhs.conversionFeeDenom != rhs.conversionFeeDenom {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -112,6 +170,8 @@ extension Provenance_Msgfees_V1_MsgFee: SwiftProtobuf.Message, SwiftProtobuf._Me
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "msg_type_url"),
     2: .standard(proto: "additional_fee"),
+    3: .same(proto: "recipient"),
+    4: .standard(proto: "recipient_basis_points"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -122,6 +182,8 @@ extension Provenance_Msgfees_V1_MsgFee: SwiftProtobuf.Message, SwiftProtobuf._Me
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.msgTypeURL) }()
       case 2: try { try decoder.decodeSingularMessageField(value: &self._additionalFee) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.recipient) }()
+      case 4: try { try decoder.decodeSingularUInt32Field(value: &self.recipientBasisPoints) }()
       default: break
       }
     }
@@ -134,12 +196,102 @@ extension Provenance_Msgfees_V1_MsgFee: SwiftProtobuf.Message, SwiftProtobuf._Me
     if let v = self._additionalFee {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
     }
+    if !self.recipient.isEmpty {
+      try visitor.visitSingularStringField(value: self.recipient, fieldNumber: 3)
+    }
+    if self.recipientBasisPoints != 0 {
+      try visitor.visitSingularUInt32Field(value: self.recipientBasisPoints, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Provenance_Msgfees_V1_MsgFee, rhs: Provenance_Msgfees_V1_MsgFee) -> Bool {
     if lhs.msgTypeURL != rhs.msgTypeURL {return false}
     if lhs._additionalFee != rhs._additionalFee {return false}
+    if lhs.recipient != rhs.recipient {return false}
+    if lhs.recipientBasisPoints != rhs.recipientBasisPoints {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Provenance_Msgfees_V1_EventMsgFee: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".EventMsgFee"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "msg_type"),
+    2: .same(proto: "count"),
+    3: .same(proto: "total"),
+    4: .same(proto: "recipient"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.msgType) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.count) }()
+      case 3: try { try decoder.decodeSingularStringField(value: &self.total) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.recipient) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.msgType.isEmpty {
+      try visitor.visitSingularStringField(value: self.msgType, fieldNumber: 1)
+    }
+    if !self.count.isEmpty {
+      try visitor.visitSingularStringField(value: self.count, fieldNumber: 2)
+    }
+    if !self.total.isEmpty {
+      try visitor.visitSingularStringField(value: self.total, fieldNumber: 3)
+    }
+    if !self.recipient.isEmpty {
+      try visitor.visitSingularStringField(value: self.recipient, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Provenance_Msgfees_V1_EventMsgFee, rhs: Provenance_Msgfees_V1_EventMsgFee) -> Bool {
+    if lhs.msgType != rhs.msgType {return false}
+    if lhs.count != rhs.count {return false}
+    if lhs.total != rhs.total {return false}
+    if lhs.recipient != rhs.recipient {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Provenance_Msgfees_V1_EventMsgFees: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".EventMsgFees"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "msg_fees"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.msgFees) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.msgFees.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.msgFees, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Provenance_Msgfees_V1_EventMsgFees, rhs: Provenance_Msgfees_V1_EventMsgFees) -> Bool {
+    if lhs.msgFees != rhs.msgFees {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

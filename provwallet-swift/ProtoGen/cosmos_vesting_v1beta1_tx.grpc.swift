@@ -36,6 +36,16 @@ internal protocol Cosmos_Vesting_V1beta1_MsgClientProtocol: GRPCClient {
     _ request: Cosmos_Vesting_V1beta1_MsgCreateVestingAccount,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmos_Vesting_V1beta1_MsgCreateVestingAccount, Cosmos_Vesting_V1beta1_MsgCreateVestingAccountResponse>
+
+  func createPermanentLockedAccount(
+    _ request: Cosmos_Vesting_V1beta1_MsgCreatePermanentLockedAccount,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Vesting_V1beta1_MsgCreatePermanentLockedAccount, Cosmos_Vesting_V1beta1_MsgCreatePermanentLockedAccountResponse>
+
+  func createPeriodicVestingAccount(
+    _ request: Cosmos_Vesting_V1beta1_MsgCreatePeriodicVestingAccount,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Vesting_V1beta1_MsgCreatePeriodicVestingAccount, Cosmos_Vesting_V1beta1_MsgCreatePeriodicVestingAccountResponse>
 }
 
 extension Cosmos_Vesting_V1beta1_MsgClientProtocol {
@@ -61,12 +71,60 @@ extension Cosmos_Vesting_V1beta1_MsgClientProtocol {
       interceptors: self.interceptors?.makeCreateVestingAccountInterceptors() ?? []
     )
   }
+
+  /// CreatePermanentLockedAccount defines a method that enables creating a permanent
+  /// locked account.
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CreatePermanentLockedAccount.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func createPermanentLockedAccount(
+    _ request: Cosmos_Vesting_V1beta1_MsgCreatePermanentLockedAccount,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Vesting_V1beta1_MsgCreatePermanentLockedAccount, Cosmos_Vesting_V1beta1_MsgCreatePermanentLockedAccountResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.vesting.v1beta1.Msg/CreatePermanentLockedAccount",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreatePermanentLockedAccountInterceptors() ?? []
+    )
+  }
+
+  /// CreatePeriodicVestingAccount defines a method that enables creating a
+  /// periodic vesting account.
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CreatePeriodicVestingAccount.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func createPeriodicVestingAccount(
+    _ request: Cosmos_Vesting_V1beta1_MsgCreatePeriodicVestingAccount,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Vesting_V1beta1_MsgCreatePeriodicVestingAccount, Cosmos_Vesting_V1beta1_MsgCreatePeriodicVestingAccountResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.vesting.v1beta1.Msg/CreatePeriodicVestingAccount",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCreatePeriodicVestingAccountInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmos_Vesting_V1beta1_MsgClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'createVestingAccount'.
   func makeCreateVestingAccountInterceptors() -> [ClientInterceptor<Cosmos_Vesting_V1beta1_MsgCreateVestingAccount, Cosmos_Vesting_V1beta1_MsgCreateVestingAccountResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'createPermanentLockedAccount'.
+  func makeCreatePermanentLockedAccountInterceptors() -> [ClientInterceptor<Cosmos_Vesting_V1beta1_MsgCreatePermanentLockedAccount, Cosmos_Vesting_V1beta1_MsgCreatePermanentLockedAccountResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'createPeriodicVestingAccount'.
+  func makeCreatePeriodicVestingAccountInterceptors() -> [ClientInterceptor<Cosmos_Vesting_V1beta1_MsgCreatePeriodicVestingAccount, Cosmos_Vesting_V1beta1_MsgCreatePeriodicVestingAccountResponse>]
 }
 
 internal final class Cosmos_Vesting_V1beta1_MsgClient: Cosmos_Vesting_V1beta1_MsgClientProtocol {

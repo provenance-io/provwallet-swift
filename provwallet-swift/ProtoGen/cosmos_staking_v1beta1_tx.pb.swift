@@ -270,6 +270,51 @@ public struct Cosmos_Staking_V1beta1_MsgUndelegateResponse {
   fileprivate var _completionTime: SwiftProtobuf.Google_Protobuf_Timestamp? = nil
 }
 
+/// MsgCancelUnbondingDelegation defines the SDK message for performing a cancel unbonding delegation for delegator
+///
+/// Since: cosmos-sdk 0.46
+public struct Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegation {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var delegatorAddress: String = String()
+
+  public var validatorAddress: String = String()
+
+  /// amount is always less than or equal to unbonding delegation entry balance
+  public var amount: Cosmos_Base_V1beta1_Coin {
+    get {return _amount ?? Cosmos_Base_V1beta1_Coin()}
+    set {_amount = newValue}
+  }
+  /// Returns true if `amount` has been explicitly set.
+  public var hasAmount: Bool {return self._amount != nil}
+  /// Clears the value of `amount`. Subsequent reads from it will return its default value.
+  public mutating func clearAmount() {self._amount = nil}
+
+  /// creation_height is the height which the unbonding took place.
+  public var creationHeight: Int64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _amount: Cosmos_Base_V1beta1_Coin? = nil
+}
+
+/// MsgCancelUnbondingDelegationResponse
+///
+/// Since: cosmos-sdk 0.46
+public struct Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegationResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "cosmos.staking.v1beta1"
@@ -646,6 +691,75 @@ extension Cosmos_Staking_V1beta1_MsgUndelegateResponse: SwiftProtobuf.Message, S
 
   public static func ==(lhs: Cosmos_Staking_V1beta1_MsgUndelegateResponse, rhs: Cosmos_Staking_V1beta1_MsgUndelegateResponse) -> Bool {
     if lhs._completionTime != rhs._completionTime {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegation: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MsgCancelUnbondingDelegation"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "delegator_address"),
+    2: .standard(proto: "validator_address"),
+    3: .same(proto: "amount"),
+    4: .standard(proto: "creation_height"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.delegatorAddress) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.validatorAddress) }()
+      case 3: try { try decoder.decodeSingularMessageField(value: &self._amount) }()
+      case 4: try { try decoder.decodeSingularInt64Field(value: &self.creationHeight) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.delegatorAddress.isEmpty {
+      try visitor.visitSingularStringField(value: self.delegatorAddress, fieldNumber: 1)
+    }
+    if !self.validatorAddress.isEmpty {
+      try visitor.visitSingularStringField(value: self.validatorAddress, fieldNumber: 2)
+    }
+    if let v = self._amount {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 3)
+    }
+    if self.creationHeight != 0 {
+      try visitor.visitSingularInt64Field(value: self.creationHeight, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegation, rhs: Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegation) -> Bool {
+    if lhs.delegatorAddress != rhs.delegatorAddress {return false}
+    if lhs.validatorAddress != rhs.validatorAddress {return false}
+    if lhs._amount != rhs._amount {return false}
+    if lhs.creationHeight != rhs.creationHeight {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegationResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".MsgCancelUnbondingDelegationResponse"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegationResponse, rhs: Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegationResponse) -> Bool {
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

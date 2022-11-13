@@ -243,6 +243,60 @@ public struct Ibc_Core_Client_V1_QueryConsensusStatesResponse {
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
+/// QueryConsensusStateHeightsRequest is the request type for Query/ConsensusStateHeights
+/// RPC method.
+public struct Ibc_Core_Client_V1_QueryConsensusStateHeightsRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// client identifier
+  public var clientID: String = String()
+
+  /// pagination request
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+    get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
+    set {_pagination = newValue}
+  }
+  /// Returns true if `pagination` has been explicitly set.
+  public var hasPagination: Bool {return self._pagination != nil}
+  /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
+  public mutating func clearPagination() {self._pagination = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
+}
+
+/// QueryConsensusStateHeightsResponse is the response type for the
+/// Query/ConsensusStateHeights RPC method
+public struct Ibc_Core_Client_V1_QueryConsensusStateHeightsResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// consensus state heights
+  public var consensusStateHeights: [Ibc_Core_Client_V1_Height] = []
+
+  /// pagination response
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+    get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
+    set {_pagination = newValue}
+  }
+  /// Returns true if `pagination` has been explicitly set.
+  public var hasPagination: Bool {return self._pagination != nil}
+  /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
+  public mutating func clearPagination() {self._pagination = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
+}
+
 /// QueryClientStatusRequest is the request type for the Query/ClientStatus RPC
 /// method
 public struct Ibc_Core_Client_V1_QueryClientStatusRequest {
@@ -694,6 +748,82 @@ extension Ibc_Core_Client_V1_QueryConsensusStatesResponse: SwiftProtobuf.Message
 
   public static func ==(lhs: Ibc_Core_Client_V1_QueryConsensusStatesResponse, rhs: Ibc_Core_Client_V1_QueryConsensusStatesResponse) -> Bool {
     if lhs.consensusStates != rhs.consensusStates {return false}
+    if lhs._pagination != rhs._pagination {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Ibc_Core_Client_V1_QueryConsensusStateHeightsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QueryConsensusStateHeightsRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "client_id"),
+    2: .same(proto: "pagination"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.clientID) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.clientID.isEmpty {
+      try visitor.visitSingularStringField(value: self.clientID, fieldNumber: 1)
+    }
+    if let v = self._pagination {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Ibc_Core_Client_V1_QueryConsensusStateHeightsRequest, rhs: Ibc_Core_Client_V1_QueryConsensusStateHeightsRequest) -> Bool {
+    if lhs.clientID != rhs.clientID {return false}
+    if lhs._pagination != rhs._pagination {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Ibc_Core_Client_V1_QueryConsensusStateHeightsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QueryConsensusStateHeightsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "consensus_state_heights"),
+    2: .same(proto: "pagination"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.consensusStateHeights) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.consensusStateHeights.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.consensusStateHeights, fieldNumber: 1)
+    }
+    if let v = self._pagination {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Ibc_Core_Client_V1_QueryConsensusStateHeightsResponse, rhs: Ibc_Core_Client_V1_QueryConsensusStateHeightsResponse) -> Bool {
+    if lhs.consensusStateHeights != rhs.consensusStateHeights {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true

@@ -26,12 +26,16 @@ public struct Provenance_Msgfees_V1_AddMsgFeeProposal {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// propsal title
   public var title: String = String()
 
+  /// propsal description
   public var description_p: String = String()
 
+  /// type url of msg to add fee
   public var msgTypeURL: String = String()
 
+  /// additional fee for msg type
   public var additionalFee: Cosmos_Base_V1beta1_Coin {
     get {return _additionalFee ?? Cosmos_Base_V1beta1_Coin()}
     set {_additionalFee = newValue}
@@ -40,6 +44,12 @@ public struct Provenance_Msgfees_V1_AddMsgFeeProposal {
   public var hasAdditionalFee: Bool {return self._additionalFee != nil}
   /// Clears the value of `additionalFee`. Subsequent reads from it will return its default value.
   public mutating func clearAdditionalFee() {self._additionalFee = nil}
+
+  /// optional recipient to recieve basis points
+  public var recipient: String = String()
+
+  /// basis points to use when recipient is present (1 - 10,000)
+  public var recipientBasisPoints: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -54,12 +64,16 @@ public struct Provenance_Msgfees_V1_UpdateMsgFeeProposal {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// propsal title
   public var title: String = String()
 
+  /// propsal description
   public var description_p: String = String()
 
+  /// type url of msg to update fee
   public var msgTypeURL: String = String()
 
+  /// additional fee for msg type
   public var additionalFee: Cosmos_Base_V1beta1_Coin {
     get {return _additionalFee ?? Cosmos_Base_V1beta1_Coin()}
     set {_additionalFee = newValue}
@@ -68,6 +82,12 @@ public struct Provenance_Msgfees_V1_UpdateMsgFeeProposal {
   public var hasAdditionalFee: Bool {return self._additionalFee != nil}
   /// Clears the value of `additionalFee`. Subsequent reads from it will return its default value.
   public mutating func clearAdditionalFee() {self._additionalFee = nil}
+
+  /// optional recipient to recieve basis points
+  public var recipient: String = String()
+
+  /// basis points to use when recipient is present (1 - 10,000)
+  public var recipientBasisPoints: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -82,11 +102,54 @@ public struct Provenance_Msgfees_V1_RemoveMsgFeeProposal {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// propsal title
   public var title: String = String()
 
+  /// propsal description
   public var description_p: String = String()
 
+  /// type url of msg fee to remove
   public var msgTypeURL: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// UpdateNhashPerUsdMilProposal defines a governance proposal to update the nhash per usd mil param
+public struct Provenance_Msgfees_V1_UpdateNhashPerUsdMilProposal {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// proposal title
+  public var title: String = String()
+
+  /// proposal description
+  public var description_p: String = String()
+
+  /// nhash_per_usd_mil is number of nhash per usd mil
+  public var nhashPerUsdMil: UInt64 = 0
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// UpdateConversionFeeDenomProposal defines a governance proposal to update the msg fee conversion denom
+public struct Provenance_Msgfees_V1_UpdateConversionFeeDenomProposal {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// proposal title
+  public var title: String = String()
+
+  /// proposal description
+  public var description_p: String = String()
+
+  /// conversion_fee_denom is the denom that usd will be converted to
+  public var conversionFeeDenom: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -104,6 +167,8 @@ extension Provenance_Msgfees_V1_AddMsgFeeProposal: SwiftProtobuf.Message, SwiftP
     2: .same(proto: "description"),
     3: .standard(proto: "msg_type_url"),
     4: .standard(proto: "additional_fee"),
+    5: .same(proto: "recipient"),
+    6: .standard(proto: "recipient_basis_points"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -116,6 +181,8 @@ extension Provenance_Msgfees_V1_AddMsgFeeProposal: SwiftProtobuf.Message, SwiftP
       case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.msgTypeURL) }()
       case 4: try { try decoder.decodeSingularMessageField(value: &self._additionalFee) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.recipient) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.recipientBasisPoints) }()
       default: break
       }
     }
@@ -134,6 +201,12 @@ extension Provenance_Msgfees_V1_AddMsgFeeProposal: SwiftProtobuf.Message, SwiftP
     if let v = self._additionalFee {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     }
+    if !self.recipient.isEmpty {
+      try visitor.visitSingularStringField(value: self.recipient, fieldNumber: 5)
+    }
+    if !self.recipientBasisPoints.isEmpty {
+      try visitor.visitSingularStringField(value: self.recipientBasisPoints, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -142,6 +215,8 @@ extension Provenance_Msgfees_V1_AddMsgFeeProposal: SwiftProtobuf.Message, SwiftP
     if lhs.description_p != rhs.description_p {return false}
     if lhs.msgTypeURL != rhs.msgTypeURL {return false}
     if lhs._additionalFee != rhs._additionalFee {return false}
+    if lhs.recipient != rhs.recipient {return false}
+    if lhs.recipientBasisPoints != rhs.recipientBasisPoints {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -154,6 +229,8 @@ extension Provenance_Msgfees_V1_UpdateMsgFeeProposal: SwiftProtobuf.Message, Swi
     2: .same(proto: "description"),
     3: .standard(proto: "msg_type_url"),
     4: .standard(proto: "additional_fee"),
+    5: .same(proto: "recipient"),
+    6: .standard(proto: "recipient_basis_points"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -166,6 +243,8 @@ extension Provenance_Msgfees_V1_UpdateMsgFeeProposal: SwiftProtobuf.Message, Swi
       case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
       case 3: try { try decoder.decodeSingularStringField(value: &self.msgTypeURL) }()
       case 4: try { try decoder.decodeSingularMessageField(value: &self._additionalFee) }()
+      case 5: try { try decoder.decodeSingularStringField(value: &self.recipient) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.recipientBasisPoints) }()
       default: break
       }
     }
@@ -184,6 +263,12 @@ extension Provenance_Msgfees_V1_UpdateMsgFeeProposal: SwiftProtobuf.Message, Swi
     if let v = self._additionalFee {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 4)
     }
+    if !self.recipient.isEmpty {
+      try visitor.visitSingularStringField(value: self.recipient, fieldNumber: 5)
+    }
+    if !self.recipientBasisPoints.isEmpty {
+      try visitor.visitSingularStringField(value: self.recipientBasisPoints, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -192,6 +277,8 @@ extension Provenance_Msgfees_V1_UpdateMsgFeeProposal: SwiftProtobuf.Message, Swi
     if lhs.description_p != rhs.description_p {return false}
     if lhs.msgTypeURL != rhs.msgTypeURL {return false}
     if lhs._additionalFee != rhs._additionalFee {return false}
+    if lhs.recipient != rhs.recipient {return false}
+    if lhs.recipientBasisPoints != rhs.recipientBasisPoints {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -236,6 +323,94 @@ extension Provenance_Msgfees_V1_RemoveMsgFeeProposal: SwiftProtobuf.Message, Swi
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.msgTypeURL != rhs.msgTypeURL {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Provenance_Msgfees_V1_UpdateNhashPerUsdMilProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateNhashPerUsdMilProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "title"),
+    2: .same(proto: "description"),
+    3: .standard(proto: "nhash_per_usd_mil"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 3: try { try decoder.decodeSingularUInt64Field(value: &self.nhashPerUsdMil) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
+    }
+    if self.nhashPerUsdMil != 0 {
+      try visitor.visitSingularUInt64Field(value: self.nhashPerUsdMil, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Provenance_Msgfees_V1_UpdateNhashPerUsdMilProposal, rhs: Provenance_Msgfees_V1_UpdateNhashPerUsdMilProposal) -> Bool {
+    if lhs.title != rhs.title {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.nhashPerUsdMil != rhs.nhashPerUsdMil {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Provenance_Msgfees_V1_UpdateConversionFeeDenomProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateConversionFeeDenomProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "title"),
+    2: .same(proto: "description"),
+    4: .standard(proto: "conversion_fee_denom"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.conversionFeeDenom) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
+    }
+    if !self.conversionFeeDenom.isEmpty {
+      try visitor.visitSingularStringField(value: self.conversionFeeDenom, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Provenance_Msgfees_V1_UpdateConversionFeeDenomProposal, rhs: Provenance_Msgfees_V1_UpdateConversionFeeDenomProposal) -> Bool {
+    if lhs.title != rhs.title {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.conversionFeeDenom != rhs.conversionFeeDenom {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -96,6 +96,8 @@ public struct Provenance_Name_V1_EventNameBound {
 
   public var name: String = String()
 
+  public var restricted: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -110,6 +112,8 @@ public struct Provenance_Name_V1_EventNameUnbound {
   public var address: String = String()
 
   public var name: String = String()
+
+  public var restricted: Bool = false
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -275,6 +279,7 @@ extension Provenance_Name_V1_EventNameBound: SwiftProtobuf.Message, SwiftProtobu
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .same(proto: "name"),
+    3: .same(proto: "restricted"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -285,6 +290,7 @@ extension Provenance_Name_V1_EventNameBound: SwiftProtobuf.Message, SwiftProtobu
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.address) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.restricted) }()
       default: break
       }
     }
@@ -297,12 +303,16 @@ extension Provenance_Name_V1_EventNameBound: SwiftProtobuf.Message, SwiftProtobu
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
     }
+    if self.restricted != false {
+      try visitor.visitSingularBoolField(value: self.restricted, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Provenance_Name_V1_EventNameBound, rhs: Provenance_Name_V1_EventNameBound) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.name != rhs.name {return false}
+    if lhs.restricted != rhs.restricted {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -313,6 +323,7 @@ extension Provenance_Name_V1_EventNameUnbound: SwiftProtobuf.Message, SwiftProto
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
     2: .same(proto: "name"),
+    3: .same(proto: "restricted"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -323,6 +334,7 @@ extension Provenance_Name_V1_EventNameUnbound: SwiftProtobuf.Message, SwiftProto
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.address) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 3: try { try decoder.decodeSingularBoolField(value: &self.restricted) }()
       default: break
       }
     }
@@ -335,12 +347,16 @@ extension Provenance_Name_V1_EventNameUnbound: SwiftProtobuf.Message, SwiftProto
     if !self.name.isEmpty {
       try visitor.visitSingularStringField(value: self.name, fieldNumber: 2)
     }
+    if self.restricted != false {
+      try visitor.visitSingularBoolField(value: self.restricted, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Provenance_Name_V1_EventNameUnbound, rhs: Provenance_Name_V1_EventNameUnbound) -> Bool {
     if lhs.address != rhs.address {return false}
     if lhs.name != rhs.name {return false}
+    if lhs.restricted != rhs.restricted {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

@@ -80,8 +80,7 @@ public struct Ibc_Core_Connection_V1_MsgConnectionOpenTry {
 
   public var clientID: String = String()
 
-  /// in the case of crossing hello's, when both chains call OpenInit, we need
-  /// the connection identifier of the previous connection in state INIT
+  /// Deprecated: this field is unused. Crossing hellos are no longer supported in core IBC.
   public var previousConnectionID: String = String()
 
   public var clientState: SwiftProtobuf.Google_Protobuf_Any {

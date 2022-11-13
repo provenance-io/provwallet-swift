@@ -77,6 +77,8 @@ public struct Cosmos_Upgrade_V1beta1_Plan {
 
 /// SoftwareUpgradeProposal is a gov Content type for initiating a software
 /// upgrade.
+/// Deprecated: This legacy proposal is deprecated in favor of Msg-based gov
+/// proposals, see MsgSoftwareUpgrade.
 public struct Cosmos_Upgrade_V1beta1_SoftwareUpgradeProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -104,6 +106,8 @@ public struct Cosmos_Upgrade_V1beta1_SoftwareUpgradeProposal {
 
 /// CancelSoftwareUpgradeProposal is a gov Content type for cancelling a software
 /// upgrade.
+/// Deprecated: This legacy proposal is deprecated in favor of Msg-based gov
+/// proposals, see MsgCancelUpgrade.
 public struct Cosmos_Upgrade_V1beta1_CancelSoftwareUpgradeProposal {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for

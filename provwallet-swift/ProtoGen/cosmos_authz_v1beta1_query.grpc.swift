@@ -36,6 +36,16 @@ internal protocol Cosmos_Authz_V1beta1_QueryClientProtocol: GRPCClient {
     _ request: Cosmos_Authz_V1beta1_QueryGrantsRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmos_Authz_V1beta1_QueryGrantsRequest, Cosmos_Authz_V1beta1_QueryGrantsResponse>
+
+  func granterGrants(
+    _ request: Cosmos_Authz_V1beta1_QueryGranterGrantsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Authz_V1beta1_QueryGranterGrantsRequest, Cosmos_Authz_V1beta1_QueryGranterGrantsResponse>
+
+  func granteeGrants(
+    _ request: Cosmos_Authz_V1beta1_QueryGranteeGrantsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Authz_V1beta1_QueryGranteeGrantsRequest, Cosmos_Authz_V1beta1_QueryGranteeGrantsResponse>
 }
 
 extension Cosmos_Authz_V1beta1_QueryClientProtocol {
@@ -60,12 +70,58 @@ extension Cosmos_Authz_V1beta1_QueryClientProtocol {
       interceptors: self.interceptors?.makeGrantsInterceptors() ?? []
     )
   }
+
+  /// GranterGrants returns list of `GrantAuthorization`, granted by granter.
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GranterGrants.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func granterGrants(
+    _ request: Cosmos_Authz_V1beta1_QueryGranterGrantsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Authz_V1beta1_QueryGranterGrantsRequest, Cosmos_Authz_V1beta1_QueryGranterGrantsResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.authz.v1beta1.Query/GranterGrants",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGranterGrantsInterceptors() ?? []
+    )
+  }
+
+  /// GranteeGrants returns a list of `GrantAuthorization` by grantee.
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GranteeGrants.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func granteeGrants(
+    _ request: Cosmos_Authz_V1beta1_QueryGranteeGrantsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Authz_V1beta1_QueryGranteeGrantsRequest, Cosmos_Authz_V1beta1_QueryGranteeGrantsResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.authz.v1beta1.Query/GranteeGrants",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGranteeGrantsInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmos_Authz_V1beta1_QueryClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'grants'.
   func makeGrantsInterceptors() -> [ClientInterceptor<Cosmos_Authz_V1beta1_QueryGrantsRequest, Cosmos_Authz_V1beta1_QueryGrantsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'granterGrants'.
+  func makeGranterGrantsInterceptors() -> [ClientInterceptor<Cosmos_Authz_V1beta1_QueryGranterGrantsRequest, Cosmos_Authz_V1beta1_QueryGranterGrantsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'granteeGrants'.
+  func makeGranteeGrantsInterceptors() -> [ClientInterceptor<Cosmos_Authz_V1beta1_QueryGranteeGrantsRequest, Cosmos_Authz_V1beta1_QueryGranteeGrantsResponse>]
 }
 
 internal final class Cosmos_Authz_V1beta1_QueryClient: Cosmos_Authz_V1beta1_QueryClientProtocol {

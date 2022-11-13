@@ -71,6 +71,8 @@ public struct Cosmwasm_Wasm_V1_GenesisState {
       set {sum = .instantiateContract(newValue)}
     }
 
+    /// MsgInstantiateContract2 intentionally not supported
+    /// see https://github.com/CosmWasm/wasmd/issues/987
     public var executeContract: Cosmwasm_Wasm_V1_MsgExecuteContract {
       get {
         if case .executeContract(let v)? = sum {return v}
@@ -85,6 +87,8 @@ public struct Cosmwasm_Wasm_V1_GenesisState {
     public enum OneOf_Sum: Equatable {
       case storeCode(Cosmwasm_Wasm_V1_MsgStoreCode)
       case instantiateContract(Cosmwasm_Wasm_V1_MsgInstantiateContract)
+      /// MsgInstantiateContract2 intentionally not supported
+      /// see https://github.com/CosmWasm/wasmd/issues/987
       case executeContract(Cosmwasm_Wasm_V1_MsgExecuteContract)
 
     #if !swift(>=4.1)

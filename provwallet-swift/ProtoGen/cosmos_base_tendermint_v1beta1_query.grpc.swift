@@ -61,6 +61,11 @@ internal protocol Cosmos_Base_Tendermint_V1beta1_ServiceClientProtocol: GRPCClie
     _ request: Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest, Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse>
+
+  func aBCIQuery(
+    _ request: Cosmos_Base_Tendermint_V1beta1_ABCIQueryRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Base_Tendermint_V1beta1_ABCIQueryRequest, Cosmos_Base_Tendermint_V1beta1_ABCIQueryResponse>
 }
 
 extension Cosmos_Base_Tendermint_V1beta1_ServiceClientProtocol {
@@ -175,6 +180,28 @@ extension Cosmos_Base_Tendermint_V1beta1_ServiceClientProtocol {
       interceptors: self.interceptors?.makeGetValidatorSetByHeightInterceptors() ?? []
     )
   }
+
+  /// ABCIQuery defines a query handler that supports ABCI queries directly to
+  /// the application, bypassing Tendermint completely. The ABCI query must
+  /// contain a valid and supported path, including app, custom, p2p, and store.
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ABCIQuery.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func aBCIQuery(
+    _ request: Cosmos_Base_Tendermint_V1beta1_ABCIQueryRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Base_Tendermint_V1beta1_ABCIQueryRequest, Cosmos_Base_Tendermint_V1beta1_ABCIQueryResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.base.tendermint.v1beta1.Service/ABCIQuery",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeABCIQueryInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmos_Base_Tendermint_V1beta1_ServiceClientInterceptorFactoryProtocol {
@@ -196,6 +223,9 @@ internal protocol Cosmos_Base_Tendermint_V1beta1_ServiceClientInterceptorFactory
 
   /// - Returns: Interceptors to use when invoking 'getValidatorSetByHeight'.
   func makeGetValidatorSetByHeightInterceptors() -> [ClientInterceptor<Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightRequest, Cosmos_Base_Tendermint_V1beta1_GetValidatorSetByHeightResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'aBCIQuery'.
+  func makeABCIQueryInterceptors() -> [ClientInterceptor<Cosmos_Base_Tendermint_V1beta1_ABCIQueryRequest, Cosmos_Base_Tendermint_V1beta1_ABCIQueryResponse>]
 }
 
 internal final class Cosmos_Base_Tendermint_V1beta1_ServiceClient: Cosmos_Base_Tendermint_V1beta1_ServiceClientProtocol {

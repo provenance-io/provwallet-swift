@@ -20,6 +20,117 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+public enum CosmosProto_ScalarType: SwiftProtobuf.Enum {
+  public typealias RawValue = Int
+  case unspecified // = 0
+  case string // = 1
+  case bytes // = 2
+  case UNRECOGNIZED(Int)
+
+  public init() {
+    self = .unspecified
+  }
+
+  public init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .unspecified
+    case 1: self = .string
+    case 2: self = .bytes
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  public var rawValue: Int {
+    switch self {
+    case .unspecified: return 0
+    case .string: return 1
+    case .bytes: return 2
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension CosmosProto_ScalarType: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  public static var allCases: [CosmosProto_ScalarType] = [
+    .unspecified,
+    .string,
+    .bytes,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
+/// InterfaceDescriptor describes an interface type to be used with
+/// accepts_interface and implements_interface and declared by declare_interface.
+public struct CosmosProto_InterfaceDescriptor {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// name is the name of the interface. It should be a short-name (without
+  /// a period) such that the fully qualified name of the interface will be
+  /// package.name, ex. for the package a.b and interface named C, the
+  /// fully-qualified name will be a.b.C.
+  public var name: String = String()
+
+  /// description is a human-readable description of the interface and its
+  /// purpose.
+  public var description_p: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// ScalarDescriptor describes an scalar type to be used with
+/// the scalar field option and declared by declare_scalar.
+/// Scalars extend simple protobuf built-in types with additional
+/// syntax and semantics, for instance to represent big integers.
+/// Scalars should ideally define an encoding such that there is only one
+/// valid syntactical representation for a given semantic meaning,
+/// i.e. the encoding should be deterministic.
+public struct CosmosProto_ScalarDescriptor {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// name is the name of the scalar. It should be a short-name (without
+  /// a period) such that the fully qualified name of the scalar will be
+  /// package.name, ex. for the package a.b and scalar named C, the
+  /// fully-qualified name will be a.b.C.
+  public var name: String = String()
+
+  /// description is a human-readable description of the scalar and its
+  /// encoding format. For instance a big integer or decimal scalar should
+  /// specify precisely the expected encoding format.
+  public var description_p: String = String()
+
+  /// field_type is the type of field with which this scalar can be used.
+  /// Scalars can be used with one and only one type of field so that
+  /// encoding standards and simple and clear. Currently only string and
+  /// bytes fields are supported for scalars.
+  public var fieldType: [CosmosProto_ScalarType] = []
+
+  /// legacy_amino_encoding is an optional string to describe the encoding
+  /// format used by Amino. The field type is chosen to be a string so that
+  /// the value can either be:
+  /// - a machine-readable string, such as "base64", "bech32" or "utf8",
+  /// - or a human-readable string, for instance a short specification of how
+  /// a big integer would be encoded using Amino.
+  ///
+  /// If left empty, then the Amino encoding is expected to be the same as the
+  /// Protobuf one.
+  public var legacyAminoEncoding: String = String()
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Extension support defined in cosmos.proto.
 
 // MARK: - Extension Properties
@@ -31,6 +142,9 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
 
 extension SwiftProtobuf.Google_Protobuf_FieldOptions {
 
+  /// accepts_interface is used to annotate that a google.protobuf.Any
+  /// field accepts messages that implement the specified interface.
+  /// Interfaces should be declared using a declare_interface file option.
   public var CosmosProto_acceptsInterface: String {
     get {return getExtensionValue(ext: CosmosProto_Extensions_accepts_interface) ?? String()}
     set {setExtensionValue(ext: CosmosProto_Extensions_accepts_interface, value: newValue)}
@@ -45,27 +159,81 @@ extension SwiftProtobuf.Google_Protobuf_FieldOptions {
   public mutating func clearCosmosProto_acceptsInterface() {
     clearExtensionValue(ext: CosmosProto_Extensions_accepts_interface)
   }
+
+  /// scalar is used to indicate that this field follows the formatting defined
+  /// by the named scalar which should be declared with declare_scalar. Code
+  /// generators may choose to use this information to map this field to a
+  /// language-specific type representing the scalar.
+  public var CosmosProto_scalar: String {
+    get {return getExtensionValue(ext: CosmosProto_Extensions_scalar) ?? String()}
+    set {setExtensionValue(ext: CosmosProto_Extensions_scalar, value: newValue)}
+  }
+  /// Returns true if extension `CosmosProto_Extensions_scalar`
+  /// has been explicitly set.
+  public var hasCosmosProto_scalar: Bool {
+    return hasExtensionValue(ext: CosmosProto_Extensions_scalar)
+  }
+  /// Clears the value of extension `CosmosProto_Extensions_scalar`.
+  /// Subsequent reads from it will return its default value.
+  public mutating func clearCosmosProto_scalar() {
+    clearExtensionValue(ext: CosmosProto_Extensions_scalar)
+  }
+}
+
+extension SwiftProtobuf.Google_Protobuf_FileOptions {
+
+  /// declare_interface declares an interface type to be used with
+  /// accepts_interface and implements_interface. Interface names are
+  /// expected to follow the following convention such that their declaration
+  /// can be discovered by tools: for a given interface type a.b.C, it is
+  /// expected that the declaration will be found in a protobuf file named
+  /// a/b/interfaces.proto in the file descriptor set.
+  public var CosmosProto_declareInterface: [CosmosProto_InterfaceDescriptor] {
+    get {return getExtensionValue(ext: CosmosProto_Extensions_declare_interface) ?? []}
+    set {setExtensionValue(ext: CosmosProto_Extensions_declare_interface, value: newValue)}
+  }
+  /// Returns true if extension `CosmosProto_Extensions_declare_interface`
+  /// has been explicitly set.
+  public var hasCosmosProto_declareInterface: Bool {
+    return hasExtensionValue(ext: CosmosProto_Extensions_declare_interface)
+  }
+  /// Clears the value of extension `CosmosProto_Extensions_declare_interface`.
+  /// Subsequent reads from it will return its default value.
+  public mutating func clearCosmosProto_declareInterface() {
+    clearExtensionValue(ext: CosmosProto_Extensions_declare_interface)
+  }
+
+  /// declare_scalar declares a scalar type to be used with
+  /// the scalar field option. Scalar names are
+  /// expected to follow the following convention such that their declaration
+  /// can be discovered by tools: for a given scalar type a.b.C, it is
+  /// expected that the declaration will be found in a protobuf file named
+  /// a/b/scalars.proto in the file descriptor set.
+  public var CosmosProto_declareScalar: [CosmosProto_ScalarDescriptor] {
+    get {return getExtensionValue(ext: CosmosProto_Extensions_declare_scalar) ?? []}
+    set {setExtensionValue(ext: CosmosProto_Extensions_declare_scalar, value: newValue)}
+  }
+  /// Returns true if extension `CosmosProto_Extensions_declare_scalar`
+  /// has been explicitly set.
+  public var hasCosmosProto_declareScalar: Bool {
+    return hasExtensionValue(ext: CosmosProto_Extensions_declare_scalar)
+  }
+  /// Clears the value of extension `CosmosProto_Extensions_declare_scalar`.
+  /// Subsequent reads from it will return its default value.
+  public mutating func clearCosmosProto_declareScalar() {
+    clearExtensionValue(ext: CosmosProto_Extensions_declare_scalar)
+  }
 }
 
 extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 
-  public var CosmosProto_interfaceType: String {
-    get {return getExtensionValue(ext: CosmosProto_Extensions_interface_type) ?? String()}
-    set {setExtensionValue(ext: CosmosProto_Extensions_interface_type, value: newValue)}
-  }
-  /// Returns true if extension `CosmosProto_Extensions_interface_type`
-  /// has been explicitly set.
-  public var hasCosmosProto_interfaceType: Bool {
-    return hasExtensionValue(ext: CosmosProto_Extensions_interface_type)
-  }
-  /// Clears the value of extension `CosmosProto_Extensions_interface_type`.
-  /// Subsequent reads from it will return its default value.
-  public mutating func clearCosmosProto_interfaceType() {
-    clearExtensionValue(ext: CosmosProto_Extensions_interface_type)
-  }
-
-  public var CosmosProto_implementsInterface: String {
-    get {return getExtensionValue(ext: CosmosProto_Extensions_implements_interface) ?? String()}
+  /// implements_interface is used to indicate the type name of the interface
+  /// that a message implements so that it can be used in google.protobuf.Any
+  /// fields that accept that interface. A message can implement multiple
+  /// interfaces. Interfaces should be declared using a declare_interface
+  /// file option.
+  public var CosmosProto_implementsInterface: [String] {
+    get {return getExtensionValue(ext: CosmosProto_Extensions_implements_interface) ?? []}
     set {setExtensionValue(ext: CosmosProto_Extensions_implements_interface, value: newValue)}
   }
   /// Returns true if extension `CosmosProto_Extensions_implements_interface`
@@ -88,26 +256,162 @@ extension SwiftProtobuf.Google_Protobuf_MessageOptions {
 /// in parsing, or it can be combined with other `SwiftProtobuf.SimpleExtensionMap`s to create
 /// a larger `SwiftProtobuf.SimpleExtensionMap`.
 public let CosmosProto_Cosmos_Extensions: SwiftProtobuf.SimpleExtensionMap = [
-  CosmosProto_Extensions_interface_type,
   CosmosProto_Extensions_implements_interface,
-  CosmosProto_Extensions_accepts_interface
+  CosmosProto_Extensions_accepts_interface,
+  CosmosProto_Extensions_scalar,
+  CosmosProto_Extensions_declare_interface,
+  CosmosProto_Extensions_declare_scalar
 ]
 
 // Extension Objects - The only reason these might be needed is when manually
 // constructing a `SimpleExtensionMap`, otherwise, use the above _Extension Properties_
 // accessors for the extension fields on the messages directly.
 
-public let CosmosProto_Extensions_interface_type = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
+/// implements_interface is used to indicate the type name of the interface
+/// that a message implements so that it can be used in google.protobuf.Any
+/// fields that accept that interface. A message can implement multiple
+/// interfaces. Interfaces should be declared using a declare_interface
+/// file option.
+public let CosmosProto_Extensions_implements_interface = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
   _protobuf_fieldNumber: 93001,
-  fieldName: "cosmos_proto.interface_type"
-)
-
-public let CosmosProto_Extensions_implements_interface = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtobuf.Google_Protobuf_MessageOptions>(
-  _protobuf_fieldNumber: 93002,
   fieldName: "cosmos_proto.implements_interface"
 )
 
+/// accepts_interface is used to annotate that a google.protobuf.Any
+/// field accepts messages that implement the specified interface.
+/// Interfaces should be declared using a declare_interface file option.
 public let CosmosProto_Extensions_accepts_interface = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
   _protobuf_fieldNumber: 93001,
   fieldName: "cosmos_proto.accepts_interface"
 )
+
+/// scalar is used to indicate that this field follows the formatting defined
+/// by the named scalar which should be declared with declare_scalar. Code
+/// generators may choose to use this information to map this field to a
+/// language-specific type representing the scalar.
+public let CosmosProto_Extensions_scalar = SwiftProtobuf.MessageExtension<SwiftProtobuf.OptionalExtensionField<SwiftProtobuf.ProtobufString>, SwiftProtobuf.Google_Protobuf_FieldOptions>(
+  _protobuf_fieldNumber: 93002,
+  fieldName: "cosmos_proto.scalar"
+)
+
+/// declare_interface declares an interface type to be used with
+/// accepts_interface and implements_interface. Interface names are
+/// expected to follow the following convention such that their declaration
+/// can be discovered by tools: for a given interface type a.b.C, it is
+/// expected that the declaration will be found in a protobuf file named
+/// a/b/interfaces.proto in the file descriptor set.
+public let CosmosProto_Extensions_declare_interface = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<CosmosProto_InterfaceDescriptor>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+  _protobuf_fieldNumber: 793021,
+  fieldName: "cosmos_proto.declare_interface"
+)
+
+/// declare_scalar declares a scalar type to be used with
+/// the scalar field option. Scalar names are
+/// expected to follow the following convention such that their declaration
+/// can be discovered by tools: for a given scalar type a.b.C, it is
+/// expected that the declaration will be found in a protobuf file named
+/// a/b/scalars.proto in the file descriptor set.
+public let CosmosProto_Extensions_declare_scalar = SwiftProtobuf.MessageExtension<SwiftProtobuf.RepeatedMessageExtensionField<CosmosProto_ScalarDescriptor>, SwiftProtobuf.Google_Protobuf_FileOptions>(
+  _protobuf_fieldNumber: 793022,
+  fieldName: "cosmos_proto.declare_scalar"
+)
+
+// MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+fileprivate let _protobuf_package = "cosmos_proto"
+
+extension CosmosProto_ScalarType: SwiftProtobuf._ProtoNameProviding {
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "SCALAR_TYPE_UNSPECIFIED"),
+    1: .same(proto: "SCALAR_TYPE_STRING"),
+    2: .same(proto: "SCALAR_TYPE_BYTES"),
+  ]
+}
+
+extension CosmosProto_InterfaceDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".InterfaceDescriptor"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "description"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: CosmosProto_InterfaceDescriptor, rhs: CosmosProto_InterfaceDescriptor) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension CosmosProto_ScalarDescriptor: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".ScalarDescriptor"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "name"),
+    2: .same(proto: "description"),
+    3: .standard(proto: "field_type"),
+    4: .standard(proto: "legacy_amino_encoding"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.name) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 3: try { try decoder.decodeRepeatedEnumField(value: &self.fieldType) }()
+      case 4: try { try decoder.decodeSingularStringField(value: &self.legacyAminoEncoding) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.name.isEmpty {
+      try visitor.visitSingularStringField(value: self.name, fieldNumber: 1)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
+    }
+    if !self.fieldType.isEmpty {
+      try visitor.visitPackedEnumField(value: self.fieldType, fieldNumber: 3)
+    }
+    if !self.legacyAminoEncoding.isEmpty {
+      try visitor.visitSingularStringField(value: self.legacyAminoEncoding, fieldNumber: 4)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: CosmosProto_ScalarDescriptor, rhs: CosmosProto_ScalarDescriptor) -> Bool {
+    if lhs.name != rhs.name {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.fieldType != rhs.fieldType {return false}
+    if lhs.legacyAminoEncoding != rhs.legacyAminoEncoding {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}

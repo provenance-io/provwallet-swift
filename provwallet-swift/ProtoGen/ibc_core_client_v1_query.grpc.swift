@@ -52,6 +52,11 @@ internal protocol Ibc_Core_Client_V1_QueryClientProtocol: GRPCClient {
     callOptions: CallOptions?
   ) -> UnaryCall<Ibc_Core_Client_V1_QueryConsensusStatesRequest, Ibc_Core_Client_V1_QueryConsensusStatesResponse>
 
+  func consensusStateHeights(
+    _ request: Ibc_Core_Client_V1_QueryConsensusStateHeightsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Ibc_Core_Client_V1_QueryConsensusStateHeightsRequest, Ibc_Core_Client_V1_QueryConsensusStateHeightsResponse>
+
   func clientStatus(
     _ request: Ibc_Core_Client_V1_QueryClientStatusRequest,
     callOptions: CallOptions?
@@ -152,6 +157,24 @@ extension Ibc_Core_Client_V1_QueryClientProtocol {
     )
   }
 
+  /// ConsensusStateHeights queries the height of every consensus states associated with a given client.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to ConsensusStateHeights.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func consensusStateHeights(
+    _ request: Ibc_Core_Client_V1_QueryConsensusStateHeightsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Ibc_Core_Client_V1_QueryConsensusStateHeightsRequest, Ibc_Core_Client_V1_QueryConsensusStateHeightsResponse> {
+    return self.makeUnaryCall(
+      path: "/ibc.core.client.v1.Query/ConsensusStateHeights",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeConsensusStateHeightsInterceptors() ?? []
+    )
+  }
+
   /// Status queries the status of an IBC client.
   ///
   /// - Parameters:
@@ -238,6 +261,9 @@ internal protocol Ibc_Core_Client_V1_QueryClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'consensusStates'.
   func makeConsensusStatesInterceptors() -> [ClientInterceptor<Ibc_Core_Client_V1_QueryConsensusStatesRequest, Ibc_Core_Client_V1_QueryConsensusStatesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'consensusStateHeights'.
+  func makeConsensusStateHeightsInterceptors() -> [ClientInterceptor<Ibc_Core_Client_V1_QueryConsensusStateHeightsRequest, Ibc_Core_Client_V1_QueryConsensusStateHeightsResponse>]
 
   /// - Returns: Interceptors to use when invoking 'clientStatus'.
   func makeClientStatusInterceptors() -> [ClientInterceptor<Ibc_Core_Client_V1_QueryClientStatusRequest, Ibc_Core_Client_V1_QueryClientStatusResponse>]

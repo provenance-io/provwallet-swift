@@ -76,6 +76,11 @@ internal protocol Cosmwasm_Wasm_V1_QueryClientProtocol: GRPCClient {
     _ request: Cosmwasm_Wasm_V1_QueryPinnedCodesRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmwasm_Wasm_V1_QueryPinnedCodesRequest, Cosmwasm_Wasm_V1_QueryPinnedCodesResponse>
+
+  func params(
+    _ request: Cosmwasm_Wasm_V1_QueryParamsRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmwasm_Wasm_V1_QueryParamsRequest, Cosmwasm_Wasm_V1_QueryParamsResponse>
 }
 
 extension Cosmwasm_Wasm_V1_QueryClientProtocol {
@@ -244,6 +249,24 @@ extension Cosmwasm_Wasm_V1_QueryClientProtocol {
       interceptors: self.interceptors?.makePinnedCodesInterceptors() ?? []
     )
   }
+
+  /// Params gets the module params
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to Params.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func params(
+    _ request: Cosmwasm_Wasm_V1_QueryParamsRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmwasm_Wasm_V1_QueryParamsRequest, Cosmwasm_Wasm_V1_QueryParamsResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmwasm.wasm.v1.Query/Params",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeParamsInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmwasm_Wasm_V1_QueryClientInterceptorFactoryProtocol {
@@ -274,6 +297,9 @@ internal protocol Cosmwasm_Wasm_V1_QueryClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'pinnedCodes'.
   func makePinnedCodesInterceptors() -> [ClientInterceptor<Cosmwasm_Wasm_V1_QueryPinnedCodesRequest, Cosmwasm_Wasm_V1_QueryPinnedCodesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'params'.
+  func makeParamsInterceptors() -> [ClientInterceptor<Cosmwasm_Wasm_V1_QueryParamsRequest, Cosmwasm_Wasm_V1_QueryParamsResponse>]
 }
 
 internal final class Cosmwasm_Wasm_V1_QueryClient: Cosmwasm_Wasm_V1_QueryClientProtocol {

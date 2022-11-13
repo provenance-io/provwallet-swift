@@ -11,7 +11,6 @@
 		469000E1B2325B5FB56E92F5 /* Pods_provwallet_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 215388ADD57DE20D0C0013F7 /* Pods_provwallet_swift.framework */; };
 		9F111031A2A43A8C3D8B04AF /* SMP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111232B182F7732DA80E6A /* SMP.swift */; };
 		9F11103A3FA8AA6E99044988 /* LICENSE in Sources */ = {isa = PBXBuildFile; fileRef = 9F1113BD4A2D2A0DAA328BA8 /* LICENSE */; };
-		9F1110B352C8D74F9CE5706F /* contract.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111E2A35F077384FE2D9C6 /* contract.proto */; };
 		9F1110C0A36E168EDEF4E5C7 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111CE8331ADE2BC40B1DBD /* Coin.swift */; };
 		9F111122E4866FF32D978EBF /* CryptoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111694EB0856AE44FFE10F /* CryptoTests.swift */; };
 		9F111166ABAB01860992DD41 /* BigInt+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1119F80181E911A03071F6 /* BigInt+Extension.swift */; };
@@ -19,8 +18,6 @@
 		9F1112156409812149282EFB /* RELEASE_CHANGELOG.md in Sources */ = {isa = PBXBuildFile; fileRef = 9F11183545A13A629D92463F /* RELEASE_CHANGELOG.md */; };
 		9F1112F1B51B75B63C3F306A /* Digest+Provenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1110180525759257166E91 /* Digest+Provenance.swift */; };
 		9F111311153351A90C0EA848 /* SecpResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1118431FC7162B4F97214C /* SecpResult.swift */; };
-		9F111337907A2A2759181DA0 /* tx.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F11100587DDE59C33E3FC6C /* tx.proto */; };
-		9F111374BCEA3873AED1AD85 /* scope.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111425E692EC92A63D7CFF /* scope.proto */; };
 		9F1113774916D97C3E6A83DB /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111AD099EBF3D1DFCB10F8 /* Errors.swift */; };
 		9F1113AB5EBDE359B02ADA06 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11143CCF17997DB02650BF /* Crypto.swift */; };
 		9F1113D94C5478380ED9B7AA /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111B5714A5C5D9A97BF759 /* Auth.swift */; };
@@ -28,16 +25,11 @@
 		9F1113FE9C4A0946801C8C27 /* Tx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1110F65BBA1A2F4674EDFE /* Tx.swift */; };
 		9F1114284438E17FC4E8A7E0 /* WalletAccountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111049F93AD96AFA2EDF05 /* WalletAccountTests.swift */; };
 		9F11142CF9272F97EB5F4BFC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 9F111FE6D99BAD47335670FC /* .gitignore */; };
-		9F1114C842DC4121AB7586C1 /* query.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111E4CFCF474362D4AE42B /* query.proto */; };
-		9F1114EFF1F0BA939EC5E8C5 /* query.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111E4CFCF474362D4AE42B /* query.proto */; };
 		9F11150B1E4FFF1594A0D772 /* DerivationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1119CF2B53E574E2E9ADED /* DerivationNode.swift */; };
 		9F111581C743D37FF1596C2F /* RIPEMD160.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111AB8AF0094B64DF71360 /* RIPEMD160.swift */; };
 		9F1115A0710AFC9141297810 /* GasEstimate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111DFB846F7D10821C4D20 /* GasEstimate.swift */; };
-		9F11163F1BCC67DD3F5C5422 /* tx.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F11100587DDE59C33E3FC6C /* tx.proto */; };
 		9F11164A3FE4218798064FAA /* Proto+Provenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11159A2DA8800E3A6021B0 /* Proto+Provenance.swift */; };
-		9F1116F986F3F0F30D9A844C /* spec.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1110A60A2DAB765F9BE732 /* spec.proto */; };
 		9F11174FAD7C74C84DF5149D /* ProvenanceWalletError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111AC2FA961733E241379E /* ProvenanceWalletError.swift */; };
-		9F11175D30304B5F0E5A40D1 /* types.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111BB48E6F0901FB04B74B /* types.proto */; };
 		9F1117FB0C27885236907F61 /* RawTxResponsePair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111CB7670764CCDC8EDE10 /* RawTxResponsePair.swift */; };
 		9F1118547985756D4C3EA712 /* PrivateKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111CA7D5663DF9AD6DFC9F /* PrivateKeyTests.swift */; };
 		9F1118C4EA7E5595CAA436FC /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111DEC9477027BF869492C /* Wallet.swift */; };
@@ -50,18 +42,14 @@
 		9F111BE8FF1A02165BE214E1 /* Bech32.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11198B36F7C573EF6A6B36 /* Bech32.swift */; };
 		9F111C461155D775EC38EC6C /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111196B9736CE585D30280 /* Account.swift */; };
 		9F111C8B8888BCE5DBCF556C /* BaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1116A7060EF163056D631D /* BaseClient.swift */; };
-		9F111CA9EA9667B81EA57437 /* spec.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F1110A60A2DAB765F9BE732 /* spec.proto */; };
 		9F111D135177E62F0A77C255 /* Mnemonic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1110AC5AA84A50EBD245A1 /* Mnemonic.swift */; };
-		9F111D6EA957C9C7167E0153 /* types.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111BB48E6F0901FB04B74B /* types.proto */; };
 		9F111D9E5BDD9FE62865584F /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111E11ADE5A0584573F7D5 /* PublicKey.swift */; };
 		9F111DA02F6C71903695E41C /* MnemonicTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11158765E9B4A8DBC6772E /* MnemonicTests.swift */; };
 		9F111DACDA618B5475011BCD /* AddressGenerationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1113DEC3616FB4D7D81D8B /* AddressGenerationTests.swift */; };
 		9F111E266B21BDB1B2F6420F /* ImportExportWalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F111C20C4F8DDD973B255B5 /* ImportExportWalletTests.swift */; };
 		9F111E531E1926DCBD7FB52A /* RIPEMD160Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1110240D65CA4B7DD59B35 /* RIPEMD160Tests.swift */; };
-		9F111EB184C0D9D6FA2D8CA6 /* contract.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111E2A35F077384FE2D9C6 /* contract.proto */; };
 		9F111EEED65628524FF250D4 /* ProvenanceBlockchainClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F1111C467F562BE24FEE25D /* ProvenanceBlockchainClientTests.swift */; };
 		9F111F51CE4BD5EBA0D7EC0F /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 9F111CF064CB1E0B385BE55D /* README.md */; };
-		9F111F672FC1C7CABBE6CAC3 /* scope.proto in Sources */ = {isa = PBXBuildFile; fileRef = 9F111425E692EC92A63D7CFF /* scope.proto */; };
 		9F111F67E6B2080AB0C6B09B /* provwallet_swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F111A768351ECC15C2E2E14 /* provwallet_swift.framework */; };
 		9F111FDB5FF9A8E18D85BAAF /* Data+Provenance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F11179E3768732D737333B2 /* Data+Provenance.swift */; };
 		CF6B8BA627BB0D820049F9B4 /* cosmos_auth_v1beta1_query.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF6B8AC627BB0D810049F9B4 /* cosmos_auth_v1beta1_query.pb.swift */; };
@@ -306,11 +294,9 @@
 		215388ADD57DE20D0C0013F7 /* Pods_provwallet_swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_provwallet_swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EE37F060EA53847111F8FB0 /* Pods-provwallet-swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-provwallet-swift.debug.xcconfig"; path = "Target Support Files/Pods-provwallet-swift/Pods-provwallet-swift.debug.xcconfig"; sourceTree = "<group>"; };
 		71B3A36469F2494E21FB307F /* Pods_provwallet_swift_provwallet_swiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_provwallet_swift_provwallet_swiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F11100587DDE59C33E3FC6C /* tx.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = tx.proto; sourceTree = "<group>"; };
 		9F1110180525759257166E91 /* Digest+Provenance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Digest+Provenance.swift"; sourceTree = "<group>"; };
 		9F1110240D65CA4B7DD59B35 /* RIPEMD160Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RIPEMD160Tests.swift; sourceTree = "<group>"; };
 		9F111049F93AD96AFA2EDF05 /* WalletAccountTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WalletAccountTests.swift; sourceTree = "<group>"; };
-		9F1110A60A2DAB765F9BE732 /* spec.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = spec.proto; sourceTree = "<group>"; };
 		9F1110AC5AA84A50EBD245A1 /* Mnemonic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mnemonic.swift; sourceTree = "<group>"; };
 		9F1110F65BBA1A2F4674EDFE /* Tx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tx.swift; sourceTree = "<group>"; };
 		9F111100B9DCC2A05D8068DD /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
@@ -320,7 +306,6 @@
 		9F111232B182F7732DA80E6A /* SMP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SMP.swift; sourceTree = "<group>"; };
 		9F1113BD4A2D2A0DAA328BA8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		9F1113DEC3616FB4D7D81D8B /* AddressGenerationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressGenerationTests.swift; sourceTree = "<group>"; };
-		9F111425E692EC92A63D7CFF /* scope.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = scope.proto; sourceTree = "<group>"; };
 		9F11143CCF17997DB02650BF /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
 		9F11143DABDD267E8B1CF086 /* provwallet_swiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = provwallet_swiftTests.swift; sourceTree = "<group>"; };
 		9F111578C2EB8E8996BABF7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.info; path = Info.plist; sourceTree = "<group>"; };
@@ -342,7 +327,6 @@
 		9F111AC2FA961733E241379E /* ProvenanceWalletError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProvenanceWalletError.swift; sourceTree = "<group>"; };
 		9F111AD099EBF3D1DFCB10F8 /* Errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
 		9F111B5714A5C5D9A97BF759 /* Auth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
-		9F111BB48E6F0901FB04B74B /* types.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = types.proto; sourceTree = "<group>"; };
 		9F111C20C4F8DDD973B255B5 /* ImportExportWalletTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportExportWalletTests.swift; sourceTree = "<group>"; };
 		9F111C6AF72B1F69A843D75F /* DataConvertable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConvertable.swift; sourceTree = "<group>"; };
 		9F111CA7D5663DF9AD6DFC9F /* PrivateKeyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKeyTests.swift; sourceTree = "<group>"; };
@@ -354,8 +338,6 @@
 		9F111DEC9477027BF869492C /* Wallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		9F111DFB846F7D10821C4D20 /* GasEstimate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GasEstimate.swift; sourceTree = "<group>"; };
 		9F111E11ADE5A0584573F7D5 /* PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
-		9F111E2A35F077384FE2D9C6 /* contract.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = contract.proto; sourceTree = "<group>"; };
-		9F111E4CFCF474362D4AE42B /* query.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = query.proto; sourceTree = "<group>"; };
 		9F111ED8C391942BE630405E /* Bank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bank.swift; sourceTree = "<group>"; };
 		9F111FE6D99BAD47335670FC /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = file.gitignore; path = .gitignore; sourceTree = "<group>"; };
 		CF6B8AC627BB0D810049F9B4 /* cosmos_auth_v1beta1_query.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cosmos_auth_v1beta1_query.pb.swift; sourceTree = "<group>"; };
@@ -626,20 +608,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		9F1110448814D17CFF331D2A /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1110C1D2E061D17BEF0664 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
 		9F1110D672D57F5AE939160B /* Client */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,147 +635,6 @@
 			path = "provwallet-swift";
 			sourceTree = "<group>";
 		};
-		9F11110827BADBC20347E0CB /* types */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = types;
-			sourceTree = "<group>";
-		};
-		9F11110ECCB330882C025F24 /* metadata */ = {
-			isa = PBXGroup;
-			children = (
-				9F1111FFE18246D4E2EA707D /* v0 */,
-				9F111653ADE6FD26F3EA51CC /* v1 */,
-			);
-			path = metadata;
-			sourceTree = "<group>";
-		};
-		9F111121B98B7D44156DE927 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1111738643139048D9182A /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F11118E75699A02AFA58F4C /* params */ = {
-			isa = PBXGroup;
-			children = (
-				9F1114107684E713EB763DDB /* v1beta1 */,
-			);
-			path = params;
-			sourceTree = "<group>";
-		};
-		9F1111B183F8679D20029B82 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1111F589DE2174409C97FC /* crypto */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = crypto;
-			sourceTree = "<group>";
-		};
-		9F1111FFE18246D4E2EA707D /* v0 */ = {
-			isa = PBXGroup;
-			children = (
-				9F11100587DDE59C33E3FC6C /* tx.proto */,
-				9F1110A60A2DAB765F9BE732 /* spec.proto */,
-				9F111E4CFCF474362D4AE42B /* query.proto */,
-				9F111425E692EC92A63D7CFF /* scope.proto */,
-				9F111BB48E6F0901FB04B74B /* types.proto */,
-				9F111E2A35F077384FE2D9C6 /* contract.proto */,
-			);
-			path = v0;
-			sourceTree = "<group>";
-		};
-		9F111205FC04E8FC4A299B46 /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F11125FEBFB12AD89E4B132 /* auth */ = {
-			isa = PBXGroup;
-			children = (
-				9F1110C1D2E061D17BEF0664 /* v1beta1 */,
-			);
-			path = auth;
-			sourceTree = "<group>";
-		};
-		9F11126510B5F361021DAF31 /* staking */ = {
-			isa = PBXGroup;
-			children = (
-				9F111D9939E5B875EDC5E7DF /* v1beta1 */,
-			);
-			path = staking;
-			sourceTree = "<group>";
-		};
-		9F111269B358E5551466B2DA /* crisis */ = {
-			isa = PBXGroup;
-			children = (
-				9F111BD0887B88108F4649D3 /* v1beta1 */,
-			);
-			path = crisis;
-			sourceTree = "<group>";
-		};
-		9F1112A679D3A546403E093A /* lightclients */ = {
-			isa = PBXGroup;
-			children = (
-				9F111BC969A8B7CFF103BBE1 /* localhost */,
-				9F11157E60D2093E35710C82 /* tendermint */,
-				9F111EDDE29D91BED2EC6B73 /* solomachine */,
-			);
-			path = lightclients;
-			sourceTree = "<group>";
-		};
-		9F1112C76500273BF188B8FB /* feegrant */ = {
-			isa = PBXGroup;
-			children = (
-				9F111EDECC0F4F0BB756779E /* v1beta1 */,
-			);
-			path = feegrant;
-			sourceTree = "<group>";
-		};
-		9F1112CAD4D6D134C5762B39 /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F111331AC32262F1BF9109E /* core */ = {
-			isa = PBXGroup;
-			children = (
-				9F111619AB3EE8B90323B786 /* types */,
-				9F11135679013E07052A0095 /* client */,
-				9F111C7F3B22272CF612C763 /* channel */,
-				9F1113C485984F9A8C15A4C9 /* commitment */,
-				9F111DAAE3EB0A05A60CBA79 /* connection */,
-			);
-			path = core;
-			sourceTree = "<group>";
-		};
-		9F11135679013E07052A0095 /* client */ = {
-			isa = PBXGroup;
-			children = (
-				9F1113E949E3719FF243398E /* v1 */,
-			);
-			path = client;
-			sourceTree = "<group>";
-		};
 		9F11136F3D7FBD578AB4879E /* Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,64 +649,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		9F111370581FE6D0313789CF /* v2alpha1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v2alpha1;
-			sourceTree = "<group>";
-		};
-		9F11138006A9ECC6B6884EBB /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1113AB75F7D44F399A50AC /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1113C485984F9A8C15A4C9 /* commitment */ = {
-			isa = PBXGroup;
-			children = (
-				9F111649EDE07C102EC9DC0F /* v1 */,
-			);
-			path = commitment;
-			sourceTree = "<group>";
-		};
-		9F1113C6C336CA189DB3AE4A /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1113CFADC0285EE7923F48 /* libs */ = {
-			isa = PBXGroup;
-			children = (
-				9F111C4598748062119005CF /* bits */,
-			);
-			path = libs;
-			sourceTree = "<group>";
-		};
-		9F1113D58775F8768509F4C1 /* abci */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = abci;
-			sourceTree = "<group>";
-		};
-		9F1113E949E3719FF243398E /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
 		9F1113EC442B814897F49AA1 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
@@ -889,189 +658,6 @@
 				9F111100B9DCC2A05D8068DD /* PrivateKey.swift */,
 			);
 			path = Wallet;
-			sourceTree = "<group>";
-		};
-		9F1113EC87E46C80443F8483 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1114107684E713EB763DDB /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111453989C97B320033A2B /* gogoproto */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = gogoproto;
-			sourceTree = "<group>";
-		};
-		9F11147D3FC822EA27FC4047 /* snapshots */ = {
-			isa = PBXGroup;
-			children = (
-				9F11164EDA738A4D208B4F55 /* v1beta1 */,
-			);
-			path = snapshots;
-			sourceTree = "<group>";
-		};
-		9F11149B82A9E5F9E56D7C80 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1114EB32448066EBF3BEE5 /* p8e */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = p8e;
-			sourceTree = "<group>";
-		};
-		9F11157E60D2093E35710C82 /* tendermint */ = {
-			isa = PBXGroup;
-			children = (
-				9F111624501A50FE5C700126 /* v1 */,
-			);
-			path = tendermint;
-			sourceTree = "<group>";
-		};
-		9F11159D74D4EE16DF4716A6 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1115D4DA2103B5B8126921 /* tendermint */ = {
-			isa = PBXGroup;
-			children = (
-				9F111AC53AC91E9F0E40E26F /* v1beta1 */,
-			);
-			path = tendermint;
-			sourceTree = "<group>";
-		};
-		9F111619AB3EE8B90323B786 /* types */ = {
-			isa = PBXGroup;
-			children = (
-				9F111B9B14FF0B864BCA342C /* v1 */,
-			);
-			path = types;
-			sourceTree = "<group>";
-		};
-		9F11161FC4B33BEEC88E9769 /* base */ = {
-			isa = PBXGroup;
-			children = (
-				9F111F359FD79482D0AF6DCF /* kv */,
-				9F1119F19CFC3823A6393FF7 /* abci */,
-				9F111EF0243158E8F957CAE9 /* query */,
-				9F111DE59B54443F00E1DAB2 /* store */,
-				9F11162A929F3BB49D65AF0C /* v1beta1 */,
-				9F11147D3FC822EA27FC4047 /* snapshots */,
-				9F1116B724481ACA202E4183 /* reflection */,
-				9F1115D4DA2103B5B8126921 /* tendermint */,
-			);
-			path = base;
-			sourceTree = "<group>";
-		};
-		9F111620C8E40F9433417E5C /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111624501A50FE5C700126 /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F11162A929F3BB49D65AF0C /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111649EDE07C102EC9DC0F /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F11164DCE92CEE021B6719D /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F11164EDA738A4D208B4F55 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111653ADE6FD26F3EA51CC /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-				9F1114EB32448066EBF3BEE5 /* p8e */,
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F1116B724481ACA202E4183 /* reflection */ = {
-			isa = PBXGroup;
-			children = (
-				9F1111738643139048D9182A /* v1beta1 */,
-				9F111370581FE6D0313789CF /* v2alpha1 */,
-			);
-			path = reflection;
-			sourceTree = "<group>";
-		};
-		9F1116D8841F95CC37D4710D /* confio */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = confio;
-			sourceTree = "<group>";
-		};
-		9F1117203D5F675BDA69EF81 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F11174B093F6C57821B7446 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1117BE70FB0881CC7C796D /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F1117EB4FDA7A8A7B6DFBDC /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
 			sourceTree = "<group>";
 		};
 		9F1117F3317FBCA2CE93D6BD /* Mnemonic */ = {
@@ -1110,63 +696,6 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		9F11188E1D6667A1E05A20EC /* wasm */ = {
-			isa = PBXGroup;
-			children = (
-				9F111EC9DF1C14CDC939D9ED /* v1 */,
-			);
-			path = wasm;
-			sourceTree = "<group>";
-		};
-		9F1118DF994D54A301291AE5 /* gov */ = {
-			isa = PBXGroup;
-			children = (
-				9F11174B093F6C57821B7446 /* v1beta1 */,
-			);
-			path = gov;
-			sourceTree = "<group>";
-		};
-		9F1118F2EE93D1238CA8A905 /* ibc */ = {
-			isa = PBXGroup;
-			children = (
-				9F111331AC32262F1BF9109E /* core */,
-				9F11190C217A36B2B5A0F520 /* applications */,
-				9F1112A679D3A546403E093A /* lightclients */,
-			);
-			path = ibc;
-			sourceTree = "<group>";
-		};
-		9F111900AE7F17F34A406854 /* marker */ = {
-			isa = PBXGroup;
-			children = (
-				9F11191B28A04CA8D4DFC1B8 /* v1 */,
-			);
-			path = marker;
-			sourceTree = "<group>";
-		};
-		9F11190C217A36B2B5A0F520 /* applications */ = {
-			isa = PBXGroup;
-			children = (
-				9F111B7D0975702347F41E66 /* transfer */,
-			);
-			path = applications;
-			sourceTree = "<group>";
-		};
-		9F11191B28A04CA8D4DFC1B8 /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F11192486631AA1C2D4E5E0 /* mint */ = {
-			isa = PBXGroup;
-			children = (
-				9F1113AB75F7D44F399A50AC /* v1beta1 */,
-			);
-			path = mint;
-			sourceTree = "<group>";
-		};
 		9F11193BC2481FE5640DE860 /* provwallet-swiftTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -1184,14 +713,6 @@
 			path = "provwallet-swiftTests";
 			sourceTree = "<group>";
 		};
-		9F11193D16E9BC731C109C8A /* bank */ = {
-			isa = PBXGroup;
-			children = (
-				9F1113EC87E46C80443F8483 /* v1beta1 */,
-			);
-			path = bank;
-			sourceTree = "<group>";
-		};
 		9F11194856D407454B536E5C /* Encryption */ = {
 			isa = PBXGroup;
 			children = (
@@ -1203,105 +724,11 @@
 			path = Encryption;
 			sourceTree = "<group>";
 		};
-		9F11194AC8647CD0C1F19C9C /* crypto */ = {
-			isa = PBXGroup;
-			children = (
-				9F111C9B221801A278236372 /* ed25519 */,
-				9F111F20F22187BBBA7FEDF0 /* multisig */,
-				9F111DA2C575825A9F16D4C7 /* secp256k1 */,
-				9F111F56708900CF5E1E1473 /* secp256r1 */,
-			);
-			path = crypto;
-			sourceTree = "<group>";
-		};
-		9F11198C4F6E9A8AE61E76D5 /* version */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = version;
-			sourceTree = "<group>";
-		};
-		9F1119BEF5084A59BD05B706 /* name */ = {
-			isa = PBXGroup;
-			children = (
-				9F111D27CD2B8DC0217A8501 /* v1 */,
-			);
-			path = name;
-			sourceTree = "<group>";
-		};
 		9F1119C24E137B97648ADEFB /* Proto */ = {
 			isa = PBXGroup;
 			children = (
-				9F111453989C97B320033A2B /* gogoproto */,
-				9F111A3959B841B0C1ED2D60 /* cosmwasm */,
-				9F111B1A91A11ED72F144E66 /* cosmos_proto */,
-				9F1119FBAD8474A4A9FA2149 /* cosmos */,
-				9F111D56688B1BF5AC9F1A09 /* tendermint */,
-				9F111E9CFC49D124CC076CD1 /* provenance */,
-				9F1118F2EE93D1238CA8A905 /* ibc */,
-				9F111A0D12EEFB55932B1B96 /* google */,
-				9F1116D8841F95CC37D4710D /* confio */,
 			);
 			path = Proto;
-			sourceTree = "<group>";
-		};
-		9F1119F19CFC3823A6393FF7 /* abci */ = {
-			isa = PBXGroup;
-			children = (
-				9F111C1E71D4A9E413B48E06 /* v1beta1 */,
-			);
-			path = abci;
-			sourceTree = "<group>";
-		};
-		9F1119FBAD8474A4A9FA2149 /* cosmos */ = {
-			isa = PBXGroup;
-			children = (
-				9F111A7EC9564DAEA98ABA15 /* tx */,
-				9F1118DF994D54A301291AE5 /* gov */,
-				9F11125FEBFB12AD89E4B132 /* auth */,
-				9F11193D16E9BC731C109C8A /* bank */,
-				9F11161FC4B33BEEC88E9769 /* base */,
-				9F11192486631AA1C2D4E5E0 /* mint */,
-				9F111E898C40C12D9A406B83 /* authz */,
-				9F111269B358E5551466B2DA /* crisis */,
-				9F11194AC8647CD0C1F19C9C /* crypto */,
-				9F11118E75699A02AFA58F4C /* params */,
-				9F111AAE8D01BF210450A47D /* genutil */,
-				9F11126510B5F361021DAF31 /* staking */,
-				9F111D37E9EB922D53E99C4D /* upgrade */,
-				9F111EF80E653795CE9C204E /* vesting */,
-				9F111CEB569ED12245826B42 /* evidence */,
-				9F1112C76500273BF188B8FB /* feegrant */,
-				9F111B2905166130BD385124 /* slashing */,
-				9F111D9E6BFED12270843921 /* capability */,
-				9F111F5308E094D32254EA20 /* distribution */,
-			);
-			path = cosmos;
-			sourceTree = "<group>";
-		};
-		9F111A0D12EEFB55932B1B96 /* google */ = {
-			isa = PBXGroup;
-			children = (
-				9F111DC7FB4086DC7AA1CBAA /* api */,
-			);
-			path = google;
-			sourceTree = "<group>";
-		};
-		9F111A3959B841B0C1ED2D60 /* cosmwasm */ = {
-			isa = PBXGroup;
-			children = (
-				9F11188E1D6667A1E05A20EC /* wasm */,
-			);
-			path = cosmwasm;
-			sourceTree = "<group>";
-		};
-		9F111A7EC9564DAEA98ABA15 /* tx */ = {
-			isa = PBXGroup;
-			children = (
-				9F111EFFE2BE75DF3C2901EE /* signing */,
-				9F11159D74D4EE16DF4716A6 /* v1beta1 */,
-			);
-			path = tx;
 			sourceTree = "<group>";
 		};
 		9F111AABFF4DA9181120FA17 = {
@@ -1319,181 +746,12 @@
 			);
 			sourceTree = "<group>";
 		};
-		9F111AAE8D01BF210450A47D /* genutil */ = {
-			isa = PBXGroup;
-			children = (
-				9F1117203D5F675BDA69EF81 /* v1beta1 */,
-			);
-			path = genutil;
-			sourceTree = "<group>";
-		};
-		9F111AB5E2A7656E33697CDA /* p2p */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = p2p;
-			sourceTree = "<group>";
-		};
-		9F111AC53AC91E9F0E40E26F /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111B1A91A11ED72F144E66 /* cosmos_proto */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = cosmos_proto;
-			sourceTree = "<group>";
-		};
-		9F111B2905166130BD385124 /* slashing */ = {
-			isa = PBXGroup;
-			children = (
-				9F11138006A9ECC6B6884EBB /* v1beta1 */,
-			);
-			path = slashing;
-			sourceTree = "<group>";
-		};
-		9F111B7D0975702347F41E66 /* transfer */ = {
-			isa = PBXGroup;
-			children = (
-				9F111FDEA43B5450C9436BD1 /* v1 */,
-			);
-			path = transfer;
-			sourceTree = "<group>";
-		};
-		9F111B9B14FF0B864BCA342C /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
 		9F111BC95D194BDABF00A62B /* Encoding */ = {
 			isa = PBXGroup;
 			children = (
 				9F11198B36F7C573EF6A6B36 /* Bech32.swift */,
 			);
 			path = Encoding;
-			sourceTree = "<group>";
-		};
-		9F111BC969A8B7CFF103BBE1 /* localhost */ = {
-			isa = PBXGroup;
-			children = (
-				9F111E06942F0B6347D6B5CB /* v1 */,
-			);
-			path = localhost;
-			sourceTree = "<group>";
-		};
-		9F111BD0887B88108F4649D3 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111C1E71D4A9E413B48E06 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111C4598748062119005CF /* bits */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = bits;
-			sourceTree = "<group>";
-		};
-		9F111C7F3B22272CF612C763 /* channel */ = {
-			isa = PBXGroup;
-			children = (
-				9F11164DCE92CEE021B6719D /* v1 */,
-			);
-			path = channel;
-			sourceTree = "<group>";
-		};
-		9F111C9B221801A278236372 /* ed25519 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ed25519;
-			sourceTree = "<group>";
-		};
-		9F111CEB569ED12245826B42 /* evidence */ = {
-			isa = PBXGroup;
-			children = (
-				9F1113C6C336CA189DB3AE4A /* v1beta1 */,
-			);
-			path = evidence;
-			sourceTree = "<group>";
-		};
-		9F111D27CD2B8DC0217A8501 /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F111D37E9EB922D53E99C4D /* upgrade */ = {
-			isa = PBXGroup;
-			children = (
-				9F11149B82A9E5F9E56D7C80 /* v1beta1 */,
-			);
-			path = upgrade;
-			sourceTree = "<group>";
-		};
-		9F111D4D12B0996368D24817 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111D56688B1BF5AC9F1A09 /* tendermint */ = {
-			isa = PBXGroup;
-			children = (
-				9F111AB5E2A7656E33697CDA /* p2p */,
-				9F1113D58775F8768509F4C1 /* abci */,
-				9F1113CFADC0285EE7923F48 /* libs */,
-				9F11110827BADBC20347E0CB /* types */,
-				9F1111F589DE2174409C97FC /* crypto */,
-				9F11198C4F6E9A8AE61E76D5 /* version */,
-			);
-			path = tendermint;
-			sourceTree = "<group>";
-		};
-		9F111D9939E5B875EDC5E7DF /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111D9E6BFED12270843921 /* capability */ = {
-			isa = PBXGroup;
-			children = (
-				9F111D4D12B0996368D24817 /* v1beta1 */,
-			);
-			path = capability;
-			sourceTree = "<group>";
-		};
-		9F111DA2C575825A9F16D4C7 /* secp256k1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = secp256k1;
-			sourceTree = "<group>";
-		};
-		9F111DAAE3EB0A05A60CBA79 /* connection */ = {
-			isa = PBXGroup;
-			children = (
-				9F111205FC04E8FC4A299B46 /* v1 */,
-			);
-			path = connection;
 			sourceTree = "<group>";
 		};
 		9F111DB0747B76B337F9CA8F /* Hash */ = {
@@ -1504,77 +762,6 @@
 			path = Hash;
 			sourceTree = "<group>";
 		};
-		9F111DC7FB4086DC7AA1CBAA /* api */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = api;
-			sourceTree = "<group>";
-		};
-		9F111DE59B54443F00E1DAB2 /* store */ = {
-			isa = PBXGroup;
-			children = (
-				9F111620C8E40F9433417E5C /* v1beta1 */,
-			);
-			path = store;
-			sourceTree = "<group>";
-		};
-		9F111E06942F0B6347D6B5CB /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F111E6FC3A429357602CDE3 /* attribute */ = {
-			isa = PBXGroup;
-			children = (
-				9F1112CAD4D6D134C5762B39 /* v1 */,
-			);
-			path = attribute;
-			sourceTree = "<group>";
-		};
-		9F111E898C40C12D9A406B83 /* authz */ = {
-			isa = PBXGroup;
-			children = (
-				9F111FE97BCF0530492E0278 /* v1beta1 */,
-			);
-			path = authz;
-			sourceTree = "<group>";
-		};
-		9F111E9CFC49D124CC076CD1 /* provenance */ = {
-			isa = PBXGroup;
-			children = (
-				9F1119BEF5084A59BD05B706 /* name */,
-				9F111900AE7F17F34A406854 /* marker */,
-				9F11110ECCB330882C025F24 /* metadata */,
-				9F111E6FC3A429357602CDE3 /* attribute */,
-			);
-			path = provenance;
-			sourceTree = "<group>";
-		};
-		9F111EC9DF1C14CDC939D9ED /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F111EDDE29D91BED2EC6B73 /* solomachine */ = {
-			isa = PBXGroup;
-			children = (
-				9F1117EB4FDA7A8A7B6DFBDC /* v1 */,
-			);
-			path = solomachine;
-			sourceTree = "<group>";
-		};
-		9F111EDECC0F4F0BB756779E /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
 		9F111EE4E20E3F1D58E5FA68 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
@@ -1582,75 +769,6 @@
 				9F11194856D407454B536E5C /* Encryption */,
 			);
 			path = Crypto;
-			sourceTree = "<group>";
-		};
-		9F111EF0243158E8F957CAE9 /* query */ = {
-			isa = PBXGroup;
-			children = (
-				9F1111B183F8679D20029B82 /* v1beta1 */,
-			);
-			path = query;
-			sourceTree = "<group>";
-		};
-		9F111EF80E653795CE9C204E /* vesting */ = {
-			isa = PBXGroup;
-			children = (
-				9F1117BE70FB0881CC7C796D /* v1beta1 */,
-			);
-			path = vesting;
-			sourceTree = "<group>";
-		};
-		9F111EFFE2BE75DF3C2901EE /* signing */ = {
-			isa = PBXGroup;
-			children = (
-				9F111F0F6AF0CCC1A4820A00 /* v1beta1 */,
-			);
-			path = signing;
-			sourceTree = "<group>";
-		};
-		9F111F0693FE871647D9D58E /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111F0F6AF0CCC1A4820A00 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
-			sourceTree = "<group>";
-		};
-		9F111F20F22187BBBA7FEDF0 /* multisig */ = {
-			isa = PBXGroup;
-			children = (
-				9F111F0693FE871647D9D58E /* v1beta1 */,
-			);
-			path = multisig;
-			sourceTree = "<group>";
-		};
-		9F111F359FD79482D0AF6DCF /* kv */ = {
-			isa = PBXGroup;
-			children = (
-				9F1110448814D17CFF331D2A /* v1beta1 */,
-			);
-			path = kv;
-			sourceTree = "<group>";
-		};
-		9F111F5308E094D32254EA20 /* distribution */ = {
-			isa = PBXGroup;
-			children = (
-				9F111121B98B7D44156DE927 /* v1beta1 */,
-			);
-			path = distribution;
-			sourceTree = "<group>";
-		};
-		9F111F56708900CF5E1E1473 /* secp256r1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = secp256r1;
 			sourceTree = "<group>";
 		};
 		9F111FB71E4E03B0B861353C /* BigInt */ = {
@@ -1671,20 +789,6 @@
 				9F11159A2DA8800E3A6021B0 /* Proto+Provenance.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9F111FDEA43B5450C9436BD1 /* v1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1;
-			sourceTree = "<group>";
-		};
-		9F111FE97BCF0530492E0278 /* v1beta1 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = v1beta1;
 			sourceTree = "<group>";
 		};
 		CF6B8AC527BB0D810049F9B4 /* ProtoGen */ = {
@@ -2317,18 +1421,15 @@
 				9F1112F1B51B75B63C3F306A /* Digest+Provenance.swift in Sources */,
 				CF6B8C3D27BB0D830049F9B4 /* tendermint_abci_types.grpc.swift in Sources */,
 				CF6B8C5D27BB0D830049F9B4 /* cosmos_upgrade_v1beta1_upgrade.pb.swift in Sources */,
-				9F11163F1BCC67DD3F5C5422 /* tx.proto in Sources */,
 				CF6B8BD827BB0D820049F9B4 /* cosmos_authz_v1beta1_tx.grpc.swift in Sources */,
 				CF6B8C5227BB0D830049F9B4 /* ibc_core_channel_v1_channel.pb.swift in Sources */,
 				CF6B8C5027BB0D830049F9B4 /* ibc_core_connection_v1_query.grpc.swift in Sources */,
 				CF6B8C1727BB0D830049F9B4 /* cosmwasm_wasm_v1_types.pb.swift in Sources */,
 				CF6B8C3827BB0D830049F9B4 /* cosmos_bank_v1beta1_query.pb.swift in Sources */,
 				CF6B8BE627BB0D830049F9B4 /* tendermint_crypto_proof.pb.swift in Sources */,
-				9F1116F986F3F0F30D9A844C /* spec.proto in Sources */,
 				CF6B8BB627BB0D820049F9B4 /* cosmos_evidence_v1beta1_evidence.pb.swift in Sources */,
 				CF6B8C7027BB0D830049F9B4 /* provenance_name_v1_query.pb.swift in Sources */,
 				CF6B8C1327BB0D830049F9B4 /* cosmos_vesting_v1beta1_vesting.pb.swift in Sources */,
-				9F1114C842DC4121AB7586C1 /* query.proto in Sources */,
 				CF6B8C0D27BB0D830049F9B4 /* ibc_core_channel_v1_tx.grpc.swift in Sources */,
 				CF6B8BFC27BB0D830049F9B4 /* cosmos_base_store_v1beta1_snapshot.pb.swift in Sources */,
 				CF6B8BF227BB0D830049F9B4 /* provenance_name_v1_genesis.pb.swift in Sources */,
@@ -2353,7 +1454,6 @@
 				CF6B8C5527BB0D830049F9B4 /* provenance_marker_v1_si.pb.swift in Sources */,
 				CF6B8BCC27BB0D820049F9B4 /* provenance_metadata_v1_genesis.pb.swift in Sources */,
 				CF6B8C7127BB0D830049F9B4 /* provenance_name_v1_query.grpc.swift in Sources */,
-				9F111F672FC1C7CABBE6CAC3 /* scope.proto in Sources */,
 				CF6B8C3E27BB0D830049F9B4 /* tendermint_types_params.pb.swift in Sources */,
 				CF6B8BE727BB0D830049F9B4 /* cosmos_base_reflection_v2alpha1_reflection.pb.swift in Sources */,
 				CF6B8C1F27BB0D830049F9B4 /* cosmos_crisis_v1beta1_tx.pb.swift in Sources */,
@@ -2365,10 +1465,8 @@
 				CF6B8BCA27BB0D820049F9B4 /* ibc_core_commitment_v1_commitment.pb.swift in Sources */,
 				CF6B8C5727BB0D830049F9B4 /* ibc_core_client_v1_genesis.pb.swift in Sources */,
 				CF6B8C7A27BB0D830049F9B4 /* ibc_core_types_v1_genesis.pb.swift in Sources */,
-				9F11175D30304B5F0E5A40D1 /* types.proto in Sources */,
 				CF6B8C5927BB0D830049F9B4 /* provenance_metadata_v0_query.grpc.swift in Sources */,
 				CF6B8C2327BB0D830049F9B4 /* cosmos_gov_v1beta1_query.grpc.swift in Sources */,
-				9F1110B352C8D74F9CE5706F /* contract.proto in Sources */,
 				CF6B8C2B27BB0D830049F9B4 /* cosmos_base_reflection_v1beta1_reflection.pb.swift in Sources */,
 				CF6B8BAF27BB0D820049F9B4 /* cosmos_mint_v1beta1_query.grpc.swift in Sources */,
 				9F1113D94C5478380ED9B7AA /* Auth.swift in Sources */,
@@ -2422,12 +1520,6 @@
 				9F111DA02F6C71903695E41C /* MnemonicTests.swift in Sources */,
 				9F111DACDA618B5475011BCD /* AddressGenerationTests.swift in Sources */,
 				9F1114284438E17FC4E8A7E0 /* WalletAccountTests.swift in Sources */,
-				9F111337907A2A2759181DA0 /* tx.proto in Sources */,
-				9F111CA9EA9667B81EA57437 /* spec.proto in Sources */,
-				9F1114EFF1F0BA939EC5E8C5 /* query.proto in Sources */,
-				9F111374BCEA3873AED1AD85 /* scope.proto in Sources */,
-				9F111D6EA957C9C7167E0153 /* types.proto in Sources */,
-				9F111EB184C0D9D6FA2D8CA6 /* contract.proto in Sources */,
 				9F111EEED65628524FF250D4 /* ProvenanceBlockchainClientTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

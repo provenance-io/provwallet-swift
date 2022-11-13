@@ -56,6 +56,11 @@ internal protocol Cosmos_Staking_V1beta1_MsgClientProtocol: GRPCClient {
     _ request: Cosmos_Staking_V1beta1_MsgUndelegate,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmos_Staking_V1beta1_MsgUndelegate, Cosmos_Staking_V1beta1_MsgUndelegateResponse>
+
+  func cancelUnbondingDelegation(
+    _ request: Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegation,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegation, Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegationResponse>
 }
 
 extension Cosmos_Staking_V1beta1_MsgClientProtocol {
@@ -155,6 +160,27 @@ extension Cosmos_Staking_V1beta1_MsgClientProtocol {
       interceptors: self.interceptors?.makeUndelegateInterceptors() ?? []
     )
   }
+
+  /// CancelUnbondingDelegation defines a method for performing canceling the unbonding delegation
+  /// and delegate back to previous validator.
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to CancelUnbondingDelegation.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func cancelUnbondingDelegation(
+    _ request: Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegation,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegation, Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegationResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.staking.v1beta1.Msg/CancelUnbondingDelegation",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeCancelUnbondingDelegationInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmos_Staking_V1beta1_MsgClientInterceptorFactoryProtocol {
@@ -173,6 +199,9 @@ internal protocol Cosmos_Staking_V1beta1_MsgClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'undelegate'.
   func makeUndelegateInterceptors() -> [ClientInterceptor<Cosmos_Staking_V1beta1_MsgUndelegate, Cosmos_Staking_V1beta1_MsgUndelegateResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'cancelUnbondingDelegation'.
+  func makeCancelUnbondingDelegationInterceptors() -> [ClientInterceptor<Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegation, Cosmos_Staking_V1beta1_MsgCancelUnbondingDelegationResponse>]
 }
 
 internal final class Cosmos_Staking_V1beta1_MsgClient: Cosmos_Staking_V1beta1_MsgClientProtocol {

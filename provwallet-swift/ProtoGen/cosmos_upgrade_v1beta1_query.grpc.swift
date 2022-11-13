@@ -51,6 +51,11 @@ internal protocol Cosmos_Upgrade_V1beta1_QueryClientProtocol: GRPCClient {
     _ request: Cosmos_Upgrade_V1beta1_QueryModuleVersionsRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmos_Upgrade_V1beta1_QueryModuleVersionsRequest, Cosmos_Upgrade_V1beta1_QueryModuleVersionsResponse>
+
+  func authority(
+    _ request: Cosmos_Upgrade_V1beta1_QueryAuthorityRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Upgrade_V1beta1_QueryAuthorityRequest, Cosmos_Upgrade_V1beta1_QueryAuthorityResponse>
 }
 
 extension Cosmos_Upgrade_V1beta1_QueryClientProtocol {
@@ -136,6 +141,26 @@ extension Cosmos_Upgrade_V1beta1_QueryClientProtocol {
       interceptors: self.interceptors?.makeModuleVersionsInterceptors() ?? []
     )
   }
+
+  /// Returns the account with authority to conduct upgrades
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to Authority.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func authority(
+    _ request: Cosmos_Upgrade_V1beta1_QueryAuthorityRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Upgrade_V1beta1_QueryAuthorityRequest, Cosmos_Upgrade_V1beta1_QueryAuthorityResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.upgrade.v1beta1.Query/Authority",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeAuthorityInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmos_Upgrade_V1beta1_QueryClientInterceptorFactoryProtocol {
@@ -151,6 +176,9 @@ internal protocol Cosmos_Upgrade_V1beta1_QueryClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'moduleVersions'.
   func makeModuleVersionsInterceptors() -> [ClientInterceptor<Cosmos_Upgrade_V1beta1_QueryModuleVersionsRequest, Cosmos_Upgrade_V1beta1_QueryModuleVersionsResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'authority'.
+  func makeAuthorityInterceptors() -> [ClientInterceptor<Cosmos_Upgrade_V1beta1_QueryAuthorityRequest, Cosmos_Upgrade_V1beta1_QueryAuthorityResponse>]
 }
 
 internal final class Cosmos_Upgrade_V1beta1_QueryClient: Cosmos_Upgrade_V1beta1_QueryClientProtocol {

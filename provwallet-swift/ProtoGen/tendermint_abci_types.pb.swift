@@ -995,6 +995,14 @@ public struct Tendermint_Abci_ResponseCheckTx {
 
   public var codespace: String = String()
 
+  public var sender: String = String()
+
+  public var priority: Int64 = 0
+
+  /// mempool_error is set by Tendermint.
+  /// ABCI applictions creating a ResponseCheckTX should not set mempool_error.
+  public var mempoolError: String = String()
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -2971,6 +2979,9 @@ extension Tendermint_Abci_ResponseCheckTx: SwiftProtobuf.Message, SwiftProtobuf.
     6: .same(proto: "gas_used"),
     7: .same(proto: "events"),
     8: .same(proto: "codespace"),
+    9: .same(proto: "sender"),
+    10: .same(proto: "priority"),
+    11: .standard(proto: "mempool_error"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -2987,6 +2998,9 @@ extension Tendermint_Abci_ResponseCheckTx: SwiftProtobuf.Message, SwiftProtobuf.
       case 6: try { try decoder.decodeSingularInt64Field(value: &self.gasUsed) }()
       case 7: try { try decoder.decodeRepeatedMessageField(value: &self.events) }()
       case 8: try { try decoder.decodeSingularStringField(value: &self.codespace) }()
+      case 9: try { try decoder.decodeSingularStringField(value: &self.sender) }()
+      case 10: try { try decoder.decodeSingularInt64Field(value: &self.priority) }()
+      case 11: try { try decoder.decodeSingularStringField(value: &self.mempoolError) }()
       default: break
       }
     }
@@ -3017,6 +3031,15 @@ extension Tendermint_Abci_ResponseCheckTx: SwiftProtobuf.Message, SwiftProtobuf.
     if !self.codespace.isEmpty {
       try visitor.visitSingularStringField(value: self.codespace, fieldNumber: 8)
     }
+    if !self.sender.isEmpty {
+      try visitor.visitSingularStringField(value: self.sender, fieldNumber: 9)
+    }
+    if self.priority != 0 {
+      try visitor.visitSingularInt64Field(value: self.priority, fieldNumber: 10)
+    }
+    if !self.mempoolError.isEmpty {
+      try visitor.visitSingularStringField(value: self.mempoolError, fieldNumber: 11)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -3029,6 +3052,9 @@ extension Tendermint_Abci_ResponseCheckTx: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.gasUsed != rhs.gasUsed {return false}
     if lhs.events != rhs.events {return false}
     if lhs.codespace != rhs.codespace {return false}
+    if lhs.sender != rhs.sender {return false}
+    if lhs.priority != rhs.priority {return false}
+    if lhs.mempoolError != rhs.mempoolError {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

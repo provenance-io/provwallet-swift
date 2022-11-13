@@ -35,7 +35,7 @@ public struct Cosmos_Feegrant_V1beta1_MsgGrantAllowance {
   /// grantee is the address of the user being granted an allowance of another user's funds.
   public var grantee: String = String()
 
-  /// allowance can be any of basic and filtered fee allowance.
+  /// allowance can be any of basic, periodic, allowed fee allowance.
   public var allowance: SwiftProtobuf.Google_Protobuf_Any {
     get {return _allowance ?? SwiftProtobuf.Google_Protobuf_Any()}
     set {_allowance = newValue}

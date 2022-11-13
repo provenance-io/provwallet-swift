@@ -206,6 +206,8 @@ public enum Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf.Enum {
   case omnibus // = 7
   case provenance // = 8
   case marker // = 9
+  case controller // = 10
+  case validator // = 11
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -224,6 +226,8 @@ public enum Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf.Enum {
     case 7: self = .omnibus
     case 8: self = .provenance
     case 9: self = .marker
+    case 10: self = .controller
+    case 11: self = .validator
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -240,6 +244,8 @@ public enum Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf.Enum {
     case .omnibus: return 7
     case .provenance: return 8
     case .marker: return 9
+    case .controller: return 10
+    case .validator: return 11
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -261,6 +267,8 @@ extension Provenance_Metadata_V1_P8e_PartyType: CaseIterable {
     .omnibus,
     .provenance,
     .marker,
+    .controller,
+    .validator,
   ]
 }
 
@@ -916,6 +924,8 @@ extension Provenance_Metadata_V1_P8e_PartyType: SwiftProtobuf._ProtoNameProvidin
     7: .same(proto: "PARTY_TYPE_OMNIBUS"),
     8: .same(proto: "PARTY_TYPE_PROVENANCE"),
     9: .same(proto: "PARTY_TYPE_MARKER"),
+    10: .same(proto: "PARTY_TYPE_CONTROLLER"),
+    11: .same(proto: "PARTY_TYPE_VALIDATOR"),
   ]
 }
 

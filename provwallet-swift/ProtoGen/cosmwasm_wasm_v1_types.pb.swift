@@ -30,11 +30,15 @@ public enum Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf.Enum {
   /// AccessTypeNobody forbidden
   case nobody // = 1
 
-  /// AccessTypeOnlyAddress restricted to an address
+  /// AccessTypeOnlyAddress restricted to a single address
+  /// Deprecated: use AccessTypeAnyOfAddresses instead
   case onlyAddress // = 2
 
   /// AccessTypeEverybody unrestricted
   case everybody // = 3
+
+  /// AccessTypeAnyOfAddresses allow any of the addresses
+  case anyOfAddresses // = 4
   case UNRECOGNIZED(Int)
 
   public init() {
@@ -47,6 +51,7 @@ public enum Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf.Enum {
     case 1: self = .nobody
     case 2: self = .onlyAddress
     case 3: self = .everybody
+    case 4: self = .anyOfAddresses
     default: self = .UNRECOGNIZED(rawValue)
     }
   }
@@ -57,6 +62,7 @@ public enum Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf.Enum {
     case .nobody: return 1
     case .onlyAddress: return 2
     case .everybody: return 3
+    case .anyOfAddresses: return 4
     case .UNRECOGNIZED(let i): return i
     }
   }
@@ -72,6 +78,7 @@ extension Cosmwasm_Wasm_V1_AccessType: CaseIterable {
     .nobody,
     .onlyAddress,
     .everybody,
+    .anyOfAddresses,
   ]
 }
 
@@ -155,7 +162,11 @@ public struct Cosmwasm_Wasm_V1_AccessConfig {
 
   public var permission: Cosmwasm_Wasm_V1_AccessType = .unspecified
 
+  /// Address
+  /// Deprecated: replaced by addresses
   public var address: String = String()
+
+  public var addresses: [String] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -178,8 +189,6 @@ public struct Cosmwasm_Wasm_V1_Params {
   public mutating func clearCodeUploadAccess() {self._codeUploadAccess = nil}
 
   public var instantiateDefaultPermission: Cosmwasm_Wasm_V1_AccessType = .unspecified
-
-  public var maxWasmCodeSize: UInt64 = 0
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -344,6 +353,7 @@ extension Cosmwasm_Wasm_V1_AccessType: SwiftProtobuf._ProtoNameProviding {
     1: .same(proto: "ACCESS_TYPE_NOBODY"),
     2: .same(proto: "ACCESS_TYPE_ONLY_ADDRESS"),
     3: .same(proto: "ACCESS_TYPE_EVERYBODY"),
+    4: .same(proto: "ACCESS_TYPE_ANY_OF_ADDRESSES"),
   ]
 }
 
@@ -393,6 +403,7 @@ extension Cosmwasm_Wasm_V1_AccessConfig: SwiftProtobuf.Message, SwiftProtobuf._M
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "permission"),
     2: .same(proto: "address"),
+    3: .same(proto: "addresses"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -403,6 +414,7 @@ extension Cosmwasm_Wasm_V1_AccessConfig: SwiftProtobuf.Message, SwiftProtobuf._M
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularEnumField(value: &self.permission) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.address) }()
+      case 3: try { try decoder.decodeRepeatedStringField(value: &self.addresses) }()
       default: break
       }
     }
@@ -415,12 +427,16 @@ extension Cosmwasm_Wasm_V1_AccessConfig: SwiftProtobuf.Message, SwiftProtobuf._M
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 2)
     }
+    if !self.addresses.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.addresses, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Cosmwasm_Wasm_V1_AccessConfig, rhs: Cosmwasm_Wasm_V1_AccessConfig) -> Bool {
     if lhs.permission != rhs.permission {return false}
     if lhs.address != rhs.address {return false}
+    if lhs.addresses != rhs.addresses {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -431,7 +447,6 @@ extension Cosmwasm_Wasm_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Message
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "code_upload_access"),
     2: .standard(proto: "instantiate_default_permission"),
-    3: .standard(proto: "max_wasm_code_size"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -442,7 +457,6 @@ extension Cosmwasm_Wasm_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Message
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularMessageField(value: &self._codeUploadAccess) }()
       case 2: try { try decoder.decodeSingularEnumField(value: &self.instantiateDefaultPermission) }()
-      case 3: try { try decoder.decodeSingularUInt64Field(value: &self.maxWasmCodeSize) }()
       default: break
       }
     }
@@ -455,16 +469,12 @@ extension Cosmwasm_Wasm_V1_Params: SwiftProtobuf.Message, SwiftProtobuf._Message
     if self.instantiateDefaultPermission != .unspecified {
       try visitor.visitSingularEnumField(value: self.instantiateDefaultPermission, fieldNumber: 2)
     }
-    if self.maxWasmCodeSize != 0 {
-      try visitor.visitSingularUInt64Field(value: self.maxWasmCodeSize, fieldNumber: 3)
-    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Cosmwasm_Wasm_V1_Params, rhs: Cosmwasm_Wasm_V1_Params) -> Bool {
     if lhs._codeUploadAccess != rhs._codeUploadAccess {return false}
     if lhs.instantiateDefaultPermission != rhs.instantiateDefaultPermission {return false}
-    if lhs.maxWasmCodeSize != rhs.maxWasmCodeSize {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

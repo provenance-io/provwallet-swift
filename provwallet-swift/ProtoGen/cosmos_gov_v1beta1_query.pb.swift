@@ -123,7 +123,7 @@ public struct Cosmos_Gov_V1beta1_QueryVoteRequest {
   /// proposal_id defines the unique id of the proposal.
   public var proposalID: UInt64 = 0
 
-  /// voter defines the oter address for the proposals.
+  /// voter defines the voter address for the proposals.
   public var voter: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()

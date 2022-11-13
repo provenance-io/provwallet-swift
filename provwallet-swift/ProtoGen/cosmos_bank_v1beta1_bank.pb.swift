@@ -26,6 +26,11 @@ public struct Cosmos_Bank_V1beta1_Params {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// Deprecated: Use of SendEnabled in params is deprecated.
+  /// For genesis, use the newly added send_enabled field in the genesis object.
+  /// Storage, lookup, and manipulation of this information is now in the keeper.
+  ///
+  /// As of cosmos-sdk 0.47, this only exists for backwards compatibility of genesis files.
   public var sendEnabled: [Cosmos_Bank_V1beta1_SendEnabled] = []
 
   public var defaultSendEnabled: Bool = false
@@ -108,7 +113,7 @@ public struct Cosmos_Bank_V1beta1_DenomUnit {
 
   /// exponent represents power of 10 exponent that one must
   /// raise the base_denom to in order to equal the given DenomUnit's denom
-  /// 1 denom = 1^exponent base_denom
+  /// 1 denom = 10^exponent base_denom
   /// (e.g. with a base_denom of uatom, one can create a DenomUnit of 'atom' with
   /// exponent = 6, thus: 1 atom = 10^6 uatom).
   public var exponent: UInt32 = 0
@@ -150,6 +155,17 @@ public struct Cosmos_Bank_V1beta1_Metadata {
   ///
   /// Since: cosmos-sdk 0.43
   public var symbol: String = String()
+
+  /// URI to a document (on or off-chain) that contains additional information. Optional.
+  ///
+  /// Since: cosmos-sdk 0.46
+  public var uri: String = String()
+
+  /// URIHash is a sha256 hash of a document pointed by URI. It's used to verify that
+  /// the document didn't change. Optional.
+  ///
+  /// Since: cosmos-sdk 0.46
+  public var uriHash: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -397,6 +413,8 @@ extension Cosmos_Bank_V1beta1_Metadata: SwiftProtobuf.Message, SwiftProtobuf._Me
     4: .same(proto: "display"),
     5: .same(proto: "name"),
     6: .same(proto: "symbol"),
+    7: .same(proto: "uri"),
+    8: .standard(proto: "uri_hash"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -411,6 +429,8 @@ extension Cosmos_Bank_V1beta1_Metadata: SwiftProtobuf.Message, SwiftProtobuf._Me
       case 4: try { try decoder.decodeSingularStringField(value: &self.display) }()
       case 5: try { try decoder.decodeSingularStringField(value: &self.name) }()
       case 6: try { try decoder.decodeSingularStringField(value: &self.symbol) }()
+      case 7: try { try decoder.decodeSingularStringField(value: &self.uri) }()
+      case 8: try { try decoder.decodeSingularStringField(value: &self.uriHash) }()
       default: break
       }
     }
@@ -435,6 +455,12 @@ extension Cosmos_Bank_V1beta1_Metadata: SwiftProtobuf.Message, SwiftProtobuf._Me
     if !self.symbol.isEmpty {
       try visitor.visitSingularStringField(value: self.symbol, fieldNumber: 6)
     }
+    if !self.uri.isEmpty {
+      try visitor.visitSingularStringField(value: self.uri, fieldNumber: 7)
+    }
+    if !self.uriHash.isEmpty {
+      try visitor.visitSingularStringField(value: self.uriHash, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -445,6 +471,8 @@ extension Cosmos_Bank_V1beta1_Metadata: SwiftProtobuf.Message, SwiftProtobuf._Me
     if lhs.display != rhs.display {return false}
     if lhs.name != rhs.name {return false}
     if lhs.symbol != rhs.symbol {return false}
+    if lhs.uri != rhs.uri {return false}
+    if lhs.uriHash != rhs.uriHash {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

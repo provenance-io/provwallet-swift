@@ -133,7 +133,7 @@ public struct Provenance_Msgfees_V1_CalculateTxFeesResponse {
   public var additionalFees: [Cosmos_Base_V1beta1_Coin] = []
 
   /// total_fees are the total amount of fees needed for the transactions (msg fees + gas fee)
-  /// note: the gas fee is calculated with the min gas fee param as a constant
+  /// note: the gas fee is calculated with the floor gas price module param.
   public var totalFees: [Cosmos_Base_V1beta1_Coin] = []
 
   /// estimated_gas is the amount of gas needed for the transaction

@@ -275,6 +275,8 @@ public struct Cosmos_Staking_V1beta1_Validator {
   public mutating func clearCommission() {_uniqueStorage()._commission = nil}
 
   /// min_self_delegation is the validator's self declared minimum self delegation.
+  ///
+  /// Since: cosmos-sdk 0.46
   public var minSelfDelegation: String {
     get {return _storage._minSelfDelegation}
     set {_uniqueStorage()._minSelfDelegation = newValue}
@@ -521,6 +523,9 @@ public struct Cosmos_Staking_V1beta1_Params {
 
   /// bond_denom defines the bondable coin denomination.
   public var bondDenom: String = String()
+
+  /// min_commission_rate is the chain-wide minimum commission rate that a validator can charge their delegators
+  public var minCommissionRate: String = String()
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -1387,6 +1392,7 @@ extension Cosmos_Staking_V1beta1_Params: SwiftProtobuf.Message, SwiftProtobuf._M
     3: .standard(proto: "max_entries"),
     4: .standard(proto: "historical_entries"),
     5: .standard(proto: "bond_denom"),
+    6: .standard(proto: "min_commission_rate"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -1400,6 +1406,7 @@ extension Cosmos_Staking_V1beta1_Params: SwiftProtobuf.Message, SwiftProtobuf._M
       case 3: try { try decoder.decodeSingularUInt32Field(value: &self.maxEntries) }()
       case 4: try { try decoder.decodeSingularUInt32Field(value: &self.historicalEntries) }()
       case 5: try { try decoder.decodeSingularStringField(value: &self.bondDenom) }()
+      case 6: try { try decoder.decodeSingularStringField(value: &self.minCommissionRate) }()
       default: break
       }
     }
@@ -1421,6 +1428,9 @@ extension Cosmos_Staking_V1beta1_Params: SwiftProtobuf.Message, SwiftProtobuf._M
     if !self.bondDenom.isEmpty {
       try visitor.visitSingularStringField(value: self.bondDenom, fieldNumber: 5)
     }
+    if !self.minCommissionRate.isEmpty {
+      try visitor.visitSingularStringField(value: self.minCommissionRate, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -1430,6 +1440,7 @@ extension Cosmos_Staking_V1beta1_Params: SwiftProtobuf.Message, SwiftProtobuf._M
     if lhs.maxEntries != rhs.maxEntries {return false}
     if lhs.historicalEntries != rhs.historicalEntries {return false}
     if lhs.bondDenom != rhs.bondDenom {return false}
+    if lhs.minCommissionRate != rhs.minCommissionRate {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

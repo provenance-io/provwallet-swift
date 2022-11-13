@@ -41,6 +41,11 @@ internal protocol Cosmos_Feegrant_V1beta1_QueryClientProtocol: GRPCClient {
     _ request: Cosmos_Feegrant_V1beta1_QueryAllowancesRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmos_Feegrant_V1beta1_QueryAllowancesRequest, Cosmos_Feegrant_V1beta1_QueryAllowancesResponse>
+
+  func allowancesByGranter(
+    _ request: Cosmos_Feegrant_V1beta1_QueryAllowancesByGranterRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Feegrant_V1beta1_QueryAllowancesByGranterRequest, Cosmos_Feegrant_V1beta1_QueryAllowancesByGranterResponse>
 }
 
 extension Cosmos_Feegrant_V1beta1_QueryClientProtocol {
@@ -83,6 +88,26 @@ extension Cosmos_Feegrant_V1beta1_QueryClientProtocol {
       interceptors: self.interceptors?.makeAllowancesInterceptors() ?? []
     )
   }
+
+  /// AllowancesByGranter returns all the grants given by an address
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to AllowancesByGranter.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func allowancesByGranter(
+    _ request: Cosmos_Feegrant_V1beta1_QueryAllowancesByGranterRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Feegrant_V1beta1_QueryAllowancesByGranterRequest, Cosmos_Feegrant_V1beta1_QueryAllowancesByGranterResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.feegrant.v1beta1.Query/AllowancesByGranter",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeAllowancesByGranterInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmos_Feegrant_V1beta1_QueryClientInterceptorFactoryProtocol {
@@ -92,6 +117,9 @@ internal protocol Cosmos_Feegrant_V1beta1_QueryClientInterceptorFactoryProtocol 
 
   /// - Returns: Interceptors to use when invoking 'allowances'.
   func makeAllowancesInterceptors() -> [ClientInterceptor<Cosmos_Feegrant_V1beta1_QueryAllowancesRequest, Cosmos_Feegrant_V1beta1_QueryAllowancesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'allowancesByGranter'.
+  func makeAllowancesByGranterInterceptors() -> [ClientInterceptor<Cosmos_Feegrant_V1beta1_QueryAllowancesByGranterRequest, Cosmos_Feegrant_V1beta1_QueryAllowancesByGranterResponse>]
 }
 
 internal final class Cosmos_Feegrant_V1beta1_QueryClient: Cosmos_Feegrant_V1beta1_QueryClientProtocol {

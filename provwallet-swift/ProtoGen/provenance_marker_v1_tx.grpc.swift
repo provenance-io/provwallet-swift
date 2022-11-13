@@ -87,10 +87,20 @@ internal protocol Provenance_Marker_V1_MsgClientProtocol: GRPCClient {
     callOptions: CallOptions?
   ) -> UnaryCall<Provenance_Marker_V1_MsgTransferRequest, Provenance_Marker_V1_MsgTransferResponse>
 
+  func ibcTransfer(
+    _ request: Provenance_Marker_V1_MsgIbcTransferRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Provenance_Marker_V1_MsgIbcTransferRequest, Provenance_Marker_V1_MsgIbcTransferResponse>
+
   func setDenomMetadata(
     _ request: Provenance_Marker_V1_MsgSetDenomMetadataRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Provenance_Marker_V1_MsgSetDenomMetadataRequest, Provenance_Marker_V1_MsgSetDenomMetadataResponse>
+
+  func grantAllowance(
+    _ request: Provenance_Marker_V1_MsgGrantAllowanceRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Provenance_Marker_V1_MsgGrantAllowanceRequest, Provenance_Marker_V1_MsgGrantAllowanceResponse>
 }
 
 extension Provenance_Marker_V1_MsgClientProtocol {
@@ -296,6 +306,25 @@ extension Provenance_Marker_V1_MsgClientProtocol {
     )
   }
 
+  /// Transfer over ibc any marker(including restricted markers) between ibc accounts.
+  /// The relayer is still needed to accomplish ibc middleware relays.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to IbcTransfer.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func ibcTransfer(
+    _ request: Provenance_Marker_V1_MsgIbcTransferRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Provenance_Marker_V1_MsgIbcTransferRequest, Provenance_Marker_V1_MsgIbcTransferResponse> {
+    return self.makeUnaryCall(
+      path: "/provenance.marker.v1.Msg/IbcTransfer",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeIbcTransferInterceptors() ?? []
+    )
+  }
+
   /// Allows Denom Metadata (see bank module) to be set for the Marker's Denom
   ///
   /// - Parameters:
@@ -311,6 +340,25 @@ extension Provenance_Marker_V1_MsgClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeSetDenomMetadataInterceptors() ?? []
+    )
+  }
+
+  /// GrantAllowance grants fee allowance to the grantee on the granter's
+  /// account with the provided expiration time.
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to GrantAllowance.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func grantAllowance(
+    _ request: Provenance_Marker_V1_MsgGrantAllowanceRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Provenance_Marker_V1_MsgGrantAllowanceRequest, Provenance_Marker_V1_MsgGrantAllowanceResponse> {
+    return self.makeUnaryCall(
+      path: "/provenance.marker.v1.Msg/GrantAllowance",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeGrantAllowanceInterceptors() ?? []
     )
   }
 }
@@ -350,8 +398,14 @@ internal protocol Provenance_Marker_V1_MsgClientInterceptorFactoryProtocol {
   /// - Returns: Interceptors to use when invoking 'transfer'.
   func makeTransferInterceptors() -> [ClientInterceptor<Provenance_Marker_V1_MsgTransferRequest, Provenance_Marker_V1_MsgTransferResponse>]
 
+  /// - Returns: Interceptors to use when invoking 'ibcTransfer'.
+  func makeIbcTransferInterceptors() -> [ClientInterceptor<Provenance_Marker_V1_MsgIbcTransferRequest, Provenance_Marker_V1_MsgIbcTransferResponse>]
+
   /// - Returns: Interceptors to use when invoking 'setDenomMetadata'.
   func makeSetDenomMetadataInterceptors() -> [ClientInterceptor<Provenance_Marker_V1_MsgSetDenomMetadataRequest, Provenance_Marker_V1_MsgSetDenomMetadataResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'grantAllowance'.
+  func makeGrantAllowanceInterceptors() -> [ClientInterceptor<Provenance_Marker_V1_MsgGrantAllowanceRequest, Provenance_Marker_V1_MsgGrantAllowanceResponse>]
 }
 
 internal final class Provenance_Marker_V1_MsgClient: Provenance_Marker_V1_MsgClientProtocol {

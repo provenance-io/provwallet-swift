@@ -87,7 +87,7 @@ extension Cosmos_Gov_V1beta1_VoteOption: CaseIterable {
 public enum Cosmos_Gov_V1beta1_ProposalStatus: SwiftProtobuf.Enum {
   public typealias RawValue = Int
 
-  /// PROPOSAL_STATUS_UNSPECIFIED defines the default propopsal status.
+  /// PROPOSAL_STATUS_UNSPECIFIED defines the default proposal status.
   case unspecified // = 0
 
   /// PROPOSAL_STATUS_DEPOSIT_PERIOD defines a proposal status during the deposit
@@ -227,6 +227,9 @@ public struct Cosmos_Gov_V1beta1_Proposal {
 
   public var status: Cosmos_Gov_V1beta1_ProposalStatus = .unspecified
 
+  /// final_tally_result is the final tally result of the proposal. When
+  /// querying a proposal via gRPC, this field is not populated until the
+  /// proposal's voting period has ended.
   public var finalTallyResult: Cosmos_Gov_V1beta1_TallyResult {
     get {return _finalTallyResult ?? Cosmos_Gov_V1beta1_TallyResult()}
     set {_finalTallyResult = newValue}

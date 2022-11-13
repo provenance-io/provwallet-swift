@@ -113,6 +113,64 @@ public struct Cosmos_Bank_V1beta1_QueryAllBalancesResponse {
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
 }
 
+/// QuerySpendableBalancesRequest defines the gRPC request structure for querying
+/// an account's spendable balances.
+///
+/// Since: cosmos-sdk 0.46
+public struct Cosmos_Bank_V1beta1_QuerySpendableBalancesRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// address is the address to query spendable balances for.
+  public var address: String = String()
+
+  /// pagination defines an optional pagination for the request.
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+    get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
+    set {_pagination = newValue}
+  }
+  /// Returns true if `pagination` has been explicitly set.
+  public var hasPagination: Bool {return self._pagination != nil}
+  /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
+  public mutating func clearPagination() {self._pagination = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
+}
+
+/// QuerySpendableBalancesResponse defines the gRPC response structure for querying
+/// an account's spendable balances.
+///
+/// Since: cosmos-sdk 0.46
+public struct Cosmos_Bank_V1beta1_QuerySpendableBalancesResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// balances is the spendable balances of all the coins.
+  public var balances: [Cosmos_Base_V1beta1_Coin] = []
+
+  /// pagination defines the pagination in the response.
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+    get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
+    set {_pagination = newValue}
+  }
+  /// Returns true if `pagination` has been explicitly set.
+  public var hasPagination: Bool {return self._pagination != nil}
+  /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
+  public mutating func clearPagination() {self._pagination = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
+}
+
 /// QueryTotalSupplyRequest is the request type for the Query/TotalSupply RPC
 /// method.
 public struct Cosmos_Bank_V1beta1_QueryTotalSupplyRequest {
@@ -326,6 +384,146 @@ public struct Cosmos_Bank_V1beta1_QueryDenomMetadataResponse {
   fileprivate var _metadata: Cosmos_Bank_V1beta1_Metadata? = nil
 }
 
+/// QueryDenomOwnersRequest defines the request type for the DenomOwners RPC query,
+/// which queries for a paginated set of all account holders of a particular
+/// denomination.
+public struct Cosmos_Bank_V1beta1_QueryDenomOwnersRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// denom defines the coin denomination to query all account holders for.
+  public var denom: String = String()
+
+  /// pagination defines an optional pagination for the request.
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+    get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
+    set {_pagination = newValue}
+  }
+  /// Returns true if `pagination` has been explicitly set.
+  public var hasPagination: Bool {return self._pagination != nil}
+  /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
+  public mutating func clearPagination() {self._pagination = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
+}
+
+/// DenomOwner defines structure representing an account that owns or holds a
+/// particular denominated token. It contains the account address and account
+/// balance of the denominated token.
+///
+/// Since: cosmos-sdk 0.46
+public struct Cosmos_Bank_V1beta1_DenomOwner {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// address defines the address that owns a particular denomination.
+  public var address: String = String()
+
+  /// balance is the balance of the denominated coin for an account.
+  public var balance: Cosmos_Base_V1beta1_Coin {
+    get {return _balance ?? Cosmos_Base_V1beta1_Coin()}
+    set {_balance = newValue}
+  }
+  /// Returns true if `balance` has been explicitly set.
+  public var hasBalance: Bool {return self._balance != nil}
+  /// Clears the value of `balance`. Subsequent reads from it will return its default value.
+  public mutating func clearBalance() {self._balance = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _balance: Cosmos_Base_V1beta1_Coin? = nil
+}
+
+/// QueryDenomOwnersResponse defines the RPC response of a DenomOwners RPC query.
+///
+/// Since: cosmos-sdk 0.46
+public struct Cosmos_Bank_V1beta1_QueryDenomOwnersResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var denomOwners: [Cosmos_Bank_V1beta1_DenomOwner] = []
+
+  /// pagination defines the pagination in the response.
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+    get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
+    set {_pagination = newValue}
+  }
+  /// Returns true if `pagination` has been explicitly set.
+  public var hasPagination: Bool {return self._pagination != nil}
+  /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
+  public mutating func clearPagination() {self._pagination = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
+}
+
+/// QuerySendEnabledRequest defines the RPC request for looking up SendEnabled entries.
+///
+/// Since: cosmos-sdk 0.47
+public struct Cosmos_Bank_V1beta1_QuerySendEnabledRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// denoms is the specific denoms you want look up. Leave empty to get all entries.
+  public var denoms: [String] = []
+
+  /// pagination defines an optional pagination for the request.
+  public var pagination: Cosmos_Base_Query_V1beta1_PageRequest {
+    get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageRequest()}
+    set {_pagination = newValue}
+  }
+  /// Returns true if `pagination` has been explicitly set.
+  public var hasPagination: Bool {return self._pagination != nil}
+  /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
+  public mutating func clearPagination() {self._pagination = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageRequest? = nil
+}
+
+/// QuerySendEnabledResponse defines the RPC response of a SendEnable query.
+///
+/// Since: cosmos-sdk 0.47
+public struct Cosmos_Bank_V1beta1_QuerySendEnabledResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var sendEnabled: [Cosmos_Bank_V1beta1_SendEnabled] = []
+
+  /// pagination defines the pagination in the response.
+  public var pagination: Cosmos_Base_Query_V1beta1_PageResponse {
+    get {return _pagination ?? Cosmos_Base_Query_V1beta1_PageResponse()}
+    set {_pagination = newValue}
+  }
+  /// Returns true if `pagination` has been explicitly set.
+  public var hasPagination: Bool {return self._pagination != nil}
+  /// Clears the value of `pagination`. Subsequent reads from it will return its default value.
+  public mutating func clearPagination() {self._pagination = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "cosmos.bank.v1beta1"
@@ -469,6 +667,82 @@ extension Cosmos_Bank_V1beta1_QueryAllBalancesResponse: SwiftProtobuf.Message, S
   }
 
   public static func ==(lhs: Cosmos_Bank_V1beta1_QueryAllBalancesResponse, rhs: Cosmos_Bank_V1beta1_QueryAllBalancesResponse) -> Bool {
+    if lhs.balances != rhs.balances {return false}
+    if lhs._pagination != rhs._pagination {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Bank_V1beta1_QuerySpendableBalancesRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QuerySpendableBalancesRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "address"),
+    2: .same(proto: "pagination"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.address) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.address.isEmpty {
+      try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
+    }
+    if let v = self._pagination {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Bank_V1beta1_QuerySpendableBalancesRequest, rhs: Cosmos_Bank_V1beta1_QuerySpendableBalancesRequest) -> Bool {
+    if lhs.address != rhs.address {return false}
+    if lhs._pagination != rhs._pagination {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Bank_V1beta1_QuerySpendableBalancesResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QuerySpendableBalancesResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "balances"),
+    2: .same(proto: "pagination"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.balances) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.balances.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.balances, fieldNumber: 1)
+    }
+    if let v = self._pagination {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Bank_V1beta1_QuerySpendableBalancesResponse, rhs: Cosmos_Bank_V1beta1_QuerySpendableBalancesResponse) -> Bool {
     if lhs.balances != rhs.balances {return false}
     if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
@@ -790,6 +1064,196 @@ extension Cosmos_Bank_V1beta1_QueryDenomMetadataResponse: SwiftProtobuf.Message,
 
   public static func ==(lhs: Cosmos_Bank_V1beta1_QueryDenomMetadataResponse, rhs: Cosmos_Bank_V1beta1_QueryDenomMetadataResponse) -> Bool {
     if lhs._metadata != rhs._metadata {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Bank_V1beta1_QueryDenomOwnersRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QueryDenomOwnersRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "denom"),
+    2: .same(proto: "pagination"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.denom) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.denom.isEmpty {
+      try visitor.visitSingularStringField(value: self.denom, fieldNumber: 1)
+    }
+    if let v = self._pagination {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Bank_V1beta1_QueryDenomOwnersRequest, rhs: Cosmos_Bank_V1beta1_QueryDenomOwnersRequest) -> Bool {
+    if lhs.denom != rhs.denom {return false}
+    if lhs._pagination != rhs._pagination {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Bank_V1beta1_DenomOwner: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".DenomOwner"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "address"),
+    2: .same(proto: "balance"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.address) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._balance) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.address.isEmpty {
+      try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
+    }
+    if let v = self._balance {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Bank_V1beta1_DenomOwner, rhs: Cosmos_Bank_V1beta1_DenomOwner) -> Bool {
+    if lhs.address != rhs.address {return false}
+    if lhs._balance != rhs._balance {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Bank_V1beta1_QueryDenomOwnersResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QueryDenomOwnersResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "denom_owners"),
+    2: .same(proto: "pagination"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.denomOwners) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.denomOwners.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.denomOwners, fieldNumber: 1)
+    }
+    if let v = self._pagination {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Bank_V1beta1_QueryDenomOwnersResponse, rhs: Cosmos_Bank_V1beta1_QueryDenomOwnersResponse) -> Bool {
+    if lhs.denomOwners != rhs.denomOwners {return false}
+    if lhs._pagination != rhs._pagination {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Bank_V1beta1_QuerySendEnabledRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QuerySendEnabledRequest"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "denoms"),
+    99: .same(proto: "pagination"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedStringField(value: &self.denoms) }()
+      case 99: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.denoms.isEmpty {
+      try visitor.visitRepeatedStringField(value: self.denoms, fieldNumber: 1)
+    }
+    if let v = self._pagination {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 99)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Bank_V1beta1_QuerySendEnabledRequest, rhs: Cosmos_Bank_V1beta1_QuerySendEnabledRequest) -> Bool {
+    if lhs.denoms != rhs.denoms {return false}
+    if lhs._pagination != rhs._pagination {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmos_Bank_V1beta1_QuerySendEnabledResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QuerySendEnabledResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "send_enabled"),
+    99: .same(proto: "pagination"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeRepeatedMessageField(value: &self.sendEnabled) }()
+      case 99: try { try decoder.decodeSingularMessageField(value: &self._pagination) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.sendEnabled.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.sendEnabled, fieldNumber: 1)
+    }
+    if let v = self._pagination {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 99)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmos_Bank_V1beta1_QuerySendEnabledResponse, rhs: Cosmos_Bank_V1beta1_QuerySendEnabledResponse) -> Bool {
+    if lhs.sendEnabled != rhs.sendEnabled {return false}
+    if lhs._pagination != rhs._pagination {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

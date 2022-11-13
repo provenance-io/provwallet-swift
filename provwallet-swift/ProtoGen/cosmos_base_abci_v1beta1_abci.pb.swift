@@ -75,7 +75,7 @@ public struct Cosmos_Base_Abci_V1beta1_TxResponse {
 
   /// Events defines all the events emitted by processing a transaction. Note,
   /// these events include those emitted by processing all the messages and those
-  /// emitted from the ante handler. Whereas Logs contains the events, with
+  /// emitted from the ante. Whereas Logs contains the events, with
   /// additional metadata, emitted only by processing the messages.
   ///
   /// Since: cosmos-sdk 0.42.11, 0.44.5, 0.45
@@ -164,6 +164,8 @@ public struct Cosmos_Base_Abci_V1beta1_Result {
 
   /// Data is any data returned from message or handler execution. It MUST be
   /// length prefixed in order to separate data from multiple message executions.
+  /// Deprecated. This field is still populated, but prefer msg_response instead
+  /// because it also contains the Msg response typeURL.
   public var data: Data = Data()
 
   /// Log contains the log information from message or handler execution.
@@ -172,6 +174,11 @@ public struct Cosmos_Base_Abci_V1beta1_Result {
   /// Events contains a slice of Event objects that were emitted during message
   /// or handler execution.
   public var events: [Tendermint_Abci_Event] = []
+
+  /// msg_responses contains the Msg handler responses type packed in Anys.
+  ///
+  /// Since: cosmos-sdk 0.46
+  public var msgResponses: [SwiftProtobuf.Google_Protobuf_Any] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -234,7 +241,13 @@ public struct Cosmos_Base_Abci_V1beta1_TxMsgData {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  /// data field is deprecated and not populated.
   public var data: [Cosmos_Base_Abci_V1beta1_MsgData] = []
+
+  /// msg_responses contains the Msg handler responses packed into Anys.
+  ///
+  /// Since: cosmos-sdk 0.46
+  public var msgResponses: [SwiftProtobuf.Google_Protobuf_Any] = []
 
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -542,6 +555,7 @@ extension Cosmos_Base_Abci_V1beta1_Result: SwiftProtobuf.Message, SwiftProtobuf.
     1: .same(proto: "data"),
     2: .same(proto: "log"),
     3: .same(proto: "events"),
+    4: .standard(proto: "msg_responses"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -553,6 +567,7 @@ extension Cosmos_Base_Abci_V1beta1_Result: SwiftProtobuf.Message, SwiftProtobuf.
       case 1: try { try decoder.decodeSingularBytesField(value: &self.data) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.log) }()
       case 3: try { try decoder.decodeRepeatedMessageField(value: &self.events) }()
+      case 4: try { try decoder.decodeRepeatedMessageField(value: &self.msgResponses) }()
       default: break
       }
     }
@@ -568,6 +583,9 @@ extension Cosmos_Base_Abci_V1beta1_Result: SwiftProtobuf.Message, SwiftProtobuf.
     if !self.events.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.events, fieldNumber: 3)
     }
+    if !self.msgResponses.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.msgResponses, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -575,6 +593,7 @@ extension Cosmos_Base_Abci_V1beta1_Result: SwiftProtobuf.Message, SwiftProtobuf.
     if lhs.data != rhs.data {return false}
     if lhs.log != rhs.log {return false}
     if lhs.events != rhs.events {return false}
+    if lhs.msgResponses != rhs.msgResponses {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -660,6 +679,7 @@ extension Cosmos_Base_Abci_V1beta1_TxMsgData: SwiftProtobuf.Message, SwiftProtob
   public static let protoMessageName: String = _protobuf_package + ".TxMsgData"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "data"),
+    2: .standard(proto: "msg_responses"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -669,6 +689,7 @@ extension Cosmos_Base_Abci_V1beta1_TxMsgData: SwiftProtobuf.Message, SwiftProtob
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeRepeatedMessageField(value: &self.data) }()
+      case 2: try { try decoder.decodeRepeatedMessageField(value: &self.msgResponses) }()
       default: break
       }
     }
@@ -678,11 +699,15 @@ extension Cosmos_Base_Abci_V1beta1_TxMsgData: SwiftProtobuf.Message, SwiftProtob
     if !self.data.isEmpty {
       try visitor.visitRepeatedMessageField(value: self.data, fieldNumber: 1)
     }
+    if !self.msgResponses.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.msgResponses, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Cosmos_Base_Abci_V1beta1_TxMsgData, rhs: Cosmos_Base_Abci_V1beta1_TxMsgData) -> Bool {
     if lhs.data != rhs.data {return false}
+    if lhs.msgResponses != rhs.msgResponses {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

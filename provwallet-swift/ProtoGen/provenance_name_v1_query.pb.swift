@@ -77,6 +77,9 @@ public struct Provenance_Name_V1_QueryResolveResponse {
   /// a string containing the address the name resolves to
   public var address: String = String()
 
+  /// Whether owner signature is required to add sub-names.
+  public var restricted: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -225,6 +228,7 @@ extension Provenance_Name_V1_QueryResolveResponse: SwiftProtobuf.Message, SwiftP
   public static let protoMessageName: String = _protobuf_package + ".QueryResolveResponse"
   public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "address"),
+    2: .same(proto: "restricted"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -234,6 +238,7 @@ extension Provenance_Name_V1_QueryResolveResponse: SwiftProtobuf.Message, SwiftP
       // enabled. https://github.com/apple/swift-protobuf/issues/1034
       switch fieldNumber {
       case 1: try { try decoder.decodeSingularStringField(value: &self.address) }()
+      case 2: try { try decoder.decodeSingularBoolField(value: &self.restricted) }()
       default: break
       }
     }
@@ -243,11 +248,15 @@ extension Provenance_Name_V1_QueryResolveResponse: SwiftProtobuf.Message, SwiftP
     if !self.address.isEmpty {
       try visitor.visitSingularStringField(value: self.address, fieldNumber: 1)
     }
+    if self.restricted != false {
+      try visitor.visitSingularBoolField(value: self.restricted, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   public static func ==(lhs: Provenance_Name_V1_QueryResolveResponse, rhs: Provenance_Name_V1_QueryResolveResponse) -> Bool {
     if lhs.address != rhs.address {return false}
+    if lhs.restricted != rhs.restricted {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

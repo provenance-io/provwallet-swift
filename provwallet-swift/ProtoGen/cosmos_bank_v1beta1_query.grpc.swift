@@ -42,6 +42,11 @@ internal protocol Cosmos_Bank_V1beta1_QueryClientProtocol: GRPCClient {
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmos_Bank_V1beta1_QueryAllBalancesRequest, Cosmos_Bank_V1beta1_QueryAllBalancesResponse>
 
+  func spendableBalances(
+    _ request: Cosmos_Bank_V1beta1_QuerySpendableBalancesRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Bank_V1beta1_QuerySpendableBalancesRequest, Cosmos_Bank_V1beta1_QuerySpendableBalancesResponse>
+
   func totalSupply(
     _ request: Cosmos_Bank_V1beta1_QueryTotalSupplyRequest,
     callOptions: CallOptions?
@@ -66,6 +71,16 @@ internal protocol Cosmos_Bank_V1beta1_QueryClientProtocol: GRPCClient {
     _ request: Cosmos_Bank_V1beta1_QueryDenomsMetadataRequest,
     callOptions: CallOptions?
   ) -> UnaryCall<Cosmos_Bank_V1beta1_QueryDenomsMetadataRequest, Cosmos_Bank_V1beta1_QueryDenomsMetadataResponse>
+
+  func denomOwners(
+    _ request: Cosmos_Bank_V1beta1_QueryDenomOwnersRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Bank_V1beta1_QueryDenomOwnersRequest, Cosmos_Bank_V1beta1_QueryDenomOwnersResponse>
+
+  func sendEnabled(
+    _ request: Cosmos_Bank_V1beta1_QuerySendEnabledRequest,
+    callOptions: CallOptions?
+  ) -> UnaryCall<Cosmos_Bank_V1beta1_QuerySendEnabledRequest, Cosmos_Bank_V1beta1_QuerySendEnabledResponse>
 }
 
 extension Cosmos_Bank_V1beta1_QueryClientProtocol {
@@ -106,6 +121,27 @@ extension Cosmos_Bank_V1beta1_QueryClientProtocol {
       request: request,
       callOptions: callOptions ?? self.defaultCallOptions,
       interceptors: self.interceptors?.makeAllBalancesInterceptors() ?? []
+    )
+  }
+
+  /// SpendableBalances queries the spenable balance of all coins for a single
+  /// account.
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to SpendableBalances.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func spendableBalances(
+    _ request: Cosmos_Bank_V1beta1_QuerySpendableBalancesRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Bank_V1beta1_QuerySpendableBalancesRequest, Cosmos_Bank_V1beta1_QuerySpendableBalancesResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.bank.v1beta1.Query/SpendableBalances",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeSpendableBalancesInterceptors() ?? []
     )
   }
 
@@ -181,7 +217,8 @@ extension Cosmos_Bank_V1beta1_QueryClientProtocol {
     )
   }
 
-  /// DenomsMetadata queries the client metadata for all registered coin denominations.
+  /// DenomsMetadata queries the client metadata for all registered coin
+  /// denominations.
   ///
   /// - Parameters:
   ///   - request: Request to send to DenomsMetadata.
@@ -198,6 +235,51 @@ extension Cosmos_Bank_V1beta1_QueryClientProtocol {
       interceptors: self.interceptors?.makeDenomsMetadataInterceptors() ?? []
     )
   }
+
+  /// DenomOwners queries for all account addresses that own a particular token
+  /// denomination.
+  ///
+  /// Since: cosmos-sdk 0.46
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to DenomOwners.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func denomOwners(
+    _ request: Cosmos_Bank_V1beta1_QueryDenomOwnersRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Bank_V1beta1_QueryDenomOwnersRequest, Cosmos_Bank_V1beta1_QueryDenomOwnersResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.bank.v1beta1.Query/DenomOwners",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeDenomOwnersInterceptors() ?? []
+    )
+  }
+
+  /// SendEnabled queries for SendEnabled entries.
+  ///
+  /// This query only returns denominations that have specific SendEnabled settings.
+  /// Any denomination that does not have a specific setting will use the default
+  /// params.default_send_enabled, and will not be returned by this query.
+  ///
+  /// Since: cosmos-sdk 0.47
+  ///
+  /// - Parameters:
+  ///   - request: Request to send to SendEnabled.
+  ///   - callOptions: Call options.
+  /// - Returns: A `UnaryCall` with futures for the metadata, status and response.
+  internal func sendEnabled(
+    _ request: Cosmos_Bank_V1beta1_QuerySendEnabledRequest,
+    callOptions: CallOptions? = nil
+  ) -> UnaryCall<Cosmos_Bank_V1beta1_QuerySendEnabledRequest, Cosmos_Bank_V1beta1_QuerySendEnabledResponse> {
+    return self.makeUnaryCall(
+      path: "/cosmos.bank.v1beta1.Query/SendEnabled",
+      request: request,
+      callOptions: callOptions ?? self.defaultCallOptions,
+      interceptors: self.interceptors?.makeSendEnabledInterceptors() ?? []
+    )
+  }
 }
 
 internal protocol Cosmos_Bank_V1beta1_QueryClientInterceptorFactoryProtocol {
@@ -207,6 +289,9 @@ internal protocol Cosmos_Bank_V1beta1_QueryClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'allBalances'.
   func makeAllBalancesInterceptors() -> [ClientInterceptor<Cosmos_Bank_V1beta1_QueryAllBalancesRequest, Cosmos_Bank_V1beta1_QueryAllBalancesResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'spendableBalances'.
+  func makeSpendableBalancesInterceptors() -> [ClientInterceptor<Cosmos_Bank_V1beta1_QuerySpendableBalancesRequest, Cosmos_Bank_V1beta1_QuerySpendableBalancesResponse>]
 
   /// - Returns: Interceptors to use when invoking 'totalSupply'.
   func makeTotalSupplyInterceptors() -> [ClientInterceptor<Cosmos_Bank_V1beta1_QueryTotalSupplyRequest, Cosmos_Bank_V1beta1_QueryTotalSupplyResponse>]
@@ -222,6 +307,12 @@ internal protocol Cosmos_Bank_V1beta1_QueryClientInterceptorFactoryProtocol {
 
   /// - Returns: Interceptors to use when invoking 'denomsMetadata'.
   func makeDenomsMetadataInterceptors() -> [ClientInterceptor<Cosmos_Bank_V1beta1_QueryDenomsMetadataRequest, Cosmos_Bank_V1beta1_QueryDenomsMetadataResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'denomOwners'.
+  func makeDenomOwnersInterceptors() -> [ClientInterceptor<Cosmos_Bank_V1beta1_QueryDenomOwnersRequest, Cosmos_Bank_V1beta1_QueryDenomOwnersResponse>]
+
+  /// - Returns: Interceptors to use when invoking 'sendEnabled'.
+  func makeSendEnabledInterceptors() -> [ClientInterceptor<Cosmos_Bank_V1beta1_QuerySendEnabledRequest, Cosmos_Bank_V1beta1_QuerySendEnabledResponse>]
 }
 
 internal final class Cosmos_Bank_V1beta1_QueryClient: Cosmos_Bank_V1beta1_QueryClientProtocol {

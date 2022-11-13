@@ -25,7 +25,7 @@ import NIO
 import SwiftProtobuf
 
 
-/// Msg defines the bank Msg service.
+/// Msg defines the attribute module Msg service.
 ///
 /// Usage: instantiate `Provenance_Attribute_V1_MsgClient`, then call methods of this protocol to make API calls.
 internal protocol Provenance_Attribute_V1_MsgClientProtocol: GRPCClient {

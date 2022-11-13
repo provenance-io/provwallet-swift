@@ -313,9 +313,20 @@ public struct Cosmwasm_Wasm_V1_CodeInfoResponse {
 
   public var dataHash: Data = Data()
 
+  public var instantiatePermission: Cosmwasm_Wasm_V1_AccessConfig {
+    get {return _instantiatePermission ?? Cosmwasm_Wasm_V1_AccessConfig()}
+    set {_instantiatePermission = newValue}
+  }
+  /// Returns true if `instantiatePermission` has been explicitly set.
+  public var hasInstantiatePermission: Bool {return self._instantiatePermission != nil}
+  /// Clears the value of `instantiatePermission`. Subsequent reads from it will return its default value.
+  public mutating func clearInstantiatePermission() {self._instantiatePermission = nil}
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
+
+  fileprivate var _instantiatePermission: Cosmwasm_Wasm_V1_AccessConfig? = nil
 }
 
 /// QueryCodeResponse is the response type for the Query/Code RPC method
@@ -438,6 +449,40 @@ public struct Cosmwasm_Wasm_V1_QueryPinnedCodesResponse {
   public init() {}
 
   fileprivate var _pagination: Cosmos_Base_Query_V1beta1_PageResponse? = nil
+}
+
+/// QueryParamsRequest is the request type for the Query/Params RPC method.
+public struct Cosmwasm_Wasm_V1_QueryParamsRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
+/// QueryParamsResponse is the response type for the Query/Params RPC method.
+public struct Cosmwasm_Wasm_V1_QueryParamsResponse {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// params defines the parameters of the module.
+  public var params: Cosmwasm_Wasm_V1_Params {
+    get {return _params ?? Cosmwasm_Wasm_V1_Params()}
+    set {_params = newValue}
+  }
+  /// Returns true if `params` has been explicitly set.
+  public var hasParams: Bool {return self._params != nil}
+  /// Clears the value of `params`. Subsequent reads from it will return its default value.
+  public mutating func clearParams() {self._params = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _params: Cosmwasm_Wasm_V1_Params? = nil
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
@@ -920,6 +965,7 @@ extension Cosmwasm_Wasm_V1_CodeInfoResponse: SwiftProtobuf.Message, SwiftProtobu
     1: .standard(proto: "code_id"),
     2: .same(proto: "creator"),
     3: .standard(proto: "data_hash"),
+    6: .standard(proto: "instantiate_permission"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -931,6 +977,7 @@ extension Cosmwasm_Wasm_V1_CodeInfoResponse: SwiftProtobuf.Message, SwiftProtobu
       case 1: try { try decoder.decodeSingularUInt64Field(value: &self.codeID) }()
       case 2: try { try decoder.decodeSingularStringField(value: &self.creator) }()
       case 3: try { try decoder.decodeSingularBytesField(value: &self.dataHash) }()
+      case 6: try { try decoder.decodeSingularMessageField(value: &self._instantiatePermission) }()
       default: break
       }
     }
@@ -946,6 +993,9 @@ extension Cosmwasm_Wasm_V1_CodeInfoResponse: SwiftProtobuf.Message, SwiftProtobu
     if !self.dataHash.isEmpty {
       try visitor.visitSingularBytesField(value: self.dataHash, fieldNumber: 3)
     }
+    if let v = self._instantiatePermission {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -953,6 +1003,7 @@ extension Cosmwasm_Wasm_V1_CodeInfoResponse: SwiftProtobuf.Message, SwiftProtobu
     if lhs.codeID != rhs.codeID {return false}
     if lhs.creator != rhs.creator {return false}
     if lhs.dataHash != rhs.dataHash {return false}
+    if lhs._instantiatePermission != rhs._instantiatePermission {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -1131,6 +1182,57 @@ extension Cosmwasm_Wasm_V1_QueryPinnedCodesResponse: SwiftProtobuf.Message, Swif
   public static func ==(lhs: Cosmwasm_Wasm_V1_QueryPinnedCodesResponse, rhs: Cosmwasm_Wasm_V1_QueryPinnedCodesResponse) -> Bool {
     if lhs.codeIds != rhs.codeIds {return false}
     if lhs._pagination != rhs._pagination {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmwasm_Wasm_V1_QueryParamsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsRequest"
+  public static let _protobuf_nameMap = SwiftProtobuf._NameMap()
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let _ = try decoder.nextFieldNumber() {
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryParamsRequest, rhs: Cosmwasm_Wasm_V1_QueryParamsRequest) -> Bool {
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmwasm_Wasm_V1_QueryParamsResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".QueryParamsResponse"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "params"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularMessageField(value: &self._params) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if let v = self._params {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmwasm_Wasm_V1_QueryParamsResponse, rhs: Cosmwasm_Wasm_V1_QueryParamsResponse) -> Bool {
+    if lhs._params != rhs._params {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

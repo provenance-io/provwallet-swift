@@ -48,6 +48,9 @@ public struct Cosmwasm_Wasm_V1_StoreCodeProposal {
   /// Clears the value of `instantiatePermission`. Subsequent reads from it will return its default value.
   public mutating func clearInstantiatePermission() {self._instantiatePermission = nil}
 
+  /// UnpinCode code on upload, optional
+  public var unpinCode: Bool = false
+
   public var unknownFields = SwiftProtobuf.UnknownStorage()
 
   public init() {}
@@ -106,7 +109,7 @@ public struct Cosmwasm_Wasm_V1_MigrateContractProposal {
   /// Contract is the address of the smart contract
   public var contract: String = String()
 
-  /// CodeID references the new WASM codesudo
+  /// CodeID references the new WASM code
   public var codeID: UInt64 = 0
 
   /// Msg json encoded message to be passed to the contract on migration
@@ -256,6 +259,55 @@ public struct Cosmwasm_Wasm_V1_UnpinCodesProposal {
   public init() {}
 }
 
+/// AccessConfigUpdate contains the code id and the access config to be
+/// applied.
+public struct Cosmwasm_Wasm_V1_AccessConfigUpdate {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// CodeID is the reference to the stored WASM code to be updated
+  public var codeID: UInt64 = 0
+
+  /// InstantiatePermission to apply to the set of code ids
+  public var instantiatePermission: Cosmwasm_Wasm_V1_AccessConfig {
+    get {return _instantiatePermission ?? Cosmwasm_Wasm_V1_AccessConfig()}
+    set {_instantiatePermission = newValue}
+  }
+  /// Returns true if `instantiatePermission` has been explicitly set.
+  public var hasInstantiatePermission: Bool {return self._instantiatePermission != nil}
+  /// Clears the value of `instantiatePermission`. Subsequent reads from it will return its default value.
+  public mutating func clearInstantiatePermission() {self._instantiatePermission = nil}
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+
+  fileprivate var _instantiatePermission: Cosmwasm_Wasm_V1_AccessConfig? = nil
+}
+
+/// UpdateInstantiateConfigProposal gov proposal content type to update
+/// instantiate config to a  set of code ids.
+public struct Cosmwasm_Wasm_V1_UpdateInstantiateConfigProposal {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  /// Title is a short summary
+  public var title: String = String()
+
+  /// Description is a human readable text
+  public var description_p: String = String()
+
+  /// AccessConfigUpdate contains the list of code ids and the access config
+  /// to be applied.
+  public var accessConfigUpdates: [Cosmwasm_Wasm_V1_AccessConfigUpdate] = []
+
+  public var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  public init() {}
+}
+
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
 fileprivate let _protobuf_package = "cosmwasm.wasm.v1"
@@ -268,6 +320,7 @@ extension Cosmwasm_Wasm_V1_StoreCodeProposal: SwiftProtobuf.Message, SwiftProtob
     3: .standard(proto: "run_as"),
     4: .standard(proto: "wasm_byte_code"),
     7: .standard(proto: "instantiate_permission"),
+    8: .standard(proto: "unpin_code"),
   ]
 
   public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -281,6 +334,7 @@ extension Cosmwasm_Wasm_V1_StoreCodeProposal: SwiftProtobuf.Message, SwiftProtob
       case 3: try { try decoder.decodeSingularStringField(value: &self.runAs) }()
       case 4: try { try decoder.decodeSingularBytesField(value: &self.wasmByteCode) }()
       case 7: try { try decoder.decodeSingularMessageField(value: &self._instantiatePermission) }()
+      case 8: try { try decoder.decodeSingularBoolField(value: &self.unpinCode) }()
       default: break
       }
     }
@@ -302,6 +356,9 @@ extension Cosmwasm_Wasm_V1_StoreCodeProposal: SwiftProtobuf.Message, SwiftProtob
     if let v = self._instantiatePermission {
       try visitor.visitSingularMessageField(value: v, fieldNumber: 7)
     }
+    if self.unpinCode != false {
+      try visitor.visitSingularBoolField(value: self.unpinCode, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -311,6 +368,7 @@ extension Cosmwasm_Wasm_V1_StoreCodeProposal: SwiftProtobuf.Message, SwiftProtob
     if lhs.runAs != rhs.runAs {return false}
     if lhs.wasmByteCode != rhs.wasmByteCode {return false}
     if lhs._instantiatePermission != rhs._instantiatePermission {return false}
+    if lhs.unpinCode != rhs.unpinCode {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -735,6 +793,88 @@ extension Cosmwasm_Wasm_V1_UnpinCodesProposal: SwiftProtobuf.Message, SwiftProto
     if lhs.title != rhs.title {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.codeIds != rhs.codeIds {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmwasm_Wasm_V1_AccessConfigUpdate: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".AccessConfigUpdate"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "code_id"),
+    2: .standard(proto: "instantiate_permission"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularUInt64Field(value: &self.codeID) }()
+      case 2: try { try decoder.decodeSingularMessageField(value: &self._instantiatePermission) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.codeID != 0 {
+      try visitor.visitSingularUInt64Field(value: self.codeID, fieldNumber: 1)
+    }
+    if let v = self._instantiatePermission {
+      try visitor.visitSingularMessageField(value: v, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmwasm_Wasm_V1_AccessConfigUpdate, rhs: Cosmwasm_Wasm_V1_AccessConfigUpdate) -> Bool {
+    if lhs.codeID != rhs.codeID {return false}
+    if lhs._instantiatePermission != rhs._instantiatePermission {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension Cosmwasm_Wasm_V1_UpdateInstantiateConfigProposal: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  public static let protoMessageName: String = _protobuf_package + ".UpdateInstantiateConfigProposal"
+  public static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .same(proto: "title"),
+    2: .same(proto: "description"),
+    3: .standard(proto: "access_config_updates"),
+  ]
+
+  public mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      // The use of inline closures is to circumvent an issue where the compiler
+      // allocates stack space for every case branch when no optimizations are
+      // enabled. https://github.com/apple/swift-protobuf/issues/1034
+      switch fieldNumber {
+      case 1: try { try decoder.decodeSingularStringField(value: &self.title) }()
+      case 2: try { try decoder.decodeSingularStringField(value: &self.description_p) }()
+      case 3: try { try decoder.decodeRepeatedMessageField(value: &self.accessConfigUpdates) }()
+      default: break
+      }
+    }
+  }
+
+  public func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if !self.title.isEmpty {
+      try visitor.visitSingularStringField(value: self.title, fieldNumber: 1)
+    }
+    if !self.description_p.isEmpty {
+      try visitor.visitSingularStringField(value: self.description_p, fieldNumber: 2)
+    }
+    if !self.accessConfigUpdates.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.accessConfigUpdates, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  public static func ==(lhs: Cosmwasm_Wasm_V1_UpdateInstantiateConfigProposal, rhs: Cosmwasm_Wasm_V1_UpdateInstantiateConfigProposal) -> Bool {
+    if lhs.title != rhs.title {return false}
+    if lhs.description_p != rhs.description_p {return false}
+    if lhs.accessConfigUpdates != rhs.accessConfigUpdates {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
